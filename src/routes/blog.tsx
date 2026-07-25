@@ -5,7 +5,6 @@ import { Search, Calendar, Clock, ArrowRight, Tag, User } from "lucide-react";
 import { PageHero } from "../components/ui/PageHero";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { BLOG_POSTS, type BlogPost } from "../data/blogData";
-import { withBase } from "../lib/utils";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -127,7 +126,7 @@ function BlogListingPage() {
                   <div className="flex items-center justify-between pt-4 border-t border-border/50">
                     <div className="flex items-center gap-3">
                       <img
-                        src={withBase(featuredPost.author.avatar)}
+                        src={featuredPost.author.avatar}
                         alt={featuredPost.author.name}
                         className="h-10 w-10 rounded-full object-cover border border-border"
                       />
@@ -192,7 +191,7 @@ function BlogListingPage() {
                   <div className="flex items-center justify-between pt-4 border-t border-border/50 mt-auto">
                     <div className="flex items-center gap-2.5">
                       <img
-                        src={withBase(post.author.avatar)}
+                        src={post.author.avatar}
                         alt={post.author.name}
                         className="h-8 w-8 rounded-full object-cover border border-border"
                       />

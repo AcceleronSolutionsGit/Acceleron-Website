@@ -3,7 +3,6 @@ import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { ArrowUpRight, TrendingUp, CheckCircle, Sparkles } from "lucide-react";
 import { UIMockup, ProcessFlow } from "../../components/ui/ProductShowcase";
 import { PageHero } from "../../components/ui/PageHero";
-import { withBase } from "../../lib/utils";
 
 export const Route = createFileRoute("/products/pjp")({
   component: ProductPage,
@@ -17,7 +16,7 @@ function ProductPage() {
         subtitle="Plan optimized visit routes, monitor field sales activities with geo-fenced verify check-ins, and secure your marketing budgets."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "PJP" }]}
         image="https://images.unsplash.com/photo-1548345680-f5475ea90f83?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={withBase("/IFSM.png")} alt="PJP IFSM" className="h-10 w-10 object-contain" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/IFSM.png" alt="PJP IFSM" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

@@ -13,7 +13,6 @@ import { LinkedInIcon, XTwitterIcon, GitHubIcon, InstagramIcon, SAPLogo, Salesfo
 import { ThemeToggle } from '../components/ui/ThemeToggle';
 import { useMouseParallax, Reveal, CharReveal, InitialLoader, MagneticButton, Counter, WaveDivider } from '../components/ui/Animations';
 import { Nav, PRODUCTS } from '../components/layout/Nav';
-import { withBase } from '../lib/utils';
 
 export const Route = createFileRoute("/")(
 {
@@ -639,7 +638,7 @@ function EcosystemMarquee() {
         >
           {[...ECOSYSTEM_LOGOS, ...ECOSYSTEM_LOGOS].map((item, idx) => (
             <div key={idx} className="flex items-center gap-3 shrink-0 px-4 py-2.5 rounded-2xl bg-white/90 dark:bg-muted/40 border border-border/50 backdrop-blur-md shadow-soft hover:border-brand/40 transition-all">
-              <img src={withBase(item.logo)} alt={item.name} loading="lazy" className="h-8 max-w-[110px] object-contain" />
+              <img src={item.logo} alt={item.name} loading="lazy" className="h-8 max-w-[110px] object-contain" />
               <span className="text-xs font-bold text-foreground/80">{item.name}</span>
             </div>
           ))}
@@ -1794,7 +1793,7 @@ function Events() {
                   className="absolute inset-0"
                 >
                   <img
-                    src={withBase(eventSlides[currentSlide].image)}
+                    src={eventSlides[currentSlide].image}
                     alt={eventSlides[currentSlide].title}
                     loading="lazy"
                     className="h-full w-full object-contain"

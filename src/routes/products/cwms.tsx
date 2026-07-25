@@ -3,7 +3,6 @@ import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { ArrowUpRight, Boxes, CheckCircle, Sparkles } from "lucide-react";
 import { UIMockup, ProcessFlow } from "../../components/ui/ProductShowcase";
 import { PageHero } from "../../components/ui/PageHero";
-import { withBase } from "../../lib/utils";
 
 export const Route = createFileRoute("/products/cwms")({
   component: ProductPage,
@@ -17,7 +16,7 @@ function ProductPage() {
         subtitle="Automate contractor registration, eliminate compliance risks, and track shift attendance with seamless on-site biometric and facial recognition."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "CWMS" }]}
         image="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={withBase("/LMS.png")} alt="CWMS LMS" className="h-10 w-10 object-contain" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/LMS.png" alt="CWMS LMS" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

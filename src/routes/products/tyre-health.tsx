@@ -3,7 +3,6 @@ import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { ArrowUpRight, Wrench, CheckCircle, Sparkles } from "lucide-react";
 import { UIMockup, ProcessFlow, MetricBar } from "../../components/ui/ProductShowcase";
 import { PageHero } from "../../components/ui/PageHero";
-import { withBase } from "../../lib/utils";
 
 export const Route = createFileRoute("/products/tyre-health")({
   component: ProductPage,
@@ -17,7 +16,7 @@ function ProductPage() {
         subtitle="Complete tyre lifecycle tracking from purchase to deployment, designed to eliminate unexpected breakdowns and reduce operational fleet costs."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "Tyre Health" }]}
         image="https://images.unsplash.com/photo-1610668961726-538411985cb9?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={withBase("/woms.png")} alt="Tyre Health WOMS" className="h-10 w-10 object-contain" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/woms.png" alt="Tyre Health WOMS" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

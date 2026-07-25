@@ -5,7 +5,6 @@ import { ThemeToggle } from "../ui/ThemeToggle";
 import { Link } from "@tanstack/react-router";
 import { SAPLogo, SalesforceLogo, ZohoLogo } from "../ui/Icons";
 import { SUB_SERVICES_DATA } from "../../data/servicesData";
-import { withBase } from "../../lib/utils";
 
 function getSubUrl(catHref: string, subTitle: string): string {
   const match = SUB_SERVICES_DATA.find(s => s.title.toLowerCase() === subTitle.toLowerCase());
@@ -96,7 +95,7 @@ function Nav() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
         <Link to="/" className="flex items-center text-foreground">
           <img
-            src={withBase("/logo.png")}
+            src="/logo.png"
             alt="Acceleron Solutions"
             className="h-8 object-contain dark:brightness-0 dark:invert opacity-95 transition-opacity hover:opacity-100"
           />

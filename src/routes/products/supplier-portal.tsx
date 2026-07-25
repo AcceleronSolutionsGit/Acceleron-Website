@@ -3,7 +3,6 @@ import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { ArrowUpRight, ShoppingBag, CheckCircle, Sparkles } from "lucide-react";
 import { UIMockup, ProcessFlow } from "../../components/ui/ProductShowcase";
 import { PageHero } from "../../components/ui/PageHero";
-import { withBase } from "../../lib/utils";
 
 export const Route = createFileRoute("/products/supplier-portal")({
   component: ProductPage,
@@ -17,7 +16,7 @@ function ProductPage() {
         subtitle="Eliminate manual processing delays and optimize supply chains by automating POs, invoices, ASNs, and compliance tracking."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "Supplier Portal" }]}
         image="https://images.unsplash.com/photo-1586528116311-ad8ed7c15f5f?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={withBase("/vanijya.png")} alt="Vanijya Supplier Portal" className="h-10 w-10 object-contain" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/vanijya.png" alt="Vanijya Supplier Portal" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

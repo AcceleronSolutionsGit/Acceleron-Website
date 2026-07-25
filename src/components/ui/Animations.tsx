@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { withBase } from "../../lib/utils";
 
 export function useMouseParallax(strength = 20) {
   const x = useMotionValue(0);
@@ -75,7 +74,7 @@ export function InitialLoader({ onComplete }: { onComplete: () => void }) {
         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         className="relative"
       >
-        <img src={withBase("/logo.png")} alt="Acceleron Solutions" className="h-16 md:h-24 object-contain drop-shadow-xl dark:brightness-0 dark:invert" />
+        <img src="/logo.png" alt="Acceleron Solutions" className="h-16 md:h-24 object-contain drop-shadow-xl dark:brightness-0 dark:invert" />
       </motion.div>
     </motion.div>
   );

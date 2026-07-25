@@ -3,7 +3,6 @@ import { motion } from "motion/react";
 import { Users, Target, HeartPulse, Rocket, Award, MapPin, Mail, Phone, Compass, ShieldCheck, Zap, Globe, Sparkles, Building2, ArrowRight, CheckCircle2, Trophy, Heart, Cpu } from "lucide-react";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
-import { withBase } from "../lib/utils";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -165,7 +164,7 @@ function AboutPage() {
             <Reveal delay={0.2}>
               <div className="relative rounded-3xl overflow-hidden border border-border bg-muted/20 shadow-glow p-2">
                 <img
-                  src={withBase("/Inaguration Photo.JPG")}
+                  src="/Inaguration Photo.JPG"
                   alt="Acceleron Solutions History & Growth"
                   className="w-full h-auto object-cover rounded-2xl"
                 />
