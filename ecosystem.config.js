@@ -8,9 +8,9 @@ module.exports = {
       max_memory_restart: "500M",
       env: {
         NODE_ENV: "production",
-        PORT: 5091,
+        PORT: 5081,
         HOST: "0.0.0.0",
-        VITE_BASE_PATH: "/acceleron",
+        VITE_BASE_PATH: "/acceleron/",
       },
     },
   ],
