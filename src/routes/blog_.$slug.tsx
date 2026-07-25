@@ -3,6 +3,7 @@ import { BLOG_POSTS } from "../data/blogData";
 import { Calendar, Clock, ArrowLeft, Tag, Share2, Linkedin, Twitter } from "lucide-react";
 import { PageHero } from "../components/ui/PageHero";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
+import { withBase } from "../lib/utils";
 
 export const Route = createFileRoute("/blog_/$slug")({
   component: BlogDetailPage,
@@ -45,7 +46,7 @@ function BlogDetailPage() {
           <div className="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-border mb-12">
             <div className="flex items-center gap-4">
               <img
-                src={post.author.avatar}
+                src={withBase(post.author.avatar)}
                 alt={post.author.name}
                 className="h-12 w-12 rounded-full object-cover border-2 border-brand/50"
               />

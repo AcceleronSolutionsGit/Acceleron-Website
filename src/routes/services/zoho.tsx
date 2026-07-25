@@ -6,6 +6,7 @@ import { ProcessFlow } from "../../components/ui/ProductShowcase";
 import { ZohoLogo } from "../../components/ui/Icons";
 import { Link } from "@tanstack/react-router";
 import { getSubServicesByCategory } from "../../data/servicesData";
+import { withBase } from "../../lib/utils";
 
 export const Route = createFileRoute("/services/zoho")({
   component: ZohoPage,
@@ -21,7 +22,7 @@ function ZohoPage() {
         subtitle="Premium Zoho partner — deploying CRM, ERP, Analytics, and the full Zoho One suite in weeks, not months."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Zoho" }]}
         image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/ZOHO_logo_2023.svg_.png" alt="Zoho" className="h-10 w-10 object-contain" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={withBase("/ZOHO_logo_2023.svg_.png")} alt="Zoho" className="h-10 w-10 object-contain" /></div>}
       />
 
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
@@ -41,10 +42,10 @@ function ZohoPage() {
                       <div className="flex items-start gap-3">
                         {s.customLogo ? (
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm border border-border/40">
-                            <img src={s.customLogo} alt={s.title} className="h-full w-full object-contain" />
+                            <img src={withBase(s.customLogo)} alt={s.title} className="h-full w-full object-contain" />
                           </div>
                         ) : (
-                          <img src="/ZOHO_logo_2023.svg_.png" alt="Zoho" className="h-6 w-6 object-contain shrink-0 mt-0.5" />
+                          <img src={withBase("/ZOHO_logo_2023.svg_.png")} alt="Zoho" className="h-6 w-6 object-contain shrink-0 mt-0.5" />
                         )}
                         <h3 className="text-lg font-bold text-foreground group-hover:text-brand transition-colors">{s.title}</h3>
                       </div>

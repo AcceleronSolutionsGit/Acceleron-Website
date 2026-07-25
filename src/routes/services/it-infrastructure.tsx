@@ -5,6 +5,7 @@ import { PageHero } from "../../components/ui/PageHero";
 import { ProcessFlow } from "../../components/ui/ProductShowcase";
 import { Link } from "@tanstack/react-router";
 import { getSubServicesByCategory } from "../../data/servicesData";
+import { withBase } from "../../lib/utils";
 
 export const Route = createFileRoute("/services/it-infrastructure")({
   component: ITInfraPage,
@@ -20,7 +21,7 @@ function ITInfraPage() {
         subtitle="The operational backbone that keeps your enterprise running — from network design to cloud management and beyond."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "IT Infrastructure" }]}
         image="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/AWS_Logo.png" alt="IT Infra & Cloud" className="h-10 w-10 object-contain" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={withBase("/AWS_Logo.png")} alt="IT Infra & Cloud" className="h-10 w-10 object-contain" /></div>}
       />
 
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">

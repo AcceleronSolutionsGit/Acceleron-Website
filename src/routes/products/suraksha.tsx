@@ -3,6 +3,7 @@ import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { ArrowUpRight, ShieldCheck, CheckCircle, Sparkles } from "lucide-react";
 import { UIMockup, ProcessFlow } from "../../components/ui/ProductShowcase";
 import { PageHero } from "../../components/ui/PageHero";
+import { withBase } from "../../lib/utils";
 
 export const Route = createFileRoute("/products/suraksha")({
   component: ProductPage,
@@ -16,7 +17,7 @@ function ProductPage() {
         subtitle="A centralized, PWA-based safety management platform built for real-time observation, automated CAPA management, and proactive safety compliance in hazardous mining and industrial environments."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "Suraksha" }]}
         image="https://images.unsplash.com/photo-1541888081630-109033333306?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/suraksha.png" alt="Suraksha" className="h-10 w-10 object-contain" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={withBase("/suraksha.png")} alt="Suraksha" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

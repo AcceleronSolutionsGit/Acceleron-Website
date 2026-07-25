@@ -3,6 +3,7 @@ import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { LinkedInIcon, XTwitterIcon, GitHubIcon } from "../ui/Icons";
 import { Link } from "@tanstack/react-router";
 import { OFFICIAL_HQ } from "../../routes/about";
+import { withBase } from "../../lib/utils";
 
 export function Footer() {
   return (
@@ -29,7 +30,7 @@ export function Footer() {
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="inline-block mb-6 cursor-pointer"
             >
-              <img src="/logo.png" alt="Acceleron Solutions" className="h-10 object-contain dark:brightness-0 dark:invert opacity-90 transition-opacity hover:opacity-100" />
+              <img src={withBase("/logo.png")} alt="Acceleron Solutions" className="h-10 object-contain dark:brightness-0 dark:invert opacity-90 transition-opacity hover:opacity-100" />
             </Link>
             <p className="text-muted-foreground leading-relaxed mb-8 max-w-sm text-sm">
               Engineering digital excellence through modern enterprise platforms, SAP S/4HANA, Salesforce, Applied AI, and field safety systems. Part of the Gainwell Group.
