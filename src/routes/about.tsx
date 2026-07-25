@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { Users, Target, HeartPulse, Rocket, Award, MapPin, Mail, Phone, Compass, ShieldCheck, Zap, Globe, Sparkles, Building2, ArrowRight, CheckCircle2, Trophy, Heart, Cpu } from "lucide-react";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
+import { OFFICIAL_HQ } from "../constants/company";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -13,14 +14,6 @@ export const Route = createFileRoute("/about")({
   }),
   component: AboutPage,
 });
-
-export const OFFICIAL_HQ = {
-  company: "Acceleron Solutions Pvt. Ltd.",
-  address: "3rd Floor, STPI IT Park, Salt Lake, Sector V, Kolkata – 700091, India",
-  email: "enquiry@acceleronsolutions.io",
-  phone: "033-35346200 / 033-35346222",
-  phones: ["033-35346200", "033-35346222"],
-};
 
 // SVG Outline maps for locations
 function IndiaMapSvg({ className }: { className?: string }) {
@@ -93,7 +86,7 @@ const LOCATION_CARDS = [
   },
 ];
 
-export const CLIENT_LOGOS = [
+const CLIENT_LOGOS = [
   { name: "Trimble", logo: "/TRIMBLE.png" },
   { name: "Tulip Compression", logo: "/TulipCompression.png" },
   { name: "Sitech", logo: "/SITECH.png" },

@@ -455,6 +455,15 @@ function HeroDashboard({ slideIndex, tone }: { slideIndex: number; tone: string 
   );
 }
 
+const TONES = ["#4c5a8a", "#de1e24", "#4c5a8a", "#0FAAFF"];
+const PARTNERS = [
+  { name: "SAP", Logo: SAPLogo },
+  { name: "Salesforce", Logo: SalesforceLogo },
+  { name: "Zoho", Logo: ZohoLogo },
+  { name: "AWS", Logo: AWSLogo },
+  { name: "Microsoft", Logo: MicrosoftLogo },
+];
+
 function Hero() {
   const [index, setIndex] = useState(0);
   const ref = useRef<HTMLElement>(null);
@@ -469,17 +478,7 @@ function Hero() {
   }, []);
 
   const s = SLIDES[index];
-  const TONES = ["#4c5a8a", "#de1e24", "#4c5a8a", "#0FAAFF"];
   const tone = TONES[index];
-
-  /* partner logos with real SVGs */
-  const PARTNERS = [
-    { name: "SAP", Logo: SAPLogo },
-    { name: "Salesforce", Logo: SalesforceLogo },
-    { name: "Zoho", Logo: ZohoLogo },
-    { name: "AWS", Logo: AWSLogo },
-    { name: "Microsoft", Logo: MicrosoftLogo },
-  ];
 
   return (
     <section ref={ref} id="top" className="relative min-h-screen overflow-hidden bg-background">

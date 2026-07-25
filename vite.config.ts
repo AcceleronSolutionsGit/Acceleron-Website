@@ -6,10 +6,51 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-export default defineConfig({
+const lovableConfig = defineConfig({
+  vite: {
+    resolve: {
+      tsconfigPaths: true,
+    },
+    build: {
+      chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              if (id.includes("react") || id.includes("react-dom")) {
+                return "vendor-react";
+              }
+              if (id.includes("@tanstack")) {
+                return "vendor-tanstack";
+              }
+              if (id.includes("motion") || id.includes("framer-motion")) {
+                return "vendor-motion";
+              }
+              if (id.includes("lucide-react")) {
+                return "vendor-lucide";
+              }
+              if (id.includes("recharts")) {
+                return "vendor-recharts";
+              }
+            }
+          },
+        },
+      },
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
   },
 });
+
+export default async (env: any) => {
+  const resolvedConfig = typeof lovableConfig === "function" ? await (lovableConfig as any)(env) : lovableConfig;
+  if (Array.isArray(resolvedConfig.plugins)) {
+    resolvedConfig.plugins = resolvedConfig.plugins.filter(
+      (p: any) => p && p.name !== "vite-tsconfig-paths"
+    );
+  }
+  return resolvedConfig;
+};

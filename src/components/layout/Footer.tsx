@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { LinkedInIcon, XTwitterIcon, GitHubIcon } from "../ui/Icons";
 import { Link } from "@tanstack/react-router";
-import { OFFICIAL_HQ } from "../../routes/about";
+import { OFFICIAL_HQ } from "../../constants/company";
 
 export function Footer() {
   return (

@@ -14,7 +14,7 @@ export const Route = createFileRoute("/team")({
   component: TeamPage,
 });
 
-export function TeamPage() {
+function TeamPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
       <PageHero

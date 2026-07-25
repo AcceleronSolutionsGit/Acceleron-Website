@@ -5,6 +5,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  Link,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -23,9 +24,9 @@ function NotFoundComponent() {
           The page you're looking for doesn't exist or has drifted away.
         </p>
         <div className="mt-6">
-          <a href="/" className="inline-flex items-center rounded-full bg-brand-gradient px-5 py-2.5 text-sm font-medium text-white shadow-glow">
+          <Link to="/" className="inline-flex items-center rounded-full bg-brand-gradient px-5 py-2.5 text-sm font-medium text-white shadow-glow">
             Return home
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -53,9 +54,9 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again
           </button>
-          <a href="/" className="rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-accent">
+          <Link to="/" className="rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-accent">
             Go home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

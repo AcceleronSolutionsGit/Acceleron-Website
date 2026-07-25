@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin, Building2, Globe, Phone } from "lucide-react";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
-import { OFFICIAL_HQ } from "./about";
+import { OFFICIAL_HQ } from "../constants/company";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-export function ContactPage() {
+function ContactPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
       <PageHero
