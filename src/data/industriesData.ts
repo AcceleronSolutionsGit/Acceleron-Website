@@ -39,7 +39,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryDetail> = {
     ],
     whyAcceleron: [
       "Direct heritage from Gainwell Group — Caterpillar & heavy mining equipment pioneers",
-      "Certified SAP, Salesforce, and IoT solution architects with field experience",
+      "Certified SAP, Zoho, and IoT solution architects with field experience",
       "Proven deployments across remote sites in APAC and Africa"
     ]
   },
@@ -89,7 +89,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryDetail> = {
     ],
     solutions: [
       { title: "SAP S/4HANA Project System (PS)", desc: "Milestone tracking, WBS cost control, and engineering change management (ECM)." },
-      { title: "Salesforce Service Cloud & Field Service", desc: "Intelligent dispatch, mobile work orders, and IoT-triggered technician scheduling." },
+      { title: "Enterprise CRM & Field Service", desc: "Intelligent dispatch, mobile work orders, and IoT-triggered technician scheduling." },
       { title: "CWMS Contractor Workforce Management", desc: "Digital onboarding, skill verification, and site access control for third-party crews." },
       { title: "Connected Equipment Telemetry", desc: "Live machine data feeds for remote diagnostics and preventative maintenance agreements." }
     ],
@@ -101,7 +101,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryDetail> = {
     ],
     whyAcceleron: [
       "Deep understanding of ETO & MTO manufacturing workflows",
-      "Unified SAP & Salesforce integration accelerators",
+      "Unified SAP & CRM integration accelerators",
       "Proven track record with Tier-1 industrial equipment leaders"
     ]
   },

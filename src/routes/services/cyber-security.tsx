@@ -5,6 +5,7 @@ import { PageHero } from "../../components/ui/PageHero";
 import { ProcessFlow } from "../../components/ui/ProductShowcase";
 import { Link } from "@tanstack/react-router";
 import { getSubServicesByCategory } from "../../data/servicesData";
+import { getAssetUrl } from "../../lib/assets";
 
 export const Route = createFileRoute("/services/cyber-security")({
   component: CyberSecurityPage,
@@ -17,20 +18,20 @@ function CyberSecurityPage() {
     <main className="relative min-h-screen overflow-hidden bg-background">
       <PageHero
         title="Cyber Security"
-        subtitle="Zero-trust security architecture, compliance readiness, and 24/7 threat protection for enterprise environments."
+        subtitle="Protect your enterprise assets, compliance posture, and digital reputation with end-to-end security architecture."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Cyber Security" }]}
         image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow"><ShieldCheck className="h-8 w-8" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><ShieldCheck className="h-10 w-10 text-brand" /></div>}
       />
 
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
         <Reveal>
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Security Services</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">Comprehensive cybersecurity services to protect your enterprise from evolving threats.</p>
+            <h2 className="text-3xl font-bold text-foreground mb-4">Security Capabilities</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Proactive, multi-layered cyber defense strategies engineered for the modern threat landscape.</p>
           </div>
         </Reveal>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {subServices.map((s, i) => (
             <Reveal key={s.slug} delay={i * 0.08}>
               <Link to={`/services/${s.categorySlug}/${s.slug}` as any} className="block h-full group">
@@ -40,7 +41,7 @@ function CyberSecurityPage() {
                       <div className="flex items-start gap-3">
                         {s.customLogo ? (
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm border border-border/40">
-                            <img src={s.customLogo} alt={s.title} className="h-full w-full object-contain" />
+                            <img src={getAssetUrl(s.customLogo)} alt={s.title} loading="lazy" decoding="async" className="h-full w-full object-contain" />
                           </div>
                         ) : (
                           <ShieldCheck className="h-6 w-6 text-brand shrink-0 mt-0.5" />
@@ -85,7 +86,7 @@ function CyberSecurityPage() {
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24 text-center">
         <Reveal>
           <h2 className="text-3xl font-bold text-foreground mb-6">Secure Your Enterprise</h2>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white shadow-glow transition-all hover:scale-105">
+          <Link to="/contact" className="btn btn-primary btn-lg">
             Get a Security Assessment <ArrowUpRight className="h-5 w-5" />
           </Link>
         </Reveal>

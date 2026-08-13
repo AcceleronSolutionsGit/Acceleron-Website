@@ -5,6 +5,7 @@ import { PageHero } from "../../components/ui/PageHero";
 import { ProcessFlow } from "../../components/ui/ProductShowcase";
 import { Link } from "@tanstack/react-router";
 import { getSubServicesByCategory } from "../../data/servicesData";
+import { getAssetUrl } from "../../lib/assets";
 
 export const Route = createFileRoute("/services/analytics")({
   component: AnalyticsPage,
@@ -20,7 +21,7 @@ function AnalyticsPage() {
         subtitle="Turn raw data into actionable intelligence — from data lake architecture to real-time dashboards and enterprise BI."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Analytics" }]}
         image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/Sap_analytics-cloud.png" alt="Analytics" className="h-10 w-10 object-contain" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-glow"><BarChart3 className="h-8 w-8 text-white" /></div>}
       />
 
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
@@ -40,7 +41,7 @@ function AnalyticsPage() {
                       <div className="flex items-start gap-3">
                         {s.customLogo ? (
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm border border-border/40">
-                            <img src={s.customLogo} alt={s.title} className="h-full w-full object-contain" />
+                            <img src={getAssetUrl(s.customLogo)} alt={s.title} loading="lazy" decoding="async" className="h-full w-full object-contain" />
                           </div>
                         ) : (
                           <BarChart3 className="h-6 w-6 text-brand shrink-0 mt-0.5" />
@@ -85,7 +86,7 @@ function AnalyticsPage() {
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24 text-center">
         <Reveal>
           <h2 className="text-3xl font-bold text-foreground mb-6">Unlock Your Data Potential</h2>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white shadow-glow transition-all hover:scale-105">
+          <Link to="/contact" className="btn btn-primary btn-lg">
             Talk to Our Data Team <ArrowUpRight className="h-5 w-5" />
           </Link>
         </Reveal>

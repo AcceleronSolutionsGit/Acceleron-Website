@@ -3,6 +3,7 @@ import { Mail, MapPin, Building2, Globe, Phone } from "lucide-react";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
 import { OFFICIAL_HQ } from "../constants/company";
+import { HomeContactForm } from "../components/ui/HomeContactForm";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -19,7 +20,7 @@ function ContactPage() {
     <main className="relative min-h-screen overflow-hidden bg-background">
       <PageHero
         title="Let's Build The Next Chapter Together"
-        subtitle="Ready to transform your enterprise operations? Connect directly with our SAP, Salesforce, and custom software practice leads."
+        subtitle="Ready to transform your enterprise operations? Connect directly with our SAP, Zoho, and custom software practice leads."
         breadcrumbs={[{ label: "Contact" }]}
         image="https://images.unsplash.com/photo-1497366216548-37526070297c?q=75&w=1200&auto=format&fit=crop"
         ctaText="Send us a message"
@@ -35,43 +36,7 @@ function ContactPage() {
               <div className="rounded-3xl border border-border/50 bg-background/50 p-8 sm:p-10 backdrop-blur-xl h-full shadow-glow">
                 <h2 className="text-2xl font-bold text-foreground mb-2">Send us a message</h2>
                 <p className="text-sm text-muted-foreground mb-8">Fill out the form below and our strategic solutions team will reach out within 24 hours.</p>
-                
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Your Name</label>
-                      <input type="text" placeholder="John Doe" className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Work Email</label>
-                      <input type="email" placeholder="john@company.com" className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
-                    </div>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Phone Number</label>
-                      <input type="tel" placeholder="+91 98765 43210" className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Area of Interest</label>
-                      <select className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50">
-                        <option>SAP S/4HANA & RISE</option>
-                        <option>Salesforce Cloud</option>
-                        <option>Applied AI & Analytics</option>
-                        <option>Products (Suraksha / Tyre Health)</option>
-                        <option>Cybersecurity & Infra</option>
-                        <option>Other Enquiry</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Project Details / Message</label>
-                    <textarea rows={4} placeholder="Tell us about your objectives and timeline..." className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
-                  </div>
-                  <button type="submit" className="w-full rounded-xl bg-brand-gradient py-4 text-white font-bold text-sm shadow-glow hover:scale-[1.01] transition-transform">
-                    Send Message
-                  </button>
-                </form>
+                <HomeContactForm />
               </div>
             </Reveal>
           </div>

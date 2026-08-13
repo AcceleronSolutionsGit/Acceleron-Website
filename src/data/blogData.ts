@@ -9,7 +9,7 @@ export type BlogPost = {
     avatar: string;
   };
   date: string;
-  category: "SAP" | "Salesforce" | "AI & Analytics" | "Cloud & Security" | "Digital Transformation";
+  category: "SAP" | "AI & Analytics" | "Cloud & Security" | "Digital Transformation";
   tags: string[];
   image: string;
   readTime: string;
@@ -83,12 +83,12 @@ export const BLOG_POSTS: BlogPost[] = [
     featured: true
   },
   {
-    slug: "salesforce-data-cloud-and-lightning-platform-integration",
-    title: "Maximizing ROI with Salesforce Data Cloud & Custom Lightning Apps",
+    slug: "enterprise-crm-and-customer-data-unification",
+    title: "Enterprise CRM & Customer Data Unification Strategies",
     excerpt: "Unifying fragmented customer data streams across sales, field service, and ERP into a single customer 360 view.",
     content: `
       <p class="lead text-lg text-foreground/80 font-medium mb-6">
-        Salesforce Data Cloud allows companies to ingest real-time data streams from SAP, web portals, and IoT sensors into unified customer profiles.
+        Modern enterprise CRM platforms allow companies to ingest real-time data streams from SAP, web portals, and IoT sensors into unified customer profiles.
       </p>
     `,
     author: {
@@ -97,8 +97,8 @@ export const BLOG_POSTS: BlogPost[] = [
       avatar: "/Meena Chaturvedi Speaking.JPG"
     },
     date: "June 15, 2026",
-    category: "Salesforce",
-    tags: ["Salesforce", "CRM", "Data Cloud", "Lightning"],
+    category: "Digital Transformation",
+    tags: ["CRM", "Data Unification", "Customer 360", "Integration"],
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=75",
     readTime: "5 min read"
   },

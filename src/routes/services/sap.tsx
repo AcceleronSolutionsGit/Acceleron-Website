@@ -6,6 +6,7 @@ import { ProcessFlow } from "../../components/ui/ProductShowcase";
 import { SAPLogo } from "../../components/ui/Icons";
 import { Link } from "@tanstack/react-router";
 import { getSubServicesByCategory } from "../../data/servicesData";
+import { getAssetUrl } from "../../lib/assets";
 
 export const Route = createFileRoute("/services/sap")({
   component: SAPPage,
@@ -21,7 +22,7 @@ function SAPPage() {
         subtitle="End-to-end SAP consulting, implementation, and managed services — from S/4HANA transformation to RISE with SAP."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "SAP" }]}
         image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/sap_s4hana-transparentbg.png" alt="SAP S/4HANA" className="h-10 w-10 object-contain" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={getAssetUrl("/sap_s4hana-transparentbg.png")} alt="SAP S/4HANA" loading="lazy" decoding="async" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Sub-services grid */}
@@ -42,10 +43,10 @@ function SAPPage() {
                       <div className="flex items-start gap-3">
                         {s.customLogo ? (
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm border border-border/40">
-                            <img src={s.customLogo} alt={s.title} className="h-full w-full object-contain" />
+                            <img src={getAssetUrl(s.customLogo)} alt={s.title} loading="lazy" decoding="async" className="h-full w-full object-contain" />
                           </div>
                         ) : (
-                          <img src="/sap_s4hana-transparentbg.png" alt="SAP" className="h-6 w-6 object-contain shrink-0 mt-0.5" />
+                          <img src={getAssetUrl("/sap_s4hana-transparentbg.png")} alt="SAP" loading="lazy" decoding="async" className="h-6 w-6 object-contain shrink-0 mt-0.5" />
                         )}
                         <h3 className="text-lg font-bold text-foreground group-hover:text-brand transition-colors">{s.title}</h3>
                       </div>
@@ -87,7 +88,7 @@ function SAPPage() {
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24 text-center">
         <Reveal>
           <h2 className="text-3xl font-bold text-foreground mb-6">Ready to Transform with SAP?</h2>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white shadow-glow transition-all hover:scale-105">
+          <Link to="/contact" className="btn btn-primary btn-lg">
             Talk to Our SAP Experts <ArrowUpRight className="h-5 w-5" />
           </Link>
         </Reveal>

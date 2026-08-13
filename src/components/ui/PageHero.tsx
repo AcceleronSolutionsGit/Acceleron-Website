@@ -5,6 +5,8 @@ import { Breadcrumbs, type BreadcrumbItem } from "./Breadcrumbs";
 import { Reveal, WaveDivider } from "./Animations";
 import { Link } from "@tanstack/react-router";
 
+import { getAssetUrl } from "../../lib/assets";
+
 type PageHeroProps = {
   title: string;
   subtitle: string;
@@ -33,9 +35,11 @@ export function PageHero({
         {image && (
           <div className="absolute inset-0">
             <img
-              src={image}
+              src={getAssetUrl(image)}
               alt=""
               aria-hidden="true"
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
           </div>
@@ -75,7 +79,7 @@ export function PageHero({
               </p>
               <Link
                 to={ctaHref as any}
-                className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white shadow-glow transition-all hover:scale-105"
+                className="btn btn-primary btn-lg"
               >
                 {ctaText} <ArrowUpRight className="h-5 w-5" />
               </Link>

@@ -5,6 +5,7 @@ import { X, ChevronLeft, ChevronRight, Maximize2, Sparkles, Filter } from "lucid
 import { PageHero } from "../components/ui/PageHero";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { GALLERY_ITEMS, type GalleryItem } from "../data/galleryData";
+import { getAssetUrl } from "../lib/assets";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -46,7 +47,7 @@ function GalleryPage() {
         title="Events, Culture & Moments in Tech"
         subtitle="Inside Acceleron Solutions — showcasing our conferences, workshops, team celebrations, global offices, and community initiatives."
         breadcrumbs={[{ label: "Gallery" }]}
-        image="https://images.unsplash.com/photo-1511578314322-379afb476865?q=75&w=1200&auto=format&fit=crop"
+        image={getAssetUrl("https://images.unsplash.com/photo-1511578314322-379afb476865?q=75&w=1200&auto=format&fit=crop")}
         ctaText="Join Our Team"
         ctaHref="/careers"
       />
@@ -95,9 +96,10 @@ function GalleryPage() {
               >
                 <div className="relative overflow-hidden bg-muted/40">
                   <img
-                    src={item.src}
+                    src={getAssetUrl(item.src)}
                     alt={item.alt}
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -177,8 +179,9 @@ function GalleryPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={currentItem.src}
+                src={getAssetUrl(currentItem.src)}
                 alt={currentItem.alt}
+                decoding="async"
                 className="max-h-[70vh] w-auto max-w-full object-contain"
               />
               <div className="w-full p-6 bg-muted/90 backdrop-blur-md text-foreground border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">

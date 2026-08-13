@@ -24,7 +24,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     id: "2",
     name: "Meena Chaturvedi",
     role: "Managing Director",
-    bio: "Pioneering enterprise growth, operational excellence, and customer success across SAP, Salesforce, and digital transformation initiatives.",
+    bio: "Pioneering enterprise growth, operational excellence, and customer success across SAP, Zoho, and digital transformation initiatives.",
     image: "/Meena Chaturvedi Speaking.JPG",
     department: "Executive Leadership",
     linkedin: "https://www.linkedin.com/",
@@ -63,7 +63,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "6",
     name: "Global Delivery Director",
-    role: "Head of Salesforce & Cloud Services",
+    role: "Head of Cloud & Enterprise Services",
     bio: "Leading multi-region delivery across USA, APAC, and India centers with focus on CRM excellence and cloud security.",
     image: "/Employee 2.JPG",
     department: "Enterprise Practice Leads",

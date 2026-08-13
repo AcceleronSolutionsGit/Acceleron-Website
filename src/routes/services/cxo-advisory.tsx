@@ -5,6 +5,7 @@ import { PageHero } from "../../components/ui/PageHero";
 import { ProcessFlow } from "../../components/ui/ProductShowcase";
 import { Link } from "@tanstack/react-router";
 import { getSubServicesByCategory } from "../../data/servicesData";
+import { getAssetUrl } from "../../lib/assets";
 
 export const Route = createFileRoute("/services/cxo-advisory")({
   component: CXOAdvisoryPage,
@@ -17,17 +18,17 @@ function CXOAdvisoryPage() {
     <main className="relative min-h-screen overflow-hidden bg-background">
       <PageHero
         title="CXO Advisory"
-        subtitle="Strategic technology advisory for C-suite executives — bridging the gap between business vision and technology execution."
+        subtitle="Strategic technology guidance for C-suite leaders — driving digital transformation, enterprise architecture, and IT governance."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "CXO Advisory" }]}
-        image="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow"><Briefcase className="h-8 w-8" /></div>}
+        image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=1200&auto=format&fit=crop"
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><Briefcase className="h-10 w-10 text-brand" /></div>}
       />
 
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
         <Reveal>
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Advisory Services</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">Expert guidance for technology leaders navigating digital transformation and strategic IT investment.</p>
+            <h2 className="text-3xl font-bold text-foreground mb-4">Advisory Capabilities</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Strategic technology guidance aligned with business outcomes and shareholder value.</p>
           </div>
         </Reveal>
         <div className="grid md:grid-cols-2 gap-6">
@@ -40,7 +41,7 @@ function CXOAdvisoryPage() {
                       <div className="flex items-start gap-3">
                         {s.customLogo ? (
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm border border-border/40">
-                            <img src={s.customLogo} alt={s.title} className="h-full w-full object-contain" />
+                            <img src={getAssetUrl(s.customLogo)} alt={s.title} loading="lazy" decoding="async" className="h-full w-full object-contain" />
                           </div>
                         ) : (
                           <Briefcase className="h-6 w-6 text-brand shrink-0 mt-0.5" />
@@ -85,7 +86,7 @@ function CXOAdvisoryPage() {
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24 text-center">
         <Reveal>
           <h2 className="text-3xl font-bold text-foreground mb-6">Speak With Our Advisors</h2>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white shadow-glow transition-all hover:scale-105">
+          <Link to="/contact" className="btn btn-primary btn-lg">
             Schedule a Consultation <ArrowUpRight className="h-5 w-5" />
           </Link>
         </Reveal>

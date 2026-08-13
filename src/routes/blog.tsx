@@ -10,7 +10,7 @@ export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
       { title: "Blog & Insights — Acceleron Solutions" },
-      { name: "description", content: "Insights on SAP S/4HANA transformations, Salesforce, Applied AI, enterprise cybersecurity, and industrial software engineering." },
+      { name: "description", content: "Insights on SAP S/4HANA transformations, Applied AI, enterprise cybersecurity, and industrial software engineering." },
     ],
   }),
   component: BlogListingPage,
@@ -63,7 +63,7 @@ function BlogListingPage() {
                 placeholder="Search articles, tags, topic..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-full border border-border bg-muted/30 pl-11 pr-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-brand/50 transition-all"
+                className="w-full rounded-full border border-border bg-muted/30 pl-11 pr-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-all"
               />
             </div>
 
@@ -102,7 +102,7 @@ function BlogListingPage() {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="inline-flex items-center rounded-full bg-brand-gradient px-3 py-1 text-xs font-bold text-white shadow-md">
+                    <span className="btn btn-primary btn-sm">
                       Featured
                     </span>
                   </div>
@@ -212,7 +212,7 @@ function BlogListingPage() {
                 setSearchQuery("");
                 setSelectedCategory("All");
               }}
-              className="mt-6 inline-flex items-center rounded-full bg-brand-gradient px-6 py-2.5 text-xs font-bold text-white shadow-glow"
+              className="btn btn-primary btn-sm mt-6"
             >
               Reset Filters
             </button>

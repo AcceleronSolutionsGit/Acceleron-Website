@@ -5,6 +5,7 @@ import { PageHero } from "../../components/ui/PageHero";
 import { ProcessFlow } from "../../components/ui/ProductShowcase";
 import { Link } from "@tanstack/react-router";
 import { getSubServicesByCategory } from "../../data/servicesData";
+import { getAssetUrl } from "../../lib/assets";
 
 export const Route = createFileRoute("/services/software-development")({
   component: SoftwareDevPage,
@@ -17,17 +18,17 @@ function SoftwareDevPage() {
     <main className="relative min-h-screen overflow-hidden bg-background">
       <PageHero
         title="Software Development"
-        subtitle="Custom web, mobile, and enterprise software built using modern tech stacks and AI-assisted development to accelerate delivery."
+        subtitle="Custom enterprise software, modern web & mobile apps, microservices, and cloud-native solutions."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Software Development" }]}
         image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow"><Code2 className="h-8 w-8" /></div>}
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><Code2 className="h-10 w-10 text-brand" /></div>}
       />
 
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
         <Reveal>
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-foreground mb-4">Development Services</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">From idea to production — we design, build, and maintain software that solves real business problems.</p>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Tailored software engineering built for performance, security, and enterprise scalability.</p>
           </div>
         </Reveal>
         <div className="grid md:grid-cols-2 gap-6">
@@ -40,7 +41,7 @@ function SoftwareDevPage() {
                       <div className="flex items-start gap-3">
                         {s.customLogo ? (
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm border border-border/40">
-                            <img src={s.customLogo} alt={s.title} className="h-full w-full object-contain" />
+                            <img src={getAssetUrl(s.customLogo)} alt={s.title} loading="lazy" decoding="async" className="h-full w-full object-contain" />
                           </div>
                         ) : (
                           <Code2 className="h-6 w-6 text-brand shrink-0 mt-0.5" />
@@ -85,7 +86,7 @@ function SoftwareDevPage() {
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24 text-center">
         <Reveal>
           <h2 className="text-3xl font-bold text-foreground mb-6">Let's Build Something Great</h2>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white shadow-glow transition-all hover:scale-105">
+          <Link to="/contact" className="btn btn-primary btn-lg">
             Start Your Project <ArrowUpRight className="h-5 w-5" />
           </Link>
         </Reveal>

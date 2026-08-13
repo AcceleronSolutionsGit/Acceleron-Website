@@ -315,24 +315,24 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-semibold text-muted-foreground mb-1.5">First Name *</label>
-                        <input type="text" placeholder="First Name" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                        <input type="text" placeholder="First Name" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
                       </div>
                       <div>
                         <label className="block text-xs font-semibold text-muted-foreground mb-1.5">Last Name *</label>
-                        <input type="text" placeholder="Last Name" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                        <input type="text" placeholder="Last Name" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-muted-foreground mb-1.5">Work Email *</label>
-                      <input type="email" placeholder="Work Email" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                      <input type="email" placeholder="Work Email" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-muted-foreground mb-1.5">Company Name & Role *</label>
-                      <input type="text" placeholder="Company Name & Role" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                      <input type="text" placeholder="Company Name & Role" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-muted-foreground mb-1.5">Project Scope / Requirements</label>
-                      <textarea rows={3} placeholder="Project Scope / Requirements" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
+                      <textarea rows={3} placeholder="Project Scope / Requirements" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
                     </div>
                     <button
                       type="submit"

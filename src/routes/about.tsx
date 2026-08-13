@@ -4,6 +4,7 @@ import { Users, Target, HeartPulse, Rocket, Award, MapPin, Mail, Phone, Compass,
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
 import { OFFICIAL_HQ } from "../constants/company";
+import { getAssetUrl } from "../lib/assets";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -107,6 +108,27 @@ const CLIENT_LOGOS = [
   { name: "Ambey Mining", logo: "/Ampl.png" },
 ];
 
+const TESTIMONIALS = [
+  {
+    quote: "Acceleron didn't just upgrade our ERP; they fundamentally transformed how our field teams operate and interact with data.",
+    name: "Sarah Jenkins",
+    role: "Chief Operating Officer, Global Manufacturing",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=75&w=150&h=150",
+  },
+  {
+    quote: "Their dual expertise in SAP and IoT is unmatched. They deployed Suraksha across our plants in record time with zero disruption.",
+    name: "David Chen",
+    role: "VP of Engineering, Industrial Solutions",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=75&w=150&h=150",
+  },
+  {
+    quote: "Acceleron is not just a vendor, but a strategic partner that truly understands the stakes of digital transformation in heavy industry.",
+    name: "Elena Rodriguez",
+    role: "CTO, National Logistics",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=75&w=150&h=150",
+  }
+];
+
 function AboutPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
@@ -157,8 +179,10 @@ function AboutPage() {
             <Reveal delay={0.2}>
               <div className="relative rounded-3xl overflow-hidden border border-border bg-muted/20 shadow-glow p-2">
                 <img
-                  src="/Inaguration Photo.JPG"
+                  src={getAssetUrl("/Inaguration Photo.JPG")}
                   alt="Acceleron Solutions History & Growth"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-cover rounded-2xl"
                 />
               </div>
@@ -399,6 +423,48 @@ function AboutPage() {
 
       <WaveDivider from="white" to="dark" flip />
 
+      {/* Customer Stories / Testimonials */}
+      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
+        <Reveal>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">Customer Stories</div>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+              Hear from our <span className="text-gradient">Partners</span>
+            </h2>
+            <p className="text-muted-foreground text-base mt-4">
+              Real outcomes from enterprise leaders who chose Acceleron Solutions to lead their digital transformation.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {TESTIMONIALS.map((testimonial, idx) => (
+            <Reveal key={testimonial.name} delay={idx * 0.1}>
+              <motion.div
+                whileHover={{ y: -6 }}
+                className="rounded-3xl border border-border/60 bg-muted/20 p-8 sm:p-10 hover:border-brand/40 transition-all shadow-soft hover:shadow-glow h-full flex flex-col justify-between relative"
+              >
+                <div className="absolute top-8 right-8 text-6xl text-brand/20 font-serif leading-none">"</div>
+                <div>
+                  <p className="text-foreground text-lg italic leading-relaxed relative z-10 mb-8">
+                    "{testimonial.quote}"
+                  </p>
+                </div>
+                <div className="flex items-center gap-4 border-t border-border/50 pt-6">
+                  <img src={testimonial.image} alt={testimonial.name} className="h-12 w-12 rounded-full object-cover border-2 border-brand/20" />
+                  <div>
+                    <h4 className="text-foreground font-bold text-sm">{testimonial.name}</h4>
+                    <p className="text-xs text-muted-foreground mt-0.5">{testimonial.role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <WaveDivider from="dark" to="white" />
+
       {/* Clients Showcase with Real Logos */}
       <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
         <Reveal>
@@ -421,14 +487,12 @@ function AboutPage() {
                 className="group flex flex-col items-center justify-center p-4 rounded-2xl border border-border/60 bg-white/90 dark:bg-muted/30 backdrop-blur-md hover:border-brand/50 hover:shadow-glow transition-all h-28 text-center"
               >
                 <img
-                  src={client.logo}
-                  alt={client.name}
+                  src={getAssetUrl(client.logo)}
+                  alt=""
                   loading="lazy"
+                  decoding="async"
                   className="max-h-12 max-w-[85%] object-contain filter transition-all group-hover:scale-105"
                 />
-                <span className="text-[10px] font-semibold text-muted-foreground mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  {client.name}
-                </span>
               </motion.div>
             </Reveal>
           ))}
@@ -532,7 +596,7 @@ function AboutPage() {
               <div className="pt-4">
                 <Link
                   to="/careers"
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white shadow-glow hover:scale-105 transition-transform"
+                  className="btn btn-primary btn-lg"
                 >
                   Find Right Opportunities For You <ArrowRight className="h-5 w-5" />
                 </Link>

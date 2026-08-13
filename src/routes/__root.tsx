@@ -24,7 +24,7 @@ function NotFoundComponent() {
           The page you're looking for doesn't exist or has drifted away.
         </p>
         <div className="mt-6">
-          <Link to="/" className="inline-flex items-center rounded-full bg-brand-gradient px-5 py-2.5 text-sm font-medium text-white shadow-glow">
+          <Link to="/" className="btn btn-primary btn-md">
             Return home
           </Link>
         </div>
@@ -50,11 +50,11 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => { router.invalidate(); reset(); }}
-            className="rounded-full bg-brand-gradient px-5 py-2.5 text-sm font-medium text-white shadow-glow"
+            className="btn btn-primary btn-md"
           >
             Try again
           </button>
-          <Link to="/" className="rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-accent">
+          <Link to="/" className="btn btn-secondary btn-md">
             Go home
           </Link>
         </div>
@@ -69,10 +69,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Acceleron Solutions — Engineering Digital Excellence" },
-      { name: "description", content: "Acceleron Solutions helps enterprises transform through SAP, Salesforce, AI, and intelligent digital platforms — engineered for scale, designed for people." },
+      { name: "description", content: "Acceleron Solutions helps enterprises transform through SAP, Zoho, AI, and intelligent digital platforms — engineered for scale, designed for people." },
       { name: "author", content: "Acceleron Solutions" },
       { property: "og:title", content: "Acceleron Solutions — Engineering Digital Excellence" },
-      { property: "og:description", content: "Enterprise-grade digital transformation across SAP, Salesforce, AI, and custom platforms." },
+      { property: "og:description", content: "Enterprise-grade digital transformation across SAP, Zoho, AI, and custom platforms." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -114,13 +114,20 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 
+import { Toaster } from "sonner";
+import { useLocation } from "@tanstack/react-router";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const location = useLocation();
+  const isAuthOrAdmin = location.pathname.startsWith('/login') || location.pathname.startsWith('/admin');
+
   return (
     <QueryClientProvider client={queryClient}>
-      <Nav />
+      {!isAuthOrAdmin && <Nav />}
       <Outlet />
-      <Footer />
+      {!isAuthOrAdmin && <Footer />}
+      <Toaster position="bottom-right" theme="system" />
     </QueryClientProvider>
   );
 }

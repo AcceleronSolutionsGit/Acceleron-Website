@@ -9,17 +9,20 @@ import {
   ArrowDown, Star, TrendingUp, Building2, Lightbulb, Target, Sun, Moon,
 } from "lucide-react";
 
-import { LinkedInIcon, XTwitterIcon, GitHubIcon, InstagramIcon, SAPLogo, SalesforceLogo, ZohoLogo, AWSLogo, MicrosoftLogo, DockerLogo, KubernetesLogo, PythonLogo, NodejsLogo, ReactLogo, NextjsLogo, OpenAILogo, SnowflakeLogo, FlutterLogo, PowerBILogo, DatabricksLogo } from '../components/ui/Icons';
+import { LinkedInIcon, XTwitterIcon, GitHubIcon, InstagramIcon, SAPLogo, ZohoLogo, AWSLogo, MicrosoftLogo, DockerLogo, KubernetesLogo, PythonLogo, NodejsLogo, ReactLogo, NextjsLogo, OpenAILogo, SnowflakeLogo, FlutterLogo, PowerBILogo, DatabricksLogo } from '../components/ui/Icons';
 import { ThemeToggle } from '../components/ui/ThemeToggle';
 import { useMouseParallax, Reveal, CharReveal, InitialLoader, MagneticButton, Counter, WaveDivider } from '../components/ui/Animations';
+import { HomeContactForm } from '../components/ui/HomeContactForm';
 import { Nav, PRODUCTS } from '../components/layout/Nav';
+import { getAssetUrl } from '../lib/assets';
+import { WhyChooseUs, CSRSection, GlobalPresence, InsightsSection } from '../components/home/HomeSections';
 
 export const Route = createFileRoute("/")(
 {
   head: () => ({
     meta: [
       { title: "Acceleron Solutions — Engineering Digital Excellence" },
-      { name: "description", content: "Enterprise transformation through SAP, Salesforce, AI, and intelligent digital platforms. Built for scale. Designed for humans." },
+      { name: "description", content: "Enterprise transformation through SAP, AI, Zoho, and intelligent digital platforms. Built for scale. Designed for humans." },
     ],
   }),
   component: Home,
@@ -50,32 +53,6 @@ function SlideSAP() {
         <div className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 rounded-full bg-cyan shadow-[0_0_30px_var(--cyan-brand)]" />
         <div className="absolute bottom-8 right-8 h-2.5 w-2.5 rounded-full bg-electric shadow-[0_0_30px_var(--electric)]" />
       </motion.div>
-    </div>
-  );
-}
-function SlideSalesforce() {
-  return (
-    <div className="absolute inset-0">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_30%_50%,oklch(0.82_0.14_210/0.4),transparent_65%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_50%_at_80%_30%,oklch(0.62_0.22_260/0.35),transparent_65%)]" />
-      <svg className="absolute inset-0 h-full w-full opacity-40" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="wave" x1="0" x2="1">
-            <stop offset="0" stopColor="oklch(0.82 0.14 210)" stopOpacity="0" />
-            <stop offset="0.5" stopColor="oklch(0.82 0.14 210)" stopOpacity="0.9" />
-            <stop offset="1" stopColor="oklch(0.82 0.14 210)" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        {[0, 1, 2, 3, 4].map((i) => (
-          <motion.path
-            key={i}
-            d={`M 0 ${300 + i * 80} Q 400 ${200 + i * 60} 800 ${300 + i * 80} T 1600 ${300 + i * 80}`}
-            fill="none" stroke="url(#wave)" strokeWidth="1"
-            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-            transition={{ duration: 3, delay: i * 0.3, repeat: Infinity, repeatType: "reverse" }}
-          />
-        ))}
-      </svg>
     </div>
   );
 }
@@ -160,34 +137,34 @@ function SlideSAPCloud() {
 
 const SLIDES: Slide[] = [
   {
-    eyebrow: "Enterprise IT Consulting, SAP, Salesforce & Software Development",
+    eyebrow: "Enterprise IT Consulting, SAP, Zoho & Software Development",
     title: "Technology That Moves Heavy Industry ",
     accent: "Forward.",
-    sub: "Acceleron Solutions helps mining, manufacturing, and enterprise businesses run better—with SAP and Salesforce implementations, custom software, IT infrastructure, and cybersecurity built by people who understand how your operations actually work.",
+    sub: "Acceleron Solutions helps mining, manufacturing, and enterprise businesses run better—with SAP, Zoho, custom software, IT infrastructure, and cybersecurity built by people who understand how your operations actually work.",
     gradient: "from-[oklch(0.14_0.06_265)] to-[oklch(0.2_0.09_265)]",
     Visual: SlideSAP,
   },
   {
-    eyebrow: "Chapter 02 · Applied AI",
+    eyebrow: "Enterprise AI & Advanced Analytics",
     title: "Intelligence, ",
     accent: "operationalized.",
-    sub: "Generative agents, predictive systems and RAG pipelines — in production.",
+    sub: "Empower your workforce with production-ready AI. We build custom generative agents, scalable RAG pipelines, and predictive machine learning models that transform raw data into actionable, automated insights.",
     gradient: "from-[oklch(0.14_0.07_275)] to-[oklch(0.2_0.09_280)]",
     Visual: SlideAI,
   },
   {
-    eyebrow: "Chapter 03 · Zoho Premium Partner",
+    eyebrow: "Zoho Premium Implementation Partner",
     title: "Business apps, ",
     accent: "in weeks.",
-    sub: "Zoho One, CRM, Creator and Analytics — deployed and adopted, end to end.",
+    sub: "Unify your entire business operating system. From Zoho CRM and Books to Creator and HRMS, we design, deploy, and customize Zoho's comprehensive suite to perfectly map to your organization's unique workflows.",
     gradient: "from-[oklch(0.16_0.07_20)] to-[oklch(0.2_0.09_265)]",
     Visual: SlideZoho,
   },
   {
-    eyebrow: "Chapter 04 · SAP Cloud & RISE with SAP",
+    eyebrow: "SAP Cloud & RISE with SAP",
     title: "SAP Cloud, ",
     accent: "at scale.",
-    sub: "RISE with SAP, Business Technology Platform (BTP), and resilient cloud migrations — modernizing your digital core with zero disruption.",
+    sub: "Future-proof your enterprise with seamless SAP S/4HANA transitions. We specialize in RISE with SAP migrations, Business Technology Platform (BTP) extensions, and zero-disruption cloud transformations tailored for heavy industries.",
     gradient: "from-[oklch(0.16_0.07_240)] to-[oklch(0.22_0.09_255)]",
     Visual: SlideSAPCloud,
   },
@@ -458,7 +435,6 @@ function HeroDashboard({ slideIndex, tone }: { slideIndex: number; tone: string 
 const TONES = ["#4c5a8a", "#de1e24", "#4c5a8a", "#0FAAFF"];
 const PARTNERS = [
   { name: "SAP", Logo: SAPLogo },
-  { name: "Salesforce", Logo: SalesforceLogo },
   { name: "Zoho", Logo: ZohoLogo },
   { name: "AWS", Logo: AWSLogo },
   { name: "Microsoft", Logo: MicrosoftLogo },
@@ -466,28 +442,134 @@ const PARTNERS = [
 
 function Hero() {
   const [index, setIndex] = useState(0);
+  const [videoPhase, setVideoPhase] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 1, 0]);
   const { x: mx, y: my } = useMouseParallax(10);
 
+  // Only start the slide auto-rotation after the video phase ends
   useEffect(() => {
+    if (videoPhase) return;
     const t = setInterval(() => setIndex((i) => (i + 1) % SLIDES.length), 6000);
     return () => clearInterval(t);
-  }, []);
+  }, [videoPhase]);
 
   const s = SLIDES[index];
   const tone = TONES[index];
 
+  const handleVideoEnd = () => {
+    setVideoPhase(false);
+  };
+
   return (
     <section ref={ref} id="top" className="relative min-h-screen overflow-hidden bg-background">
+      {/* ── Video intro phase ── */}
+      <AnimatePresence>
+        {videoPhase && (
+          <motion.div
+            key="hero-video"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="absolute inset-0 z-30"
+          >
+            <video
+              ref={videoRef}
+              src="/Hero_BG_Video.mp4"
+              autoPlay
+              muted
+              playsInline
+              onEnded={handleVideoEnd}
+              className="h-full w-full object-cover"
+            />
+            {/* Dark scrim for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/80 to-transparent" />
+
+            {/* Text overlay & CTAs */}
+            <div className="absolute inset-0 z-40 flex items-center">
+              <div className="mx-auto w-full max-w-7xl px-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/90 backdrop-blur-sm"
+                >
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
+                  </span>
+                  Engineering Digital Excellence
+                </motion.div>
+
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                  className="mt-7 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+                >
+                  Built on Legacy.{" "}
+                  <span className="bg-gradient-to-r from-white via-white/90 to-red-400 bg-clip-text text-transparent">
+                    Driven by Innovation.
+                  </span>
+                </motion.h1>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9, duration: 0.8 }}
+                  className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg"
+                >
+                  From the Gainwell Group — powering mining, manufacturing, and enterprise transformation with SAP, Zoho, AI, and custom-built digital platforms.
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.2, duration: 0.7 }}
+                  className="mt-9 flex flex-wrap items-center gap-4"
+                >
+                  <a
+                    href="#contact"
+                    className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-red-600 to-red-500 px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-red-600/25 transition-all hover:shadow-red-600/40 hover:scale-105"
+                  >
+                    Start Your Journey
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                  <Link
+                    to="/services"
+                    className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/20"
+                  >
+                    <span className="grid h-6 w-6 place-items-center rounded-full border border-white/25 transition-transform group-hover:scale-110">
+                      <Layers className="h-3 w-3 text-white/80" />
+                    </span>
+                    Explore Services
+                  </Link>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Skip button */}
+            <button
+              onClick={handleVideoEnd}
+              className="absolute bottom-8 right-8 z-50 rounded-full border border-white/20 bg-black/40 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-white/80 backdrop-blur-md transition-all hover:bg-black/60 hover:text-white"
+            >
+              Skip <ArrowRight className="ml-1.5 inline-block h-3 w-3" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── Normal hero content (visible after video) ── */}
       <div className="pointer-events-none absolute inset-0 bg-hero" />
       <div className="pointer-events-none absolute inset-0 grid-lines opacity-[0.08]" />
       <AnimatePresence mode="sync">
         <motion.div
           key={`bg-${index}`}
-          initial={{ opacity: 0 }} animate={{ opacity: 0.55 }} exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }} animate={{ opacity: videoPhase ? 0 : 0.55 }} exit={{ opacity: 0 }}
           transition={{ duration: 1.4 }}
           className="pointer-events-none absolute inset-0"
           style={{ background: `radial-gradient(ellipse 60% 60% at 80% 40%, ${tone}44, transparent 60%)` }}
@@ -499,56 +581,59 @@ function Hero() {
         className="relative z-10 mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 items-center gap-14 px-6 pt-28 pb-16 md:grid-cols-2 md:gap-10"
       >
         <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div
-                className="inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em]"
-                style={{ color: tone, borderColor: `${tone}66`, background: `${tone}14` }}
+          <div className="relative min-h-[320px] sm:min-h-[380px] md:min-h-[420px] lg:min-h-[440px] xl:min-h-[480px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: videoPhase ? 0 : 1, y: videoPhase ? 20 : 0 }} exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-x-0 top-0"
               >
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-pulse-ring rounded-full" style={{ background: tone }} />
-                  <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: tone }} />
-                </span>
-                {s.eyebrow}
-              </div>
+                <div
+                  className="inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em]"
+                  style={{ color: tone, borderColor: `${tone}66`, background: `${tone}14` }}
+                >
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-pulse-ring rounded-full" style={{ background: tone }} />
+                    <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: tone }} />
+                  </span>
+                  {s.eyebrow}
+                </div>
 
-              <h1 className="mt-7 text-5xl font-bold leading-[0.98] tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
-                <span className="block">{s.title.trim()}</span>
-                <span className="block bg-gradient-to-r from-foreground via-foreground/90 to-[color:var(--tone,#4c5a8a)] bg-clip-text text-transparent"
-                  style={{ ["--tone" as string]: tone } as React.CSSProperties }>
-                  {s.accent}
-                </span>
-              </h1>
+                <h1 className="mt-7 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-[4.5rem]">
+                  <span className="block">{s.title.trim()}</span>
+                  <span className="block bg-gradient-to-r from-foreground via-foreground/90 to-[color:var(--tone,#4c5a8a)] bg-clip-text text-transparent"
+                    style={{ ["--tone" as string]: tone } as React.CSSProperties }>
+                    {s.accent}
+                  </span>
+                </h1>
 
-              <p className="mt-7 max-w-lg text-lg leading-relaxed text-foreground/85 md:text-xl">
-                {s.sub}
-              </p>
-            </motion.div>
-          </AnimatePresence>
+                <p className="mt-7 max-w-lg text-base leading-relaxed text-foreground/85 md:text-lg">
+                  {s.sub}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }}
-            className="mt-9 flex flex-wrap items-center gap-4"
+            initial={{ opacity: 0, y: 16 }} animate={{ opacity: videoPhase ? 0 : 1, y: videoPhase ? 16 : 0 }} transition={{ delay: 0.4, duration: 0.7 }}
+            className="mt-6 flex flex-wrap items-center gap-4"
           >
             <MagneticButton href="#contact">
               Start your journey <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </MagneticButton>
-            <a href="#story"
+            <Link to="/services"
               className="group inline-flex items-center gap-2.5 rounded-full border border-border px-6 py-4 text-sm font-medium text-foreground transition-all hover:border-border hover:bg-muted/5">
               <span className="grid h-6 w-6 place-items-center rounded-full border border-border transition-transform group-hover:scale-110">
-                <Play className="h-2.5 w-2.5 fill-foreground" />
+                <Layers className="h-3 w-3 fill-foreground/20" />
               </span>
-              Watch the story
-            </a>
+              Explore our Services
+            </Link>
           </motion.div>
 
           <motion.a
-            href="#story"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}
+            href="#discover"
+            initial={{ opacity: 0 }} animate={{ opacity: videoPhase ? 0 : 1 }} transition={{ delay: 0.9 }}
             className="mt-10 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-foreground/60 transition-colors hover:text-foreground"
           >
             <motion.span
@@ -557,7 +642,7 @@ function Hero() {
             >
               <ArrowDown className="h-3.5 w-3.5" />
             </motion.span>
-            Scroll the story
+            Discover More
           </motion.a>
 
           <div className="mt-10 flex items-center gap-5">
@@ -569,7 +654,7 @@ function Hero() {
                   className="group relative h-1 w-10 overflow-hidden rounded-full bg-muted/15"
                   aria-label={`Slide ${i + 1}`}
                 >
-                  {i === index && (
+                  {i === index && !videoPhase && (
                     <motion.span
                       key={`bar-${index}`}
                       initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 6, ease: "linear" }}
@@ -627,7 +712,7 @@ function EcosystemMarquee() {
   return (
     <section className="relative bg-muted/30 border-y border-border/50 py-10 overflow-hidden z-20">
       <div className="mx-auto max-w-7xl px-6 mb-6 text-center">
-        <div className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-red">Trusted Technology Partners & Global Clients</div>
+        <div className="text-xs font-bold uppercase tracking-[0.4em] text-brand-red">Trusted By / Partners</div>
       </div>
       <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         <motion.div
@@ -636,9 +721,8 @@ function EcosystemMarquee() {
           className="flex items-center gap-8 shrink-0 pr-8"
         >
           {[...ECOSYSTEM_LOGOS, ...ECOSYSTEM_LOGOS].map((item, idx) => (
-            <div key={idx} className="flex items-center gap-3 shrink-0 px-4 py-2.5 rounded-2xl bg-white/90 dark:bg-muted/40 border border-border/50 backdrop-blur-md shadow-soft hover:border-brand/40 transition-all">
-              <img src={item.logo} alt={item.name} loading="lazy" className="h-8 max-w-[110px] object-contain" />
-              <span className="text-xs font-bold text-foreground/80">{item.name}</span>
+            <div key={idx} className="flex items-center justify-center shrink-0 px-6 py-3 rounded-2xl bg-white/90 dark:bg-muted/40 border border-border/50 backdrop-blur-md shadow-soft hover:border-brand/40 transition-all">
+              <img src={getAssetUrl(item.logo)} alt="" loading="lazy" decoding="async" className="h-8 max-w-[130px] object-contain" />
             </div>
           ))}
         </motion.div>
@@ -662,7 +746,7 @@ const STORY_CHAPTERS = [
     n: "02",
     kicker: "The method",
     title: "One partner. Whole stack. Accountable outcomes.",
-    body: "SAP core. Salesforce edge. Zoho velocity. AI on top. We orchestrate the layers so your people don't have to.",
+    body: "SAP core. Zoho velocity. AI on top. We orchestrate the layers so your people don't have to.",
     tone: "oklch(0.82 0.14 210)",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=75&w=1200",
   },
@@ -743,7 +827,7 @@ function ScrollStory() {
                 className="absolute inset-0 bg-background"
               >
                 <div className="absolute inset-0" style={{ background: `radial-gradient(circle at center, ${STORY_CHAPTERS[active].tone}66, transparent 60%)`, zIndex: 10 }} />
-                <img src={STORY_CHAPTERS[active].image} alt={STORY_CHAPTERS[active].title} className="absolute inset-0 h-full w-full object-cover opacity-70" style={{ zIndex: 0 }} />
+                <img src={getAssetUrl(STORY_CHAPTERS[active].image)} alt={STORY_CHAPTERS[active].title} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-70" style={{ zIndex: 0 }} />
                 <div className="absolute inset-0 grid-lines opacity-30 z-20" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-transparent to-transparent z-20" />
               </motion.div>
@@ -852,7 +936,7 @@ function About() {
                     {[
                       { t: "Gainwell Group Heritage", d: "Built as the technology engine of the 80-year-old Gainwell Group, rooted in mining, engineering, and heavy-equipment operations." },
                       { t: "Global Delivery Expansion", d: "Established strategic delivery hubs across Kolkata (HQ), Delhi NCR, Bangalore, Singapore, West Virginia, and NSW." },
-                      { t: "Enterprise Practice Leadership", d: "Scaled dedicated, certified centers of excellence in SAP S/4HANA, Salesforce, Zoho Suite, Cloud Infrastructure, and Cyber Security." },
+                      { t: "Enterprise Practice Leadership", d: "Scaled dedicated, certified centers of excellence in SAP S/4HANA, Zoho Suite, Cloud Infrastructure, and Cyber Security." },
                       { t: "Global Digital Transformation", d: "Modernized core ERP and customer intelligence for 200+ enterprise clients across 28 countries." },
                       { t: "Next-Gen Analytics & AI Deployment", d: "Launched advanced data lake architectures and predictive, generative AI agents running live in production." },
                     ].map((m, i) => (
@@ -888,22 +972,21 @@ function About() {
 /* ═══════════════════ SERVICES ═══════════════════ */
 
 const SERVICES = [
-  { icon: Database, t: "SAP", d: "S/4HANA, BTP, RISE — end-to-end SAP transformation for the intelligent enterprise.", url: "/services/sap" },
-  { icon: Cloud, t: "Salesforce", d: "Sales, Service, Marketing, Data Cloud — CRM engineered around your customer.", url: "/services/salesforce" },
-  { icon: LineChart, t: "Analytics & AI", d: "From dashboards to generative agents. Turn data into direction.", url: "/services/analytics" },
-  { icon: Blocks, t: "Zoho Suite", d: "Rapid business apps across finance, ops, CX — deployed in weeks, not quarters.", url: "/services/zoho" },
-  { icon: Code2, t: "Software Development", d: "Custom platforms in React, Node, Flutter — enterprise-grade code, product-grade craft.", url: "/services/software-development" },
-  { icon: Cpu, t: "IT Infrastructure", d: "Cloud, hybrid, on-prem. AWS, Azure, Kubernetes — resilient by design.", url: "/services/it-infrastructure" },
-  { icon: Briefcase, t: "CXO Advisory", d: "Board-level guidance on tech strategy, M&A, and digital operating models.", url: "/services/cxo-advisory" },
-  { icon: ShieldCheck, t: "Cyber Security", d: "Zero-trust architectures, SOC modernization, and compliance you can prove.", url: "/services/cyber-security" },
+  { icon: Database, t: "SAP", d: "S/4HANA, BTP, RISE — end-to-end SAP transformation for the intelligent enterprise.", url: "/services/sap", img: "/SAP_Homepage.jpg" },
+  { icon: LineChart, t: "Analytics & AI", d: "From dashboards to generative agents. Turn data into direction.", url: "/services/analytics", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=600&auto=format&fit=crop" },
+  { icon: Blocks, t: "Zoho Suite", d: "Rapid business apps across finance, ops, CX — deployed in weeks, not quarters.", url: "/services/zoho", img: "/ZOHO_LOGO.png" },
+  { icon: Code2, t: "Software Development", d: "Custom platforms in React, Node, Flutter — enterprise-grade code, product-grade craft.", url: "/services/software-development", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop" },
+  { icon: Cpu, t: "IT Infrastructure", d: "Cloud, hybrid, on-prem. AWS, Azure, Kubernetes — resilient by design.", url: "/services/it-infrastructure", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=600&auto=format&fit=crop" },
+  { icon: Briefcase, t: "CXO Advisory", d: "Board-level guidance on tech strategy, M&A, and digital operating models.", url: "/services/cxo-advisory", img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=75&w=600&auto=format&fit=crop" },
+  { icon: ShieldCheck, t: "Cyber Security", d: "Zero-trust architectures, SOC modernization, and compliance you can prove.", url: "/services/cyber-security", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=600&auto=format&fit=crop" },
 ];
 
 function Services() {
   return (
-    <section id="services" className="relative overflow-hidden bg-muted py-32">
+    <section id="services" className="relative overflow-hidden bg-background py-32">
       {/* radial spotlight — unique to Services */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgb(58_73_127/0.06),transparent_70%)]" />
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
         <Reveal>
           <div className="text-xs uppercase tracking-[0.4em] text-electric">Services</div>
         </Reveal>
@@ -920,29 +1003,43 @@ function Services() {
 
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s, i) => (
-            <Reveal key={s.t} delay={i * 0.06}>
-              <Link to={s.url as any} className="block h-full cursor-pointer">
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="group relative h-full overflow-hidden rounded-2xl border border-border bg-muted p-7 shadow-card transition-all hover:shadow-glow hover:border-brand/40"
-                >
-                  <div className="absolute inset-0 bg-brand-gradient opacity-0 transition-opacity duration-500 group-hover:opacity-[0.04]" />
-                  <div className="absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    style={{ background: "linear-gradient(135deg, transparent, oklch(0.62 0.22 260 / 0.3), transparent) border-box", WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)", WebkitMaskComposite: "xor", padding: "1px" }} />
-                  <div className="relative flex flex-col h-full justify-between">
-                    <div>
-                      <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-primary-foreground shadow-glow">
-                        <s.icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="mt-5 text-lg font-semibold text-foreground group-hover:text-brand transition-colors">{s.t}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
-                    </div>
-                    <div className="mt-6 flex items-center gap-1.5 text-xs font-medium text-electric opacity-80 transition-opacity group-hover:opacity-100">
-                      Learn more & explore <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <Reveal key={s.t} delay={i * 0.06} className={i === 0 ? "lg:col-span-2" : ""}>
+              <Link to={s.url as any} className="group relative overflow-hidden rounded-3xl h-[320px] sm:h-[400px] block cursor-pointer">
+                {/* Base Image or Logo Container */}
+                {s.img.endsWith(".png") || s.img.includes("LOGO") ? (
+                  <div className="absolute inset-0 flex items-center justify-center p-8 z-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950">
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,29,72,0.2),transparent_70%)]" />
+                    <div className="relative bg-white/95 backdrop-blur-md px-7 py-5 rounded-2xl shadow-2xl border border-white/20 transition-all duration-700 group-hover:scale-105 group-hover:bg-white group-hover:shadow-red-500/20 mb-12">
+                      <img src={getAssetUrl(s.img)} alt={s.t} className="h-12 sm:h-16 w-auto max-w-[200px] sm:max-w-[240px] object-contain" />
                     </div>
                   </div>
-                </motion.div>
+                ) : (
+                  <img src={getAssetUrl(s.img)} alt={s.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                )}
+                
+                {/* Dark Overlay (always partially there, gets darker on hover) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 transition-opacity duration-300 group-hover:opacity-100 opacity-80" />
+                
+                {/* Content Container */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                  {/* Always visible title & icon */}
+                  <div className="flex items-center gap-3 mb-4 transform transition-transform duration-300 group-hover:-translate-y-2">
+                    <div className="h-10 w-10 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center text-white border border-white/20">
+                      <s.icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white">{s.t}</h3>
+                  </div>
+                  
+                  {/* Hidden on idle, visible on hover */}
+                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
+                    <div className="overflow-hidden">
+                      <p className="text-white/80 text-sm mb-6 leading-relaxed">{s.d}</p>
+                      <div className="flex items-center gap-2 text-brand font-semibold text-sm transition-transform duration-300 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
+                        Learn more <ArrowUpRight className="h-4 w-4" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </Link>
             </Reveal>
           ))}
@@ -956,7 +1053,7 @@ function Services() {
 
 const TECH_ITEMS = [
   { n: "SAP", iconUrl: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg", Logo: SAPLogo, color: "#0FAAFF", projects: "42", desc: "Core ERP implementations for global manufacturing and retail clients." },
-  { n: "Salesforce", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/salesforce/salesforce-original.svg", Logo: SalesforceLogo, color: "#00A1E0", projects: "58", desc: "Enterprise CRM, Data Cloud, and Einstein AI deployments." },
+
   { n: "AWS", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", Logo: AWSLogo, color: "#FF9900", projects: "120+", desc: "Cloud architecture, serverless, and resilient data lakes." },
   { n: "Azure", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg", Logo: MicrosoftLogo, color: "#0089D6", projects: "84", desc: "Hybrid cloud solutions and enterprise AI integrations." },
   { n: "Docker", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg", Logo: DockerLogo, color: "#2496ED", projects: "180+", desc: "Containerized microservices running at global scale." },
@@ -1052,11 +1149,7 @@ function TechStack() {
                         ? "border-border bg-muted/[0.18] shadow-[0_0_50px_-10px_rgba(255,255,255,0.3)]"
                         : "border-border bg-muted/[0.06]"
                     }`} style={isHovered ? { borderColor: `${tech.color}88`, boxShadow: `0 0 40px -8px ${tech.color}55` } : {}}>
-                      {tech.iconUrl ? (
-                        <img src={tech.iconUrl} alt={tech.n} className="h-8 w-8 object-contain" style={{ filter: `drop-shadow(0 0 8px ${tech.color}44)` }} />
-                      ) : (
-                        <tech.Logo className="h-8 w-8 text-foreground" style={{ filter: `drop-shadow(0 0 8px ${tech.color}44)` }} />
-                      )}
+                      <tech.Logo className="h-8 w-8 text-foreground" style={{ filter: `drop-shadow(0 0 8px ${tech.color}44)` }} />
                     </div>
                   </motion.div>
                 );
@@ -1090,11 +1183,7 @@ function TechStack() {
                     >
                       <div className="flex items-center gap-4">
                         <div className="grid h-14 w-14 place-items-center rounded-2xl" style={{ background: `${activeTech.color}22`, border: `1px solid ${activeTech.color}44` }}>
-                          {activeTech.iconUrl ? (
-                            <img src={activeTech.iconUrl} alt={activeTech.n} className="h-8 w-8 object-contain" style={{ filter: `drop-shadow(0 0 8px ${activeTech.color}44)` }} />
-                          ) : (
-                            <activeTech.Logo className="h-8 w-8 text-foreground" style={{ filter: `drop-shadow(0 0 8px ${activeTech.color}44)` }} />
-                          )}
+                          <activeTech.Logo className="h-8 w-8 text-foreground" style={{ filter: `drop-shadow(0 0 8px ${activeTech.color}44)` }} />
                         </div>
                         <div>
                           <div className="text-2xl font-bold text-foreground">{activeTech.n}</div>
@@ -1209,7 +1298,7 @@ const PRODUCT_DETAILS: Record<string, {
   },
   PJP: {
     tagline: "Every lead, scored and routed in seconds.",
-    body: "Multi-touch attribution, AI lead scoring and auto-nurture flows that plug into Salesforce and HubSpot — built for high-velocity sales orgs.",
+    body: "Multi-touch attribution, AI lead scoring and auto-nurture flows that plug into leading CRMs — built for high-velocity sales orgs.",
     stats: [{ label: "Lead volume", value: "84k/mo" }, { label: "SQL rate", value: "+52%" }, { label: "Time to route", value: "8s" }],
     features: ["AI lead scoring", "Round-robin routing", "Multi-touch attribution", "Native CRM sync"],
     mock: () => (
@@ -1448,9 +1537,9 @@ function Products() {
 
 function Cases() {
   const cases = [
-    { client: "Global Manufacturing Leader", metric: "42%", label: "OEE improvement", desc: "SAP S/4HANA + IoT platform across 14 plants in 9 countries.", gradient: "from-blue-600 to-indigo-700" },
-    { client: "Fortune 500 Retailer", metric: "3.2×", label: "Conversion lift", desc: "Salesforce Data Cloud + Vanijya storefront serving 40M customers.", gradient: "from-violet-600 to-fuchsia-700" },
-    { client: "National Logistics Provider", metric: "68%", label: "Fewer safety incidents", desc: "Suraksha rollout to 12,000 field workers with real-time compliance.", gradient: "from-cyan-600 to-blue-700" },
+    { client: "Global Manufacturing Leader", metric: "42%", label: "OEE improvement", desc: "SAP S/4HANA + IoT platform across 14 plants in 9 countries.", gradient: "from-blue-600 to-indigo-700", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=75&w=600" },
+    { client: "Fortune 500 Retailer", metric: "3.2×", label: "Conversion lift", desc: "Enterprise Data Cloud + Vanijya storefront serving 40M customers.", gradient: "from-violet-600 to-fuchsia-700", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=75&w=600" },
+    { client: "National Logistics Provider", metric: "68%", label: "Fewer safety incidents", desc: "Suraksha rollout to 12,000 field workers with real-time compliance.", gradient: "from-cyan-600 to-blue-700", image: "https://images.unsplash.com/photo-1586528116311-ad8ed7c15f5f?auto=format&fit=crop&q=75&w=600" },
   ];
   return (
     <section className="relative overflow-hidden bg-muted py-32">
@@ -1471,6 +1560,9 @@ function Cases() {
               <motion.div whileHover={{ y: -8 }} transition={{ type: "spring", stiffness: 300 }}
                 className="group relative overflow-hidden rounded-3xl border border-border bg-muted p-8 shadow-card transition-shadow hover:shadow-glow"
               >
+                <div className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity mix-blend-overlay">
+                  <img src={c.image} alt="" className="w-full h-full object-cover" />
+                </div>
                 <div className={`absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br ${c.gradient} opacity-20 blur-2xl transition-opacity group-hover:opacity-40`} />
                 {/* watermark number */}
                 <div className="pointer-events-none absolute -right-4 -bottom-6 text-[120px] font-bold leading-none text-foreground/[0.03] select-none">
@@ -1499,26 +1591,22 @@ function Cases() {
 /* ═══════════════════ INDUSTRIES ═══════════════════ */
 
 const INDUSTRIES = [
-  { t: "Manufacturing", icon: Factory },
-  { t: "Healthcare", icon: HeartPulse },
-  { t: "Retail", icon: ShoppingBag },
-  { t: "Logistics", icon: Truck },
-  { t: "Education", icon: GraduationCap },
-  { t: "Government", icon: Landmark },
-  { t: "Finance", icon: Banknote },
-  { t: "Construction", icon: HardHat },
-  { t: "Oil & Gas", icon: Flame },
+  { t: "Manufacturing", desc: "Smart factories and Industry 4.0 automation.", icon: Factory, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=600&auto=format&fit=crop" },
+  { t: "Healthcare", desc: "Digital health records, telemedicine, and compliance.", icon: HeartPulse, img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=75&w=600&auto=format&fit=crop" },
+  { t: "Retail", desc: "Omnichannel commerce and hyper-personalized CX.", icon: ShoppingBag, img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=75&w=600&auto=format&fit=crop" },
+  { t: "Logistics", desc: "Supply chain visibility, fleet tracking, and optimization.", icon: Truck, img: "/logistics-img.jpg" },
+  { t: "Education", desc: "EdTech platforms, e-learning, and campus management.", icon: GraduationCap, img: "/education-img.jpg" },
+  { t: "Government", desc: "Secure public sector portals and civic tech.", icon: Landmark, img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=75&w=600&auto=format&fit=crop" },
+  { t: "Finance", desc: "FinTech apps, secure transactions, and open banking.", icon: Banknote, img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=75&w=600&auto=format&fit=crop" },
+  { t: "Construction", desc: "Project lifecycle management and IoT safety wearables.", icon: HardHat, img: "/construction-img.jpg" },
+  { t: "Oil & Gas", desc: "Predictive maintenance and remote asset monitoring.", icon: Flame, img: "/oilandgas-img.jpg" },
 ];
 
 function Industries() {
   return (
-    <section id="industries" className="relative overflow-hidden bg-background py-32 text-foreground">
-      <div className="absolute inset-0 grid-lines opacity-10" />
-      {/* dotted world-map-like pattern — unique to Industries */}
-      <div className="absolute inset-0 starfield opacity-40" />
-      <div className="absolute top-40 -left-40 h-96 w-96 rounded-full bg-violet/20 blur-[140px]" />
-      <div className="absolute bottom-20 right-10 h-64 w-64 rounded-full bg-brand-red/10 blur-[120px]" />
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="industries" className="relative overflow-hidden bg-muted py-32 text-foreground">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,rgb(58_73_127/0.06),transparent_70%)] pointer-events-none" />
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
         <Reveal>
           <div className="text-xs uppercase tracking-[0.4em] text-brand-red">Industries</div>
         </Reveal>
@@ -1527,24 +1615,36 @@ function Industries() {
             Deep expertise across <span className="text-gradient-light">nine verticals.</span>
           </h2>
         </Reveal>
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
           {INDUSTRIES.map((it, i) => (
             <Reveal key={it.t} delay={i * 0.06}>
-              <motion.div whileHover={{ y: -4 }}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-muted/[0.02] p-8 transition-all hover:border-electric/40 hover:bg-muted/[0.05]"
-              >
-                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-electric/0 blur-2xl transition-all group-hover:bg-electric/30" />
-                <div className="relative flex items-center gap-4">
-                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-muted/[0.06] transition-colors group-hover:bg-brand-gradient">
-                    <it.icon className="h-6 w-6 text-cyan transition-colors group-hover:text-white" />
+              <Link to="/contact" className="group relative overflow-hidden rounded-3xl h-[280px] block cursor-pointer border border-border shadow-soft">
+                {/* Base Image */}
+                <img src={it.img} alt={it.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-300 group-hover:opacity-100 opacity-70" />
+                
+                {/* Content Container */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
+                  <div className="flex items-center gap-3 mb-2 transform transition-transform duration-300 group-hover:-translate-y-1">
+                    <div className="h-10 w-10 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center text-white border border-white/20">
+                      <it.icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white">{it.t}</h3>
                   </div>
-                  <div className="min-w-0">
-                    <div className="text-lg font-semibold">{it.t}</div>
-                    <div className="text-xs text-foreground/50">Industry practice</div>
+                  
+                  {/* Hover Content */}
+                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
+                    <div className="overflow-hidden">
+                      <p className="text-white/80 text-sm mb-4 leading-relaxed">{it.desc}</p>
+                      <div className="flex items-center gap-2 text-brand font-semibold text-xs transition-transform duration-300 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
+                        Explore solutions <ArrowRight className="h-3.5 w-3.5" />
+                      </div>
+                    </div>
                   </div>
-                  <ArrowUpRight className="ml-auto h-5 w-5 text-foreground/30 transition-all group-hover:text-cyan group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </div>
-              </motion.div>
+              </Link>
             </Reveal>
           ))}
         </div>
@@ -1663,7 +1763,7 @@ function Events() {
       date: "February 20, 2025",
       location: "Acceleron Delivery Hub",
       category: "Workshops",
-      desc: "Interactive technical deep-dives with enterprise solution architects on RISE with SAP, S/4HANA migration frameworks, and Salesforce Lightning integrations.",
+      desc: "Interactive technical deep-dives with enterprise solution architects on RISE with SAP, S/4HANA migration frameworks, and enterprise CRM integrations.",
       image: "/Rishabh Nair Speaking.JPG",
     },
     {
@@ -1792,16 +1892,17 @@ function Events() {
                   className="absolute inset-0"
                 >
                   <img
-                    src={eventSlides[currentSlide].image}
+                    src={getAssetUrl(eventSlides[currentSlide].image)}
                     alt={eventSlides[currentSlide].title}
                     loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent lg:hidden" />
                 </motion.div>
               </AnimatePresence>
               <div className="absolute top-6 left-6 z-10">
-                <span className="inline-flex items-center rounded-full bg-brand-gradient px-4 py-1.5 text-xs font-bold text-white shadow-md">
+                <span className="btn btn-primary btn-sm">
                   {eventSlides[currentSlide].category}
                 </span>
               </div>
@@ -1884,7 +1985,7 @@ function Events() {
 function Careers() {
   const jobs = [
     { r: "Senior SAP Consultant", loc: "Bangalore · Hybrid", d: "S/4HANA" },
-    { r: "Salesforce Solution Architect", loc: "Remote · Global", d: "Sales Cloud" },
+    { r: "Cloud & CRM Architect", loc: "Remote · Global", d: "Enterprise CRM" },
     { r: "AI Engineer", loc: "London · Hybrid", d: "GenAI / RAG" },
     { r: "Product Designer", loc: "Bangalore · Onsite", d: "Design Systems" },
   ];
@@ -1980,21 +2081,7 @@ function Contact() {
           <Reveal delay={0.1}>
             <div className="rounded-3xl border border-border/50 bg-background/50 p-10 backdrop-blur-xl h-full">
               <h2 className="text-2xl font-bold text-foreground mb-8">Send us a message</h2>
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div>
-                  <label className="block text-sm font-medium text-muted-foreground mb-2">Name</label>
-                  <input type="text" placeholder="Name" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-muted-foreground mb-2">Email</label>
-                  <input type="email" placeholder="Email" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-muted-foreground mb-2">Message</label>
-                  <textarea rows={4} placeholder="Message" className="w-full rounded-xl border border-border bg-background p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50" />
-                </div>
-                <button type="submit" className="w-full rounded-xl bg-brand-gradient py-4 text-white font-bold shadow-glow hover:scale-[1.02] transition-transform">Send Message</button>
-              </form>
+              <HomeContactForm />
             </div>
           </Reveal>
           <Reveal delay={0.2}>
@@ -2066,26 +2153,18 @@ function Home() {
       <main>
         <Hero />
         <EcosystemMarquee />
-        <ScrollStory />
         <WaveDivider from="dark" to="light" />
-        <About />
-        <WaveDivider from="light" to="white" flip />
         <Services />
-        <WaveDivider from="white" to="dark" />
-        <TechStack />
-        <WaveDivider from="dark" to="light" />
-        <Products />
-        <WaveDivider from="light" to="white" flip />
-        <Cases />
-        <WaveDivider from="white" to="dark" />
+        <WaveDivider from="light" to="dark" />
         <Industries />
-        <WaveDivider from="dark" to="white" />
-        <Process />
-        <WaveDivider from="white" to="dark" />
-        <Events />
-        <WaveDivider from="dark" to="white" />
-        <Careers />
-        <WaveDivider from="white" to="dark" />
+        <WhyChooseUs />
+        <WaveDivider from="dark" to="light" />
+        <CSRSection />
+        <WaveDivider from="light" to="dark" />
+        <GlobalPresence />
+        <WaveDivider from="dark" to="light" />
+        <InsightsSection />
+        <WaveDivider from="light" to="dark" />
         <Contact />
       </main>
     </div>

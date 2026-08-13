@@ -10,19 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as ProductsIndexRouteImport } from './routes/products/index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as ServicesZohoRouteImport } from './routes/services/zoho'
 import { Route as ServicesSoftwareDevelopmentRouteImport } from './routes/services/software-development'
 import { Route as ServicesSapRouteImport } from './routes/services/sap'
-import { Route as ServicesSalesforceRouteImport } from './routes/services/salesforce'
 import { Route as ServicesItInfrastructureRouteImport } from './routes/services/it-infrastructure'
 import { Route as ServicesCyberSecurityRouteImport } from './routes/services/cyber-security'
 import { Route as ServicesCxoAdvisoryRouteImport } from './routes/services/cxo-advisory'
@@ -40,12 +42,22 @@ import { Route as IndustriesEngineeringConstructionOperationsRouteImport } from 
 import { Route as IndustriesDiscreteManufacturingRouteImport } from './routes/industries/discrete-manufacturing'
 import { Route as IndustriesCapitalGoodsRouteImport } from './routes/industries/capital-goods'
 import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
+import { Route as AdminManageContentRouteImport } from './routes/admin.manage-content'
+import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
+import { Route as AdminJobsRouteImport } from './routes/admin.jobs'
+import { Route as AdminCvSubmissionsRouteImport } from './routes/admin.cv-submissions'
+import { Route as AdminContentRouteImport } from './routes/admin.content'
 import { Route as ServicesDetailSlugRouteImport } from './routes/services/detail.$slug'
 import { Route as ServicesCategoryServiceRouteImport } from './routes/services/$category.$service'
 
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -66,6 +78,11 @@ const CareersRoute = CareersRouteImport.update({
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -93,6 +110,11 @@ const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
   path: '/industries/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
 const ServicesZohoRoute = ServicesZohoRouteImport.update({
   id: '/services/zoho',
   path: '/services/zoho',
@@ -107,11 +129,6 @@ const ServicesSoftwareDevelopmentRoute =
 const ServicesSapRoute = ServicesSapRouteImport.update({
   id: '/services/sap',
   path: '/services/sap',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesSalesforceRoute = ServicesSalesforceRouteImport.update({
-  id: '/services/salesforce',
-  path: '/services/salesforce',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesItInfrastructureRoute =
@@ -203,6 +220,31 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminManageContentRoute = AdminManageContentRouteImport.update({
+  id: '/manage-content',
+  path: '/manage-content',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLeadsRoute = AdminLeadsRouteImport.update({
+  id: '/leads',
+  path: '/leads',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminJobsRoute = AdminJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCvSubmissionsRoute = AdminCvSubmissionsRouteImport.update({
+  id: '/cv-submissions',
+  path: '/cv-submissions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminContentRoute = AdminContentRouteImport.update({
+  id: '/content',
+  path: '/content',
+  getParentRoute: () => AdminRoute,
+} as any)
 const ServicesDetailSlugRoute = ServicesDetailSlugRouteImport.update({
   id: '/services/detail/$slug',
   path: '/services/detail/$slug',
@@ -217,11 +259,18 @@ const ServicesCategoryServiceRoute = ServicesCategoryServiceRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/login': typeof LoginRoute
   '/team': typeof TeamRoute
+  '/admin/content': typeof AdminContentRoute
+  '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
+  '/admin/jobs': typeof AdminJobsRoute
+  '/admin/leads': typeof AdminLeadsRoute
+  '/admin/manage-content': typeof AdminManageContentRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
@@ -239,10 +288,10 @@ export interface FileRoutesByFullPath {
   '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
   '/services/cyber-security': typeof ServicesCyberSecurityRoute
   '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
-  '/services/salesforce': typeof ServicesSalesforceRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
+  '/admin/': typeof AdminIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -256,7 +305,13 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/login': typeof LoginRoute
   '/team': typeof TeamRoute
+  '/admin/content': typeof AdminContentRoute
+  '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
+  '/admin/jobs': typeof AdminJobsRoute
+  '/admin/leads': typeof AdminLeadsRoute
+  '/admin/manage-content': typeof AdminManageContentRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
@@ -274,10 +329,10 @@ export interface FileRoutesByTo {
   '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
   '/services/cyber-security': typeof ServicesCyberSecurityRoute
   '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
-  '/services/salesforce': typeof ServicesSalesforceRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
+  '/admin': typeof AdminIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
   '/services': typeof ServicesIndexRoute
@@ -288,11 +343,18 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRouteWithChildren
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/login': typeof LoginRoute
   '/team': typeof TeamRoute
+  '/admin/content': typeof AdminContentRoute
+  '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
+  '/admin/jobs': typeof AdminJobsRoute
+  '/admin/leads': typeof AdminLeadsRoute
+  '/admin/manage-content': typeof AdminManageContentRoute
   '/blog_/$slug': typeof BlogSlugRoute
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
@@ -310,10 +372,10 @@ export interface FileRoutesById {
   '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
   '/services/cyber-security': typeof ServicesCyberSecurityRoute
   '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
-  '/services/salesforce': typeof ServicesSalesforceRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
+  '/admin/': typeof AdminIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -325,11 +387,18 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/admin'
     | '/blog'
     | '/careers'
     | '/contact'
     | '/gallery'
+    | '/login'
     | '/team'
+    | '/admin/content'
+    | '/admin/cv-submissions'
+    | '/admin/jobs'
+    | '/admin/leads'
+    | '/admin/manage-content'
     | '/blog/$slug'
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
@@ -347,10 +416,10 @@ export interface FileRouteTypes {
     | '/services/cxo-advisory'
     | '/services/cyber-security'
     | '/services/it-infrastructure'
-    | '/services/salesforce'
     | '/services/sap'
     | '/services/software-development'
     | '/services/zoho'
+    | '/admin/'
     | '/industries/'
     | '/products/'
     | '/services/'
@@ -364,7 +433,13 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/gallery'
+    | '/login'
     | '/team'
+    | '/admin/content'
+    | '/admin/cv-submissions'
+    | '/admin/jobs'
+    | '/admin/leads'
+    | '/admin/manage-content'
     | '/blog/$slug'
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
@@ -382,10 +457,10 @@ export interface FileRouteTypes {
     | '/services/cxo-advisory'
     | '/services/cyber-security'
     | '/services/it-infrastructure'
-    | '/services/salesforce'
     | '/services/sap'
     | '/services/software-development'
     | '/services/zoho'
+    | '/admin'
     | '/industries'
     | '/products'
     | '/services'
@@ -395,11 +470,18 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/admin'
     | '/blog'
     | '/careers'
     | '/contact'
     | '/gallery'
+    | '/login'
     | '/team'
+    | '/admin/content'
+    | '/admin/cv-submissions'
+    | '/admin/jobs'
+    | '/admin/leads'
+    | '/admin/manage-content'
     | '/blog_/$slug'
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
@@ -417,10 +499,10 @@ export interface FileRouteTypes {
     | '/services/cxo-advisory'
     | '/services/cyber-security'
     | '/services/it-infrastructure'
-    | '/services/salesforce'
     | '/services/sap'
     | '/services/software-development'
     | '/services/zoho'
+    | '/admin/'
     | '/industries/'
     | '/products/'
     | '/services/'
@@ -431,10 +513,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRouteWithChildren
   BlogRoute: typeof BlogRoute
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
+  LoginRoute: typeof LoginRoute
   TeamRoute: typeof TeamRoute
   BlogSlugRoute: typeof BlogSlugRoute
   IndustriesCapitalGoodsRoute: typeof IndustriesCapitalGoodsRoute
@@ -453,7 +537,6 @@ export interface RootRouteChildren {
   ServicesCxoAdvisoryRoute: typeof ServicesCxoAdvisoryRoute
   ServicesCyberSecurityRoute: typeof ServicesCyberSecurityRoute
   ServicesItInfrastructureRoute: typeof ServicesItInfrastructureRoute
-  ServicesSalesforceRoute: typeof ServicesSalesforceRoute
   ServicesSapRoute: typeof ServicesSapRoute
   ServicesSoftwareDevelopmentRoute: typeof ServicesSoftwareDevelopmentRoute
   ServicesZohoRoute: typeof ServicesZohoRoute
@@ -471,6 +554,13 @@ declare module '@tanstack/react-router' {
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -499,6 +589,13 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -536,6 +633,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/services/zoho': {
       id: '/services/zoho'
       path: '/services/zoho'
@@ -555,13 +659,6 @@ declare module '@tanstack/react-router' {
       path: '/services/sap'
       fullPath: '/services/sap'
       preLoaderRoute: typeof ServicesSapRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/salesforce': {
-      id: '/services/salesforce'
-      path: '/services/salesforce'
-      fullPath: '/services/salesforce'
-      preLoaderRoute: typeof ServicesSalesforceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/it-infrastructure': {
@@ -683,6 +780,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/manage-content': {
+      id: '/admin/manage-content'
+      path: '/manage-content'
+      fullPath: '/admin/manage-content'
+      preLoaderRoute: typeof AdminManageContentRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/leads': {
+      id: '/admin/leads'
+      path: '/leads'
+      fullPath: '/admin/leads'
+      preLoaderRoute: typeof AdminLeadsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/jobs': {
+      id: '/admin/jobs'
+      path: '/jobs'
+      fullPath: '/admin/jobs'
+      preLoaderRoute: typeof AdminJobsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/cv-submissions': {
+      id: '/admin/cv-submissions'
+      path: '/cv-submissions'
+      fullPath: '/admin/cv-submissions'
+      preLoaderRoute: typeof AdminCvSubmissionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/content': {
+      id: '/admin/content'
+      path: '/content'
+      fullPath: '/admin/content'
+      preLoaderRoute: typeof AdminContentRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/services/detail/$slug': {
       id: '/services/detail/$slug'
       path: '/services/detail/$slug'
@@ -700,13 +832,35 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteChildren {
+  AdminContentRoute: typeof AdminContentRoute
+  AdminCvSubmissionsRoute: typeof AdminCvSubmissionsRoute
+  AdminJobsRoute: typeof AdminJobsRoute
+  AdminLeadsRoute: typeof AdminLeadsRoute
+  AdminManageContentRoute: typeof AdminManageContentRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminContentRoute: AdminContentRoute,
+  AdminCvSubmissionsRoute: AdminCvSubmissionsRoute,
+  AdminJobsRoute: AdminJobsRoute,
+  AdminLeadsRoute: AdminLeadsRoute,
+  AdminManageContentRoute: AdminManageContentRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdminRoute: AdminRouteWithChildren,
   BlogRoute: BlogRoute,
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
+  LoginRoute: LoginRoute,
   TeamRoute: TeamRoute,
   BlogSlugRoute: BlogSlugRoute,
   IndustriesCapitalGoodsRoute: IndustriesCapitalGoodsRoute,
@@ -727,7 +881,6 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesCxoAdvisoryRoute: ServicesCxoAdvisoryRoute,
   ServicesCyberSecurityRoute: ServicesCyberSecurityRoute,
   ServicesItInfrastructureRoute: ServicesItInfrastructureRoute,
-  ServicesSalesforceRoute: ServicesSalesforceRoute,
   ServicesSapRoute: ServicesSapRoute,
   ServicesSoftwareDevelopmentRoute: ServicesSoftwareDevelopmentRoute,
   ServicesZohoRoute: ServicesZohoRoute,

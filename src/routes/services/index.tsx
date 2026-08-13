@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Code2, Server, ShieldCheck, Briefcase, BarChart3, Cloud } from "lucide-react";
+import { ArrowUpRight, Code2, Server, ShieldCheck, Briefcase, BarChart3, Cloud, Database, Blocks, Rocket } from "lucide-react";
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { PageHero } from "../../components/ui/PageHero";
 import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
-import { SAPLogo, SalesforceLogo, ZohoLogo } from "../../components/ui/Icons";
 import { getSubServiceUrlByTitle } from "../../data/servicesData";
+import { getAssetUrl } from "../../lib/assets";
 
 export const Route = createFileRoute("/services/")({
   component: ServicesHub,
@@ -28,19 +28,19 @@ const SERVICES: ServiceCategoryCard[] = [
     title: "SAP",
     desc: "End-to-end SAP consulting — from S/4HANA transformation and RISE with SAP to managed services and cloud migration.",
     url: "/services/sap",
-    Logo: SAPLogo,
-    useLogo: true,
+    icon: Database,
     gradient: "from-blue-600 to-indigo-700",
     subs: ["SAP HXM, CX", "SAP Analytics", "SAP Cloud Migration", "SAP Managed Services", "RISE with SAP", "SAP S/4 HANA Transformation"],
+    img: "/SAP_Homepage.jpg",
   },
   {
     title: "Zoho",
     desc: "Premium Zoho partner deploying CRM, ERP, Analytics, and the full Zoho One suite in weeks.",
     url: "/services/zoho",
-    Logo: ZohoLogo,
-    useLogo: true,
+    icon: Blocks,
     gradient: "from-red-500 to-orange-600",
     subs: ["Zoho WorkDrive", "Zoho Analytics", "Zoho CRM", "Zoho People & Payroll", "Zoho Books", "Zoho ERP"],
+    img: "/ZOHO_LOGO.png",
   },
   {
     title: "Software Development",
@@ -59,15 +59,6 @@ const SERVICES: ServiceCategoryCard[] = [
     subs: ["Infrastructure AMC", "Network Setup & Monitoring", "Cloud Infrastructure Management", "Email Management"],
   },
   {
-    title: "Salesforce",
-    desc: "Sales, Service, Marketing and Data Cloud — CRM engineered around your customer journey.",
-    url: "/services/salesforce",
-    Logo: SalesforceLogo,
-    useLogo: true,
-    gradient: "from-sky-500 to-blue-600",
-    subs: ["Salesforce Migration", "Implementation, AMS, ADS", "Lightning Platform", "Service Cloud", "Sales Cloud", "Salesforce CPQ"],
-  },
-  {
     title: "Cyber Security",
     desc: "Zero-trust security, ISO 27001 readiness, automated threat detection, and penetration testing.",
     url: "/services/cyber-security",
@@ -79,7 +70,7 @@ const SERVICES: ServiceCategoryCard[] = [
     title: "CXO Advisory",
     desc: "Strategic technology advisory for C-suite executives bridging business vision and IT execution.",
     url: "/services/cxo-advisory",
-    icon: Briefcase,
+    icon: Rocket,
     gradient: "from-violet-500 to-purple-600",
     subs: ["Business Excellence via Technology", "Digital Transformation", "IT Roadmap Creation", "Strategic IT Investment"],
   },
@@ -119,7 +110,13 @@ function ServicesHub() {
                       <div className="mb-8 flex items-center gap-4">
                         <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${srv.gradient} overflow-hidden p-2 shadow-glow group-hover:scale-110 transition-transform`}>
                           {srv.img ? (
-                            <img src={srv.img} alt={srv.title} className="h-full w-full object-cover rounded-xl" />
+                            <img
+                              src={getAssetUrl(srv.img)}
+                              alt={srv.title}
+                              loading="lazy"
+                              decoding="async"
+                              className={srv.img.endsWith('.png') || srv.img.includes('LOGO') ? "h-full w-full object-contain p-1 bg-white/95 rounded-xl shadow-sm" : "h-full w-full object-cover rounded-xl"}
+                            />
                           ) : srv.useLogo && srv.Logo ? (
                             <srv.Logo className="h-8 w-8" />
                           ) : IconComp ? (

@@ -3,6 +3,7 @@ import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { ArrowUpRight, ShieldCheck, CheckCircle, Sparkles } from "lucide-react";
 import { UIMockup, ProcessFlow } from "../../components/ui/ProductShowcase";
 import { PageHero } from "../../components/ui/PageHero";
+import { getAssetUrl } from "../../lib/assets";
 
 export const Route = createFileRoute("/products/suraksha")({
   component: ProductPage,
@@ -12,11 +13,11 @@ function ProductPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
       <PageHero
-        title="Reducing Incident Response Time by 60%"
-        subtitle="A centralized, PWA-based safety management platform built for real-time observation, automated CAPA management, and proactive safety compliance in hazardous mining and industrial environments."
+        title="Zero-Harm Workplace Safety and Digital Incident Management"
+        subtitle="Empower frontline teams with real-time hazard reporting, digital permit-to-work, safety audits, and automated compliance tracking."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "Suraksha" }]}
-        image="https://images.unsplash.com/photo-1541888081630-109033333306?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src="/suraksha.png" alt="Suraksha" className="h-10 w-10 object-contain" /></div>}
+        image="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=75&w=1200&auto=format&fit=crop"
+        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={getAssetUrl("/suraksha.png")} alt="Suraksha" loading="lazy" decoding="async" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

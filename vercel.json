@@ -5,13 +5,22 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!assets/|.*\\.(?:png|PNG|jpg|JPG|jpeg|JPEG|svg|SVG|webp|WEBP|gif|GIF|ico|ICO|css|js|json|woff|woff2|ttf|eot|mp4|webm)$).*)",
       "destination": "/index.html"
     }
   ],
   "headers": [
     {
       "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(png|PNG|jpg|JPG|jpeg|JPEG|svg|SVG|webp|WEBP|gif|GIF|ico|ICO)",
       "headers": [
         {
           "key": "Cache-Control",

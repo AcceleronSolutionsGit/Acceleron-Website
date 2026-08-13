@@ -3,6 +3,7 @@ import { Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import { PageHero } from "../components/ui/PageHero";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { TEAM_MEMBERS } from "../data/teamData";
+import { getAssetUrl } from "../lib/assets";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -24,7 +25,7 @@ function TeamPage() {
           { label: "About Us", href: "/about" },
           { label: "Our Team" }
         ]}
-        image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=75&w=1200&auto=format&fit=crop"
+        image={getAssetUrl("https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=75&w=1200&auto=format&fit=crop")}
         ctaText="Explore Careers"
         ctaHref="/careers"
       />
@@ -51,9 +52,10 @@ function TeamPage() {
                 {/* Image Container with Grayscale-to-Color hover */}
                 <div className="aspect-[4/4] bg-muted/50 relative overflow-hidden">
                   <img
-                    src={member.image}
+                    src={getAssetUrl(member.image)}
                     alt={member.name}
                     loading="lazy"
+                    decoding="async"
                     className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />

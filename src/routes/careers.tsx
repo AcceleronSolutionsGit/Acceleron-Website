@@ -9,7 +9,7 @@ export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
       { title: "Careers & Open Positions — Acceleron Solutions" },
-      { name: "description", content: "Build your career at Acceleron Solutions. Explore open positions in SAP consulting, Salesforce development, Full Stack engineering, and submit your resume." },
+      { name: "description", content: "Build your career at Acceleron Solutions. Explore open positions in SAP consulting, cloud engineering, Full Stack development, and submit your resume." },
     ],
   }),
   component: CareersPage,
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/careers")({
 
 const OPEN_POSITIONS = [
   { id: 1, title: "Senior SAP S/4HANA Functional Consultant", department: "SAP Practice", loc: "Kolkata, India (HQ)", type: "Full-Time", exp: "5+ Years" },
-  { id: 2, title: "Salesforce Technical Lead & Solutions Architect", department: "Salesforce Practice", loc: "Kolkata / Remote", type: "Full-Time", exp: "6+ Years" },
+  { id: 2, title: "Cloud & CRM Solutions Architect", department: "Enterprise Cloud Practice", loc: "Kolkata / Remote", type: "Full-Time", exp: "6+ Years" },
   { id: 3, title: "Full Stack Engineer (React, Node & TypeScript)", department: "Product Engineering", loc: "Kolkata / Delhi NCR", type: "Full-Time", exp: "3+ Years" },
   { id: 4, title: "AI & Data Engineer (Python, RAG & Vector DB)", department: "Applied AI", loc: "Kolkata, India", type: "Full-Time", exp: "3+ Years" },
   { id: 5, title: "Cybersecurity & IT Infrastructure Specialist", department: "Infra & Security", loc: "Kolkata, India", type: "Full-Time", exp: "4+ Years" },
@@ -81,7 +81,7 @@ function CareersPage() {
             },
             {
               title: "Cutting-Edge Technologies",
-              desc: "Work with enterprise SAP RISE, Salesforce Data Cloud, GenAI agents, IoT telemetry, and modern cloud architectures.",
+              desc: "Work with enterprise SAP RISE, Zoho, GenAI agents, IoT telemetry, and modern cloud architectures.",
               icon: Briefcase
             },
             {
@@ -203,7 +203,7 @@ function CareersPage() {
                       placeholder="Jane Doe"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50"
+                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     />
                   </div>
                   <div>
@@ -214,7 +214,7 @@ function CareersPage() {
                       placeholder="jane@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50"
+                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     />
                   </div>
                 </div>
@@ -228,7 +228,7 @@ function CareersPage() {
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50"
+                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     />
                   </div>
                   <div>
@@ -238,7 +238,7 @@ function CareersPage() {
                       placeholder="e.g. 5 Years"
                       value={formData.experience}
                       onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50"
+                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     />
                   </div>
                 </div>
@@ -249,7 +249,7 @@ function CareersPage() {
                     <select
                       value={selectedJob}
                       onChange={(e) => setSelectedJob(e.target.value)}
-                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50"
+                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     >
                       {OPEN_POSITIONS.map((pos) => (
                         <option key={pos.id} value={pos.title}>{pos.title}</option>
@@ -264,7 +264,7 @@ function CareersPage() {
                       placeholder="https://linkedin.com/in/username"
                       value={formData.linkedin}
                       onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
-                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50"
+                      className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     />
                   </div>
                 </div>
@@ -309,7 +309,7 @@ function CareersPage() {
                     placeholder="Briefly tell us about your expertise and what excites you about Acceleron Solutions..."
                     value={formData.coverNote}
                     onChange={(e) => setFormData({ ...formData, coverNote: e.target.value })}
-                    className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-brand/50"
+                    className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                   />
                 </div>
 

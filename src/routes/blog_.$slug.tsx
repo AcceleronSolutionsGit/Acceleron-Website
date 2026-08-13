@@ -1,8 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { BLOG_POSTS } from "../data/blogData";
 import { Calendar, Clock, ArrowLeft, Tag, Share2, Linkedin, Twitter } from "lucide-react";
 import { PageHero } from "../components/ui/PageHero";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
+import { getAssetUrl } from "../lib/assets";
 
 export const Route = createFileRoute("/blog_/$slug")({
   component: BlogDetailPage,
@@ -120,7 +121,7 @@ function BlogDetailPage() {
               >
                 <div>
                   <div className="relative h-44 rounded-2xl overflow-hidden mb-4 bg-muted">
-                    <img src={rel.image} alt={rel.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={getAssetUrl(rel.image)} alt={rel.title} loading="lazy" decoding="async" className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="text-[10px] uppercase font-bold text-brand-red mb-2">{rel.category}</div>
                   <h3 className="text-lg font-bold text-foreground group-hover:text-brand transition-colors mb-2 line-clamp-2">{rel.title}</h3>
