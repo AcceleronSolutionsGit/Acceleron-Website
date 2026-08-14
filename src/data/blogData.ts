@@ -3,7 +3,7 @@ export type BlogPost = {
   title: string;
   excerpt: string;
   content: string;
-  author: {
+  author?: {
     name: string;
     role: string;
     avatar: string;
@@ -18,148 +18,194 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    slug: "navigating-sap-s4hana-migration-for-heavy-industry",
-    title: "Navigating SAP S/4HANA Migration for Heavy Industry & Mining",
-    excerpt: "Discover how industrial enterprises can transition from SAP ECC to S/4HANA with zero downtime, preserving core customizations while unlocking real-time operational analytics.",
+    slug: "the-future-of-work-how-digital-transformation-is-reshaping-business-operations",
+    title: "The Future of Work: How Digital Transformation is Reshaping Business Operations",
+    excerpt: "In today's fast-paced digital era, businesses across industries are undergoing rapid transformations to stay competitive.",
     content: `
       <p class="lead text-lg text-foreground/80 font-medium mb-6">
-        Transitioning to SAP S/4HANA is no longer just an IT upgrade—it is a foundational business modernization. For heavy industrial, mining, and manufacturing enterprises, the stakes are exceptionally high: operational downtime can cost millions per hour.
+        Introduction In today's fast-paced digital era, businesses across industries are undergoing rapid transformations to stay competitive. From automating repetitive tasks to improving customer experiences through data-driven insights, digital transformation has become a strategic priority for companies.
       </p>
 
-      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">Why Brownfield & Greenfield Approaches Need a Hybrid Lens</h2>
       <p class="text-muted-foreground leading-relaxed mb-6">
-        Traditional migration methodologies force companies to choose between starting fresh (Greenfield) or carrying over decades of legacy custom code (Brownfield). Acceleron's Selective Data Transition (SDT) approach bridges this gap by enabling organizations to clean historical data while retaining critical business logic.
+        For organizations like Acceleron Solutions, leveraging digital tools is not just about staying relevant—it's about driving innovation, improving operational efficiency, and delivering superior customer outcomes. This blog explores the impact of digital transformation on business operations, the challenges organizations face, and strategies to embrace the change effectively.
       </p>
 
-      <div class="my-8 p-6 rounded-2xl bg-muted/40 border border-border">
-        <h3 class="text-lg font-bold text-foreground mb-2">Key Takeaways for C-Suite Leaders:</h3>
-        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
-          <li>Eliminate up to 60% of legacy Z-code bloat before migration.</li>
-          <li>Integrate SAP Business Technology Platform (BTP) for clean-core extensions.</li>
-          <li>Achieve near-zero downtime deployment windows during weekend cutovers.</li>
-        </ul>
-      </div>
+      <blockquote class="border-l-4 border-brand-red pl-4 italic text-muted-foreground my-6">
+        "Embrace the Digital Shift: Transform, Innovate, and Thrive in a Competitive World."
+      </blockquote>
 
-      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">Unlocking Real-Time Asset Tracking & Fleet Intelligence</h2>
       <p class="text-muted-foreground leading-relaxed mb-6">
-        With S/4HANA's in-memory computing power, maintenance teams can shift from reactive repairs to predictive maintenance schedules powered by live telemetry signals from heavy machinery and fleets.
+        Digital transformation is the process of adopting digital technologies to fundamentally change how businesses operate and deliver value. It goes beyond mere software upgrades; it involves rethinking business models, processes, and culture to enhance operational efficiency, customer experience, agility, and cost optimization. However, challenges such as resistance to change, cybersecurity risks, and skill gaps must be addressed. At Acceleron Solutions, we specialize in guiding businesses through this journey with customized digital solutions, AI-powered automation, cloud migration services, and employee training. By assessing current processes, setting clear goals, and engaging employees, companies can successfully navigate their digital transformation. Embracing this shift is crucial for staying competitive and shaping the future of work, where innovation and resilience are key. Are you ready to seize the opportunities of digital transformation?
       </p>
     `,
-    author: {
-      name: "Arindam Hari",
-      role: "Head of Enterprise Solutions",
-      avatar: "/Arindam Hari Speaking.JPG"
-    },
-    date: "July 12, 2026",
-    category: "SAP",
-    tags: ["SAP S/4HANA", "ERP", "Mining", "Asset Management"],
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=75",
-    readTime: "6 min read",
+
+    date: "September 7, 2024",
+    category: "Digital Transformation",
+    tags: ["Learning2024", "Programming", "ReactJS", "WebDevelopment"],
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=75&w=1200&auto=format&fit=crop",
+    readTime: "4 min read",
     featured: true
   },
   {
-    slug: "building-production-grade-rag-pipelines-for-enterprise",
-    title: "Building Production-Grade RAG & AI Agent Pipelines",
-    excerpt: "How enterprise data teams can deploy Retrieval-Augmented Generation architectures that enforce strict data governance, zero hallucinations, and low latency.",
+    slug: "urgent-need-for-digitization-in-mining-companies",
+    title: "The Urgent Need for Digitization in Mining Companies",
+    excerpt: "The current state of the mining industry and why digitization is no longer optional.",
     content: `
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">1. Introduction: The current state of the mining industry</h2>
       <p class="lead text-lg text-foreground/80 font-medium mb-6">
-        Generative AI has evolved past raw LLM prompts into orchestrating multi-agent systems connected to private enterprise data lakes.
+        As one of the world's oldest industries, mining has traditionally relied heavily on manual labor and heavy machinery. However, the mining industry is currently facing various challenges, including volatile commodity prices, declining ore grades, increasing environmental regulations, and a shortage of skilled labor. In response to these challenges, there is an urgent need for digitization in mining companies to improve efficiency, reduce costs, and enhance safety. This blog explores the benefits of digitization in mining and the solutions that can help mining companies transition to a digital era.
       </p>
-      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">Security First: Enterprise Vector Databases</h2>
+      
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">2. The benefits of digitization in mining companies</h2>
       <p class="text-muted-foreground leading-relaxed mb-6">
-        When connecting AI models to internal ERP records, ISO 27001 compliance and role-based access control (RBAC) must be enforced at the chunk embedding level.
+        The benefits of digitization in mining companies are numerous and significant. One of the key advantages is the improved safety of mining operations. By utilizing technologies such as IoT devices and sensors, mining companies can monitor the health and safety of their workers in real-time, identify potential hazards, and prevent accidents before they occur.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Digitization also allows for better tracking and monitoring of equipment, minimizing the risk of breakdowns and improving overall operational efficiency. Furthermore, with the implementation of advanced analytics, mining companies can gain valuable insights into their operations and make data-driven decisions to optimize their processes.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        For instance, predictive maintenance can help identify when equipment requires servicing, reducing downtime and lowering maintenance costs. Additionally, digitization allows for better communication and collaboration among different teams, leading to increased productivity and profitability.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        In summary, the benefits of digitization in mining companies extend beyond efficiency improvements to include enhanced safety practices and cost savings, ultimately paving the way for a more sustainable and profitable future for the industry.
+      </p>
+
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">3. How digitization can improve safety and efficiency</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Digitization plays a crucial role in improving safety and efficiency within mining companies. By harnessing the power of advanced technologies, such as IoT sensors and real-time monitoring systems, mining companies can proactively identify potential safety hazards and prevent accidents from occurring. This real-time visibility into the health and safety of workers ensures a safer working environment. Additionally, digitization enables better tracking and monitoring of equipment, minimizing the risk of breakdowns and improving overall operational efficiency. By leveraging these digital solutions, mining companies can enhance safety practices and optimize their processes, ultimately leading to increased productivity and profitability.
+      </p>
+      
+      <blockquote class="border-l-4 border-brand-red pl-4 italic text-muted-foreground my-6">
+        "Step into the future of mining with confidence as Acceleron Solutions takes the helm of your digital transformation journey, ensuring success."
+      </blockquote>
+      
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">4. Overcoming challenges in adopting digital solutions</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        While the benefits of digitization in the mining industry are clear, there are also several challenges that companies may face when adopting digital solutions. One of the main challenges is the high cost of implementation. Investing in new technologies, upgrading infrastructure, and training employees can be a significant financial burden for mining companies.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        To overcome this challenge, it is important for companies to carefully evaluate the potential return on investment (ROI) of digital solutions and prioritize those that offer the most significant benefits. They can also explore partnerships and collaborations with technology providers to share the costs and leverage their expertise.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Another challenge is the resistance to change from employees. Implementing digital solutions often requires a shift in work processes and requires employees to learn new skills. This can cause resistance and hesitation among the workforce. To address this, companies should invest in comprehensive training programs to ensure that employees are comfortable and proficient in using the new digital tools. Clear communication about the benefits of digitization and how it can make their jobs easier and safer can also help alleviate resistance.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        By proactively addressing these challenges, mining companies can successfully adopt digital solutions and reap the benefits of a more digitized and efficient operation.
+      </p>
+
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">5. The future of the mining industry</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        The future of the mining industry lies in its ability to adapt and embrace digital transformation. As technology continues to advance, the possibilities for innovation and improvement within the industry are endless.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        One key aspect of the future of mining is the integration of artificial intelligence (AI) and machine learning. These technologies have the potential to revolutionize various aspects of mining operations, from exploration and resource estimation to autonomous vehicles and robotics. AI algorithms can analyze vast amounts of data to optimize drilling and blasting processes, reducing costs and environmental impact. Autonomous vehicles and drones can enhance safety by replacing human operators in hazardous environments.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Furthermore, the use of augmented reality (AR) and virtual reality (VR) technologies can provide immersive training experiences for miners, improving safety and operational efficiency. These technologies can also be utilized for remote monitoring and troubleshooting, reducing downtime and maintenance costs.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Sustainability is another crucial focus for the future of the mining industry. With increasing environmental regulations and societal pressure, mining companies must find innovative ways to minimize their ecological footprint. Digital solutions such as IoT sensors and real-time monitoring can help track energy consumption, water usage, and emissions, enabling companies to make data-driven decisions to improve sustainability practices.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        In conclusion, the future of the mining industry relies heavily on digitization. By embracing advanced technologies such as AI, IoT, AR, and VR, mining companies can overcome challenges, improve safety and efficiency, and pave the way for a more sustainable and profitable future.
+      </p>
+      
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">6. Conclusion: The importance of urgent action in digitizing mining companies</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        In conclusion, the urgent need for digitization in mining companies cannot be overstated. As the industry faces numerous challenges, ranging from volatile commodity prices to increasing environmental regulations, embracing digital transformation is essential for long-term survival and success.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Digitization brings a multitude of benefits, including improved safety, enhanced operational efficiency, cost savings, and sustainability. By leveraging technologies such as IoT sensors, advanced analytics, AI, and AR/VR, mining companies can proactively address safety hazards, optimize processes, make data-driven decisions, and minimize their ecological footprint.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        However, the adoption of digital solutions does come with challenges, such as high implementation costs and resistance to change. To overcome these obstacles, companies must carefully evaluate ROI, seek partnerships, invest in comprehensive training programs, and effectively communicate the benefits of digitization to their workforce.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        The future of the mining industry depends on its ability to adapt and embrace digital transformation. Mining companies that fail to digitize risk falling behind their competitors and facing increasing difficulties in an evolving market. Therefore, it is imperative for mining companies to take urgent action and embark on their digitization journey to secure a more sustainable, efficient, and profitable future.
       </p>
     `,
     author: {
-      name: "Rishabh Nair",
-      role: "Lead AI & Analytics Architect",
-      avatar: "/Rishabh Nair Speaking.JPG"
+      name: "Anirban Dey Sarkar",
+      role: "",
+      avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Anirban"
     },
-    date: "June 28, 2026",
-    category: "AI & Analytics",
-    tags: ["GenAI", "RAG", "Python", "Vector DB"],
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=75",
-    readTime: "8 min read",
-    featured: true
-  },
-  {
-    slug: "enterprise-crm-and-customer-data-unification",
-    title: "Enterprise CRM & Customer Data Unification Strategies",
-    excerpt: "Unifying fragmented customer data streams across sales, field service, and ERP into a single customer 360 view.",
-    content: `
-      <p class="lead text-lg text-foreground/80 font-medium mb-6">
-        Modern enterprise CRM platforms allow companies to ingest real-time data streams from SAP, web portals, and IoT sensors into unified customer profiles.
-      </p>
-    `,
-    author: {
-      name: "Meena Chaturvedi",
-      role: "VP of Enterprise Services",
-      avatar: "/Meena Chaturvedi Speaking.JPG"
-    },
-    date: "June 15, 2026",
+    date: "September 11, 2024",
     category: "Digital Transformation",
-    tags: ["CRM", "Data Unification", "Customer 360", "Integration"],
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=75",
-    readTime: "5 min read"
-  },
-  {
-    slug: "field-safety-digitization-suraksha-platform",
-    title: "Digitizing Field Safety: Reducing Incidents in High-Hazard Workplaces",
-    excerpt: "How real-time incident reporting, contractor workforce monitoring, and automated compliance checklists save lives on industrial shop floors.",
-    content: `
-      <p class="lead text-lg text-foreground/80 font-medium mb-6">
-        Industrial safety shouldn't depend on paper forms and delayed shift reports. Our Suraksha platform brings mobile-first hazard reporting directly to site personnel.
-      </p>
-    `,
-    author: {
-      name: "Sunil Kumar Chaturvedi",
-      role: "Director of Industry Practices",
-      avatar: "/Sunik Kumar Chaturvedi Speaking.JPG"
-    },
-    date: "May 30, 2026",
-    category: "Digital Transformation",
-    tags: ["EHS", "Field Safety", "Suraksha", "Contractor Management"],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=75",
+    tags: ["Learning2024", "Programming", "ReactJS", "WebDevelopment"],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=1200&auto=format&fit=crop",
     readTime: "7 min read"
   },
   {
-    slug: "zero-trust-cybersecurity-for-critical-infrastructure",
-    title: "Implementing Zero Trust Security Across Hybrid IT & OT Networks",
-    excerpt: "Protecting operational technology (OT) networks and cloud ERP environments against targeted ransomware and industrial cyber threats.",
+    slug: "creating-a-sustainable-supply-chain-framework-through-smart-sourcing",
+    title: "Creating a sustainable Supply Chain Framework through smart sourcing",
+    excerpt: "A sustainable supply chain focuses on ESG factors, minimizing environmental footprint while maintaining operational efficiency.",
     content: `
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">Introduction</h2>
       <p class="lead text-lg text-foreground/80 font-medium mb-6">
-        As OT networks converge with cloud enterprise systems, traditional perimeter security becomes obsolete. Zero Trust architecture mandates continuous identity verification.
+        A sustainable supply chain focuses on Environmental, Social, and Governance (ESG) factors, aiming to minimize its environmental footprint, ensure fair labor practices, and promote ethical governance. Smart sourcing leverages technology, data analytics, and artificial intelligence to optimize procurement processes, ensuring that raw materials and goods are sourced responsibly and efficiently. By integrating smart sourcing into a sustainable supply chain framework, organizations can achieve long-term resilience, cost savings, and enhanced brand reputation while contributing positively to society and the planet.
+      </p>
+      
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">1. Comprehensive data on the supply chain</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        To build a sustainable supply chain, a comprehensive understanding of the entire supply network is crucial. This involves collecting and analyzing detailed data on every stage of the supply chain, from raw material extraction to final product delivery. Key data points include supplier practices, resource usage, transportation methods, and waste generation.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Smart sourcing tools can automate the gathering of this data, providing real-time visibility into supplier performance and compliance with sustainability standards. Advanced analytics can identify inefficiencies and areas for improvement, enabling companies to make informed decisions that align with their sustainability goals. By establishing a robust data foundation, organizations can track progress, report transparently, and continuously optimize their supply chain operations.
+      </p>
+
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">2. Understanding the impact on the supply chain</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Understanding the environmental and social impact of the supply chain is essential for creating a sustainable framework. This requires a thorough assessment of how procurement decisions affect local communities, ecosystems, and global climate change.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Smart sourcing enables companies to evaluate the lifecycle impact of their products, considering factors such as carbon emissions, water usage, and labor conditions. By integrating sustainability metrics into supplier evaluation processes, organizations can prioritize partners who demonstrate a commitment to responsible practices. Furthermore, understanding these impacts helps companies identify potential risks, such as supply disruptions due to climate change or regulatory changes, allowing them to proactively mitigate these risks and build a more resilient supply chain.
+      </p>
+
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">3. Aligning with global sustainability standards</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Aligning supply chain practices with global sustainability standards is a critical step in creating a robust framework. Standards such as the United Nations Global Compact (UNGC), ISO 14001, and the Global Reporting Initiative (GRI) provide guidelines for responsible business conduct and environmental management.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Smart sourcing platforms can facilitate compliance by embedding these standards into procurement processes. For example, automated audits and supplier assessments can ensure that partners adhere to labor rights, environmental regulations, and anti-corruption policies. By adopting globally recognized standards, companies not only enhance their credibility and stakeholder trust but also contribute to broader sustainability goals, such as the UN Sustainable Development Goals (SDGs). This alignment ensures that sustainability efforts are measurable, comparable, and impactful.
+      </p>
+
+      <blockquote class="border-l-4 border-brand-red pl-4 italic text-muted-foreground my-6">
+        "Accelerating supply chain transformation by powering processes with smart sourcing."
+      </blockquote>
+
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">4. Empowering and educating suppliers</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        A sustainable supply chain is only as strong as its weakest link. Therefore, empowering and educating suppliers is vital for achieving long-term sustainability goals. Many suppliers, particularly small and medium-sized enterprises (SMEs), may lack the resources or knowledge to implement sustainable practices.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Smart sourcing initiatives can include capacity-building programs, where companies provide training, tools, and best practices to help suppliers improve their ESG performance. Collaborative platforms can facilitate knowledge sharing and continuous improvement, fostering a culture of sustainability across the supply network. By investing in supplier development, companies not only mitigate risks but also build stronger, more resilient partnerships that drive mutual growth and sustainability.
+      </p>
+
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">5. Advantages of integrating technology in the supply chain</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Integrating technology into the supply chain offers numerous advantages for sustainability. Smart sourcing leverages technologies such as blockchain, Internet of Things (IoT), and artificial intelligence (AI) to enhance transparency, traceability, and efficiency.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Blockchain can provide an immutable record of product provenance, ensuring that raw materials are ethically sourced and free from human rights abuses. IoT sensors can monitor environmental conditions during transportation, reducing spoilage and waste. AI can optimize routing and logistics, minimizing carbon emissions and fuel consumption. Furthermore, advanced analytics can predict demand more accurately, reducing overproduction and excess inventory. By harnessing these technologies, companies can create a agile, efficient, and sustainable supply chain that meets the demands of modern consumers and regulators.
+      </p>
+      
+      <h2 class="text-2xl font-bold text-foreground mt-8 mb-4">Conclusion</h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        In conclusion, creating a sustainable supply chain framework through smart sourcing is essential for modern businesses. By leveraging comprehensive data, understanding the impact of procurement decisions, aligning with global standards, empowering suppliers, and integrating advanced technologies, companies can build resilient and responsible supply networks. 
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        These efforts not only mitigate risks and drive cost savings but also enhance brand reputation and contribute to a more sustainable and equitable world. As sustainability continues to gain importance, organizations that prioritize smart sourcing and responsible supply chain practices will be well-positioned to thrive in the future.
       </p>
     `,
     author: {
-      name: "Arindam Hari",
-      role: "Head of Enterprise Solutions",
-      avatar: "/Arindam Hari Speaking.JPG"
+      name: "Anirban Dey Sarkar",
+      role: "",
+      avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Anirban"
     },
-    date: "May 10, 2026",
-    category: "Cloud & Security",
-    tags: ["Cybersecurity", "Zero Trust", "VAPT", "ISO 27001"],
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=75",
-    readTime: "9 min read"
-  },
-  {
-    slug: "zoho-creator-and-analytics-for-agile-operations",
-    title: "Custom Business Applications in Weeks with Zoho Creator & One Suite",
-    excerpt: "Accelerating internal tool development and management dashboards without compromising security or scalability.",
-    content: `
-      <p class="lead text-lg text-foreground/80 font-medium mb-6">
-        With Zoho Creator and Analytics, enterprise teams can rapidly deploy custom workflows, audit trackers, and executive dashboards.
-      </p>
-    `,
-    author: {
-      name: "Meena Chaturvedi",
-      role: "VP of Enterprise Services",
-      avatar: "/Meena Chaturvedi Speaking.JPG"
-    },
-    date: "April 22, 2026",
-    category: "Digital Transformation",
-    tags: ["Zoho", "Low-Code", "Analytics", "Workflow Automation"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75",
-    readTime: "4 min read"
+    date: "September 11, 2024",
+    category: "SAP",
+    tags: ["Learning2024", "Programming", "ReactJS", "WebDevelopment"],
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=75&w=1200&auto=format&fit=crop",
+    readTime: "6 min read"
   }
 ];

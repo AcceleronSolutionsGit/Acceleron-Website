@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact Us — Acceleron Solutions" },
-      { name: "description", content: "Get in touch with Acceleron Solutions headquarters in Kolkata, India or global offices in USA, Singapore, Australia, and Delhi NCR." },
+      { name: "description", content: "Get in touch with Acceleron Solutions headquarters in Kolkata and enterprise delivery hub in Delhi NCR." },
     ],
   }),
   component: ContactPage,
@@ -86,7 +86,7 @@ function ContactPage() {
                   <span className="text-xs uppercase tracking-[0.3em] font-bold text-brand-red">Global Network</span>
                 </div>
                 <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-                  Operating delivery hubs and offices across Kolkata, Delhi NCR, Singapore, West Virginia (USA), and NSW (Australia).
+                  Operating delivery hubs and offices across Kolkata and Delhi NCR.
                 </p>
               </div>
             </Reveal>

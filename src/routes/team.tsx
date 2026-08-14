@@ -44,67 +44,31 @@ function TeamPage() {
         </Reveal>
 
         {/* Team Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {TEAM_MEMBERS.map((member, idx) => (
             <Reveal key={member.id} delay={0.1 * idx}>
-              <div className="group relative rounded-3xl border border-border/60 bg-muted/20 overflow-hidden backdrop-blur-xl hover:bg-muted/40 hover:border-brand/40 transition-all duration-500 shadow-soft hover:shadow-glow flex flex-col justify-between h-full">
-                
-                {/* Image Container with Grayscale-to-Color hover */}
-                <div className="aspect-[4/4] bg-muted/50 relative overflow-hidden">
+              <div className="group relative flex flex-col items-center text-center h-full">
+                {/* Minimalist Image Container */}
+                <div className="w-full aspect-[4/5] rounded-3xl overflow-hidden mb-6 relative shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-all duration-500 group-hover:shadow-glow">
                   <img
                     src={getAssetUrl(member.image)}
                     alt={member.name}
                     loading="lazy"
                     decoding="async"
-                    className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                  
-                  <div className="absolute top-4 right-4">
-                    <span className="inline-block rounded-full bg-background/80 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-foreground border border-border">
-                      {member.department}
-                    </span>
-                  </div>
+                  {/* Premium inner border and subtle gradient */}
+                  <div className="absolute inset-0 border border-black/5 dark:border-white/10 rounded-3xl pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 </div>
 
-                {/* Card Content */}
-                <div className="p-8 relative flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground group-hover:text-brand transition-colors">
-                      {member.name}
-                    </h3>
-                    <p className="text-brand-red font-semibold text-sm mt-1 mb-4">
-                      {member.role}
-                    </p>
-                    <p className="text-muted-foreground text-xs leading-relaxed mb-6">
-                      {member.bio}
-                    </p>
-                  </div>
-
-                  {/* Social / Contact Links */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-border/50 mt-auto">
-                    {member.linkedin && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-muted/60 text-muted-foreground hover:bg-brand hover:text-white transition-all duration-300"
-                        aria-label={`${member.name} LinkedIn Profile`}
-                      >
-                        <Linkedin className="h-4 w-4" />
-                      </a>
-                    )}
-                    {member.email && (
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-muted/60 text-muted-foreground hover:bg-brand hover:text-white transition-all duration-300"
-                        aria-label={`Email ${member.name}`}
-                      >
-                        <Mail className="h-4 w-4" />
-                      </a>
-                    )}
-                  </div>
-                </div>
+                {/* Sleek Typography */}
+                <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-brand transition-colors">
+                  {member.name}
+                </h3>
+                <p className="text-brand-red font-semibold text-xs mt-2 uppercase tracking-[0.15em]">
+                  {member.role}
+                </p>
               </div>
             </Reveal>
           ))}

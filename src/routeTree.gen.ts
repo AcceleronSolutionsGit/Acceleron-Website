@@ -10,8 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as NewsRouteImport } from './routes/news'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as EventsRouteImport } from './routes/events'
+import { Route as CsrRouteImport } from './routes/csr'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as BlogRouteImport } from './routes/blog'
@@ -23,12 +27,9 @@ import { Route as ProductsIndexRouteImport } from './routes/products/index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as ServicesZohoRouteImport } from './routes/services/zoho'
-import { Route as ServicesSoftwareDevelopmentRouteImport } from './routes/services/software-development'
 import { Route as ServicesSapRouteImport } from './routes/services/sap'
-import { Route as ServicesItInfrastructureRouteImport } from './routes/services/it-infrastructure'
-import { Route as ServicesCyberSecurityRouteImport } from './routes/services/cyber-security'
-import { Route as ServicesCxoAdvisoryRouteImport } from './routes/services/cxo-advisory'
-import { Route as ServicesAnalyticsRouteImport } from './routes/services/analytics'
+import { Route as ServicesManageengineRouteImport } from './routes/services/manageengine'
+import { Route as ServicesItCustomSolutionsRouteImport } from './routes/services/it-custom-solutions'
 import { Route as ProductsTyreHealthRouteImport } from './routes/products/tyre-health'
 import { Route as ProductsSurakshaRouteImport } from './routes/products/suraksha'
 import { Route as ProductsSupplierPortalRouteImport } from './routes/products/supplier-portal'
@@ -55,6 +56,16 @@ const TeamRoute = TeamRouteImport.update({
   path: '/team',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -63,6 +74,16 @@ const LoginRoute = LoginRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrRoute = CsrRouteImport.update({
+  id: '/csr',
+  path: '/csr',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -120,38 +141,22 @@ const ServicesZohoRoute = ServicesZohoRouteImport.update({
   path: '/services/zoho',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesSoftwareDevelopmentRoute =
-  ServicesSoftwareDevelopmentRouteImport.update({
-    id: '/services/software-development',
-    path: '/services/software-development',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const ServicesSapRoute = ServicesSapRouteImport.update({
   id: '/services/sap',
   path: '/services/sap',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesItInfrastructureRoute =
-  ServicesItInfrastructureRouteImport.update({
-    id: '/services/it-infrastructure',
-    path: '/services/it-infrastructure',
+const ServicesManageengineRoute = ServicesManageengineRouteImport.update({
+  id: '/services/manageengine',
+  path: '/services/manageengine',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesItCustomSolutionsRoute =
+  ServicesItCustomSolutionsRouteImport.update({
+    id: '/services/it-custom-solutions',
+    path: '/services/it-custom-solutions',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ServicesCyberSecurityRoute = ServicesCyberSecurityRouteImport.update({
-  id: '/services/cyber-security',
-  path: '/services/cyber-security',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesCxoAdvisoryRoute = ServicesCxoAdvisoryRouteImport.update({
-  id: '/services/cxo-advisory',
-  path: '/services/cxo-advisory',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
-  id: '/services/analytics',
-  path: '/services/analytics',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ProductsTyreHealthRoute = ProductsTyreHealthRouteImport.update({
   id: '/products/tyre-health',
   path: '/products/tyre-health',
@@ -263,8 +268,12 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/csr': typeof CsrRoute
+  '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
+  '/partners': typeof PartnersRoute
   '/team': typeof TeamRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
@@ -284,12 +293,9 @@ export interface FileRoutesByFullPath {
   '/products/supplier-portal': typeof ProductsSupplierPortalRoute
   '/products/suraksha': typeof ProductsSurakshaRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
-  '/services/analytics': typeof ServicesAnalyticsRoute
-  '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
-  '/services/cyber-security': typeof ServicesCyberSecurityRoute
-  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
+  '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
-  '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
   '/admin/': typeof AdminIndexRoute
   '/industries/': typeof IndustriesIndexRoute
@@ -304,8 +310,12 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/csr': typeof CsrRoute
+  '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
+  '/partners': typeof PartnersRoute
   '/team': typeof TeamRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
@@ -325,12 +335,9 @@ export interface FileRoutesByTo {
   '/products/supplier-portal': typeof ProductsSupplierPortalRoute
   '/products/suraksha': typeof ProductsSurakshaRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
-  '/services/analytics': typeof ServicesAnalyticsRoute
-  '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
-  '/services/cyber-security': typeof ServicesCyberSecurityRoute
-  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
+  '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
-  '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
   '/admin': typeof AdminIndexRoute
   '/industries': typeof IndustriesIndexRoute
@@ -347,8 +354,12 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/csr': typeof CsrRoute
+  '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
+  '/partners': typeof PartnersRoute
   '/team': typeof TeamRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
@@ -368,12 +379,9 @@ export interface FileRoutesById {
   '/products/supplier-portal': typeof ProductsSupplierPortalRoute
   '/products/suraksha': typeof ProductsSurakshaRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
-  '/services/analytics': typeof ServicesAnalyticsRoute
-  '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
-  '/services/cyber-security': typeof ServicesCyberSecurityRoute
-  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
+  '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
-  '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
   '/admin/': typeof AdminIndexRoute
   '/industries/': typeof IndustriesIndexRoute
@@ -391,8 +399,12 @@ export interface FileRouteTypes {
     | '/blog'
     | '/careers'
     | '/contact'
+    | '/csr'
+    | '/events'
     | '/gallery'
     | '/login'
+    | '/news'
+    | '/partners'
     | '/team'
     | '/admin/content'
     | '/admin/cv-submissions'
@@ -412,12 +424,9 @@ export interface FileRouteTypes {
     | '/products/supplier-portal'
     | '/products/suraksha'
     | '/products/tyre-health'
-    | '/services/analytics'
-    | '/services/cxo-advisory'
-    | '/services/cyber-security'
-    | '/services/it-infrastructure'
+    | '/services/it-custom-solutions'
+    | '/services/manageengine'
     | '/services/sap'
-    | '/services/software-development'
     | '/services/zoho'
     | '/admin/'
     | '/industries/'
@@ -432,8 +441,12 @@ export interface FileRouteTypes {
     | '/blog'
     | '/careers'
     | '/contact'
+    | '/csr'
+    | '/events'
     | '/gallery'
     | '/login'
+    | '/news'
+    | '/partners'
     | '/team'
     | '/admin/content'
     | '/admin/cv-submissions'
@@ -453,12 +466,9 @@ export interface FileRouteTypes {
     | '/products/supplier-portal'
     | '/products/suraksha'
     | '/products/tyre-health'
-    | '/services/analytics'
-    | '/services/cxo-advisory'
-    | '/services/cyber-security'
-    | '/services/it-infrastructure'
+    | '/services/it-custom-solutions'
+    | '/services/manageengine'
     | '/services/sap'
-    | '/services/software-development'
     | '/services/zoho'
     | '/admin'
     | '/industries'
@@ -474,8 +484,12 @@ export interface FileRouteTypes {
     | '/blog'
     | '/careers'
     | '/contact'
+    | '/csr'
+    | '/events'
     | '/gallery'
     | '/login'
+    | '/news'
+    | '/partners'
     | '/team'
     | '/admin/content'
     | '/admin/cv-submissions'
@@ -495,12 +509,9 @@ export interface FileRouteTypes {
     | '/products/supplier-portal'
     | '/products/suraksha'
     | '/products/tyre-health'
-    | '/services/analytics'
-    | '/services/cxo-advisory'
-    | '/services/cyber-security'
-    | '/services/it-infrastructure'
+    | '/services/it-custom-solutions'
+    | '/services/manageengine'
     | '/services/sap'
-    | '/services/software-development'
     | '/services/zoho'
     | '/admin/'
     | '/industries/'
@@ -517,8 +528,12 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
+  CsrRoute: typeof CsrRoute
+  EventsRoute: typeof EventsRoute
   GalleryRoute: typeof GalleryRoute
   LoginRoute: typeof LoginRoute
+  NewsRoute: typeof NewsRoute
+  PartnersRoute: typeof PartnersRoute
   TeamRoute: typeof TeamRoute
   BlogSlugRoute: typeof BlogSlugRoute
   IndustriesCapitalGoodsRoute: typeof IndustriesCapitalGoodsRoute
@@ -533,12 +548,9 @@ export interface RootRouteChildren {
   ProductsSupplierPortalRoute: typeof ProductsSupplierPortalRoute
   ProductsSurakshaRoute: typeof ProductsSurakshaRoute
   ProductsTyreHealthRoute: typeof ProductsTyreHealthRoute
-  ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
-  ServicesCxoAdvisoryRoute: typeof ServicesCxoAdvisoryRoute
-  ServicesCyberSecurityRoute: typeof ServicesCyberSecurityRoute
-  ServicesItInfrastructureRoute: typeof ServicesItInfrastructureRoute
+  ServicesItCustomSolutionsRoute: typeof ServicesItCustomSolutionsRoute
+  ServicesManageengineRoute: typeof ServicesManageengineRoute
   ServicesSapRoute: typeof ServicesSapRoute
-  ServicesSoftwareDevelopmentRoute: typeof ServicesSoftwareDevelopmentRoute
   ServicesZohoRoute: typeof ServicesZohoRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
@@ -556,6 +568,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -568,6 +594,20 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr': {
+      id: '/csr'
+      path: '/csr'
+      fullPath: '/csr'
+      preLoaderRoute: typeof CsrRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -647,13 +687,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesZohoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/software-development': {
-      id: '/services/software-development'
-      path: '/services/software-development'
-      fullPath: '/services/software-development'
-      preLoaderRoute: typeof ServicesSoftwareDevelopmentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/services/sap': {
       id: '/services/sap'
       path: '/services/sap'
@@ -661,32 +694,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSapRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/it-infrastructure': {
-      id: '/services/it-infrastructure'
-      path: '/services/it-infrastructure'
-      fullPath: '/services/it-infrastructure'
-      preLoaderRoute: typeof ServicesItInfrastructureRouteImport
+    '/services/manageengine': {
+      id: '/services/manageengine'
+      path: '/services/manageengine'
+      fullPath: '/services/manageengine'
+      preLoaderRoute: typeof ServicesManageengineRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/cyber-security': {
-      id: '/services/cyber-security'
-      path: '/services/cyber-security'
-      fullPath: '/services/cyber-security'
-      preLoaderRoute: typeof ServicesCyberSecurityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/cxo-advisory': {
-      id: '/services/cxo-advisory'
-      path: '/services/cxo-advisory'
-      fullPath: '/services/cxo-advisory'
-      preLoaderRoute: typeof ServicesCxoAdvisoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/analytics': {
-      id: '/services/analytics'
-      path: '/services/analytics'
-      fullPath: '/services/analytics'
-      preLoaderRoute: typeof ServicesAnalyticsRouteImport
+    '/services/it-custom-solutions': {
+      id: '/services/it-custom-solutions'
+      path: '/services/it-custom-solutions'
+      fullPath: '/services/it-custom-solutions'
+      preLoaderRoute: typeof ServicesItCustomSolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products/tyre-health': {
@@ -859,8 +878,12 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRoute,
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
+  CsrRoute: CsrRoute,
+  EventsRoute: EventsRoute,
   GalleryRoute: GalleryRoute,
   LoginRoute: LoginRoute,
+  NewsRoute: NewsRoute,
+  PartnersRoute: PartnersRoute,
   TeamRoute: TeamRoute,
   BlogSlugRoute: BlogSlugRoute,
   IndustriesCapitalGoodsRoute: IndustriesCapitalGoodsRoute,
@@ -877,12 +900,9 @@ const rootRouteChildren: RootRouteChildren = {
   ProductsSupplierPortalRoute: ProductsSupplierPortalRoute,
   ProductsSurakshaRoute: ProductsSurakshaRoute,
   ProductsTyreHealthRoute: ProductsTyreHealthRoute,
-  ServicesAnalyticsRoute: ServicesAnalyticsRoute,
-  ServicesCxoAdvisoryRoute: ServicesCxoAdvisoryRoute,
-  ServicesCyberSecurityRoute: ServicesCyberSecurityRoute,
-  ServicesItInfrastructureRoute: ServicesItInfrastructureRoute,
+  ServicesItCustomSolutionsRoute: ServicesItCustomSolutionsRoute,
+  ServicesManageengineRoute: ServicesManageengineRoute,
   ServicesSapRoute: ServicesSapRoute,
-  ServicesSoftwareDevelopmentRoute: ServicesSoftwareDevelopmentRoute,
   ServicesZohoRoute: ServicesZohoRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,

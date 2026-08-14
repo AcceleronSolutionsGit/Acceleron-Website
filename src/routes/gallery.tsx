@@ -100,16 +100,12 @@ function GalleryPage() {
                     alt={item.alt}
                     loading="lazy"
                     decoding="async"
+                    style={{ imageOrientation: "from-image" }}
                     className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-background/80 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-foreground border border-border/50">
-                      {item.category}
-                    </span>
-                  </div>
+
 
                   {/* Hover Overlay Content */}
                   <div className="absolute bottom-0 inset-x-0 p-6 z-10 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -182,13 +178,12 @@ function GalleryPage() {
                 src={getAssetUrl(currentItem.src)}
                 alt={currentItem.alt}
                 decoding="async"
+                style={{ imageOrientation: "from-image" }}
                 className="max-h-[70vh] w-auto max-w-full object-contain"
               />
               <div className="w-full p-6 bg-muted/90 backdrop-blur-md text-foreground border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div>
-                  <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-brand-red/10 text-brand-red mb-2">
-                    {currentItem.category}
-                  </span>
+
                   <h3 className="text-xl font-bold">{currentItem.title}</h3>
                   {currentItem.caption && (
                     <p className="text-sm text-muted-foreground mt-1">{currentItem.caption}</p>

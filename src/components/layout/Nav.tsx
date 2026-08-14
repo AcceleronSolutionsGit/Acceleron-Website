@@ -47,15 +47,10 @@ export const INDUSTRIES_NAV: IndustryNavItem[] = [
 ];
 
 const MEGA_SERVICES = [
-  { name: "Digital Transformation", categoryMap: ["CXO Advisory"], href: "/services/cxo-advisory", icon: Rocket, desc: "Strategic tech advisory" },
-  { name: "Cloud Services", categoryMap: ["IT Infrastructure"], href: "/services/it-infrastructure", icon: Cloud, desc: "AWS, Azure, and Hybrid cloud" },
-  { name: "AI & Machine Learning", categoryMap: ["Analytics"], href: "/services/analytics", icon: Brain, desc: "Predictive & Generative AI" },
-  { name: "Data & Analytics", categoryMap: ["Analytics"], href: "/services/analytics", icon: BarChart3, desc: "Data lakes & BI dashboards" },
-  { name: "Enterprise Applications", categoryMap: ["SAP", "Zoho"], href: "/services/sap", icon: Blocks, desc: "SAP S/4HANA & Zoho Suite" },
-  { name: "IT Infrastructure", categoryMap: ["IT Infrastructure"], href: "/services/it-infrastructure", icon: Server, desc: "Network & hardware management" },
-  { name: "Cybersecurity", categoryMap: ["Cyber Security"], href: "/services/cyber-security", icon: ShieldCheck, desc: "Zero-trust & ISO 27001" },
-  { name: "Managed Services", categoryMap: ["IT Infrastructure"], href: "/services/it-infrastructure", icon: Wrench, desc: "24/7 AMC and operational support" },
-  { name: "Software Development", categoryMap: ["Software Development"], href: "/services/software-development", icon: Code2, desc: "Custom web & mobile apps" },
+  { name: "SAP", categoryMap: ["SAP"], href: "/services/sap", icon: Blocks, desc: "S/4HANA, AMS & Migration" },
+  { name: "IT & Custom Solutions", categoryMap: ["IT & Custom Solutions"], href: "/services/it-custom-solutions", icon: Code2, desc: "Infrastructure, Security & AI" },
+  { name: "Zoho", categoryMap: ["Zoho"], href: "/services/zoho", icon: ZohoLogo, desc: "CRM, HRMS & Finance" },
+  { name: "ManageEngine", categoryMap: ["ManageEngine"], href: "/services/manageengine", icon: MonitorSmartphone, desc: "ITSM, MDM & Operations" },
 ];
 
 const WHO_WE_ARE = [
@@ -63,6 +58,7 @@ const WHO_WE_ARE = [
   { name: "Leadership & Team", href: "/team", icon: Users, desc: "Our executive and practice leads" },
   { name: "Culture", href: "/careers", icon: Award, desc: "Life at Acceleron" },
   { name: "CSR", href: "/csr", icon: Leaf, desc: "Community & sustainability" },
+  { name: "Partners", href: "/partners", icon: Briefcase, desc: "Our trusted ecosystem" },
 ];
 
 const PERSPECTIVES = [
@@ -79,7 +75,7 @@ function Nav() {
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-  const [hoveredService, setHoveredService] = useState<typeof MEGA_SERVICES[0] | null>(null);
+  const [hoveredItem, setHoveredItem] = useState<string>("SAP");
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = (dropdown: string) => {
@@ -90,7 +86,7 @@ function Nav() {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
-      setHoveredService(null);
+      setHoveredItem("SAP");
     }, 150);
   };
 
@@ -163,106 +159,82 @@ function Nav() {
                   <motion.div
                     initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.25, ease: "easeOut" }}
-                    className="fixed left-1/2 top-[76px] w-[min(95vw,1000px)] -translate-x-1/2 z-50 max-h-[85vh] overflow-y-auto"
+                    className="fixed left-1/2 top-[76px] w-[min(95vw,700px)] -translate-x-1/2 z-50 max-h-[85vh] overflow-y-auto"
                   >
-                    <div className="bg-background/95 backdrop-blur-xl border border-border rounded-3xl p-6 shadow-glow grid grid-cols-12 gap-8">
-                      {/* Services Column */}
-                      <div className="col-span-5">
-                        <div className="text-xs font-bold uppercase tracking-widest text-brand-red mb-4">Core Services</div>
-                        <div className="grid gap-2">
+                    <div className="bg-background/95 backdrop-blur-xl border border-border rounded-3xl p-6 shadow-glow grid grid-cols-12 gap-0">
+                      {/* Left Column — Service names + Products */}
+                      <div className="col-span-4 pr-4">
+                        <div className="space-y-0.5">
                           {MEGA_SERVICES.map((cat) => (
-                              <Link 
-                                key={cat.name} 
-                                to={cat.href as any} 
-                                onClick={() => setActiveDropdown(null)} 
-                                onMouseEnter={() => setHoveredService(cat)}
-                                className={`group flex flex-col justify-center rounded-xl p-3 transition-all border ${hoveredService?.name === cat.name ? 'border-brand/30 bg-muted/60 dark:bg-muted/20 shadow-sm' : 'border-border/40 bg-muted/10 hover:border-brand/30 hover:bg-muted/40 dark:hover:bg-muted/10'}`}
-                              >
-                                <div className={`text-sm font-bold transition-colors flex items-center justify-between ${hoveredService?.name === cat.name ? 'text-brand' : 'text-foreground group-hover:text-brand'}`}>
-                                  {cat.name}
-                                  <ArrowRight className={`h-4 w-4 transition-all ${hoveredService?.name === cat.name ? 'opacity-100 translate-x-0 text-brand' : 'opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 text-brand'}`} />
-                                </div>
-                              </Link>
+                            <button
+                              key={cat.name}
+                              onMouseEnter={() => setHoveredItem(cat.name)}
+                              className={`group flex items-center justify-between w-full rounded-lg px-3 py-2.5 transition-all text-left ${hoveredItem === cat.name ? 'bg-muted/60 dark:bg-muted/20' : 'hover:bg-muted/40 dark:hover:bg-muted/10'}`}
+                            >
+                              <span className={`text-sm font-semibold transition-colors ${hoveredItem === cat.name ? 'text-brand' : 'text-foreground group-hover:text-brand'}`}>{cat.name}</span>
+                              <ChevronDown className={`h-3.5 w-3.5 -rotate-90 transition-all ${hoveredItem === cat.name ? 'opacity-100 text-brand' : 'opacity-0 group-hover:opacity-50'}`} />
+                            </button>
                           ))}
-                          <div className="my-1 border-t border-border/60" />
-                          <button 
-                            onMouseEnter={() => setHoveredService(null)}
-                            onClick={() => {
-                              setActiveDropdown(null);
-                            }}
-                            className={`group flex flex-col justify-center rounded-xl p-3 transition-all text-left border ${!hoveredService ? 'border-brand/30 bg-muted/60 dark:bg-muted/20 shadow-sm' : 'border-border/40 bg-muted/10 hover:border-brand/30 hover:bg-muted/40 dark:hover:bg-muted/10'}`}
+                          <div className="my-2 border-t border-border/60" />
+                          <button
+                            onMouseEnter={() => setHoveredItem("products")}
+                            className={`group flex items-center justify-between w-full rounded-lg px-3 py-2.5 transition-all text-left ${hoveredItem === 'products' ? 'bg-muted/60 dark:bg-muted/20' : 'hover:bg-muted/40 dark:hover:bg-muted/10'}`}
                           >
-                            <div className={`text-sm font-bold transition-colors flex items-center justify-between ${!hoveredService ? 'text-brand' : 'text-foreground group-hover:text-brand'}`}>
-                              Products & Industries
-                              <ArrowRight className={`h-4 w-4 transition-all ${!hoveredService ? 'opacity-100 translate-x-0 text-brand' : 'opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 text-brand'}`} />
-                            </div>
+                            <span className={`text-sm font-semibold transition-colors ${hoveredItem === 'products' ? 'text-brand' : 'text-foreground group-hover:text-brand'}`}>Products</span>
+                            <ChevronDown className={`h-3.5 w-3.5 -rotate-90 transition-all ${hoveredItem === 'products' ? 'opacity-100 text-brand' : 'opacity-0 group-hover:opacity-50'}`} />
                           </button>
                         </div>
                       </div>
-                      
-                      {/* Products & Industries Columns / Sub-Services Column */}
-                      <div className="col-span-7 border-l border-border pl-8">
-                        {hoveredService ? (
-                          <div>
-                            <div className="text-xs font-bold uppercase tracking-widest text-brand-red mb-4 flex items-center gap-2">
-                              {hoveredService.name} Sub-Services
-                            </div>
-                            <div className="grid grid-cols-2 gap-4">
-                              {SUB_SERVICES_DATA.filter(sub => hoveredService.categoryMap.includes(sub.category)).map((sub) => {
-                                const subUrl = getSubUrl(hoveredService.href, sub.title);
-                                return (
-                                  <Link 
-                                    key={sub.slug} 
-                                    to={subUrl as any} 
-                                    onClick={() => setActiveDropdown(null)}
-                                    className="group flex flex-col justify-center rounded-xl transition-all p-3 border border-border/40 bg-muted/10 hover:border-brand/30 hover:bg-muted/30 shadow-sm"
-                                  >
-                                    <div className="flex items-center justify-between text-sm font-semibold text-foreground group-hover:text-brand transition-colors w-full">
-                                      <div className="flex items-center gap-1.5">
-                                        {sub.title}
-                                      </div>
-                                      <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand" />
-                                    </div>
-                                  </Link>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="grid grid-cols-2 gap-8 divide-x divide-border/50">
-                        <div className="pr-4">
-                          <div className="text-xs font-bold uppercase tracking-widest text-brand-red mb-4">Enterprise Products</div>
-                          <div className="grid gap-3">
-                            {PRODUCTS.map((p) => (
-                              <Link key={p.name} to={p.href as any} onClick={() => setActiveDropdown(null)} className="group flex flex-col justify-center rounded-xl transition-all p-3 border border-border/40 bg-muted/10 hover:border-brand/30 hover:bg-muted/30 shadow-sm">
-                                <div className="flex items-center justify-between text-sm font-semibold text-foreground group-hover:text-brand transition-colors w-full">
-                                  <div className="flex items-center gap-1.5">
-                                    {p.name}
-                                  </div>
-                                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand" />
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
 
-                        <div className="pl-4">
-                          <div className="text-xs font-bold uppercase tracking-widest text-brand-red mb-4">Industries</div>
-                          <div className="grid gap-3">
-                            {INDUSTRIES_NAV.map((ind) => (
-                              <Link key={ind.name} to={ind.href as any} onClick={() => setActiveDropdown(null)} className="group flex flex-col justify-center rounded-xl transition-all p-3 border border-border/40 bg-muted/10 hover:border-brand/30 hover:bg-muted/30 shadow-sm">
-                                <div className="flex items-center justify-between text-sm font-semibold text-foreground group-hover:text-brand transition-colors w-full">
-                                  <div className="flex items-center gap-1.5">
-                                    {ind.name}
+                      {/* Right Column — Sub-items */}
+                      <div className="col-span-8 border-l border-border/60 pl-5">
+                        {hoveredItem === "products" ? (
+                          <>
+                            <div className="text-xs font-bold uppercase tracking-widest text-brand-red mb-3">Products</div>
+                            <div className="space-y-0.5">
+                              {PRODUCTS.map((p) => (
+                                <Link
+                                  key={p.name}
+                                  to={p.href as any}
+                                  onClick={() => setActiveDropdown(null)}
+                                  className="group flex items-center justify-between rounded-lg px-3 py-2 transition-all hover:bg-muted/40 dark:hover:bg-muted/10"
+                                >
+                                  <div>
+                                    <div className="text-sm font-medium text-foreground group-hover:text-brand transition-colors">{p.name}</div>
+                                    <div className="text-xs text-muted-foreground">{p.desc}</div>
                                   </div>
-                                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand" />
+                                  <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand" />
+                                </Link>
+                              ))}
+                            </div>
+                          </>
+                        ) : (
+                          (() => {
+                            const activeService = MEGA_SERVICES.find(s => s.name === hoveredItem);
+                            const subServices = activeService ? SUB_SERVICES_DATA.filter(sub => activeService.categoryMap.includes(sub.category)) : [];
+                            return (
+                              <>
+                                <div className="text-xs font-bold uppercase tracking-widest text-brand-red mb-3">{hoveredItem}</div>
+                                <div className="space-y-0.5">
+                                  {subServices.map((sub) => {
+                                    const subUrl = getSubUrl(activeService?.href || "", sub.title);
+                                    return (
+                                      <Link
+                                        key={sub.slug}
+                                        to={subUrl as any}
+                                        onClick={() => setActiveDropdown(null)}
+                                        className="group flex items-center justify-between rounded-lg px-3 py-2 transition-all hover:bg-muted/40 dark:hover:bg-muted/10"
+                                      >
+                                        <div className="text-sm font-medium text-foreground group-hover:text-brand transition-colors">{sub.title}</div>
+                                        <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand" />
+                                      </Link>
+                                    );
+                                  })}
                                 </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                      )}
+                              </>
+                            );
+                          })()
+                        )}
                       </div>
                     </div>
                   </motion.div>

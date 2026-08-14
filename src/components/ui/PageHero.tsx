@@ -40,7 +40,7 @@ export function PageHero({
               aria-hidden="true"
               loading="lazy"
               decoding="async"
-              className="absolute inset-0 h-full w-full object-cover object-center"
+              className="absolute inset-0 h-full w-full object-contain object-right lg:object-center opacity-80"
             />
           </div>
         )}

@@ -1,8 +1,43 @@
 import { useState, useRef } from "react";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { SearchableSelect } from "./SearchableSelect";
 
-export function HomeContactForm() {
+const INTEREST_OPTIONS = [
+  { value: "-None-", label: "-None-" },
+  { value: "SAP AMS", label: "SAP AMS" },
+  { value: "SAP S/4HANA implementation", label: "SAP S/4HANA implementation" },
+  { value: "SAP integration", label: "SAP integration" },
+  { value: "RISE with S/4HANA implementation", label: "RISE with S/4HANA implementation" },
+  { value: "SAP Migration to Cloud", label: "SAP Migration to Cloud" },
+  { value: "SAP Custom Development", label: "SAP Custom Development" },
+  { value: "SAP Technical Upgrade", label: "SAP Technical Upgrade" },
+  { value: "SAP Resource Augmentation", label: "SAP Resource Augmentation" },
+  { value: "SAP - Others", label: "SAP - Others" },
+  { value: "Zoho CRM", label: "Zoho CRM" },
+  { value: "Zoho Books", label: "Zoho Books" },
+  { value: "Zoho HRMS (People and Payroll)", label: "Zoho HRMS (People and Payroll)" },
+  { value: "Zoho ERP", label: "Zoho ERP" },
+  { value: "Zoho Mail", label: "Zoho Mail" },
+  { value: "ManageEngine-ITSM", label: "ManageEngine-ITSM" },
+  { value: "ManageEngine-Op Manager", label: "ManageEngine-Op Manager" },
+  { value: "ManageEngine-Endpoint Control", label: "ManageEngine-Endpoint Control" },
+  { value: "ManageEngine-MDM Plus", label: "ManageEngine-MDM Plus" },
+  { value: "IT Infrastructure Services", label: "IT Infrastructure Services" },
+  { value: "Custom Software Application Development", label: "Custom Software Application Development" },
+  { value: "Custom AI Application Development", label: "Custom AI Application Development" },
+  { value: "Network Security Implementation", label: "Network Security Implementation" },
+  { value: "Security Audits", label: "Security Audits" },
+  { value: "IT System Audits", label: "IT System Audits" },
+  { value: "mjPRO", label: "mjPRO" },
+  { value: "Others", label: "Others" },
+];
+
+interface HomeContactFormProps {
+  defaultInterest?: string;
+}
+
+export function HomeContactForm({ defaultInterest }: HomeContactFormProps = {}) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const formRef = useRef<HTMLFormElement>(null);
@@ -107,35 +142,12 @@ export function HomeContactForm() {
         </div>
         <div>
           <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Area of Interest</label>
-          <select name="LEADCF1" className="w-full rounded-xl border border-border bg-background p-3.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
-          <option value="-None-">-None-</option>
-          <option value="SAP AMS">SAP AMS</option>
-          <option value="SAP S/4HANA implementation">SAP S/4HANA implementation</option>
-          <option value="SAP integration">SAP integration</option>
-          <option value="RISE with S/4HANA implementation">RISE with S/4HANA implementation</option>
-          <option value="SAP Migration to Cloud">SAP Migration to Cloud</option>
-          <option value="SAP Custom Development">SAP Custom Development</option>
-          <option value="SAP Technical Upgrade">SAP Technical Upgrade</option>
-          <option value="SAP Resource Augmentation">SAP Resource Augmentation</option>
-          <option value="SAP - Others">SAP - Others</option>
-          <option value="Zoho CRM">Zoho CRM</option>
-          <option value="Zoho Books">Zoho Books</option>
-          <option value="Zoho HRMS (People and Payroll)">Zoho HRMS (People and Payroll)</option>
-          <option value="Zoho ERP">Zoho ERP</option>
-          <option value="Zoho Mail">Zoho Mail</option>
-          <option value="ManageEngine-ITSM">ManageEngine-ITSM</option>
-          <option value="ManageEngine-Op Manager">ManageEngine-Op Manager</option>
-          <option value="ManageEngine-Endpoint Control">ManageEngine-Endpoint Control</option>
-          <option value="ManageEngine-MDM Plus">ManageEngine-MDM Plus</option>
-          <option value="IT Infrastructure Services">IT Infrastructure Services</option>
-          <option value="Custom Software Application Development">Custom Software Application Development</option>
-          <option value="Custom AI Application Development">Custom AI Application Development</option>
-          <option value="Network Security Implementation">Network Security Implementation</option>
-          <option value="Security Audits">Security Audits</option>
-          <option value="IT System Audits">IT System Audits</option>
-          <option value="mjPRO">mjPRO</option>
-          <option value="Others">Others</option>
-        </select>
+          <SearchableSelect
+            name="LEADCF1"
+            placeholder="Search interests..."
+            defaultValue={defaultInterest}
+            options={INTEREST_OPTIONS}
+          />
         </div>
       </div>
       <div>

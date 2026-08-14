@@ -124,17 +124,19 @@ function BlogListingPage() {
                   </div>
 
                   <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                    <div className="flex items-center gap-3">
-                      <img
-                        src={featuredPost.author.avatar}
-                        alt={featuredPost.author.name}
-                        className="h-10 w-10 rounded-full object-cover border border-border"
-                      />
-                      <div>
-                        <div className="text-xs font-bold text-foreground">{featuredPost.author.name}</div>
-                        <div className="text-[10px] text-muted-foreground">{featuredPost.date}</div>
+                    {featuredPost.author && (
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={featuredPost.author.avatar}
+                          alt={featuredPost.author.name}
+                          className="h-10 w-10 rounded-full object-cover border border-border"
+                        />
+                        <div>
+                          <div className="text-xs font-bold text-foreground">{featuredPost.author.name}</div>
+                          <div className="text-[10px] text-muted-foreground">{featuredPost.date}</div>
+                        </div>
                       </div>
-                    </div>
+                    )}
                     <span className="inline-flex items-center gap-1.5 text-xs font-bold text-brand group-hover:translate-x-1 transition-transform">
                       Read Article <ArrowRight className="h-4 w-4" />
                     </span>
@@ -189,14 +191,16 @@ function BlogListingPage() {
 
                   {/* Author Footer */}
                   <div className="flex items-center justify-between pt-4 border-t border-border/50 mt-auto">
-                    <div className="flex items-center gap-2.5">
-                      <img
-                        src={post.author.avatar}
-                        alt={post.author.name}
-                        className="h-8 w-8 rounded-full object-cover border border-border"
-                      />
-                      <span className="text-xs font-semibold text-foreground">{post.author.name}</span>
-                    </div>
+                    {post.author && (
+                      <div className="flex items-center gap-2.5">
+                        <img
+                          src={post.author.avatar}
+                          alt={post.author.name}
+                          className="h-8 w-8 rounded-full object-cover border border-border"
+                        />
+                        <span className="text-xs font-semibold text-foreground">{post.author.name}</span>
+                      </div>
+                    )}
                     <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-brand" />
                   </div>
                 </Link>

@@ -44,17 +44,19 @@ function BlogDetailPage() {
         {/* Article Header Metadata */}
         <Reveal delay={0.1}>
           <div className="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-border mb-12">
-            <div className="flex items-center gap-4">
-              <img
-                src={post.author.avatar}
-                alt={post.author.name}
-                className="h-12 w-12 rounded-full object-cover border-2 border-brand/50"
-              />
-              <div>
-                <h4 className="text-base font-bold text-foreground">{post.author.name}</h4>
-                <p className="text-xs text-muted-foreground">{post.author.role}</p>
+            {post.author && (
+              <div className="flex items-center gap-4">
+                <img
+                  src={post.author.avatar}
+                  alt={post.author.name}
+                  className="h-12 w-12 rounded-full object-cover border-2 border-brand/50"
+                />
+                <div>
+                  <h4 className="text-base font-bold text-foreground">{post.author.name}</h4>
+                  {post.author.role && <p className="text-xs text-muted-foreground">{post.author.role}</p>}
+                </div>
               </div>
-            </div>
+            )}
 
             <div className="flex items-center gap-6 text-xs text-muted-foreground font-semibold">
               <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4 text-brand-red" /> {post.date}</span>

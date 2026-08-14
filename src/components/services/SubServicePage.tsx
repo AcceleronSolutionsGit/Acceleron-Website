@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
 import {
-  CheckCircle2, ArrowRight, ArrowLeft, Sparkles, TrendingUp, ShieldCheck,
-  Layers, Cpu, Clock, Award, Phone, Mail, MapPin, ChevronRight
+  CheckCircle2, ArrowRight, ArrowLeft,
+  Award, Phone, Mail, MapPin, ChevronRight
 } from "lucide-react";
 import { SubServiceData } from "../../data/servicesData";
 import { Reveal, WaveDivider } from "../ui/Animations";
+import { getAssetUrl } from "../../lib/assets";
+import { HomeContactForm } from "../ui/HomeContactForm";
 
 interface SubServicePageProps {
   data: SubServiceData;
@@ -18,97 +20,34 @@ export function SubServicePageView({ data }: SubServicePageProps) {
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
       {/* ═══════════════════ HERO SECTION ═══════════════════ */}
-      <section className="section-dark relative pt-36 pb-20 bg-muted overflow-hidden">
-        <div className="absolute inset-0 grid-lines opacity-15" />
-        <div className="absolute top-1/4 right-10 h-96 w-96 rounded-full bg-brand/20 blur-[140px]" />
-        <div className="absolute bottom-10 left-1/4 h-80 w-80 rounded-full bg-brand-red/15 blur-[120px]" />
-
-        <div className="mx-auto max-w-7xl px-6 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-3 rounded-full border border-border bg-background/80 backdrop-blur-md px-4 py-2 text-xs font-bold text-foreground shadow-soft">
-                {data.customLogo ? (
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white p-1 shadow-sm shrink-0">
-                    <img src={data.customLogo} alt={data.title} className="h-full w-full object-contain" />
-                  </span>
-                ) : (
-                  <Sparkles className="h-4 w-4 text-brand-red" />
-                )}
-                <span>Acceleron {data.category} Practice</span>
-              </div>
-
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.08] text-foreground">
-                {data.title.split(' ')[0]} <span className="text-gradient">{data.title.split(' ').slice(1).join(' ')}</span>
-              </h1>
-
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                {data.desc}
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-4">
-                <a
-                  href="#consultation"
-                  className="rounded-xl bg-brand-gradient px-8 py-4 text-sm font-bold text-white shadow-glow hover:scale-[1.02] transition-transform flex items-center gap-2"
-                >
-                  Schedule Consultation <ArrowRight className="h-4 w-4" />
-                </a>
-                <Link
-                  to={`/services/${data.categorySlug}` as any}
-                  className="rounded-xl border border-border bg-background/50 px-6 py-4 text-sm font-bold text-foreground hover:bg-background/80 transition-colors flex items-center gap-2"
-                >
-                  <ArrowLeft className="h-4 w-4" /> Back to {data.category}
-                </Link>
-              </div>
-
-              {/* Quick Highlights */}
-              <div className="pt-6 border-t border-border flex flex-wrap gap-6 text-xs font-semibold text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-brand-red" /> SLA-Backed Delivery
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-brand" /> Certified Architects
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-500" /> Enterprise Scale
-                </div>
-              </div>
-            </div>
-
-            {/* Right Hero Image / Slot */}
-            <div className="lg:col-span-5 relative">
-              <Reveal delay={0.2}>
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-2xl bg-background/30 group">
-                  <div className="aspect-[4/3] w-full relative overflow-hidden bg-black/40 flex items-center justify-center">
-                    <img
-                      src={data.customImage || data.image}
-                      alt={data.title}
-                      className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  </div>
-
-                  {/* Floating Glassmorphic Stat Card */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                    className="absolute bottom-6 left-6 right-6 rounded-2xl border border-border bg-background/85 backdrop-blur-xl p-5 text-foreground shadow-lg"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-xs text-muted-foreground font-medium">Enterprise Impact</div>
-                        <div className="text-xl font-bold mt-0.5">{data.benefits[0]?.title || "Operational ROI"}</div>
-                      </div>
-                      <div className="text-3xl font-black text-brand-red">
-                        {data.benefits[0]?.metric || "10x"}
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </Reveal>
-            </div>
+      <section className="relative w-full min-h-[90vh] flex flex-col justify-center pt-24 pb-12 bg-background overflow-hidden border-b border-border/50">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,oklch(0.68_0.19_240/0.05),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-0 grid-lines opacity-[0.05]" />
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+          <div className="relative w-full aspect-video sm:rounded-3xl overflow-hidden shadow-2xl border border-border/50 bg-white/5 backdrop-blur-3xl flex items-center justify-center">
+            <img src={getAssetUrl(data.image)} alt={data.title} className="absolute inset-0 h-full w-full object-contain drop-shadow-2xl" />
           </div>
+        </div>
+      </section>
+      
+      <section className="relative w-full bg-background pt-8 pb-12 border-b border-border/50">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <Reveal delay={0.2}>
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-4 px-6">
+              <a
+                href="#consultation"
+                className="rounded-xl bg-brand-gradient px-8 py-4 text-sm font-bold text-white shadow-glow hover:scale-[1.02] transition-transform flex items-center gap-2"
+              >
+                Schedule Consultation <ArrowRight className="h-4 w-4" />
+              </a>
+              <Link
+                to={`/services/${data.categorySlug}` as any}
+                className="rounded-xl border border-border bg-background/50 px-6 py-4 text-sm font-bold text-foreground hover:bg-background/80 transition-colors flex items-center gap-2"
+              >
+                <ArrowLeft className="h-4 w-4" /> Back to {data.category}
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -310,40 +249,9 @@ export function SubServicePageView({ data }: SubServicePageProps) {
             <div>
               <Reveal delay={0.2}>
                 <div className="rounded-3xl border border-border/60 bg-background/60 p-8 md:p-10 backdrop-blur-xl shadow-glow">
-                  <h3 className="text-xl font-bold text-foreground mb-6">Request Technical Consultation</h3>
-                  <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-muted-foreground mb-1.5">First Name *</label>
-                        <input type="text" placeholder="First Name" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-semibold text-muted-foreground mb-1.5">Last Name *</label>
-                        <input type="text" placeholder="Last Name" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-muted-foreground mb-1.5">Work Email *</label>
-                      <input type="email" placeholder="Work Email" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-muted-foreground mb-1.5">Company Name & Role *</label>
-                      <input type="text" placeholder="Company Name & Role" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-muted-foreground mb-1.5">Project Scope / Requirements</label>
-                      <textarea rows={3} placeholder="Project Scope / Requirements" className="w-full rounded-xl border border-border bg-background p-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full rounded-xl bg-brand-gradient py-4 text-sm font-bold text-white shadow-glow hover:scale-[1.02] transition-transform"
-                    >
-                      Submit Consultation Request
-                    </button>
-                    <p className="text-[11px] text-center text-muted-foreground">
-                      We reply within 4 business hours under strict NDA.
-                    </p>
-                  </form>
+                  <h3 className="text-xl font-bold text-foreground mb-2">Request Technical Consultation</h3>
+                  <p className="text-xs text-muted-foreground mb-6">Fill out the details below and our team will get in touch shortly.</p>
+                  <HomeContactForm defaultInterest={data.title} />
                 </div>
               </Reveal>
             </div>

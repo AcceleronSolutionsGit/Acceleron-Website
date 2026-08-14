@@ -58,7 +58,7 @@ export function CharReveal({ text, className = "" }: { text: string; className?:
 
 export function InitialLoader({ onComplete }: { onComplete: () => void }) {
   useEffect(() => {
-    const t = setTimeout(onComplete, 2200);
+    const t = setTimeout(onComplete, 3500);
     return () => clearTimeout(t);
   }, [onComplete]);
 
@@ -69,13 +69,39 @@ export function InitialLoader({ onComplete }: { onComplete: () => void }) {
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className="fixed inset-0 z-[100] flex items-center justify-center bg-muted"
     >
-      <motion.div
-        animate={{ scale: [0.95, 1, 0.95], opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        className="relative"
-      >
-        <img src="/logo.png" alt="Acceleron Solutions" className="h-16 md:h-24 object-contain drop-shadow-xl dark:brightness-0 dark:invert" />
-      </motion.div>
+      <div className="relative flex items-center justify-center w-full h-full">
+        <motion.div 
+          className="absolute"
+          initial={{ opacity: 1, filter: "blur(0px)" }}
+          animate={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
+          transition={{ delay: 1.3, duration: 0.4 }}
+        >
+          <div className="relative">
+            <img 
+              src="/Acceleron_Short_Logo.png" 
+              alt="" 
+              className="h-16 md:h-24 object-contain drop-shadow-xl filter brightness-0 invert opacity-20"
+            />
+            <motion.img 
+              src="/Acceleron_Short_Logo.png" 
+              alt="Acceleron Solutions" 
+              className="absolute inset-0 h-16 md:h-24 object-contain drop-shadow-xl"
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              animate={{ clipPath: "inset(0 0% 0 0)" }}
+              transition={{ duration: 1.1, ease: "easeInOut" }}
+            />
+          </div>
+        </motion.div>
+
+        <motion.img
+          src="/logo.png"
+          alt="Acceleron Solutions"
+          className="absolute h-16 md:h-24 object-contain drop-shadow-xl dark:brightness-0 dark:invert"
+          initial={{ opacity: 0, scale: 1.05, filter: "blur(4px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ delay: 1.3, duration: 0.4 }}
+        />
+      </div>
     </motion.div>
   );
 }

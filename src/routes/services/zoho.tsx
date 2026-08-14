@@ -17,13 +17,27 @@ function ZohoPage() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
-      <PageHero
-        title="Zoho Services"
-        subtitle="Premium Zoho partner — deploying CRM, ERP, Analytics, and the full Zoho One suite in weeks, not months."
-        breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Zoho" }]}
-        image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=1200&auto=format&fit=crop"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={getAssetUrl("/ZOHO_logo_2023.svg_.png")} alt="Zoho" loading="lazy" decoding="async" className="h-10 w-10 object-contain" /></div>}
-      />
+      {/* Hero Banner */}
+      <section className="relative w-full min-h-[90vh] flex flex-col justify-center pt-24 pb-12 bg-background overflow-hidden border-b border-border/50">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,oklch(0.68_0.19_240/0.05),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-0 grid-lines opacity-[0.05]" />
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+          <div className="relative w-full aspect-video sm:rounded-3xl overflow-hidden shadow-2xl border border-border/50 bg-white/5 backdrop-blur-3xl flex items-center justify-center">
+            <img src={getAssetUrl("/ZOHO_CRM_Banner.png")} alt="Zoho Services" className="absolute inset-0 h-full w-full object-contain drop-shadow-2xl" />
+          </div>
+        </div>
+      </section>
+
+      {/* Breadcrumbs */}
+      <div className="w-full border-b border-border/50 bg-muted/40 py-3.5 backdrop-blur-md relative z-20">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
+            <Link to="/services" className="hover:text-foreground transition-colors">Services</Link>
+            <span className="text-foreground/30">/</span>
+            <span className="text-brand-red">Zoho</span>
+          </div>
+        </div>
+      </div>
 
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
         <Reveal>

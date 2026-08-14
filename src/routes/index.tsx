@@ -16,6 +16,7 @@ import { HomeContactForm } from '../components/ui/HomeContactForm';
 import { Nav, PRODUCTS } from '../components/layout/Nav';
 import { getAssetUrl } from '../lib/assets';
 import { WhyChooseUs, CSRSection, GlobalPresence, InsightsSection } from '../components/home/HomeSections';
+import { OurValuesSection } from '../components/ui/OurValuesGrid';
 
 export const Route = createFileRoute("/")(
 {
@@ -30,414 +31,11 @@ export const Route = createFileRoute("/")(
 
 /* ═══════════════════ HERO ═══════════════════ */
 
-type Slide = {
-  eyebrow: string;
-  title: string;
-  accent: string;
-  sub: string;
-  gradient: string;
-  Visual: () => ReactNode;
-};
-
-function SlideSAP() {
-  return (
-    <div className="absolute inset-0">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_70%_40%,oklch(0.62_0.22_260/0.55),transparent_65%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_20%_70%,oklch(0.62_0.22_300/0.4),transparent_65%)]" />
-      <motion.div
-        animate={{ rotate: 360 }} transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-        className="absolute right-[-10%] top-1/2 h-[720px] w-[720px] -translate-y-1/2 rounded-full border border-foreground/10"
-      >
-        <div className="absolute inset-14 rounded-full border border-foreground/10" />
-        <div className="absolute inset-28 rounded-full border border-foreground/10" />
-        <div className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 rounded-full bg-cyan shadow-[0_0_30px_var(--cyan-brand)]" />
-        <div className="absolute bottom-8 right-8 h-2.5 w-2.5 rounded-full bg-electric shadow-[0_0_30px_var(--electric)]" />
-      </motion.div>
-    </div>
-  );
-}
-function SlideAI() {
-  return (
-    <div className="absolute inset-0">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,oklch(0.62_0.22_300/0.5),transparent_70%)]" />
-      <div className="absolute inset-0 grid-lines opacity-30" />
-      {[...Array(24)].map((_, i) => {
-        const angle = (i / 24) * Math.PI * 2;
-        const r = 240 + (i % 3) * 60;
-        return (
-          <motion.div
-            key={i}
-            className="absolute left-1/2 top-1/2 h-1.5 w-1.5 rounded-full bg-cyan shadow-[0_0_10px_var(--cyan-brand)]"
-            style={{ x: Math.cos(angle) * r - 3, y: Math.sin(angle) * r - 3 }}
-            animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 2.4, delay: i * 0.08, repeat: Infinity }}
-          />
-        );
-      })}
-      <motion.div
-        animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 3, repeat: Infinity }}
-        className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-gradient blur-2xl opacity-60"
-      />
-    </div>
-  );
-}
-function SlideZoho() {
-  return (
-    <div className="absolute inset-0">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_60%_60%,oklch(0.7_0.2_25/0.35),transparent_65%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_20%_30%,oklch(0.62_0.22_260/0.35),transparent_65%)]" />
-      <div className="absolute right-[6%] top-1/2 -translate-y-1/2 grid grid-cols-4 gap-3" style={{ perspective: 1000 }}>
-        {[...Array(16)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, rotateY: -60 }} animate={{ opacity: 1, rotateY: 0 }}
-            transition={{ delay: i * 0.04, duration: 0.8 }}
-            className="h-14 w-14 rounded-xl border border-border bg-muted/[0.03] backdrop-blur-sm"
-            style={{
-              background: i % 3 === 0 ? "linear-gradient(135deg,oklch(0.62 0.22 260/0.5),transparent)"
-                : i % 3 === 1 ? "linear-gradient(135deg,oklch(0.82 0.14 210/0.5),transparent)"
-                : "linear-gradient(135deg,oklch(0.7 0.2 25/0.45),transparent)",
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function SlideSAPCloud() {
-  return (
-    <div className="absolute inset-0">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_40%_50%,oklch(0.68_0.19_240/0.45),transparent_65%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_45%_45%_at_80%_40%,oklch(0.62_0.22_260/0.35),transparent_65%)]" />
-      <div className="absolute inset-0 grid-lines opacity-25" />
-      {[...Array(18)].map((_, i) => {
-        const angle = (i / 18) * Math.PI * 2;
-        const r = 200 + (i % 3) * 75;
-        return (
-          <motion.div
-            key={i}
-            className="absolute left-[45%] top-1/2 h-2 w-2 rounded-full bg-cyan shadow-[0_0_15px_var(--cyan-brand)]"
-            style={{ x: Math.cos(angle) * r, y: Math.sin(angle) * r }}
-            animate={{ scale: [1, 1.8, 1], opacity: [0.3, 0.9, 0.3], y: [Math.sin(angle) * r, Math.sin(angle) * r - 15, Math.sin(angle) * r] }}
-            transition={{ duration: 3 + (i % 2), delay: i * 0.1, repeat: Infinity, ease: "easeInOut" }}
-          />
-        );
-      })}
-      <motion.div
-        animate={{ rotate: 360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        className="absolute left-[45%] top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-cyan/25"
-      >
-        <div className="absolute top-0 left-1/2 h-3.5 w-3.5 -translate-x-1/2 rounded-full bg-cyan shadow-[0_0_20px_var(--cyan-brand)]" />
-        <div className="absolute bottom-0 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-electric shadow-[0_0_20px_var(--electric)]" />
-      </motion.div>
-    </div>
-  );
-}
-
-const SLIDES: Slide[] = [
-  {
-    eyebrow: "Enterprise IT Consulting, SAP, Zoho & Software Development",
-    title: "Technology That Moves Heavy Industry ",
-    accent: "Forward.",
-    sub: "Acceleron Solutions helps mining, manufacturing, and enterprise businesses run better—with SAP, Zoho, custom software, IT infrastructure, and cybersecurity built by people who understand how your operations actually work.",
-    gradient: "from-[oklch(0.14_0.06_265)] to-[oklch(0.2_0.09_265)]",
-    Visual: SlideSAP,
-  },
-  {
-    eyebrow: "Enterprise AI & Advanced Analytics",
-    title: "Intelligence, ",
-    accent: "operationalized.",
-    sub: "Empower your workforce with production-ready AI. We build custom generative agents, scalable RAG pipelines, and predictive machine learning models that transform raw data into actionable, automated insights.",
-    gradient: "from-[oklch(0.14_0.07_275)] to-[oklch(0.2_0.09_280)]",
-    Visual: SlideAI,
-  },
-  {
-    eyebrow: "Zoho Premium Implementation Partner",
-    title: "Business apps, ",
-    accent: "in weeks.",
-    sub: "Unify your entire business operating system. From Zoho CRM and Books to Creator and HRMS, we design, deploy, and customize Zoho's comprehensive suite to perfectly map to your organization's unique workflows.",
-    gradient: "from-[oklch(0.16_0.07_20)] to-[oklch(0.2_0.09_265)]",
-    Visual: SlideZoho,
-  },
-  {
-    eyebrow: "SAP Cloud & RISE with SAP",
-    title: "SAP Cloud, ",
-    accent: "at scale.",
-    sub: "Future-proof your enterprise with seamless SAP S/4HANA transitions. We specialize in RISE with SAP migrations, Business Technology Platform (BTP) extensions, and zero-disruption cloud transformations tailored for heavy industries.",
-    gradient: "from-[oklch(0.16_0.07_240)] to-[oklch(0.22_0.09_255)]",
-    Visual: SlideSAPCloud,
-  },
-];
-
-type ConsoleData = {
-  brand: string;
-  app: string;
-  nav: string[];
-  region: string;
-  metrics: { label: string; v: string; d: string }[];
-  chartLabel: string;
-  slaLabel: string;
-  slaRows: { label: string; value: number }[];
-  eventsLabel: string;
-  events: string[];
-  floater: { label: string; value: string };
-  badge: { icon: typeof Sparkles; kicker: string; text: string };
-};
-
-const CONSOLES: ConsoleData[] = [
-  {
-    brand: "SAP S/4HANA",
-    app: "acceleron · s/4 cockpit",
-    nav: ["Finance", "Supply Chain", "Manufacturing", "BTP Apps", "RISE"],
-    region: "eu-central-1",
-    metrics: [
-      { label: "S/4HANA modules live", v: "42", d: "+6 this quarter" },
-      { label: "Automation coverage", v: "87%", d: "of finance workflows" },
-      { label: "Data latency", v: "180ms", d: "P95, cross-region" },
-    ],
-    chartLabel: "Order-to-cash · 24h",
-    slaLabel: "Module health",
-    slaRows: [
-      { label: "FI", value: 96 },
-      { label: "CO", value: 88 },
-      { label: "MM", value: 82 },
-      { label: "SD", value: 74 },
-    ],
-    eventsLabel: "Fiori events",
-    events: ["Close · month-end run OK", "IDoc · vendor sync 4,208", "BTP · CAP service deployed"],
-    floater: { label: "Uptime", value: "99.98%" },
-    badge: { icon: Cpu, kicker: "SAP Gold Partner", text: "Certified since 2016" },
-  },
-  {
-    brand: "Applied AI",
-    app: "acceleron · ai agents",
-    nav: ["Agents", "RAG", "Evals", "Guardrails", "Cost"],
-    region: "multi-region",
-    metrics: [
-      { label: "Agent invocations", v: "2.1M", d: "per day, in prod" },
-      { label: "RAG accuracy", v: "94.7%", d: "on eval golden set" },
-      { label: "Cost / 1k queries", v: "$0.08", d: "after routing" },
-    ],
-    chartLabel: "Tokens · 24h",
-    slaLabel: "Model routing mix",
-    slaRows: [
-      { label: "Fast", value: 62 },
-      { label: "Balanced", value: 24 },
-      { label: "Deep", value: 14 },
-      { label: "Local", value: 8 },
-    ],
-    eventsLabel: "Agent events",
-    events: ["Agent · ticket triage resolved", "Retrieval · index rebuilt", "Guardrail · PII block ×3"],
-    floater: { label: "Latency P95", value: "620ms" },
-    badge: { icon: Sparkles, kicker: "AI Copilot", text: "3 suggestions" },
-  },
-  {
-    brand: "Zoho One",
-    app: "acceleron · zoho workspace",
-    nav: ["CRM", "Creator", "Analytics", "Books", "Desk"],
-    region: "in-south-1",
-    metrics: [
-      { label: "Zoho apps deployed", v: "23", d: "across 5 BUs" },
-      { label: "Time to value", v: "6 wks", d: "average go-live" },
-      { label: "User adoption", v: "96%", d: "MAU / licensed" },
-    ],
-    chartLabel: "App usage · 24h",
-    slaLabel: "Adoption by app",
-    slaRows: [
-      { label: "CRM", value: 98 },
-      { label: "Desk", value: 87 },
-      { label: "Creator", value: 74 },
-      { label: "Books", value: 91 },
-    ],
-    eventsLabel: "Workspace events",
-    events: ["Creator · app published v1.4", "CRM · 128 new leads scored", "Desk · SLA breach avoided"],
-    floater: { label: "Zoho apps", value: "45+" },
-    badge: { icon: Award, kicker: "Zoho Premium Partner", text: "Advanced tier · 2025" },
-  },
-  {
-    brand: "SAP Cloud & BTP",
-    app: "acceleron · cloud cockpit",
-    nav: ["RISE with SAP", "BTP Apps", "Cloud Migration", "Integration", "Analytics"],
-    region: "global-multi-cloud",
-    metrics: [
-      { label: "Workloads migrated", v: "100%", d: "zero data loss" },
-      { label: "BTP extensions live", v: "64+", d: "custom enterprise apps" },
-      { label: "Cloud uptime SLA", v: "99.99%", d: "high availability" },
-    ],
-    chartLabel: "Cloud API Throughput · 24h",
-    slaLabel: "Migration health by phase",
-    slaRows: [
-      { label: "Assessment", value: 100 },
-      { label: "Core Move", value: 98 },
-      { label: "BTP Sync", value: 94 },
-      { label: "Go-Live", value: 99 },
-    ],
-    eventsLabel: "Cloud telemetry",
-    events: ["RISE · S/4HANA private cloud sync", "BTP · CAP extension active", "Migration · zero downtime cutover OK"],
-    floater: { label: "Cloud Uptime", value: "99.99%" },
-    badge: { icon: Cloud, kicker: "SAP Cloud Transformation", text: "RISE & BTP Certified Partner" },
-  },
-];
-
-function HeroDashboard({ slideIndex, tone }: { slideIndex: number; tone: string }) {
-  const c = CONSOLES[slideIndex];
-  const BadgeIcon = c.badge.icon;
-  return (
-    <div className="relative h-[520px] w-full" style={{ perspective: 1600 }}>
-      <div className="pointer-events-none absolute inset-0 -z-10 blur-3xl opacity-70"
-        style={{ background: `radial-gradient(ellipse 70% 70% at 60% 40%, ${tone}66, transparent 65%)` }} />
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={slideIndex}
-          initial={{ opacity: 0, y: 32, rotateY: 14, rotateX: -6 }}
-          animate={{ opacity: 1, y: 0, rotateY: -6, rotateX: -2 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="relative h-full w-full"
-          style={{ transformStyle: "preserve-3d" }}
-        >
-          <div className="absolute inset-0 rounded-3xl border border-border bg-muted/[0.04] backdrop-blur-2xl shadow-[0_40px_120px_-30px_rgba(0,0,0,0.15)] dark:shadow-[0_40px_120px_-30px_rgba(0,0,0,0.7)] overflow-hidden">
-            <div className="absolute inset-0 opacity-40"
-              style={{ background: `radial-gradient(ellipse at 20% 0%, ${tone}55, transparent 55%)` }} />
-            <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
-              <div className="flex items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-amber-300/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
-              </div>
-              <div className="text-[10px] font-medium uppercase tracking-[0.25em] text-foreground/55">{c.app}</div>
-              <div className="flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: tone }} />
-                <span className="text-[9px] uppercase tracking-widest text-foreground/45">live</span>
-              </div>
-            </div>
-            <div className="grid grid-cols-5 gap-0 h-[calc(100%-49px)]">
-              <div className="col-span-1 border-r border-border p-3 space-y-1.5">
-                <div className="mb-2 flex items-center gap-1.5 rounded-md px-2 py-1.5"
-                  style={{ background: `${tone}22`, border: `1px solid ${tone}55` }}>
-                  <span className="grid h-4 w-4 place-items-center rounded text-[9px] font-bold text-foreground" style={{ background: tone }}>
-                    {c.brand.charAt(0)}
-                  </span>
-                  <span className="truncate text-[10px] font-semibold text-foreground">{c.brand}</span>
-                </div>
-                {c.nav.map((n, i) => (
-                  <div key={n}
-                    className={`rounded-lg px-2.5 py-1.5 text-[11px] ${i === 0 ? "bg-muted/10 text-foreground" : "text-foreground/50"}`}
-                  >{n}</div>
-                ))}
-                <div className="mt-6 h-px bg-muted/10" />
-                <div className="mt-4 rounded-lg border border-border p-2">
-                  <div className="text-[9px] uppercase tracking-widest text-foreground/40">Region</div>
-                  <div className="mt-1 text-[11px] text-foreground/80">{c.region}</div>
-                </div>
-              </div>
-              <div className="col-span-4 p-5 space-y-4">
-                <div className="grid grid-cols-3 gap-3">
-                  {c.metrics.map((m, k) => (
-                    <motion.div
-                      key={`${slideIndex}-${k}`}
-                      initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.15 + k * 0.08, duration: 0.5 }}
-                      className="rounded-xl border border-border bg-muted/[0.04] p-3"
-                    >
-                      <div className="text-[9px] uppercase tracking-widest text-foreground/45">{m.label}</div>
-                      <div className="mt-1.5 text-xl font-semibold text-foreground">{m.v}</div>
-                      <div className="mt-0.5 text-[10px] text-foreground/50">{m.d}</div>
-                    </motion.div>
-                  ))}
-                </div>
-                <div className="rounded-xl border border-border bg-muted/[0.03] p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="text-[10px] uppercase tracking-widest text-foreground/50">{c.chartLabel}</div>
-                    <div className="text-[10px] text-foreground/60">live</div>
-                  </div>
-                  <svg viewBox="0 0 400 90" className="mt-2 h-24 w-full">
-                    <defs>
-                      <linearGradient id={`spark-${slideIndex}`} x1="0" x2="0" y1="0" y2="1">
-                        <stop offset="0" stopColor={tone} stopOpacity="0.55" />
-                        <stop offset="1" stopColor={tone} stopOpacity="0" />
-                      </linearGradient>
-                    </defs>
-                    <motion.path
-                      key={`p-${slideIndex}`}
-                      initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-                      transition={{ duration: 1.4, ease: "easeOut" }}
-                      d="M0,60 C40,50 60,20 100,25 C140,30 160,70 200,55 C240,42 260,10 300,18 C340,26 360,50 400,32"
-                      fill="none" stroke={tone} strokeWidth="2" />
-                    <path d="M0,60 C40,50 60,20 100,25 C140,30 160,70 200,55 C240,42 260,10 300,18 C340,26 360,50 400,32 L400,90 L0,90 Z"
-                      fill={`url(#spark-${slideIndex})`} />
-                  </svg>
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="rounded-xl border border-border bg-muted/[0.03] p-3.5">
-                    <div className="text-[10px] uppercase tracking-widest text-foreground/50">{c.slaLabel}</div>
-                    <div className="mt-2.5 space-y-1.5">
-                      {c.slaRows.map((r, k) => (
-                        <div key={k} className="flex items-center gap-2">
-                          <span className="w-12 text-[9px] uppercase tracking-widest text-foreground/50">{r.label}</span>
-                          <div className="h-1.5 flex-1 rounded-full bg-muted/8 overflow-hidden">
-                            <motion.div key={`${slideIndex}-${k}`}
-                              initial={{ width: 0 }} animate={{ width: `${r.value}%` }}
-                              transition={{ delay: 0.4 + k * 0.1, duration: 0.9 }}
-                              className="h-full rounded-full"
-                              style={{ background: tone }} />
-                          </div>
-                          <span className="w-8 text-right text-[9px] text-foreground/45">{r.value}%</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="rounded-xl border border-border bg-muted/[0.03] p-3.5">
-                    <div className="text-[10px] uppercase tracking-widest text-foreground/50">{c.eventsLabel}</div>
-                    <div className="mt-2.5 space-y-1.5 text-[10px] text-foreground/70">
-                      {c.events.map((e) => (
-                        <div key={e} className="flex items-center gap-2">
-                          <span className="h-1.5 w-1.5 rounded-full" style={{ background: tone }} />
-                          <span className="truncate">{e}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <motion.div
-            animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-4 top-10 rounded-2xl border border-border bg-muted/[0.07] backdrop-blur-xl px-4 py-3 shadow-2xl"
-            style={{ transform: "translateZ(80px)" }}
-          >
-            <div className="text-[9px] uppercase tracking-widest text-foreground/50">{c.floater.label}</div>
-            <div className="text-lg font-semibold text-foreground">{c.floater.value}</div>
-          </motion.div>
-          <motion.div
-            animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -left-6 bottom-8 rounded-2xl border border-border bg-muted/[0.07] backdrop-blur-xl px-4 py-3 shadow-2xl"
-            style={{ transform: "translateZ(100px)" }}
-          >
-            <div className="flex items-center gap-2.5">
-              <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ background: `${tone}33`, border: `1px solid ${tone}66` }}>
-                <BadgeIcon className="h-4 w-4" style={{ color: tone }} />
-              </span>
-              <div>
-                <div className="text-[9px] uppercase tracking-widest text-foreground/60">{c.badge.kicker}</div>
-                <div className="text-xs font-semibold text-foreground">{c.badge.text}</div>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  );
-}
-
-const TONES = ["#4c5a8a", "#de1e24", "#4c5a8a", "#0FAAFF"];
-const PARTNERS = [
-  { name: "SAP", Logo: SAPLogo },
-  { name: "Zoho", Logo: ZohoLogo },
-  { name: "AWS", Logo: AWSLogo },
-  { name: "Microsoft", Logo: MicrosoftLogo },
+const HOME_BANNERS = [
+  "/ZOHO_CRM_Banner.png",
+  "/SAP_Implementation_Banner.png",
+  "/Threatcorp_Banner.png",
+  "/Manage_Engine_Banner.png",
 ];
 
 function Hero() {
@@ -448,284 +46,217 @@ function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 1, 0]);
-  const { x: mx, y: my } = useMouseParallax(10);
 
-  // Only start the slide auto-rotation after the video phase ends
   useEffect(() => {
     if (videoPhase) return;
-    const t = setInterval(() => setIndex((i) => (i + 1) % SLIDES.length), 6000);
+    const t = setInterval(() => setIndex((i) => (i + 1) % HOME_BANNERS.length), 6000);
     return () => clearInterval(t);
   }, [videoPhase]);
-
-  const s = SLIDES[index];
-  const tone = TONES[index];
 
   const handleVideoEnd = () => {
     setVideoPhase(false);
   };
 
   return (
-    <section ref={ref} id="top" className="relative min-h-screen overflow-hidden bg-background">
+    <section ref={ref} id="top" className="relative min-h-[100svh] overflow-hidden bg-background">
       {/* ── Video intro phase ── */}
       <AnimatePresence>
         {videoPhase && (
-          <motion.div
-            key="hero-video"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="absolute inset-0 z-30"
-          >
-            <video
-              ref={videoRef}
-              src="/Hero_BG_Video.mp4"
-              autoPlay
-              muted
-              playsInline
-              onEnded={handleVideoEnd}
-              className="h-full w-full object-cover"
-            />
-            {/* Dark scrim for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/80 to-transparent" />
+           <motion.div
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute inset-0 z-30 bg-black"
+           >
+              <video 
+                src={getAssetUrl("/Hero_BG_Video.mp4")}
+                autoPlay 
+                muted 
+                playsInline
+                onEnded={handleVideoEnd}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              
+              {/* Dark scrim for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/80 to-transparent" />
 
-            {/* Text overlay & CTAs */}
-            <div className="absolute inset-0 z-40 flex items-center">
-              <div className="mx-auto w-full max-w-7xl px-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.8 }}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/90 backdrop-blur-sm"
-                >
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
-                  </span>
-                  Engineering Digital Excellence
-                </motion.div>
-
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                  className="mt-7 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
-                >
-                  Built on Legacy.{" "}
-                  <span className="bg-gradient-to-r from-white via-white/90 to-red-400 bg-clip-text text-transparent">
-                    Driven by Innovation.
-                  </span>
-                </motion.h1>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9, duration: 0.8 }}
-                  className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg"
-                >
-                  From the Gainwell Group — powering mining, manufacturing, and enterprise transformation with SAP, Zoho, AI, and custom-built digital platforms.
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.2, duration: 0.7 }}
-                  className="mt-9 flex flex-wrap items-center gap-4"
-                >
-                  <a
-                    href="#contact"
-                    className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-red-600 to-red-500 px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-red-600/25 transition-all hover:shadow-red-600/40 hover:scale-105"
+              {/* Text overlay & CTAs */}
+              <div className="absolute inset-0 z-40 flex items-center">
+                <div className="mx-auto w-full max-w-7xl px-6">
+                  <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/90 backdrop-blur-sm"
                   >
-                    Start Your Journey
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </a>
-                  <Link
-                    to="/services"
-                    className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/20"
-                  >
-                    <span className="grid h-6 w-6 place-items-center rounded-full border border-white/25 transition-transform group-hover:scale-110">
-                      <Layers className="h-3 w-3 text-white/80" />
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
                     </span>
-                    Explore Services
-                  </Link>
-                </motion.div>
-              </div>
-            </div>
+                    Engineering Digital Excellence
+                  </motion.div>
 
-            {/* Skip button */}
-            <button
-              onClick={handleVideoEnd}
-              className="absolute bottom-8 right-8 z-50 rounded-full border border-white/20 bg-black/40 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-white/80 backdrop-blur-md transition-all hover:bg-black/60 hover:text-white"
-            >
-              Skip <ArrowRight className="ml-1.5 inline-block h-3 w-3" />
-            </button>
-          </motion.div>
+                  <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                    className="mt-7 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+                  >
+                    Built on Legacy.{" "}
+                    <span className="bg-gradient-to-r from-white via-white/90 to-red-400 bg-clip-text text-transparent">
+                      Driven by Innovation.
+                    </span>
+                  </motion.h1>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.9, duration: 0.8 }}
+                    className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg"
+                  >
+                    From the Gainwell Group — powering mining, manufacturing, and enterprise transformation with SAP, Zoho, AI, and custom-built digital platforms.
+                  </motion.p>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.2, duration: 0.7 }}
+                    className="mt-9 flex flex-wrap items-center gap-4"
+                  >
+                    <a
+                      href="#contact"
+                      className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-red-600 to-red-500 px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-red-600/25 transition-all hover:shadow-red-600/40 hover:scale-105"
+                    >
+                      Start Your Journey
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    </a>
+                    <Link
+                      to="/services"
+                      className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/20"
+                    >
+                      <span className="grid h-6 w-6 place-items-center rounded-full border border-white/25 transition-transform group-hover:scale-110">
+                        <Layers className="h-3 w-3 text-white/80" />
+                      </span>
+                      Explore Services
+                    </Link>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Skip button */}
+              <button
+                onClick={handleVideoEnd}
+                className="absolute bottom-8 right-8 z-50 rounded-full border border-white/20 bg-black/40 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-white/80 backdrop-blur-md transition-all hover:bg-black/60 hover:text-white"
+              >
+                Skip <ArrowRight className="ml-1.5 inline-block h-3 w-3" />
+              </button>
+           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* ── Normal hero content (visible after video) ── */}
       <div className="pointer-events-none absolute inset-0 bg-hero" />
       <div className="pointer-events-none absolute inset-0 grid-lines opacity-[0.08]" />
-      <AnimatePresence mode="sync">
-        <motion.div
-          key={`bg-${index}`}
-          initial={{ opacity: 0 }} animate={{ opacity: videoPhase ? 0 : 0.55 }} exit={{ opacity: 0 }}
-          transition={{ duration: 1.4 }}
-          className="pointer-events-none absolute inset-0"
-          style={{ background: `radial-gradient(ellipse 60% 60% at 80% 40%, ${tone}44, transparent 60%)` }}
-        />
-      </AnimatePresence>
 
       <motion.div
         style={{ y: heroY, opacity: heroOpacity }}
-        className="relative z-10 mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 items-center gap-14 px-6 pt-28 pb-16 md:grid-cols-2 md:gap-10"
+        className="relative z-10 mx-auto flex min-h-[100svh] w-full items-center justify-center px-4 sm:px-6 pt-24 pb-12"
       >
-        <div className="relative">
-          <div className="relative min-h-[320px] sm:min-h-[380px] md:min-h-[420px] lg:min-h-[440px] xl:min-h-[480px]">
-            <AnimatePresence mode="wait">
-              <motion.div
+        <div className="relative w-full max-w-7xl aspect-video sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-3xl flex items-center justify-center">
+          
+          <AnimatePresence mode="wait">
+             <motion.img 
                 key={index}
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: videoPhase ? 0 : 1, y: videoPhase ? 20 : 0 }} exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-x-0 top-0"
-              >
-                <div
-                  className="inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em]"
-                  style={{ color: tone, borderColor: `${tone}66`, background: `${tone}14` }}
-                >
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-pulse-ring rounded-full" style={{ background: tone }} />
-                    <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: tone }} />
-                  </span>
-                  {s.eyebrow}
-                </div>
+                src={getAssetUrl(HOME_BANNERS[index])}
+                alt="Acceleron Solutions Services"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                className="absolute inset-0 h-full w-full object-contain drop-shadow-2xl"
+             />
+          </AnimatePresence>
 
-                <h1 className="mt-7 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-[4.5rem]">
-                  <span className="block">{s.title.trim()}</span>
-                  <span className="block bg-gradient-to-r from-foreground via-foreground/90 to-[color:var(--tone,#4c5a8a)] bg-clip-text text-transparent"
-                    style={{ ["--tone" as string]: tone } as React.CSSProperties }>
-                    {s.accent}
-                  </span>
-                </h1>
-
-                <p className="mt-7 max-w-lg text-base leading-relaxed text-foreground/85 md:text-lg">
-                  {s.sub}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: videoPhase ? 0 : 1, y: videoPhase ? 16 : 0 }} transition={{ delay: 0.4, duration: 0.7 }}
-            className="mt-6 flex flex-wrap items-center gap-4"
-          >
-            <MagneticButton href="#contact">
-              Start your journey <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </MagneticButton>
-            <Link to="/services"
-              className="group inline-flex items-center gap-2.5 rounded-full border border-border px-6 py-4 text-sm font-medium text-foreground transition-all hover:border-border hover:bg-muted/5">
-              <span className="grid h-6 w-6 place-items-center rounded-full border border-border transition-transform group-hover:scale-110">
-                <Layers className="h-3 w-3 fill-foreground/20" />
-              </span>
-              Explore our Services
-            </Link>
-          </motion.div>
-
-          <motion.a
-            href="#discover"
-            initial={{ opacity: 0 }} animate={{ opacity: videoPhase ? 0 : 1 }} transition={{ delay: 0.9 }}
-            className="mt-10 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-foreground/60 transition-colors hover:text-foreground"
-          >
-            <motion.span
-              animate={{ y: [0, 5, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              className="grid h-8 w-8 place-items-center rounded-full border border-border"
-            >
-              <ArrowDown className="h-3.5 w-3.5" />
-            </motion.span>
-            Discover More
-          </motion.a>
-
-          <div className="mt-10 flex items-center gap-5">
-            <div className="flex gap-2">
-              {SLIDES.map((_, i) => (
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20">
+             {HOME_BANNERS.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setIndex(i)}
-                  className="group relative h-1 w-10 overflow-hidden rounded-full bg-muted/15"
-                  aria-label={`Slide ${i + 1}`}
-                >
-                  {i === index && !videoPhase && (
-                    <motion.span
-                      key={`bar-${index}`}
-                      initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 6, ease: "linear" }}
-                      className="absolute inset-y-0 left-0" style={{ background: tone }}
-                    />
-                  )}
-                </button>
-              ))}
-            </div>
-            <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/50">
-              {String(index + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
-            </div>
+                  className={`h-2 rounded-full transition-all shadow-sm ${i === index ? "w-10 bg-brand-red" : "w-3 bg-foreground/30 hover:bg-foreground/50"}`}
+                />
+             ))}
           </div>
         </div>
-
-        <motion.div style={{ x: mx, y: my }} className="relative mt-8 flex justify-center md:mt-0 md:block w-full -mb-32 md:-mb-0">
-          <div className="origin-top scale-[0.55] sm:scale-[0.7] md:scale-100 md:origin-left w-[600px] sm:w-[700px] md:w-full">
-            <HeroDashboard slideIndex={index} tone={tone} />
-          </div>
-        </motion.div>
-
       </motion.div>
     </section>
   );
 }
 
-/* ═══════════════════ ECOSYSTEM MARQUEE ═══════════════════ */
+/* ═══════════════════ ABOUT TEASER ═══════════════════ */
 
-function EcosystemMarquee() {
-  const ECOSYSTEM_LOGOS = [
-    { name: "SAP S/4HANA", logo: "/sap_s4hana-transparentbg.png" },
-    { name: "RISE with SAP", logo: "/vital-wires-Rise-with-SAP-3.png" },
-    { name: "Zoho Suite", logo: "/ZOHO_logo_2023.svg_.png" },
-    { name: "AWS Cloud", logo: "/AWS_Logo.png" },
-    { name: "Microsoft", logo: "/Microsoft_logo.png" },
-    { name: "Trimble", logo: "/TRIMBLE.png" },
-    { name: "Tulip Compression", logo: "/TulipCompression.png" },
-    { name: "Sitech", logo: "/SITECH.png" },
-    { name: "SEM", logo: "/SEM.png" },
-    { name: "RPM Global", logo: "/rpmglobal.png" },
-    { name: "Ontrak", logo: "/ontrak.png" },
-    { name: "Lintec & Linnhoff", logo: "/lintec&linhoff.png" },
-    { name: "Paus", logo: "/PAUS.png" },
-    { name: "TIPL CAT", logo: "/TIPL.jpg" },
-    { name: "Gainwell", logo: "/Gainwell.jpg" },
-    { name: "Gainwell CAT", logo: "/GainwellCAT.jpg" },
-    { name: "Gainwell Engineering", logo: "/GainwellEngineering.jpg" },
-    { name: "PCM", logo: "/PCM.png" },
-    { name: "TMC", logo: "/TMC-removebg-preview.png" },
-    { name: "Livpure", logo: "/Livpure_LOGO_Purple_2048x2048_8465dc4a-1c7e-472e-ab6c-b78e8af8446f.png" },
-    { name: "Equipcare", logo: "/equipcare.png" },
-    { name: "Ambey Mining", logo: "/Ampl.png" },
-  ];
-
+function AboutTeaser() {
   return (
-    <section className="relative bg-muted/30 border-y border-border/50 py-10 overflow-hidden z-20">
-      <div className="mx-auto max-w-7xl px-6 mb-6 text-center">
-        <div className="text-xs font-bold uppercase tracking-[0.4em] text-brand-red">Trusted By / Partners</div>
-      </div>
-      <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="flex items-center gap-8 shrink-0 pr-8"
-        >
-          {[...ECOSYSTEM_LOGOS, ...ECOSYSTEM_LOGOS].map((item, idx) => (
-            <div key={idx} className="flex items-center justify-center shrink-0 px-6 py-3 rounded-2xl bg-white/90 dark:bg-muted/40 border border-border/50 backdrop-blur-md shadow-soft hover:border-brand/40 transition-all">
-              <img src={getAssetUrl(item.logo)} alt="" loading="lazy" decoding="async" className="h-8 max-w-[130px] object-contain" />
-            </div>
-          ))}
-        </motion.div>
+    <section className="relative overflow-hidden bg-background py-24 border-b border-border/50">
+      <div className="absolute inset-0 grid-lines opacity-[0.04]" />
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <Reveal>
+              <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">About Acceleron Solutions</div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.1]">
+                Empowering Enterprises with <span className="text-gradient">Digital Innovation</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                As the technology arm of the Gainwell Group, Acceleron Solutions delivers bespoke SAP consulting, full-stack Zoho business automation, predictive AI systems, and custom enterprise software built for scale.
+              </p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <div className="grid grid-cols-3 gap-4 pt-2 pb-2">
+                <div className="rounded-2xl border border-border/60 bg-muted/20 p-4">
+                  <div className="text-xl sm:text-2xl font-black text-brand-red">Kolkata & Delhi</div>
+                  <div className="text-xs text-muted-foreground mt-1 font-medium">Delivery Hubs</div>
+                </div>
+                <div className="rounded-2xl border border-border/60 bg-muted/20 p-4">
+                  <div className="text-xl sm:text-2xl font-black text-brand-red">Full-Stack</div>
+                  <div className="text-xs text-muted-foreground mt-1 font-medium">Enterprise Tech</div>
+                </div>
+                <div className="rounded-2xl border border-border/60 bg-muted/20 p-4">
+                  <div className="text-xl sm:text-2xl font-black text-brand-red">100%</div>
+                  <div className="text-xs text-muted-foreground mt-1 font-medium">Outcome Driven</div>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <div className="pt-2">
+                <Link
+                  to="/about"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-brand-gradient px-8 py-4 text-sm font-semibold text-white shadow-glow transition-all hover:scale-105 hover:shadow-red-glow"
+                >
+                  Know More
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="lg:col-span-5">
+            <Reveal delay={0.2}>
+              <div className="relative rounded-3xl overflow-hidden border border-border/60 bg-muted/20 shadow-glow p-2">
+                <img
+                  src={getAssetUrl("/Inaguration Photo.JPG")}
+                  alt="Acceleron Solutions"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-[340px] sm:h-[400px] object-cover rounded-2xl"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -2116,7 +1647,7 @@ function Contact() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">Global Delivery Centers</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-4">Delivery Centers</h3>
                   <div className="grid grid-cols-2 gap-3 text-sm">
                     {[
                       "Kolkata, India",
@@ -2152,12 +1683,13 @@ function Home() {
       <Nav />
       <main>
         <Hero />
-        <EcosystemMarquee />
+        <AboutTeaser />
         <WaveDivider from="dark" to="light" />
         <Services />
         <WaveDivider from="light" to="dark" />
         <Industries />
         <WhyChooseUs />
+        <OurValuesSection />
         <WaveDivider from="dark" to="light" />
         <CSRSection />
         <WaveDivider from="light" to="dark" />

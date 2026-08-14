@@ -5,12 +5,13 @@ import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
 import { OFFICIAL_HQ } from "../constants/company";
 import { getAssetUrl } from "../lib/assets";
+import { OurValuesSection } from "../components/ui/OurValuesGrid";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About Us — Acceleron Solutions" },
-      { name: "description", content: "Learn about Acceleron Solutions — part of the 75-year-old Gainwell Group. Explore our mission, vision, history, core essence, values, clients, and culture of excellence." },
+      { name: "description", content: "Learn about Acceleron Solutions — part of the Gainwell Group. Explore our mission, vision, history, core essence, values, clients, and culture of excellence." },
     ],
   }),
   component: AboutPage,
@@ -66,24 +67,6 @@ const LOCATION_CARDS = [
     country: "India",
     label: "Enterprise Delivery Hub",
     MapComponent: IndiaMapSvg,
-  },
-  {
-    city: "Singapore",
-    country: "Singapore",
-    label: "APAC Regional Hub",
-    MapComponent: SingaporeMapSvg,
-  },
-  {
-    city: "West Virginia",
-    country: "USA",
-    label: "Americas Regional Hub",
-    MapComponent: USAMapSvg,
-  },
-  {
-    city: "NSW",
-    country: "Australia",
-    label: "Australasia Office",
-    MapComponent: AustraliaMapSvg,
   },
 ];
 
@@ -169,7 +152,7 @@ function AboutPage() {
               <div className="rounded-3xl border border-brand/30 bg-brand-gradient/10 p-6 sm:p-8 backdrop-blur-xl mt-8">
                 <div className="text-xs font-bold uppercase tracking-widest text-brand-red mb-2">Our History & Heritage</div>
                 <p className="text-foreground text-base font-semibold leading-relaxed">
-                  Acceleron Solutions is a part of the 75-year-old Gainwell Group, a diversified conglomerate headquartered in Kolkata, India, with branches and subsidiaries across India, USA, Australia, Singapore, Nepal, and Bhutan.
+                  Acceleron Solutions is a part of the Gainwell Group, delivering tailored IT solutions, SAP consulting, and digital engineering from our delivery hubs in Kolkata and Delhi NCR.
                 </p>
               </div>
             </Reveal>
@@ -294,40 +277,7 @@ function AboutPage() {
       <WaveDivider from="dark" to="white" />
 
       {/* Core Values Section */}
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
-        <Reveal>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">What Drives Us</div>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Our Values</h2>
-            <p className="text-muted-foreground text-base md:text-lg">
-              We prioritize customer success, foster innovation, act with integrity, encourage collaboration, and pursue excellence in every project. These core values drive our mission to create impactful technology solutions that make a difference.
-            </p>
-          </div>
-        </Reveal>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { title: "Collaboration", desc: "Working in a team to achieve a common goal.", icon: Users },
-            { title: "Customer Centricity", desc: "Creating superior customer relationships to drive business sustainability.", icon: Target },
-            { title: "Caring", desc: "A positive workplace built on respect, empathy, and well-being for others.", icon: HeartPulse },
-            { title: "Entrepreneurship", desc: "Providing an empowering environment to facilitate independent decision-making.", icon: Rocket },
-            { title: "Excellence", desc: "Adding value to every activity to achieve a higher level of standards across the organization.", icon: Award },
-          ].map((val, i) => (
-            <Reveal key={val.title} delay={0.1 * i}>
-              <motion.div
-                whileHover={{ y: -4 }}
-                className="group rounded-2xl border border-border/50 bg-muted/20 p-8 hover:bg-muted/40 transition-all h-full hover:shadow-soft"
-              >
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow">
-                  <val.icon className="h-7 w-7" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{val.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{val.desc}</p>
-              </motion.div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <OurValuesSection />
 
       <WaveDivider from="white" to="dark" flip />
 

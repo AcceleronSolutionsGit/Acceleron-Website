@@ -10,7 +10,7 @@ const LeafletMap = lazy(() => import('./LeafletMap'));
 
 export function WhyChooseUs() {
   const reasons = [
-    { title: "Deep Domain Expertise", desc: "75+ years of legacy powering industrial & enterprise growth.", icon: ShieldCheck, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=600&auto=format&fit=crop" },
+    { title: "Deep Domain Expertise", desc: "Proven deep domain expertise powering industrial & enterprise growth.", icon: ShieldCheck, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=600&auto=format&fit=crop" },
     { title: "End-to-End Execution", desc: "From strategy to steady-state, we take full accountability.", icon: Zap, img: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=600&auto=format&fit=crop" },
     { title: "Outcome Driven", desc: "We don't just ship code; we deliver measurable P&L impact.", icon: ArrowUpRight, img: "/outcome_driven.jpg" },
   ];
@@ -117,9 +117,6 @@ export function CSRSection() {
 export const LOCATION_CARDS = [
   { city: "Kolkata", country: "India", flagUrl: "https://flagcdn.com/w40/in.png", label: "Global Headquarters", lat: 22.5726, lng: 88.3639, isHq: true },
   { city: "Delhi NCR", country: "India", flagUrl: "https://flagcdn.com/w40/in.png", label: "Enterprise Delivery Hub", lat: 28.5355, lng: 77.3910 },
-  { city: "Singapore", country: "Singapore", flagUrl: "https://flagcdn.com/w40/sg.png", label: "APAC Regional Hub", lat: 1.3521, lng: 103.8198 },
-  { city: "West Virginia", country: "USA", flagUrl: "https://flagcdn.com/w40/us.png", label: "Americas Regional Hub", lat: 38.5976, lng: -80.4549 },
-  { city: "NSW", country: "Australia", flagUrl: "https://flagcdn.com/w40/au.png", label: "Australasia Office", lat: -31.2532, lng: 146.9211 },
 ];
 
 export function GlobalPresence() {
