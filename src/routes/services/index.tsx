@@ -67,7 +67,7 @@ function ServicesHub() {
         title="One Technology Partner. Every Layer of Your Stack."
         subtitle="From SAP transformation to cybersecurity, we help enterprise and industrial businesses simplify their technology instead of adding to the pile."
         breadcrumbs={[{ label: "Services" }]}
-        image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=1200&auto=format&fit=crop"
+        image="/capital_goods.jpg"
       />
 
       {/* Services Grid */}

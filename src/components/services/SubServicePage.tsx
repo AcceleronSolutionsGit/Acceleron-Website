@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { SubServiceData } from "../../data/servicesData";
 import { Reveal, WaveDivider } from "../ui/Animations";
+import { PageHero } from "../ui/PageHero";
 import { getAssetUrl } from "../../lib/assets";
 import { HomeContactForm } from "../ui/HomeContactForm";
 
@@ -19,50 +20,23 @@ export function SubServicePageView({ data }: SubServicePageProps) {
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
-      {/* ═══════════════════ HERO SECTION ═══════════════════ */}
-      <section className="relative w-full min-h-[90vh] flex flex-col justify-center pt-24 pb-12 bg-background overflow-hidden border-b border-border/50">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,oklch(0.68_0.19_240/0.05),transparent_70%)]" />
-        <div className="pointer-events-none absolute inset-0 grid-lines opacity-[0.05]" />
-        <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-          <div className="relative w-full aspect-video sm:rounded-3xl overflow-hidden shadow-2xl border border-border/50 bg-white/5 backdrop-blur-3xl flex items-center justify-center">
-            <img src={getAssetUrl(data.image)} alt={data.title} className="absolute inset-0 h-full w-full object-contain drop-shadow-2xl" />
-          </div>
-        </div>
-      </section>
-      
-      <section className="relative w-full bg-background pt-8 pb-12 border-b border-border/50">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <Reveal delay={0.2}>
-            <div className="flex flex-wrap items-center justify-center gap-4 mt-4 px-6">
-              <a
-                href="#consultation"
-                className="rounded-xl bg-brand-gradient px-8 py-4 text-sm font-bold text-white shadow-glow hover:scale-[1.02] transition-transform flex items-center gap-2"
-              >
-                Schedule Consultation <ArrowRight className="h-4 w-4" />
-              </a>
-              <Link
-                to={`/services/${data.categorySlug}` as any}
-                className="rounded-xl border border-border bg-background/50 px-6 py-4 text-sm font-bold text-foreground hover:bg-background/80 transition-colors flex items-center gap-2"
-              >
-                <ArrowLeft className="h-4 w-4" /> Back to {data.category}
-              </Link>
+      <PageHero
+        title={data.title}
+        subtitle={data.desc}
+        breadcrumbs={[
+          { label: "Services", href: "/services" },
+          { label: data.category, href: `/services/${data.categorySlug}` },
+          { label: data.title }
+        ]}
+        image="/capital_goods.jpg"
+        icon={
+          data.customLogo ? (
+            <div className="h-20 w-auto bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-xl flex items-center justify-center">
+              <img src={getAssetUrl(data.customLogo)} alt={data.title} className="h-12 w-auto object-contain drop-shadow-lg" />
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Breadcrumbs Bar Below Banner */}
-      <div className="w-full border-y border-border/50 bg-muted/40 py-3.5 backdrop-blur-md relative z-20">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <nav className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
-            <Link to="/services" className="hover:text-foreground transition-colors">Services</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link to={`/services/${data.categorySlug}` as any} className="hover:text-foreground transition-colors">{data.category}</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-brand-red">{data.title}</span>
-          </nav>
-        </div>
-      </div>
+          ) : undefined
+        }
+      />
 
       <WaveDivider from="dark" to="light" />
 
@@ -239,7 +213,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                   </div>
                   <div>
                     <div className="font-bold text-foreground">Headquarters</div>
-                    <div>3rd Floor, STPI IT Park, Salt Lake, Sector V, Kolkata – 700091, India</div>
+                    <div>3rd Floor, STPI IT Park, Block-DP, Plot-5/1, Sector V, Salt Lake, Kolkata – 700091, West Bengal, India</div>
                   </div>
                 </div>
               </div>

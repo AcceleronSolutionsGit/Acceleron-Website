@@ -40,22 +40,22 @@ export function PageHero({
               aria-hidden="true"
               loading="lazy"
               decoding="async"
-              className="absolute inset-0 h-full w-full object-contain object-right lg:object-center opacity-80"
+              className="absolute inset-0 h-full w-full object-cover object-center opacity-90"
             />
           </div>
         )}
 
         {/* Top Navbar Vignette */}
-        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/90 via-black/50 to-transparent z-[5] pointer-events-none" />
+        <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-black/70 via-black/30 to-transparent z-[5] pointer-events-none" />
 
         {/* Light Mode Overlay */}
-        <div className="dark:hidden absolute inset-0 bg-gradient-to-t from-[#0b132b] via-[#0b132b]/75 to-transparent" />
-        <div className="dark:hidden absolute inset-0 bg-gradient-to-r from-[#0b132b]/95 via-[#0b132b]/60 to-transparent" />
+        <div className="dark:hidden absolute inset-0 bg-gradient-to-t from-[#0b132b]/90 via-[#0b132b]/50 to-transparent" />
+        <div className="dark:hidden absolute inset-0 bg-gradient-to-r from-[#0b132b]/85 via-[#0b132b]/40 to-transparent" />
 
         {/* Dark Mode Overlay */}
-        <div className="hidden dark:block absolute inset-0 bg-gradient-to-t from-background via-background/85 to-transparent" />
-        <div className="hidden dark:block absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-transparent" />
-        <div className={`hidden dark:block absolute inset-0 bg-gradient-to-br ${gradient} opacity-30 mix-blend-multiply`} />
+        <div className="hidden dark:block absolute inset-0 bg-gradient-to-t from-background/90 via-background/60 to-transparent" />
+        <div className="hidden dark:block absolute inset-0 bg-gradient-to-r from-background/85 via-background/50 to-transparent" />
+        <div className={`hidden dark:block absolute inset-0 bg-gradient-to-br ${gradient} opacity-20 mix-blend-multiply`} />
 
         {/* Banner Content Container */}
         <div className="relative z-10 container mx-auto px-6 max-w-7xl pt-36 pb-20">

@@ -92,6 +92,8 @@
   --shadow-glow: 0 20px 80px -20px rgb(37 47 97 / 0.15);
   --shadow-soft: 0 12px 40px -12px rgb(33 47 96 / 0.05);
   --shadow-card: 0 1px 2px rgb(33 47 96 / 0.06), 0 8px 32px -8px rgb(33 47 96 / 0.14);
+  --shadow-elevated: 0 25px 60px -15px rgb(33 47 96 / 0.18), 0 0 0 1px rgb(33 47 96 / 0.04);
+  --shadow-inner-glow: inset 0 1px 0 0 rgb(255 255 255 / 0.06);
 }
 
 .dark {
@@ -130,12 +132,16 @@
 @layer base {
   * {
     border-color: var(--color-border);
+    box-sizing: border-box;
   }
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
   body {
     background-color: var(--color-background);
@@ -144,6 +150,10 @@
     font-feature-settings: "ss01", "cv11";
     line-height: 1.7;
     letter-spacing: -0.006em;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    -webkit-tap-highlight-color: transparent;
   }
   
   /* Standardized Typography Scale */
@@ -214,13 +224,13 @@
 }
 
 @utility text-gradient {
-  background: linear-gradient(135deg, #4c5a8a, #3a497f 40%, #de1e24);
+  background: linear-gradient(135deg, #212f60 0%, #4c5a8a 35%, #de1e24 75%, #b60f14 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 @utility text-gradient-light {
-  background: linear-gradient(135deg, #ffffff, #4c5a8a);
+  background: linear-gradient(135deg, #ffffff 0%, #e6e9f2 40%, #4c5a8a 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -235,15 +245,20 @@
 @utility shadow-card {
   box-shadow: var(--shadow-card);
 }
+@utility shadow-elevated {
+  box-shadow: var(--shadow-elevated);
+}
 @utility glass {
   background: color-mix(in oklab, white 60%, transparent);
-  backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid color-mix(in oklab, white 40%, transparent);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid color-mix(in oklab, white 35%, transparent);
+  box-shadow: var(--shadow-inner-glow);
 }
 @utility glass-dark {
   background: color-mix(in srgb, #212f60 55%, transparent);
-  backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid color-mix(in srgb, white 12%, transparent);
+  backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid color-mix(in srgb, white 10%, transparent);
+  box-shadow: var(--shadow-inner-glow);
 }
 
 /* ───── grid / texture patterns ───── */
@@ -338,9 +353,27 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-30px) scale(1.05); opacity: 0.7; }
+}
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+@keyframes shimmer-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
+}
 
 @utility animate-float-slow { animation: float-slow 10s ease-in-out infinite; }
 @utility animate-float-med { animation: float-med 7s ease-in-out infinite; }
+@utility animate-float-gentle { animation: float-gentle 12s ease-in-out infinite; }
 @utility animate-drift { animation: drift 40s linear infinite; }
 @utility animate-shimmer {
   background-size: 200% 100%;
@@ -353,6 +386,12 @@
 }
 @utility animate-spin-slow { animation: spin-slow 35s linear infinite; }
 @utility animate-orbit { animation: orbit 40s linear infinite; }
+@utility animate-scroll-hint { animation: scroll-hint 2s ease-in-out infinite; }
+@utility animate-shimmer-border {
+  background-size: 300% 300%;
+  animation: shimmer-border 4s ease infinite;
+}
+@utility animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
 
 /* ───── circular carousel ───── */
 

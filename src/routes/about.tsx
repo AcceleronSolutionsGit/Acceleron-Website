@@ -55,10 +55,11 @@ const LOCATION_CARDS = [
     city: "Kolkata (HQ)",
     country: "India",
     label: "Global Headquarters & Center of Excellence",
-    address: "3rd Floor, STPI IT Park, Salt Lake, Sector V, Kolkata – 700091, India",
+    address: "3rd Floor, STPI IT Park, Block-DP, Plot-5/1, Sector V, Salt Lake, Kolkata – 700091, West Bengal, India",
     email: "enquiry@acceleronsolutions.io",
     phone: "033-35346200 / 033-35346222",
     phones: ["033-35346200", "033-35346222"],
+    directionsUrl: "https://maps.app.goo.gl/PDjDU26TL5tt7HgD6",
     MapComponent: IndiaMapSvg,
     isHq: true,
   },
@@ -66,11 +67,33 @@ const LOCATION_CARDS = [
     city: "Delhi NCR",
     country: "India",
     label: "Enterprise Delivery Hub",
+    address: "Gainwell Ecotech II, 1-C/1, Udyog Vihar, Greater Noida, Delhi NCR – 201306, Uttar Pradesh, India",
+    directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=28.4986,77.5348",
     MapComponent: IndiaMapSvg,
   },
 ];
 
 const CLIENT_LOGOS = [
+  { name: "Client 1", logo: "/client (1).png" },
+  { name: "Client 2", logo: "/client (2).png" },
+  { name: "Client 3", logo: "/client (3).png" },
+  { name: "Client 4", logo: "/client (4).png" },
+  { name: "Client 5", logo: "/client (5).png" },
+  { name: "Client 6", logo: "/client (6).png" },
+  { name: "Client 7", logo: "/client (7).png" },
+  { name: "Client 8", logo: "/client (8).png" },
+  { name: "Client 9", logo: "/client (9).png" },
+  { name: "Client 10", logo: "/client (10).png" },
+  { name: "Client 11", logo: "/client (11).png" },
+  { name: "Client 12", logo: "/client (12).png" },
+  { name: "Client 13", logo: "/client (13).png" },
+  { name: "Client 14", logo: "/client (14).png" },
+  { name: "Client 15", logo: "/client (15).png" },
+  { name: "Client 16", logo: "/client (16).png" },
+  { name: "Client 17", logo: "/client (17).png" },
+  { name: "Client 18", logo: "/client (18).png" },
+  { name: "Client 19", logo: "/client (19).png" },
+  { name: "Client 20", logo: "/client (20).png" },
   { name: "Trimble", logo: "/TRIMBLE.png" },
   { name: "Tulip Compression", logo: "/TulipCompression.png" },
   { name: "Sitech", logo: "/SITECH.png" },
@@ -81,7 +104,6 @@ const CLIENT_LOGOS = [
   { name: "Paus", logo: "/PAUS.png" },
   { name: "TIPL CAT", logo: "/TIPL.jpg" },
   { name: "TIL", logo: "/TractorsIndia.jpg" },
-  { name: "Gainwell", logo: "/Gainwell.jpg" },
   { name: "Gainwell CAT", logo: "/GainwellCAT.jpg" },
   { name: "Gainwell Engineering", logo: "/GainwellEngineering.jpg" },
   { name: "PCM", logo: "/PCM.png" },
@@ -429,19 +451,19 @@ function AboutPage() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
           {CLIENT_LOGOS.map((client, idx) => (
-            <Reveal key={client.name} delay={idx * 0.03}>
+            <Reveal key={client.name} delay={idx * 0.02}>
               <motion.div
-                whileHover={{ y: -4, scale: 1.03 }}
-                className="group flex flex-col items-center justify-center p-4 rounded-2xl border border-border/60 bg-white/90 dark:bg-muted/30 backdrop-blur-md hover:border-brand/50 hover:shadow-glow transition-all h-28 text-center"
+                whileHover={{ y: -4, scale: 1.04 }}
+                className="group flex items-center justify-center p-3 sm:p-5 rounded-2xl border border-border/60 bg-white/95 dark:bg-muted/30 backdrop-blur-md hover:border-brand/50 hover:shadow-glow transition-all h-32 sm:h-36 md:h-40 text-center"
               >
                 <img
                   src={getAssetUrl(client.logo)}
-                  alt=""
+                  alt={client.name}
                   loading="lazy"
                   decoding="async"
-                  className="max-h-12 max-w-[85%] object-contain filter transition-all group-hover:scale-105"
+                  className="h-full w-full max-h-20 sm:max-h-24 md:max-h-28 max-w-[90%] object-contain filter transition-all group-hover:scale-110"
                 />
               </motion.div>
             </Reveal>
@@ -519,6 +541,19 @@ function AboutPage() {
                           <Mail className="h-4 w-4 text-brand shrink-0" />
                           <a href={`mailto:${loc.email}`} className="hover:text-brand transition-colors">
                             {loc.email}
+                          </a>
+                        </div>
+                      )}
+                      {loc.directionsUrl && (
+                        <div className="pt-2">
+                          <a
+                            href={loc.directionsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand hover:text-brand-red transition-colors"
+                          >
+                            <span>Get Directions</span>
+                            <ArrowRight className="h-3.5 w-3.5" />
                           </a>
                         </div>
                       )}

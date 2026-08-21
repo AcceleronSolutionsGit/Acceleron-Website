@@ -17,6 +17,7 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as CsrRouteImport } from './routes/csr'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AdminRouteImport } from './routes/admin'
@@ -89,6 +90,11 @@ const CsrRoute = CsrRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientsRoute = ClientsRouteImport.update({
+  id: '/clients',
+  path: '/clients',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CareersRoute = CareersRouteImport.update({
@@ -267,6 +273,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRouteWithChildren
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
+  '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/csr': typeof CsrRoute
   '/events': typeof EventsRoute
@@ -309,6 +316,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
+  '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/csr': typeof CsrRoute
   '/events': typeof EventsRoute
@@ -353,6 +361,7 @@ export interface FileRoutesById {
   '/admin': typeof AdminRouteWithChildren
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
+  '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/csr': typeof CsrRoute
   '/events': typeof EventsRoute
@@ -398,6 +407,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/blog'
     | '/careers'
+    | '/clients'
     | '/contact'
     | '/csr'
     | '/events'
@@ -440,6 +450,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/careers'
+    | '/clients'
     | '/contact'
     | '/csr'
     | '/events'
@@ -483,6 +494,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/blog'
     | '/careers'
+    | '/clients'
     | '/contact'
     | '/csr'
     | '/events'
@@ -527,6 +539,7 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRouteWithChildren
   BlogRoute: typeof BlogRoute
   CareersRoute: typeof CareersRoute
+  ClientsRoute: typeof ClientsRoute
   ContactRoute: typeof ContactRoute
   CsrRoute: typeof CsrRoute
   EventsRoute: typeof EventsRoute
@@ -615,6 +628,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clients': {
+      id: '/clients'
+      path: '/clients'
+      fullPath: '/clients'
+      preLoaderRoute: typeof ClientsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/careers': {
@@ -877,6 +897,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRouteWithChildren,
   BlogRoute: BlogRoute,
   CareersRoute: CareersRoute,
+  ClientsRoute: ClientsRoute,
   ContactRoute: ContactRoute,
   CsrRoute: CsrRoute,
   EventsRoute: EventsRoute,

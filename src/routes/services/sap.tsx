@@ -7,42 +7,45 @@ import { SAPLogo } from "../../components/ui/Icons";
 import { Link } from "@tanstack/react-router";
 import { getSubServicesByCategory } from "../../data/servicesData";
 import { getAssetUrl } from "../../lib/assets";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 export const Route = createFileRoute("/services/sap")({
   component: SAPPage,
 });
 
+const SAP_BANNERS = [
+  "/SAP_Implementation_Banner.png",
+  "/SAP_Integration_Banner.png",
+  "/SAP_AMS_Banner.png",
+  "/SAP_EWS_Banner.png",
+];
+
 function SAPPage() {
   const subServices = getSubServicesByCategory("sap");
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setIndex((i) => (i + 1) % SAP_BANNERS.length), 6000);
+    return () => clearInterval(t);
+  }, []);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
-      {/* Hero Banner */}
-      <section className="relative w-full min-h-[90vh] flex flex-col justify-center pt-24 pb-12 bg-background overflow-hidden border-b border-border/50">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,oklch(0.68_0.19_240/0.05),transparent_70%)]" />
-        <div className="pointer-events-none absolute inset-0 grid-lines opacity-[0.05]" />
-        
-        <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-          <div className="relative w-full aspect-video sm:rounded-3xl overflow-hidden shadow-2xl border border-border/50 bg-white/5 backdrop-blur-3xl flex items-center justify-center">
-            <img 
-              src={getAssetUrl("/SAP_Implementation_Banner.png")} 
-              alt="SAP Services" 
-              className="absolute inset-0 h-full w-full object-contain drop-shadow-2xl"
-            />
+      <PageHero
+        title="SAP Solutions"
+        subtitle="Comprehensive SAP expertise across the full product suite, tailored for heavy industry and enterprise."
+        breadcrumbs={[
+          { label: "Services", href: "/services" },
+          { label: "SAP" }
+        ]}
+        image="/capital_goods.jpg"
+        icon={
+          <div className="h-20 w-auto bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-xl flex items-center justify-center">
+            <img src={getAssetUrl("/sap_s4hana-transparentbg.png")} alt="SAP" className="h-12 w-auto object-contain drop-shadow-lg" />
           </div>
-        </div>
-      </section>
-
-      {/* Breadcrumbs */}
-      <div className="w-full border-b border-border/50 bg-muted/40 py-3.5 backdrop-blur-md relative z-20">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
-            <Link to="/services" className="hover:text-foreground transition-colors">Services</Link>
-            <span className="text-foreground/30">/</span>
-            <span className="text-brand-red">SAP</span>
-          </div>
-        </div>
-      </div>
+        }
+      />
 
       {/* Sub-services grid */}
       <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">

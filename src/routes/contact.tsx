@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Building2, Globe, Phone } from "lucide-react";
+import { Mail, MapPin, Building2, Globe, Phone, Navigation } from "lucide-react";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
 import { OFFICIAL_HQ } from "../constants/company";
@@ -50,9 +50,20 @@ function ContactPage() {
                   <span className="text-xs uppercase tracking-[0.3em] font-bold text-brand-red">Headquarters</span>
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">{OFFICIAL_HQ.company}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                   {OFFICIAL_HQ.address}
                 </p>
+                <div className="mb-6">
+                  <a
+                    href={OFFICIAL_HQ.directionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand hover:text-brand-red transition-colors"
+                  >
+                    <Navigation className="h-3.5 w-3.5" />
+                    <span>Get Directions via Google Maps</span>
+                  </a>
+                </div>
 
                 <div className="space-y-4 pt-6 border-t border-border/50 text-sm">
                   <div className="flex items-center gap-3">

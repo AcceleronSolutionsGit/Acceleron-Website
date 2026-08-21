@@ -55,6 +55,7 @@ const MEGA_SERVICES = [
 
 const WHO_WE_ARE = [
   { name: "About Us", href: "/about", icon: Building2, desc: "Company overview & heritage" },
+  { name: "Our Clients", href: "/clients", icon: ShieldCheck, desc: "Enterprises that trust us" },
   { name: "Leadership & Team", href: "/team", icon: Users, desc: "Our executive and practice leads" },
   { name: "Culture", href: "/careers", icon: Award, desc: "Life at Acceleron" },
   { name: "CSR", href: "/csr", icon: Leaf, desc: "Community & sustainability" },
@@ -96,6 +97,18 @@ function Nav() {
     return () => window.removeEventListener("scroll", h);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   // Keyboard navigation support
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -113,16 +126,16 @@ function Nav() {
       initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/95 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 py-1 shadow-md"
-          : "bg-white/90 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60 py-2 shadow-sm"
+          ? "bg-white/95 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 py-1.5 shadow-md"
+          : "bg-white/90 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60 py-2.5 shadow-sm"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center text-foreground" aria-label="Acceleron Solutions Home">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
+        <Link to="/" className="flex items-center text-foreground shrink-0" aria-label="Acceleron Solutions Home" onClick={() => setOpen(false)}>
           <img
             src="/logo.png"
             alt="Acceleron Solutions"
-            className="h-12 lg:h-16 object-contain dark:brightness-0 dark:invert opacity-95 transition-all hover:scale-105 hover:opacity-100"
+            className="h-10 sm:h-12 lg:h-16 object-contain dark:brightness-0 dark:invert opacity-95 transition-all hover:scale-105 hover:opacity-100"
           />
         </Link>
         <nav className="hidden items-center gap-2 lg:flex" role="navigation" aria-label="Main Navigation">

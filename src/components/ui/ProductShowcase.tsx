@@ -67,7 +67,7 @@ export function ProcessFlow({ steps, accentColor = "#4c5a8a" }: { steps: FlowSte
         </svg>
       </div>
 
-      <div className="relative grid gap-8 md:gap-4" style={{ gridTemplateColumns: `repeat(${steps.length}, 1fr)` }}>
+      <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4">
         {steps.map((s, i) => (
           <Reveal key={s.step} delay={i * 0.1}>
             <motion.div
@@ -84,7 +84,7 @@ export function ProcessFlow({ steps, accentColor = "#4c5a8a" }: { steps: FlowSte
               </motion.div>
               <div className="mt-4 text-center">
                 <div className="text-sm font-semibold text-foreground">{s.title}</div>
-                <div className="mt-1 text-xs text-muted-foreground max-w-[160px] mx-auto">{s.desc}</div>
+                <div className="mt-1 text-xs text-muted-foreground max-w-[180px] mx-auto">{s.desc}</div>
               </div>
             </motion.div>
           </Reveal>
