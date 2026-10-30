@@ -5,7 +5,7 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/((?!assets/|.*\\.(?:png|PNG|jpg|JPG|jpeg|JPEG|svg|SVG|webp|WEBP|gif|GIF|ico|ICO|css|js|json|woff|woff2|ttf|eot|mp4|webm)$).*)",
+      "source": "/((?!assets/|.*\\.(?:png|PNG|jpg|JPG|jpeg|JPEG|svg|SVG|webp|WEBP|gif|GIF|ico|ICO|css|js|json|woff|woff2|ttf|eot|mp4|webm|xml|XML|txt|TXT)$).*)",
       "destination": "/index.html"
     }
   ],
