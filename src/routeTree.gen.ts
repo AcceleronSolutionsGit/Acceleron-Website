@@ -9,107 +9,52 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TeamRouteImport } from './routes/team'
-import { Route as PartnersRouteImport } from './routes/partners'
-import { Route as NewsRouteImport } from './routes/news'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as EventsRouteImport } from './routes/events'
-import { Route as CsrRouteImport } from './routes/csr'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ClientsRouteImport } from './routes/clients'
-import { Route as CareersRouteImport } from './routes/careers'
-import { Route as BlogRouteImport } from './routes/blog'
-import { Route as AdminRouteImport } from './routes/admin'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicesIndexRouteImport } from './routes/services/index'
-import { Route as ProductsIndexRouteImport } from './routes/products/index'
-import { Route as IndustriesIndexRouteImport } from './routes/industries/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as ClientsRouteImport } from './routes/clients'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CsrRouteImport } from './routes/csr'
+import { Route as EventsRouteImport } from './routes/events'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as NewsRouteImport } from './routes/news'
+import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
-import { Route as ServicesZohoRouteImport } from './routes/services/zoho'
-import { Route as ServicesSapRouteImport } from './routes/services/sap'
-import { Route as ServicesManageengineRouteImport } from './routes/services/manageengine'
-import { Route as ServicesItCustomSolutionsRouteImport } from './routes/services/it-custom-solutions'
-import { Route as ProductsTyreHealthRouteImport } from './routes/products/tyre-health'
-import { Route as ProductsSurakshaRouteImport } from './routes/products/suraksha'
-import { Route as ProductsSupplierPortalRouteImport } from './routes/products/supplier-portal'
-import { Route as ProductsQmsRouteImport } from './routes/products/qms'
-import { Route as ProductsPjpRouteImport } from './routes/products/pjp'
-import { Route as ProductsCwmsRouteImport } from './routes/products/cwms'
-import { Route as IndustriesUtilitiesRouteImport } from './routes/industries/utilities'
-import { Route as IndustriesTransportationServicesLogisticsRouteImport } from './routes/industries/transportation-services-logistics'
-import { Route as IndustriesMiningRouteImport } from './routes/industries/mining'
-import { Route as IndustriesEngineeringConstructionOperationsRouteImport } from './routes/industries/engineering-construction-operations'
-import { Route as IndustriesDiscreteManufacturingRouteImport } from './routes/industries/discrete-manufacturing'
-import { Route as IndustriesCapitalGoodsRouteImport } from './routes/industries/capital-goods'
-import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
-import { Route as AdminManageContentRouteImport } from './routes/admin.manage-content'
-import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
-import { Route as AdminJobsRouteImport } from './routes/admin.jobs'
-import { Route as AdminCvSubmissionsRouteImport } from './routes/admin.cv-submissions'
 import { Route as AdminContentRouteImport } from './routes/admin.content'
-import { Route as ServicesDetailSlugRouteImport } from './routes/services/detail.$slug'
+import { Route as AdminCvSubmissionsRouteImport } from './routes/admin.cv-submissions'
+import { Route as AdminJobsRouteImport } from './routes/admin.jobs'
+import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
+import { Route as AdminManageContentRouteImport } from './routes/admin.manage-content'
+import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
+import { Route as IndustriesIndexRouteImport } from './routes/industries/index'
+import { Route as IndustriesCapitalGoodsRouteImport } from './routes/industries/capital-goods'
+import { Route as IndustriesDiscreteManufacturingRouteImport } from './routes/industries/discrete-manufacturing'
+import { Route as IndustriesEngineeringConstructionOperationsRouteImport } from './routes/industries/engineering-construction-operations'
+import { Route as IndustriesMiningRouteImport } from './routes/industries/mining'
+import { Route as IndustriesTransportationServicesLogisticsRouteImport } from './routes/industries/transportation-services-logistics'
+import { Route as IndustriesUtilitiesRouteImport } from './routes/industries/utilities'
+import { Route as ProductsIndexRouteImport } from './routes/products/index'
+import { Route as ProductsCwmsRouteImport } from './routes/products/cwms'
+import { Route as ProductsPjpRouteImport } from './routes/products/pjp'
+import { Route as ProductsQmsRouteImport } from './routes/products/qms'
+import { Route as ProductsSupplierPortalRouteImport } from './routes/products/supplier-portal'
+import { Route as ProductsSurakshaRouteImport } from './routes/products/suraksha'
+import { Route as ProductsTyreHealthRouteImport } from './routes/products/tyre-health'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesItCustomSolutionsRouteImport } from './routes/services/it-custom-solutions'
+import { Route as ServicesManageengineRouteImport } from './routes/services/manageengine'
+import { Route as ServicesSapRouteImport } from './routes/services/sap'
+import { Route as ServicesZohoRouteImport } from './routes/services/zoho'
 import { Route as ServicesCategoryServiceRouteImport } from './routes/services/$category.$service'
+import { Route as ServicesDetailSlugRouteImport } from './routes/services/detail.$slug'
 
-const TeamRoute = TeamRouteImport.update({
-  id: '/team',
-  path: '/team',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PartnersRoute = PartnersRouteImport.update({
-  id: '/partners',
-  path: '/partners',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NewsRoute = NewsRouteImport.update({
-  id: '/news',
-  path: '/news',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EventsRoute = EventsRouteImport.update({
-  id: '/events',
-  path: '/events',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CsrRoute = CsrRouteImport.update({
-  id: '/csr',
-  path: '/csr',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ClientsRoute = ClientsRouteImport.update({
-  id: '/clients',
-  path: '/clients',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CareersRoute = CareersRouteImport.update({
-  id: '/careers',
-  path: '/careers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -117,24 +62,64 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesIndexRoute = ServicesIndexRouteImport.update({
-  id: '/services/',
-  path: '/services/',
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProductsIndexRoute = ProductsIndexRouteImport.update({
-  id: '/products/',
-  path: '/products/',
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
-  id: '/industries/',
-  path: '/industries/',
+const ClientsRoute = ClientsRouteImport.update({
+  id: '/clients',
+  path: '/clients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsrRoute = CsrRouteImport.update({
+  id: '/csr',
+  path: '/csr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
@@ -142,60 +127,61 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
-const ServicesZohoRoute = ServicesZohoRouteImport.update({
-  id: '/services/zoho',
-  path: '/services/zoho',
+const AdminContentRoute = AdminContentRouteImport.update({
+  id: '/content',
+  path: '/content',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCvSubmissionsRoute = AdminCvSubmissionsRouteImport.update({
+  id: '/cv-submissions',
+  path: '/cv-submissions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminJobsRoute = AdminJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLeadsRoute = AdminLeadsRouteImport.update({
+  id: '/leads',
+  path: '/leads',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminManageContentRoute = AdminManageContentRouteImport.update({
+  id: '/manage-content',
+  path: '/manage-content',
+  getParentRoute: () => AdminRoute,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog_/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesSapRoute = ServicesSapRouteImport.update({
-  id: '/services/sap',
-  path: '/services/sap',
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesManageengineRoute = ServicesManageengineRouteImport.update({
-  id: '/services/manageengine',
-  path: '/services/manageengine',
+const IndustriesCapitalGoodsRoute = IndustriesCapitalGoodsRouteImport.update({
+  id: '/industries/capital-goods',
+  path: '/industries/capital-goods',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesItCustomSolutionsRoute =
-  ServicesItCustomSolutionsRouteImport.update({
-    id: '/services/it-custom-solutions',
-    path: '/services/it-custom-solutions',
+const IndustriesDiscreteManufacturingRoute =
+  IndustriesDiscreteManufacturingRouteImport.update({
+    id: '/industries/discrete-manufacturing',
+    path: '/industries/discrete-manufacturing',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ProductsTyreHealthRoute = ProductsTyreHealthRouteImport.update({
-  id: '/products/tyre-health',
-  path: '/products/tyre-health',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsSurakshaRoute = ProductsSurakshaRouteImport.update({
-  id: '/products/suraksha',
-  path: '/products/suraksha',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsSupplierPortalRoute = ProductsSupplierPortalRouteImport.update({
-  id: '/products/supplier-portal',
-  path: '/products/supplier-portal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsQmsRoute = ProductsQmsRouteImport.update({
-  id: '/products/qms',
-  path: '/products/qms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsPjpRoute = ProductsPjpRouteImport.update({
-  id: '/products/pjp',
-  path: '/products/pjp',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsCwmsRoute = ProductsCwmsRouteImport.update({
-  id: '/products/cwms',
-  path: '/products/cwms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesUtilitiesRoute = IndustriesUtilitiesRouteImport.update({
-  id: '/industries/utilities',
-  path: '/industries/utilities',
+const IndustriesEngineeringConstructionOperationsRoute =
+  IndustriesEngineeringConstructionOperationsRouteImport.update({
+    id: '/industries/engineering-construction-operations',
+    path: '/industries/engineering-construction-operations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const IndustriesMiningRoute = IndustriesMiningRouteImport.update({
+  id: '/industries/mining',
+  path: '/industries/mining',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesTransportationServicesLogisticsRoute =
@@ -204,66 +190,80 @@ const IndustriesTransportationServicesLogisticsRoute =
     path: '/industries/transportation-services-logistics',
     getParentRoute: () => rootRouteImport,
   } as any)
-const IndustriesMiningRoute = IndustriesMiningRouteImport.update({
-  id: '/industries/mining',
-  path: '/industries/mining',
+const IndustriesUtilitiesRoute = IndustriesUtilitiesRouteImport.update({
+  id: '/industries/utilities',
+  path: '/industries/utilities',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndustriesEngineeringConstructionOperationsRoute =
-  IndustriesEngineeringConstructionOperationsRouteImport.update({
-    id: '/industries/engineering-construction-operations',
-    path: '/industries/engineering-construction-operations',
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsCwmsRoute = ProductsCwmsRouteImport.update({
+  id: '/products/cwms',
+  path: '/products/cwms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsPjpRoute = ProductsPjpRouteImport.update({
+  id: '/products/pjp',
+  path: '/products/pjp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsQmsRoute = ProductsQmsRouteImport.update({
+  id: '/products/qms',
+  path: '/products/qms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSupplierPortalRoute = ProductsSupplierPortalRouteImport.update({
+  id: '/products/supplier-portal',
+  path: '/products/supplier-portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSurakshaRoute = ProductsSurakshaRouteImport.update({
+  id: '/products/suraksha',
+  path: '/products/suraksha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsTyreHealthRoute = ProductsTyreHealthRouteImport.update({
+  id: '/products/tyre-health',
+  path: '/products/tyre-health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesItCustomSolutionsRoute =
+  ServicesItCustomSolutionsRouteImport.update({
+    id: '/services/it-custom-solutions',
+    path: '/services/it-custom-solutions',
     getParentRoute: () => rootRouteImport,
   } as any)
-const IndustriesDiscreteManufacturingRoute =
-  IndustriesDiscreteManufacturingRouteImport.update({
-    id: '/industries/discrete-manufacturing',
-    path: '/industries/discrete-manufacturing',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const IndustriesCapitalGoodsRoute = IndustriesCapitalGoodsRouteImport.update({
-  id: '/industries/capital-goods',
-  path: '/industries/capital-goods',
+const ServicesManageengineRoute = ServicesManageengineRouteImport.update({
+  id: '/services/manageengine',
+  path: '/services/manageengine',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog_/$slug',
-  path: '/blog/$slug',
+const ServicesSapRoute = ServicesSapRouteImport.update({
+  id: '/services/sap',
+  path: '/services/sap',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminManageContentRoute = AdminManageContentRouteImport.update({
-  id: '/manage-content',
-  path: '/manage-content',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminLeadsRoute = AdminLeadsRouteImport.update({
-  id: '/leads',
-  path: '/leads',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminJobsRoute = AdminJobsRouteImport.update({
-  id: '/jobs',
-  path: '/jobs',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminCvSubmissionsRoute = AdminCvSubmissionsRouteImport.update({
-  id: '/cv-submissions',
-  path: '/cv-submissions',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminContentRoute = AdminContentRouteImport.update({
-  id: '/content',
-  path: '/content',
-  getParentRoute: () => AdminRoute,
-} as any)
-const ServicesDetailSlugRoute = ServicesDetailSlugRouteImport.update({
-  id: '/services/detail/$slug',
-  path: '/services/detail/$slug',
+const ServicesZohoRoute = ServicesZohoRouteImport.update({
+  id: '/services/zoho',
+  path: '/services/zoho',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesCategoryServiceRoute = ServicesCategoryServiceRouteImport.update({
   id: '/services/$category/$service',
   path: '/services/$category/$service',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesDetailSlugRoute = ServicesDetailSlugRouteImport.update({
+  id: '/services/detail/$slug',
+  path: '/services/detail/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -574,88 +574,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/team': {
-      id: '/team'
-      path: '/team'
-      fullPath: '/team'
-      preLoaderRoute: typeof TeamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/partners': {
-      id: '/partners'
-      path: '/partners'
-      fullPath: '/partners'
-      preLoaderRoute: typeof PartnersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/news': {
-      id: '/news'
-      path: '/news'
-      fullPath: '/news'
-      preLoaderRoute: typeof NewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gallery': {
-      id: '/gallery'
-      path: '/gallery'
-      fullPath: '/gallery'
-      preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/events': {
-      id: '/events'
-      path: '/events'
-      fullPath: '/events'
-      preLoaderRoute: typeof EventsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/csr': {
-      id: '/csr'
-      path: '/csr'
-      fullPath: '/csr'
-      preLoaderRoute: typeof CsrRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/clients': {
-      id: '/clients'
-      path: '/clients'
-      fullPath: '/clients'
-      preLoaderRoute: typeof ClientsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/careers': {
-      id: '/careers'
-      path: '/careers'
-      fullPath: '/careers'
-      preLoaderRoute: typeof CareersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -665,32 +588,88 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/': {
-      id: '/services/'
-      path: '/services'
-      fullPath: '/services/'
-      preLoaderRoute: typeof ServicesIndexRouteImport
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/products/': {
-      id: '/products/'
-      path: '/products'
-      fullPath: '/products/'
-      preLoaderRoute: typeof ProductsIndexRouteImport
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries/': {
-      id: '/industries/'
-      path: '/industries'
-      fullPath: '/industries/'
-      preLoaderRoute: typeof IndustriesIndexRouteImport
+    '/clients': {
+      id: '/clients'
+      path: '/clients'
+      fullPath: '/clients'
+      preLoaderRoute: typeof ClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/csr': {
+      id: '/csr'
+      path: '/csr'
+      fullPath: '/csr'
+      preLoaderRoute: typeof CsrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/': {
@@ -700,144 +679,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/services/zoho': {
-      id: '/services/zoho'
-      path: '/services/zoho'
-      fullPath: '/services/zoho'
-      preLoaderRoute: typeof ServicesZohoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/sap': {
-      id: '/services/sap'
-      path: '/services/sap'
-      fullPath: '/services/sap'
-      preLoaderRoute: typeof ServicesSapRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/manageengine': {
-      id: '/services/manageengine'
-      path: '/services/manageengine'
-      fullPath: '/services/manageengine'
-      preLoaderRoute: typeof ServicesManageengineRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/it-custom-solutions': {
-      id: '/services/it-custom-solutions'
-      path: '/services/it-custom-solutions'
-      fullPath: '/services/it-custom-solutions'
-      preLoaderRoute: typeof ServicesItCustomSolutionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products/tyre-health': {
-      id: '/products/tyre-health'
-      path: '/products/tyre-health'
-      fullPath: '/products/tyre-health'
-      preLoaderRoute: typeof ProductsTyreHealthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products/suraksha': {
-      id: '/products/suraksha'
-      path: '/products/suraksha'
-      fullPath: '/products/suraksha'
-      preLoaderRoute: typeof ProductsSurakshaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products/supplier-portal': {
-      id: '/products/supplier-portal'
-      path: '/products/supplier-portal'
-      fullPath: '/products/supplier-portal'
-      preLoaderRoute: typeof ProductsSupplierPortalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products/qms': {
-      id: '/products/qms'
-      path: '/products/qms'
-      fullPath: '/products/qms'
-      preLoaderRoute: typeof ProductsQmsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products/pjp': {
-      id: '/products/pjp'
-      path: '/products/pjp'
-      fullPath: '/products/pjp'
-      preLoaderRoute: typeof ProductsPjpRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products/cwms': {
-      id: '/products/cwms'
-      path: '/products/cwms'
-      fullPath: '/products/cwms'
-      preLoaderRoute: typeof ProductsCwmsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/utilities': {
-      id: '/industries/utilities'
-      path: '/industries/utilities'
-      fullPath: '/industries/utilities'
-      preLoaderRoute: typeof IndustriesUtilitiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/transportation-services-logistics': {
-      id: '/industries/transportation-services-logistics'
-      path: '/industries/transportation-services-logistics'
-      fullPath: '/industries/transportation-services-logistics'
-      preLoaderRoute: typeof IndustriesTransportationServicesLogisticsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/mining': {
-      id: '/industries/mining'
-      path: '/industries/mining'
-      fullPath: '/industries/mining'
-      preLoaderRoute: typeof IndustriesMiningRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/engineering-construction-operations': {
-      id: '/industries/engineering-construction-operations'
-      path: '/industries/engineering-construction-operations'
-      fullPath: '/industries/engineering-construction-operations'
-      preLoaderRoute: typeof IndustriesEngineeringConstructionOperationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/discrete-manufacturing': {
-      id: '/industries/discrete-manufacturing'
-      path: '/industries/discrete-manufacturing'
-      fullPath: '/industries/discrete-manufacturing'
-      preLoaderRoute: typeof IndustriesDiscreteManufacturingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/capital-goods': {
-      id: '/industries/capital-goods'
-      path: '/industries/capital-goods'
-      fullPath: '/industries/capital-goods'
-      preLoaderRoute: typeof IndustriesCapitalGoodsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog_/$slug': {
-      id: '/blog_/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin/manage-content': {
-      id: '/admin/manage-content'
-      path: '/manage-content'
-      fullPath: '/admin/manage-content'
-      preLoaderRoute: typeof AdminManageContentRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/leads': {
-      id: '/admin/leads'
-      path: '/leads'
-      fullPath: '/admin/leads'
-      preLoaderRoute: typeof AdminLeadsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/jobs': {
-      id: '/admin/jobs'
-      path: '/jobs'
-      fullPath: '/admin/jobs'
-      preLoaderRoute: typeof AdminJobsRouteImport
+    '/admin/content': {
+      id: '/admin/content'
+      path: '/content'
+      fullPath: '/admin/content'
+      preLoaderRoute: typeof AdminContentRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/cv-submissions': {
@@ -847,18 +693,165 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCvSubmissionsRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/content': {
-      id: '/admin/content'
-      path: '/content'
-      fullPath: '/admin/content'
-      preLoaderRoute: typeof AdminContentRouteImport
+    '/admin/jobs': {
+      id: '/admin/jobs'
+      path: '/jobs'
+      fullPath: '/admin/jobs'
+      preLoaderRoute: typeof AdminJobsRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/services/detail/$slug': {
-      id: '/services/detail/$slug'
-      path: '/services/detail/$slug'
-      fullPath: '/services/detail/$slug'
-      preLoaderRoute: typeof ServicesDetailSlugRouteImport
+    '/admin/leads': {
+      id: '/admin/leads'
+      path: '/leads'
+      fullPath: '/admin/leads'
+      preLoaderRoute: typeof AdminLeadsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/manage-content': {
+      id: '/admin/manage-content'
+      path: '/manage-content'
+      fullPath: '/admin/manage-content'
+      preLoaderRoute: typeof AdminManageContentRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/blog_/$slug': {
+      id: '/blog_/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/capital-goods': {
+      id: '/industries/capital-goods'
+      path: '/industries/capital-goods'
+      fullPath: '/industries/capital-goods'
+      preLoaderRoute: typeof IndustriesCapitalGoodsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/discrete-manufacturing': {
+      id: '/industries/discrete-manufacturing'
+      path: '/industries/discrete-manufacturing'
+      fullPath: '/industries/discrete-manufacturing'
+      preLoaderRoute: typeof IndustriesDiscreteManufacturingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/engineering-construction-operations': {
+      id: '/industries/engineering-construction-operations'
+      path: '/industries/engineering-construction-operations'
+      fullPath: '/industries/engineering-construction-operations'
+      preLoaderRoute: typeof IndustriesEngineeringConstructionOperationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/mining': {
+      id: '/industries/mining'
+      path: '/industries/mining'
+      fullPath: '/industries/mining'
+      preLoaderRoute: typeof IndustriesMiningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/transportation-services-logistics': {
+      id: '/industries/transportation-services-logistics'
+      path: '/industries/transportation-services-logistics'
+      fullPath: '/industries/transportation-services-logistics'
+      preLoaderRoute: typeof IndustriesTransportationServicesLogisticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/utilities': {
+      id: '/industries/utilities'
+      path: '/industries/utilities'
+      fullPath: '/industries/utilities'
+      preLoaderRoute: typeof IndustriesUtilitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/cwms': {
+      id: '/products/cwms'
+      path: '/products/cwms'
+      fullPath: '/products/cwms'
+      preLoaderRoute: typeof ProductsCwmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/pjp': {
+      id: '/products/pjp'
+      path: '/products/pjp'
+      fullPath: '/products/pjp'
+      preLoaderRoute: typeof ProductsPjpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/qms': {
+      id: '/products/qms'
+      path: '/products/qms'
+      fullPath: '/products/qms'
+      preLoaderRoute: typeof ProductsQmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/supplier-portal': {
+      id: '/products/supplier-portal'
+      path: '/products/supplier-portal'
+      fullPath: '/products/supplier-portal'
+      preLoaderRoute: typeof ProductsSupplierPortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/suraksha': {
+      id: '/products/suraksha'
+      path: '/products/suraksha'
+      fullPath: '/products/suraksha'
+      preLoaderRoute: typeof ProductsSurakshaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/tyre-health': {
+      id: '/products/tyre-health'
+      path: '/products/tyre-health'
+      fullPath: '/products/tyre-health'
+      preLoaderRoute: typeof ProductsTyreHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/it-custom-solutions': {
+      id: '/services/it-custom-solutions'
+      path: '/services/it-custom-solutions'
+      fullPath: '/services/it-custom-solutions'
+      preLoaderRoute: typeof ServicesItCustomSolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/manageengine': {
+      id: '/services/manageengine'
+      path: '/services/manageengine'
+      fullPath: '/services/manageengine'
+      preLoaderRoute: typeof ServicesManageengineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/sap': {
+      id: '/services/sap'
+      path: '/services/sap'
+      fullPath: '/services/sap'
+      preLoaderRoute: typeof ServicesSapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/zoho': {
+      id: '/services/zoho'
+      path: '/services/zoho'
+      fullPath: '/services/zoho'
+      preLoaderRoute: typeof ServicesZohoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/$category/$service': {
@@ -866,6 +859,13 @@ declare module '@tanstack/react-router' {
       path: '/services/$category/$service'
       fullPath: '/services/$category/$service'
       preLoaderRoute: typeof ServicesCategoryServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/detail/$slug': {
+      id: '/services/detail/$slug'
+      path: '/services/detail/$slug'
+      fullPath: '/services/detail/$slug'
+      preLoaderRoute: typeof ServicesDetailSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
