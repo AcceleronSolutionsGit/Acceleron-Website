@@ -129,7 +129,7 @@ const SAP_CAPABILITIES = [
   {
     title: "AuditComply & SAP Governance",
     text: "Automated SAP ECC and S/4HANA compliance covering Segregation of Duties (SoD), ITGC controls, and audit trails.",
-    href: "/contact",
+    href: "/services/sap/audit-comply",
     logo: "/sap_s4hana-transparentbg.png",
   },
 ];

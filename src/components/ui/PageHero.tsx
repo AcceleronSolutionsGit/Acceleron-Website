@@ -8,6 +8,7 @@ import { Link } from "@tanstack/react-router";
 import { getAssetUrl } from "../../lib/assets";
 
 type PageHeroProps = {
+  badge?: string;
   title: string;
   subtitle: string;
   breadcrumbs: BreadcrumbItem[];
@@ -21,6 +22,7 @@ type PageHeroProps = {
 };
 
 export function PageHero({
+  badge,
   title,
   subtitle,
   breadcrumbs,
@@ -65,6 +67,11 @@ export function PageHero({
         <div className="relative z-10 container mx-auto px-6 max-w-7xl pt-36 pb-20">
           <Reveal>
             <div className="flex flex-col items-start max-w-4xl">
+              {badge && (
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.25em] text-white/90 backdrop-blur-md mb-4 shadow-sm">
+                  {badge}
+                </div>
+              )}
               {icon && (
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}

@@ -30,6 +30,7 @@ import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as ServicesZohoRouteImport } from './routes/services/zoho'
 import { Route as ServicesSapRouteImport } from './routes/services/sap'
 import { Route as ServicesManageengineRouteImport } from './routes/services/manageengine'
+import { Route as ServicesManageEngineRouteImport } from './routes/services/manage-engine'
 import { Route as ServicesItCustomSolutionsRouteImport } from './routes/services/it-custom-solutions'
 import { Route as ProductsTyreHealthRouteImport } from './routes/products/tyre-health'
 import { Route as ProductsSurakshaRouteImport } from './routes/products/suraksha'
@@ -155,6 +156,11 @@ const ServicesSapRoute = ServicesSapRouteImport.update({
 const ServicesManageengineRoute = ServicesManageengineRouteImport.update({
   id: '/services/manageengine',
   path: '/services/manageengine',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesManageEngineRoute = ServicesManageEngineRouteImport.update({
+  id: '/services/manage-engine',
+  path: '/services/manage-engine',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesItCustomSolutionsRoute =
@@ -301,6 +307,7 @@ export interface FileRoutesByFullPath {
   '/products/suraksha': typeof ProductsSurakshaRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
   '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/zoho': typeof ServicesZohoRoute
@@ -344,6 +351,7 @@ export interface FileRoutesByTo {
   '/products/suraksha': typeof ProductsSurakshaRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
   '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/zoho': typeof ServicesZohoRoute
@@ -389,6 +397,7 @@ export interface FileRoutesById {
   '/products/suraksha': typeof ProductsSurakshaRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
   '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/zoho': typeof ServicesZohoRoute
@@ -435,6 +444,7 @@ export interface FileRouteTypes {
     | '/products/suraksha'
     | '/products/tyre-health'
     | '/services/it-custom-solutions'
+    | '/services/manage-engine'
     | '/services/manageengine'
     | '/services/sap'
     | '/services/zoho'
@@ -478,6 +488,7 @@ export interface FileRouteTypes {
     | '/products/suraksha'
     | '/products/tyre-health'
     | '/services/it-custom-solutions'
+    | '/services/manage-engine'
     | '/services/manageengine'
     | '/services/sap'
     | '/services/zoho'
@@ -522,6 +533,7 @@ export interface FileRouteTypes {
     | '/products/suraksha'
     | '/products/tyre-health'
     | '/services/it-custom-solutions'
+    | '/services/manage-engine'
     | '/services/manageengine'
     | '/services/sap'
     | '/services/zoho'
@@ -562,6 +574,7 @@ export interface RootRouteChildren {
   ProductsSurakshaRoute: typeof ProductsSurakshaRoute
   ProductsTyreHealthRoute: typeof ProductsTyreHealthRoute
   ServicesItCustomSolutionsRoute: typeof ServicesItCustomSolutionsRoute
+  ServicesManageEngineRoute: typeof ServicesManageEngineRoute
   ServicesManageengineRoute: typeof ServicesManageengineRoute
   ServicesSapRoute: typeof ServicesSapRoute
   ServicesZohoRoute: typeof ServicesZohoRoute
@@ -719,6 +732,13 @@ declare module '@tanstack/react-router' {
       path: '/services/manageengine'
       fullPath: '/services/manageengine'
       preLoaderRoute: typeof ServicesManageengineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/manage-engine': {
+      id: '/services/manage-engine'
+      path: '/services/manage-engine'
+      fullPath: '/services/manage-engine'
+      preLoaderRoute: typeof ServicesManageEngineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/it-custom-solutions': {
@@ -922,6 +942,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProductsSurakshaRoute: ProductsSurakshaRoute,
   ProductsTyreHealthRoute: ProductsTyreHealthRoute,
   ServicesItCustomSolutionsRoute: ServicesItCustomSolutionsRoute,
+  ServicesManageEngineRoute: ServicesManageEngineRoute,
   ServicesManageengineRoute: ServicesManageengineRoute,
   ServicesSapRoute: ServicesSapRoute,
   ServicesZohoRoute: ServicesZohoRoute,
