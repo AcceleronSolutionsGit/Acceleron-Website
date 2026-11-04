@@ -277,8 +277,14 @@ export function SubServicePageView({ data }: SubServicePageProps) {
               </Reveal>
 
               <div className="mt-10 space-y-6">
-                <div className="text-base font-bold text-foreground flex items-center gap-2">
-                  <ShieldCheck className="h-5 w-5 text-brand" /> Acceleron Solutions Pvt. Ltd.
+                <div className="text-base font-bold text-foreground flex flex-wrap items-center gap-2">
+                  <ShieldCheck className="h-5 w-5 text-brand shrink-0" />
+                  <span>Acceleron Solutions Pvt. Ltd.</span>
+                  {data.category === "Zoho" && (
+                    <span className="text-xs font-semibold text-brand bg-brand/10 px-2 py-0.5 rounded-full border border-brand/20">
+                      Advanced Partner with Zoho
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex items-center gap-4 text-muted-foreground text-sm">

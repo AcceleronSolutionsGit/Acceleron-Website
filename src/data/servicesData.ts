@@ -616,147 +616,327 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     image: "/SAP_Implementation_Banner.png",
     customLogo: "/sap_s4hana-transparentbg.png"
   },
-  {
+    {
     slug: "zoho-crm",
     title: "Zoho CRM",
+    badge: "ZOHO ADVANCED PARTNER",
     category: "Zoho",
     categorySlug: "zoho",
     desc: "Unified customer relationship management to accelerate sales and build lasting relationships.",
-    overview: "Transform your sales processes with Zoho CRM. We implement and customize Zoho CRM to automate workflows, capture leads, manage pipelines, and provide deep analytics, empowering your sales team to close deals faster and smarter.",
+    overview: "Unified customer relationship management to accelerate sales and build lasting relationships. As an Advanced Partner with Zoho, Acceleron implements, customizes, and integrates Zoho CRM with enterprise ERPs and omnichannel communications, empowering sales teams to convert prospects, track deals, and accelerate business growth.",
+    primaryCtaText: "Talk to Our Zoho Experts",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Schedule CRM Demo",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Capabilities & Features",
     features: [
-      { title: "Sales Automation", desc: "Automate lead nurturing, scoring, and routine sales tasks." },
-      { title: "Omnichannel Communication", desc: "Engage customers via email, telephony, social media, and live chat within the CRM." },
-      { title: "Customization & Blueprint", desc: "Tailor the CRM to your specific sales processes with guided workflows." },
-      { title: "AI-Powered Insights (Zia)", desc: "Predictive sales analytics, anomaly detection, and best time to contact recommendations." }
+      {
+        title: "Lead Management & Tracking",
+        desc: "Centralizes all lead data, streamlines lead capture across web/forms, and transforms prospects into measurable business growth."
+      },
+      {
+        title: "Sales Automation & Follow-ups",
+        desc: "Automates follow-up emails, task creation, lead scoring, and lead nurturing workflows to increase conversion rates."
+      },
+      {
+        title: "Pipeline & Deal Visibility",
+        desc: "Real-time pipeline tracking, deal stage management, quota tracking, and sales performance forecasting."
+      },
+      {
+        title: "Integrated Sales Suite",
+        desc: "Native integration with Zoho Bigin, Zoho Forms, Zoho Sign, Zoho Bookings, and Zoho SalesIQ for live visitor chat."
+      }
     ],
+    deliveryScopeTitle: "Implementation & Support Scope",
+    deliveryScope: [
+      {
+        title: "Implementation & Customization",
+        desc: "Bespoke pipeline configuration, field customization, workflow rule setup, and legacy CRM data migration."
+      },
+      {
+        title: "AMS & Post-Go-Live Support",
+        desc: "Ongoing Application Maintenance Services (AMS), user role governance, and performance optimization."
+      }
+    ],
+    benefitsTitle: "Business Value & Sales Impact",
     benefits: [
-      { title: "Sales Productivity", metric: "+40%", desc: "Reduced manual data entry and streamlined sales cycles." },
-      { title: "Lead Conversion", metric: "+25%", desc: "Better lead tracking and timely follow-ups." },
-      { title: "Customer Retention", metric: "+30%", desc: "Improved customer relationships through personalized engagement." },
-      { title: "Data Accuracy", metric: "100%", desc: "A single source of truth for all customer interactions." }
+      { title: "Sales Velocity", metric: "+40%", desc: "Faster sales cycles and automated follow-ups." },
+      { title: "Lead Conversion", metric: "+25%", desc: "Centralized lead scoring and prompt pipeline tracking." },
+      { title: "Data Accuracy", metric: "100%", desc: "Single source of truth across leads, quotes, and customer accounts." },
+      { title: "Omnichannel Sync", metric: "Real-Time", desc: "Integrated web forms, digital signatures, and live visitor engagement." }
     ],
     process: [
-      { step: "01", title: "Process Mapping", desc: "Analyze your sales funnel and define CRM requirements." },
-      { step: "02", title: "Configuration & Customization", desc: "Set up modules, fields, workflows, and automation rules." },
-      { step: "03", title: "Data Migration & Integration", desc: "Import legacy data and connect with other business tools." },
-      { step: "04", title: "Training & Adoption", desc: "User training sessions to ensure high adoption rates." }
+      { step: "01", title: "Sales Funnel Discovery", desc: "Mapping customer journey touchpoints, sales stages, and legacy data structures." },
+      { step: "02", title: "Bespoke Configuration", desc: "Setting up custom modules, validation rules, assignment criteria, and automated blueprints." },
+      { step: "03", title: "Migration & Integration", desc: "Migrating historical contacts/deals and connecting Zoho Forms, Sign, and SalesIQ." },
+      { step: "04", title: "User Enablement & AMS", desc: "Hands-on sales team training, launch hypercare, and ongoing SLA-backed support." }
     ],
+    ctaBanner: {
+      headline: "Ready to Accelerate Your Sales Operations?",
+      subheadline: "Consult with our certified Zoho CRM architects to design an automated lead-to-cash pipeline.",
+      actionText: "Talk to Our Zoho Experts",
+      actionHref: "/contact"
+    },
     image: "/ZOHO_CRM_Banner.png",
     customLogo: "/Zoho_CRM_application.svg_.png"
   },
   {
     slug: "zoho-books",
     title: "Zoho Books",
+    badge: "FINANCIAL MANAGEMENT & GST COMPLIANCE",
     category: "Zoho",
     categorySlug: "zoho",
     desc: "Smart, automated online accounting software for growing businesses.",
-    overview: "Streamline your financial operations with Zoho Books. We help you implement this powerful accounting platform to manage finances, automate business workflows, and work collectively across departments to ensure tax compliance and healthy cash flow.",
+    overview: "Smart, automated online accounting software for growing businesses. Acceleron delivers end-to-end accounting setup, automated billing, multi-currency cash flow tracking, and seamless GST/e-invoicing compliance, bridging front-office sales with backend financial controls.",
+    primaryCtaText: "Consult Accounting Leads",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "View Accounting Scope",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Capabilities & Features",
     features: [
-      { title: "Automated Invoicing & Payments", desc: "Create professional invoices, send reminders, and accept online payments securely." },
-      { title: "Expense Tracking", desc: "Track receipts, categorize expenses, and monitor cash outflows." },
-      { title: "Bank Reconciliation", desc: "Connect bank accounts for automatic transaction fetching and easy reconciliation." },
-      { title: "Comprehensive Reporting", desc: "Generate real-time P&L statements, balance sheets, and cash flow reports." }
+      {
+        title: "Financial Control & Accounting",
+        desc: "Smart online accounting platform providing end-to-end financial control, general ledger management, and cash flow tracking."
+      },
+      {
+        title: "Invoicing & Billing Automation",
+        desc: "Custom invoice creation, automated recurring billing, integration with Zoho Expense, Zoho Invoice, Zoho Checkout, and Zoho Billing."
+      },
+      {
+        title: "GST & Tax Compliance",
+        desc: "GST-compliant tax calculations, e-invoicing generation, audit-ready financial reporting, and statutory tax readiness."
+      },
+      {
+        title: "Bank Reconciliation & Financial Insights",
+        desc: "Automated bank feed reconciliation, multi-currency accounting, accounts receivable/payable tracking, and real-time financial dashboards."
+      }
     ],
+    deliveryScopeTitle: "Implementation & Support Scope",
+    deliveryScope: [
+      {
+        title: "Chart of Accounts Setup",
+        desc: "Configuring organizational chart of accounts, tax templates, and opening balance reconciliation."
+      },
+      {
+        title: "ERP & SAP Integration",
+        desc: "Connecting Zoho Books with enterprise ERP systems, bank gateways, and custom inventory databases."
+      }
+    ],
+    benefitsTitle: "Financial Impact Delivered",
     benefits: [
-      { title: "Accounting Efficiency", metric: "+50%", desc: "Automate recurring transactions and reduce manual bookkeeping." },
+      { title: "Billing Efficiency", metric: "+50%", desc: "Automate recurring transactions and reduce manual bookkeeping." },
       { title: "Payment Collection", metric: "2x Faster", desc: "Get paid quicker with integrated payment gateways." },
       { title: "Financial Visibility", metric: "Real-Time", desc: "Instant access to critical financial metrics and reports." },
-      { title: "Compliance", metric: "100%", desc: "Stay compliant with local tax regulations and audit trails." }
+      { title: "Tax Compliance", metric: "100%", desc: "Stay compliant with local tax regulations and audit trails." }
     ],
     process: [
-      { step: "01", title: "Financial Assessment", desc: "Understand your accounting processes and chart of accounts." },
-      { step: "02", title: "Setup & Configuration", desc: "Configure taxes, banking, and custom invoice templates." },
-      { step: "03", title: "Migration", desc: "Securely transfer historical financial data from legacy systems." },
-      { step: "04", title: "Training", desc: "Train your finance team on daily operations and reporting." }
+      { step: "01", title: "Financial Assessment", desc: "Understand your accounting processes, chart of accounts, and tax requirements." },
+      { step: "02", title: "Setup & Configuration", desc: "Configure taxes, banking feeds, opening balances, and custom invoice templates." },
+      { step: "03", title: "ERP & Gateway Integration", desc: "Securely connect banking gateways, payment links, and enterprise ERP sync." },
+      { step: "04", title: "Finance Team Enablement", desc: "Train your accounting team on daily operations, closing routines, and compliance reports." }
     ],
+    ctaBanner: {
+      headline: "Modernize Your Enterprise Accounting & Compliance",
+      subheadline: "Schedule a financial workflow consultation with our certified Zoho Books specialists.",
+      actionText: "Consult Accounting Leads",
+      actionHref: "/contact"
+    },
     image: "/ZOHO_CRM_Banner.png",
     customLogo: "/zoho-books_logo.png"
   },
   {
     slug: "zoho-hrms-people-and-payroll",
     title: "Zoho HRMS (People and Payroll)",
+    badge: "MODERN WORKFORCE & PAYROLL AUTOMATION",
     category: "Zoho",
     categorySlug: "zoho",
     desc: "Comprehensive HR and payroll management for a modern, engaged workforce.",
-    overview: "Simplify your HR operations with Zoho People and Zoho Payroll. We deploy this unified HRMS to manage the entire employee lifecycle—from onboarding and attendance tracking to performance appraisals and compliant payroll processing.",
+    overview: "Comprehensive HR and payroll management for a modern, engaged workforce. Acceleron deploys tailored HRMS configurations that streamline recruit-to-retire operations, ensure 100% statutory compliance, and empower staff with self-service mobile tools.",
+    primaryCtaText: "Schedule HRMS Consultation",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Explore Module Features",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Capabilities & Features",
     features: [
-      { title: "Core HR & Employee Self-Service", desc: "Centralized employee database with an intuitive portal for leave and profile management." },
-      { title: "Time & Attendance", desc: "Automated attendance tracking, shift management, and biometric integration." },
-      { title: "Performance Management", desc: "Set goals, conduct 360-degree appraisals, and track employee development." },
-      { title: "Automated Payroll Processing", desc: "Error-free payroll calculation with built-in statutory compliance." }
+      {
+        title: "Employee Lifecycle Management",
+        desc: "Centralized employee database, digital onboarding, document management, and organizational hierarchy tracking."
+      },
+      {
+        title: "Attendance, Leave & Shift Roster",
+        desc: "Time and attendance tracking, biometric integration, holiday calendar management, and shift scheduling via Zoho Shifts."
+      },
+      {
+        title: "Statutory Payroll Processing",
+        desc: "Automated salary computation, PF, ESI, Professional Tax, TDS deductions, direct payslip distribution via Zoho Payroll."
+      },
+      {
+        title: "Talent Acquisition & Contract Workforce",
+        desc: "End-to-end recruitment tracking with Zoho Recruit and temporary/contract labor management via Zoho Workerly."
+      }
     ],
+    deliveryScopeTitle: "Implementation & Support Scope",
+    deliveryScope: [
+      {
+        title: "HR Policy Configuration",
+        desc: "Mapping corporate HR policies, leave rules, appraisal templates, and statutory payroll structures."
+      },
+      {
+        title: "Employee Self-Service Portal",
+        desc: "Mobile app and web portal rollout for leave requests, payslip downloads, and reimbursement claims."
+      }
+    ],
+    benefitsTitle: "Workforce & HR Impact",
     benefits: [
-      { title: "HR Admin Time", metric: "-60%", desc: "Reduction in paperwork and manual HR tasks." },
+      { title: "Admin Time Saved", metric: "-60%", desc: "Reduction in paperwork and manual attendance reconciliations." },
       { title: "Payroll Accuracy", metric: "100%", desc: "Ensure timely, accurate, and compliant salary disbursements." },
-      { title: "Employee Engagement", metric: "+40%", desc: "Improved transparency and easy access to HR services." },
-      { title: "Data Security", metric: "High", desc: "Secure handling of sensitive employee and financial data." }
+      { title: "Employee Adoption", metric: "+40%", desc: "Mobile-first self-service for check-ins, leave, and payslips." },
+      { title: "Data Security", metric: "High", desc: "Role-based access control and enterprise encryption of confidential records." }
     ],
     process: [
-      { step: "01", title: "HR Policy Review", desc: "Map your leave, attendance, and payroll policies." },
-      { step: "02", title: "System Configuration", desc: "Set up the HRMS structure, workflows, and payroll components." },
-      { step: "03", title: "Data Import & Testing", desc: "Migrate employee data and run parallel payroll tests." },
-      { step: "04", title: "Rollout", desc: "Company-wide launch with manager and employee training." }
+      { step: "01", title: "HR Policy Review", desc: "Mapping organizational hierarchies, leave policies, salary structures, and tax rules." },
+      { step: "02", title: "System Configuration", desc: "Setting up Zoho People, Zoho Payroll, shift rosters, and appraisal cycles." },
+      { step: "03", title: "Biometric & Bank Integration", desc: "Connecting biometric devices, direct banking disbursements, and migrating employee data." },
+      { step: "04", title: "Parallel Run & Rollout", desc: "Running parallel payroll validations, mobile app rollout, and HR team training." }
     ],
+    ctaBanner: {
+      headline: "Transform Your People Operations & Payroll",
+      subheadline: "Deploy a seamless recruit-to-retire HRMS tailored for multi-location workforces.",
+      actionText: "Schedule HRMS Consultation",
+      actionHref: "/contact"
+    },
     image: "/Zoho_HRMS_Banner.png",
     customLogo: "/zoho_people-trasparentbg.png"
   },
   {
     slug: "zoho-erp",
     title: "Zoho ERP",
+    badge: "ENTERPRISE CLOUD ERP (ZOHO ONE)",
     category: "Zoho",
     categorySlug: "zoho",
     desc: "Unified cloud ERP suite (Zoho One) to run your entire business from a single platform.",
-    overview: "Break down software silos with a comprehensive Zoho ERP implementation. We leverage Zoho One to provide an integrated system of applications that connect your sales, marketing, finance, HR, and operations, offering unparalleled operational visibility.",
+    overview: "Unified cloud ERP suite (Zoho One) to run your entire business from a single platform. Acceleron orchestrates 45+ unified business applications across Finance, Sales, HR, Supply Chain, and Field Service under a single operating system, combining custom low-code app development with enterprise-wide real-time business intelligence.",
+    primaryCtaText: "Talk to Our Zoho Experts",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Explore Application Ecosystem",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Capabilities & Features",
     features: [
-      { title: "Integrated Business Suite", desc: "Access 40+ integrated applications covering every business function." },
-      { title: "Centralized Admin Panel", desc: "Manage users, access controls, and security policies from one console." },
-      { title: "Cross-App Analytics", desc: "Unified dashboards combining data from CRM, finance, and operations." },
-      { title: "Custom App Development", desc: "Build tailored applications using Zoho Creator to fill functional gaps." }
+      {
+        title: "Integrated 45+ Business Applications",
+        desc: "Unifies Finance, Sales, People & Payroll, Operations, Marketing, and Collaboration under one platform, one database, and one login."
+      },
+      {
+        title: "Operations & Inventory Management",
+        desc: "Real-time inventory tracking, warehouse management, project management (Zoho Projects), field service (Zoho FSM), and customer desk support (Zoho Desk)."
+      },
+      {
+        title: "Custom Application Engineering",
+        desc: "Building custom business workflows, low-code modules, and unique process applications using Zoho Creator and Zoho Flow."
+      },
+      {
+        title: "Business Process Analytics",
+        desc: "Cross-departmental reporting, data warehousing, and predictive dashboards using Zoho Analytics and Zoho DataPrep."
+      }
     ],
+    deliveryScopeTitle: "Implementation & Support Scope",
+    deliveryScope: [
+      {
+        title: "Enterprise Deployment & Architecture",
+        desc: "End-to-end Zoho One / Zoho ERP implementation, system architecture design, and process optimization."
+      },
+      {
+        title: "Custom Integration & Maintenance",
+        desc: "Connecting Zoho ERP with existing SAP, Salesforce, or legacy IT infrastructure with dedicated post-go-live support."
+      }
+    ],
+    benefitsTitle: "Unified Business Impact",
     benefits: [
-      { title: "Software Costs", metric: "-50%", desc: "Replace fragmented, expensive legacy software with a single unified suite." },
-      { title: "Operational Efficiency", metric: "+45%", desc: "Seamless data flow between departments eliminates duplicate data entry." },
-      { title: "Scalability", metric: "High", desc: "Easily add new apps and users as your business grows." },
-      { title: "Decision Making", metric: "Real-Time", desc: "Holistic insights across the entire organization." }
+      { title: "Software TCO", metric: "-50%", desc: "Replace fragmented standalone SaaS licenses with a single unified ERP suite." },
+      { title: "Operational Agility", metric: "+45%", desc: "Seamless data flow between departments eliminates duplicate data entry." },
+      { title: "Custom Apps", metric: "Low-Code", desc: "Rapid deployment of bespoke process tools via Zoho Creator and Zoho Flow." },
+      { title: "Decision Making", metric: "Real-Time", desc: "Cross-departmental reporting and holistic insights across the entire organization." }
     ],
     process: [
-      { step: "01", title: "Business Process Discovery", desc: "Comprehensive analysis of cross-departmental workflows." },
-      { step: "02", title: "Phased Implementation Plan", desc: "Strategic roadmap prioritizing critical modules for quick wins." },
-      { step: "03", title: "Configuration & Integration", desc: "Set up the suite and ensure seamless data exchange between apps." },
-      { step: "04", title: "Change Management", desc: "Ongoing training and support to drive organization-wide adoption." }
+      { step: "01", title: "Enterprise Workflow Architecture", desc: "Evaluating cross-functional requirements, data dependencies, and user role hierarchies." },
+      { step: "02", title: "Zoho One System Design", desc: "Configuring core modules, inventory parameters, project milestones, and support desks." },
+      { step: "03", title: "Custom Creator Apps & Bridges", desc: "Developing specialized workflows on Zoho Creator and integrating external ERP databases." },
+      { step: "04", title: "Cutover & Managed AMS", desc: "Phased department rollouts, administrator enablement, and ongoing governance." }
     ],
+    ctaBanner: {
+      headline: "Run Your Entire Business on One Operating System",
+      subheadline: "Connect with Acceleron's Zoho Advanced Practice Leads for a full-suite architectural evaluation.",
+      actionText: "Talk to Our Zoho Experts",
+      actionHref: "/contact"
+    },
     image: "/ZOHO_CRM_Banner.png",
     customLogo: "/ZohoERP-colored.png"
   },
   {
     slug: "zoho-mail",
     title: "Zoho Mail",
+    badge: "SECURE ENTERPRISE WORKPLACE & COLLABORATION",
     category: "Zoho",
     categorySlug: "zoho",
     desc: "Secure, ad-free business email hosting tailored for professional communication.",
-    overview: "Upgrade your corporate communication with Zoho Mail. We set up a secure, reliable, and privacy-focused email infrastructure for your business, complete with collaboration tools like calendars, tasks, and notes to boost team productivity.",
+    overview: "Secure, ad-free business email hosting tailored for professional communication. Acceleron delivers enterprise Zoho Mail deployments featuring zero-downtime migrations, strict email security (SPF, DKIM, DMARC), team messaging, and unified device administration via ManageEngine Endpoint Central.",
+    primaryCtaText: "Consult Workplace Leads",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "View Security Features",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Capabilities & Features",
     features: [
-      { title: "Custom Domain Email", desc: "Professional email addresses (name@yourcompany.com) building brand trust." },
-      { title: "Advanced Security & Privacy", desc: "End-to-end encryption, S/MIME, and strict ad-free privacy policies." },
-      { title: "Integrated Collaboration Suite", desc: "Shared calendars, group tasks, and instant messaging built-in." },
-      { title: "Comprehensive Control Panel", desc: "Extensive admin policies for user management, spam control, and data retention." }
+      {
+        title: "Enterprise Business Email",
+        desc: "Secure, ad-free business email hosting with custom domain configuration, guaranteed uptime, and user administration controls."
+      },
+      {
+        title: "Collaboration Ecosystem",
+        desc: "Seamless integration with Zoho Cliq (team messaging), Zoho Meeting (video calls), Zoho WorkDrive (cloud storage), and Zoho Office Suite (Writer, Sheet, Show)."
+      },
+      {
+        title: "Security, DLP & Compliance",
+        desc: "Encrypted email transmission, advanced spam filtering, malware protection, eDiscovery retention, and integration with Check Point Harmony Email security."
+      },
+      {
+        title: "ManageEngine Administration",
+        desc: "Centralized user onboarding, group policies, desktop/mobile sync, and integration with ManageEngine Endpoint Central."
+      }
     ],
+    deliveryScopeTitle: "Implementation & Support Scope",
+    deliveryScope: [
+      {
+        title: "Email Migration Services",
+        desc: "Zero-downtime email migration from Microsoft O365, Google Workspace, Exchange, or open-source email platforms."
+      },
+      {
+        title: "Security & Domain Configuration",
+        desc: "Configuring DKIM, SPF, DMARC records, multi-factor authentication (OneAuth), and corporate security policies."
+      }
+    ],
+    benefitsTitle: "Workplace Performance & Security",
     benefits: [
-      { title: "Email Security", metric: "99.9%", desc: "Protection against spam, malware, and phishing attacks." },
-      { title: "Uptime", metric: "99.9%", desc: "Reliable enterprise-grade servers ensuring constant availability." },
-      { title: "Team Collaboration", metric: "+30%", desc: "Improved teamwork with integrated apps and shared resources." },
-      { title: "IT Overhead", metric: "-25%", desc: "Easy-to-manage admin console reduces IT support requests." }
+      { title: "Email Uptime", metric: "99.99%", desc: "High-availability cloud infrastructure ensuring continuous executive communication." },
+      { title: "Team Collaboration", metric: "+35%", desc: "Integrated team chat, video meetings, and shared cloud document storage." },
+      { title: "Threat Defense", metric: "Zero-Trust", desc: "Advanced malware protection, anti-spoofing DMARC controls, and DLP compliance." },
+      { title: "Admin Control", metric: "Centralized", desc: "Unified user provisioning and device security sync with ManageEngine Endpoint Central." }
     ],
     process: [
-      { step: "01", title: "Domain Verification", desc: "Verify domain ownership and configure DNS records (MX, SPF, DKIM)." },
-      { step: "02", title: "User Provisioning", desc: "Create accounts, set up groups, and configure routing policies." },
-      { step: "03", title: "Data Migration", desc: "Seamlessly migrate emails, contacts, and calendars from legacy providers." },
-      { step: "04", title: "Go-Live & Support", desc: "Final MX cutover and end-user onboarding." }
+      { step: "01", title: "Domain & Security Audit", desc: "Verifying domain ownership, reviewing DNS records (MX, SPF, DKIM), and defining routing policies." },
+      { step: "02", title: "User Provisioning & Policies", desc: "Creating organizational accounts, shared mailboxes, aliases, and security baselines." },
+      { step: "03", title: "Zero-Downtime Data Migration", desc: "Migrating historical emails, calendars, and contacts from Google Workspace, O365, or Exchange." },
+      { step: "04", title: "MX Cutover & Support", desc: "Final DNS cutover, mobile device sync, employee onboarding, and ongoing administration." }
     ],
+    ctaBanner: {
+      headline: "Upgrade to Secure, Ad-Free Business Email",
+      subheadline: "Plan a zero-downtime migration to Zoho Workplace with Acceleron's certified infrastructure team.",
+      actionText: "Consult Workplace Leads",
+      actionHref: "/contact"
+    },
     image: "/ZOHO_CRM_Banner.png",
     customLogo: "/ZOHO_logo_2023.svg_.png"
   },
-    {
+  {
     slug: "manageengine-itsm",
     title: "ManageEngine-ITSM",
     category: "ManageEngine",

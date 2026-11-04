@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown, ArrowUpRight, ArrowRight, Menu, X, ShoppingBag, Wrench, TrendingUp, Boxes, ShieldCheck, Layers, Code2, Server, Briefcase, BarChart3, Building2, Users, Pickaxe, Factory, Truck, Zap, Cloud, Brain, Rocket, Award, MonitorSmartphone, GraduationCap, Leaf, FileText, Newspaper, Image as ImageIcon, Blocks, Calendar } from "lucide-react";
+import { ChevronDown, ArrowUpRight, ArrowRight, Menu, X, ShoppingBag, Wrench, TrendingUp, Boxes, ShieldCheck, Layers, Code2, Server, Briefcase, BarChart3, Building2, Users, Pickaxe, Factory, Truck, Zap, Cloud, Brain, Rocket, Award, MonitorSmartphone, GraduationCap, Leaf, FileText, Newspaper, Image as ImageIcon, Blocks, Calendar, Activity } from "lucide-react";
 import { ThemeToggle } from "../ui/ThemeToggle";
 import { Link, useLocation } from "@tanstack/react-router";
 import { ZohoLogo } from "../ui/Icons";
@@ -28,11 +28,13 @@ type ProductItem = { name: string; desc: string; href: string; img?: string; ico
 
 export const PRODUCTS: ProductItem[] = [
   { name: "Suraksha", desc: "Field Safety Platform", href: "/products/suraksha", img: "/suraksha.png", icon: ShieldCheck, gradient: "from-teal-500 to-cyan-600" },
-  { name: "Tyre Health", desc: "Fleet Lifecycle Tracking", href: "/products/tyre-health", img: "/woms.png", icon: Wrench, gradient: "from-blue-500 to-indigo-600" },
+  { name: "iFMS", desc: "Intelligent Field Management", href: "/products/ifms", img: "/IFSM.png", icon: Truck, gradient: "from-amber-600 to-orange-700" },
+  { name: "WOMS", desc: "Work Order Management System", href: "/products/woms", img: "/woms.png", icon: Wrench, gradient: "from-blue-600 to-indigo-700" },
   { name: "QMS", desc: "Quality Management System", href: "/products/qms", img: "/qms.png", icon: Layers, gradient: "from-fuchsia-500 to-violet-600" },
+  { name: "Vanijya", desc: "Commercial Billing & Retail", href: "/products/vanijya", img: "/vanijya.png", icon: ShoppingBag, gradient: "from-indigo-500 to-blue-600" },
   { name: "CWMS", desc: "Contractor Workforce Management", href: "/products/cwms", img: "/LMS.png", icon: Boxes, gradient: "from-cyan-500 to-blue-600" },
-  { name: "Supplier Portal", desc: "Vendor Onboarding & SAP", href: "/products/supplier-portal", img: "/vanijya.png", icon: ShoppingBag, gradient: "from-violet-500 to-purple-600" },
-  { name: "PJP", desc: "Pre Journey Plan & Tracking", href: "/products/pjp", img: "/IFSM.png", icon: TrendingUp, gradient: "from-indigo-500 to-blue-600" },
+  { name: "Inplant Logistics", desc: "Material & Fleet Flow", href: "/products/inplant-logistics", icon: Truck, gradient: "from-emerald-500 to-teal-600" },
+  { name: "Tyre Health", desc: "Fleet Lifecycle Tracking", href: "/products/tyre-health", icon: Activity, gradient: "from-blue-500 to-indigo-600" },
 ];
 
 type IndustryNavItem = { name: string; desc: string; href: string; icon: any; gradient: string };
@@ -179,23 +181,27 @@ function Nav() {
                       <div className="col-span-4 pr-4">
                         <div className="space-y-0.5">
                           {MEGA_SERVICES.map((cat) => (
-                            <button
+                            <Link
                               key={cat.name}
+                              to={cat.href as any}
+                              onClick={() => setActiveDropdown(null)}
                               onMouseEnter={() => setHoveredItem(cat.name)}
                               className={`group flex items-center justify-between w-full rounded-lg px-3 py-2.5 transition-all text-left ${hoveredItem === cat.name ? 'bg-muted/60 dark:bg-muted/20' : 'hover:bg-muted/40 dark:hover:bg-muted/10'}`}
                             >
                               <span className={`text-sm font-semibold transition-colors ${hoveredItem === cat.name ? 'text-brand' : 'text-foreground group-hover:text-brand'}`}>{cat.name}</span>
                               <ChevronDown className={`h-3.5 w-3.5 -rotate-90 transition-all ${hoveredItem === cat.name ? 'opacity-100 text-brand' : 'opacity-0 group-hover:opacity-50'}`} />
-                            </button>
+                            </Link>
                           ))}
                           <div className="my-2 border-t border-border/60" />
-                          <button
+                          <Link
+                            to="/products"
+                            onClick={() => setActiveDropdown(null)}
                             onMouseEnter={() => setHoveredItem("products")}
                             className={`group flex items-center justify-between w-full rounded-lg px-3 py-2.5 transition-all text-left ${hoveredItem === 'products' ? 'bg-muted/60 dark:bg-muted/20' : 'hover:bg-muted/40 dark:hover:bg-muted/10'}`}
                           >
                             <span className={`text-sm font-semibold transition-colors ${hoveredItem === 'products' ? 'text-brand' : 'text-foreground group-hover:text-brand'}`}>Products</span>
                             <ChevronDown className={`h-3.5 w-3.5 -rotate-90 transition-all ${hoveredItem === 'products' ? 'opacity-100 text-brand' : 'opacity-0 group-hover:opacity-50'}`} />
-                          </button>
+                          </Link>
                         </div>
                       </div>
 
@@ -203,7 +209,16 @@ function Nav() {
                       <div className="col-span-8 border-l border-border/60 pl-5">
                         {hoveredItem === "products" ? (
                           <>
-                            <div className="text-xs font-bold uppercase tracking-widest text-brand-red mb-3">Products</div>
+                            <div className="flex items-center justify-between mb-3">
+                              <Link
+                                to="/products"
+                                onClick={() => setActiveDropdown(null)}
+                                className="text-xs font-bold uppercase tracking-widest text-brand-red hover:text-brand transition-colors flex items-center gap-1.5 group/header"
+                              >
+                                <span>Products</span>
+                                <ArrowRight className="h-3 w-3 opacity-70 transition-transform group-hover/header:translate-x-0.5" />
+                              </Link>
+                            </div>
                             <div className="space-y-0.5">
                               {PRODUCTS.map((p) => (
                                 <Link
@@ -372,7 +387,14 @@ function Nav() {
                                 ))}
                               </div>
                               <div>
-                                <div className="text-xs font-bold text-brand-red mb-2 uppercase tracking-wider">Products</div>
+                                <Link
+                                    to="/products"
+                                    onClick={() => setOpen(false)}
+                                    className="text-xs font-bold text-brand-red mb-2 uppercase tracking-wider flex items-center justify-between hover:text-brand transition-colors"
+                                  >
+                                    <span>Products</span>
+                                    <ArrowRight className="h-3 w-3" />
+                                  </Link>
                                 {PRODUCTS.map((p) => (
                                   <Link key={p.name} to={p.href as any} onClick={() => setOpen(false)} className="block rounded-lg py-2 text-sm text-foreground/70 hover:text-brand transition-colors">
                                     {p.name}
