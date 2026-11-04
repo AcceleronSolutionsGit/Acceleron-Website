@@ -59,7 +59,7 @@ const WHO_WE_ARE = [
   { name: "About Us", href: "/about", icon: Building2, desc: "Company overview & heritage" },
   { name: "Our Clients", href: "/clients", icon: ShieldCheck, desc: "Enterprises that trust us" },
   { name: "Leadership & Team", href: "/team", icon: Users, desc: "Our executive and practice leads" },
-  { name: "Culture", href: "/careers", icon: Award, desc: "Life at Acceleron" },
+  { name: "Culture", href: "/culture", icon: Award, desc: "Life at Acceleron" },
   { name: "CSR", href: "/csr", icon: Leaf, desc: "Community & sustainability" },
   { name: "Partners", href: "/partners", icon: Briefcase, desc: "Our trusted ecosystem" },
 ];

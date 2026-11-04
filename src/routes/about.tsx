@@ -22,6 +22,7 @@ import {
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
 import { getAssetUrl } from "../lib/assets";
+import { AboutImageSlider } from "../components/ui/AboutImageSlider";
 import { OurValuesSection } from "../components/ui/OurValuesGrid";
 
 export const Route = createFileRoute("/about")({
@@ -230,19 +231,7 @@ function AboutPage() {
 
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
-              <div className="relative rounded-3xl overflow-hidden border border-border bg-muted/20 shadow-glow p-2">
-                <img
-                  src={getAssetUrl("/Inaguration Photo.JPG")}
-                  alt="Acceleron Solutions History & Growth"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto object-cover rounded-2xl shadow-elevated"
-                />
-                <div className="p-4 text-center">
-                  <div className="text-xs uppercase tracking-widest text-brand-red font-bold">Acceleron Inauguration & CoE Launch</div>
-                  <p className="text-xs text-muted-foreground mt-1">Grounding technology in 80+ years of industrial excellence.</p>
-                </div>
-              </div>
+              <AboutImageSlider showCaption={true} />
             </Reveal>
           </div>
         </div>

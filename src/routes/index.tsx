@@ -15,6 +15,7 @@ import { useMouseParallax, Reveal, CharReveal, InitialLoader, MagneticButton, Co
 import { HomeContactForm } from '../components/ui/HomeContactForm';
 import { Nav, PRODUCTS } from '../components/layout/Nav';
 import { getAssetUrl } from '../lib/assets';
+import { AboutImageSlider } from '../components/ui/AboutImageSlider';
 import { WhyChooseUs, CSRSection, GlobalPresence, InsightsSection } from '../components/home/HomeSections';
 import { OurValuesSection } from '../components/ui/OurValuesGrid';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
@@ -258,34 +259,7 @@ function KeyMetricsBar() {
 
 /* ═══════════════════ ABOUT TEASER ═══════════════════ */
 
-const ABOUT_IMAGES = [
-  { src: "/Inaguration Photo.JPG", alt: "Acceleron Solutions Office Inauguration" },
-  { src: "/Office Entrace Photo.JPG", alt: "Acceleron Solutions Kolkata HQ Entrance" },
-  { src: "/Office View 1.JPG", alt: "Acceleron Development Center" },
-  { src: "/Office View 2.JPG", alt: "Acceleron Collaborative Workspaces" },
-  { src: "/Conglomated pic.JPG", alt: "Acceleron Team All-Hands" },
-];
-
 function AboutTeaser() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % ABOUT_IMAGES.length);
-    }, 4500);
-    return () => clearInterval(interval);
-  }, [isPaused]);
-
-  const handlePrevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + ABOUT_IMAGES.length) % ABOUT_IMAGES.length);
-  };
-
-  const handleNextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % ABOUT_IMAGES.length);
-  };
-
   return (
     <section className="relative overflow-hidden bg-background py-16 sm:py-24 border-b border-border/50">
       <div className="absolute inset-0 grid-lines opacity-[0.04]" />
@@ -342,72 +316,7 @@ function AboutTeaser() {
 
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
-              <div
-                className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-border/60 bg-muted/20 shadow-elevated p-2 group"
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-              >
-                <div className="absolute -top-1 -right-1 w-16 h-16 border-t-2 border-r-2 border-brand-red/40 rounded-tr-3xl pointer-events-none z-20" />
-                <div className="absolute -bottom-1 -left-1 w-16 h-16 border-b-2 border-l-2 border-brand/30 rounded-bl-3xl pointer-events-none z-20" />
-
-                <div className="relative w-full h-[270px] sm:h-[350px] md:h-[400px] rounded-xl sm:rounded-2xl overflow-hidden bg-black/40">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentImageIndex}
-                      initial={{ opacity: 0, scale: 1.04 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.98 }}
-                      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-                      className="absolute inset-0"
-                    >
-                      <img
-                        src={getAssetUrl(ABOUT_IMAGES[currentImageIndex].src)}
-                        alt={ABOUT_IMAGES[currentImageIndex].alt}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover"
-                      />
-                    </motion.div>
-                  </AnimatePresence>
-
-                  {/* Manual Arrow Controls (appear on hover on desktop, always visible on mobile) */}
-                  <div className="absolute top-3.5 right-3.5 z-20 flex items-center gap-1.5 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
-                    <button
-                      type="button"
-                      onClick={handlePrevImage}
-                      aria-label="Previous image"
-                      className="h-8 w-8 rounded-full bg-black/60 hover:bg-brand-red text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105"
-                    >
-                      <ChevronLeft className="h-4 w-4" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleNextImage}
-                      aria-label="Next image"
-                      className="h-8 w-8 rounded-full bg-black/60 hover:bg-brand-red text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105"
-                    >
-                      <ChevronRight className="h-4 w-4" />
-                    </button>
-                  </div>
-
-                  {/* Slide Indicators / Dots */}
-                  <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5">
-                    {ABOUT_IMAGES.map((_, idx) => (
-                      <button
-                        key={idx}
-                        type="button"
-                        onClick={() => setCurrentImageIndex(idx)}
-                        aria-label={`Go to image ${idx + 1}`}
-                        className={`h-1.5 rounded-full transition-all duration-300 ${
-                          idx === currentImageIndex
-                            ? "w-5 sm:w-6 bg-brand-red shadow-glow"
-                            : "w-1.5 bg-white/40 hover:bg-white/80"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <AboutImageSlider />
             </Reveal>
           </div>
         </div>
