@@ -88,7 +88,7 @@ export function CSRSection() {
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 items-center">
           <div>
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">CSR & Sustainability</div>
+              <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Acceleron Cares: CSR</div>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight text-foreground">

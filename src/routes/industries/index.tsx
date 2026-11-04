@@ -3,6 +3,7 @@ import { ArrowRight, Pickaxe, Factory, Boxes, Truck, Zap, Building2, Activity } 
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { PageHero } from "../../components/ui/PageHero";
 import { Link } from "@tanstack/react-router";
+import { getAssetUrl } from "../../lib/assets";
 import { INDUSTRIES_DATA } from "../../data/industriesData";
 
 export const Route = createFileRoute("/industries/")({
@@ -61,7 +62,7 @@ function IndustriesHub() {
                 >
                   <div className="relative h-52 w-full overflow-hidden bg-muted">
                     <img
-                      src={ind.image}
+                      src={getAssetUrl(ind.image)}
                       alt={ind.title}
                       loading="lazy"
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"

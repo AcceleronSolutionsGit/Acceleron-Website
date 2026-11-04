@@ -67,7 +67,7 @@ const WHO_WE_ARE = [
   { name: "Our Clients", href: "/clients", icon: ShieldCheck, desc: "Enterprises that trust us" },
   { name: "Leadership & Team", href: "/team", icon: Users, desc: "Our executive and practice leads" },
   { name: "Culture", href: "/culture", icon: Award, desc: "Life at Acceleron" },
-  { name: "CSR", href: "/csr", icon: Leaf, desc: "Community & sustainability" },
+  { name: "CSR", href: "/csr", icon: Leaf, desc: "Community & social impact" },
   { name: "Partners", href: "/partners", icon: Briefcase, desc: "Our trusted ecosystem" },
 ];
 
@@ -133,11 +133,10 @@ function Nav() {
   return (
     <motion.header
       initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled
           ? "bg-white/95 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 py-1.5 shadow-md"
           : "bg-white/90 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60 py-2.5 shadow-sm"
-      }`}
+        }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center text-foreground shrink-0" aria-label="Acceleron Solutions Home" onClick={() => setOpen(false)}>
@@ -149,8 +148,8 @@ function Nav() {
         </Link>
         <nav className="hidden items-center gap-2 lg:flex" role="navigation" aria-label="Main Navigation">
           {NAV_LINKS.map((l) => (
-            <div 
-              key={l.label} 
+            <div
+              key={l.label}
               className="relative"
               onMouseEnter={() => l.dropdown ? handleMouseEnter(l.dropdown) : undefined}
               onMouseLeave={l.dropdown ? handleMouseLeave : undefined}
@@ -388,8 +387,8 @@ function Nav() {
           </Link>
         </div>
 
-        <button 
-          className="lg:hidden text-foreground p-2 rounded-md hover:bg-muted/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring" 
+        <button
+          className="lg:hidden text-foreground p-2 rounded-md hover:bg-muted/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-label="Toggle mobile menu"
@@ -432,13 +431,13 @@ function Nav() {
                               </div>
                               <div>
                                 <Link
-                                    to="/products"
-                                    onClick={() => setOpen(false)}
-                                    className="text-xs font-bold text-brand-red mb-2 uppercase tracking-wider flex items-center justify-between hover:text-brand transition-colors"
-                                  >
-                                    <span>Products &amp; Solution Hubs</span>
-                                    <ArrowRight className="h-3 w-3" />
-                                  </Link>
+                                  to="/products"
+                                  onClick={() => setOpen(false)}
+                                  className="text-xs font-bold text-brand-red mb-2 uppercase tracking-wider flex items-center justify-between hover:text-brand transition-colors"
+                                >
+                                  <span>Products &amp; Solution Hubs</span>
+                                  <ArrowRight className="h-3 w-3" />
+                                </Link>
                                 <div className="space-y-1 mb-2">
                                   {PRODUCT_HUBS.map((hub) => (
                                     <Link key={hub.name} to={hub.href as any} onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-lg py-1.5 text-xs font-semibold text-foreground hover:text-brand transition-colors">

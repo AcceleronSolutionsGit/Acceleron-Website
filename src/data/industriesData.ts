@@ -26,7 +26,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryDetail> = {
     slug: "mining",
     title: "Mining Operations Driven by Domain Mastery",
     subtitle: "Grounded in Gainwell Group's 80-year heavy mining lineage, we deliver SAP S/4HANA, asset management, and field safety systems built for extreme pit-to-port environments.",
-    image: "/Mining_Industry.jpeg",
+    image: "/industries/Mining/mining-industry.webp",
     iconName: "Pickaxe",
     overview: "Mining operations require precision coordination across vast, remote geographies. Acceleron combines deep site-level operational heritage with cutting-edge ERP, IoT fleet monitoring, and Suraksha field safety platforms.",
     challenges: [
@@ -75,7 +75,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryDetail> = {
     slug: "discrete-manufacturing",
     title: "Agile Production & Smart Factory Intelligence",
     subtitle: "Modernizing discrete manufacturing with SAP RISE, shop-floor IoT, QMS quality controls, and supply chain automation.",
-    image: "/Distcrete_Manufacturing_Industry.jpg",
+    image: "/industries/Manufacturing/manufacturing-industry.webp",
     iconName: "Factory",
     overview: "Discrete manufacturers face shifting customer demand, intricate multi-tier bills of materials (BOM), and rigorous quality tolerances. We bridge the gap between IT business systems and OT shop-floor execution.",
     challenges: [
@@ -132,7 +132,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryDetail> = {
     slug: "capital-goods",
     title: "Lifecycle Excellence for Capital Goods & Industrial Machinery",
     subtitle: "Orchestrating engineer-to-order (ETO) projects, warranty management, and field service operations for heavy machinery OEMs.",
-    image: "/Capital_Good_Industry.jpg",
+    image: "/industries/Capital Goods/capital-goods-industry.webp",
     iconName: "Boxes",
     overview: "Capital goods OEMs operate complex engineer-to-order models where product delivery is just the beginning. Acceleron delivers connected solutions for product lifecycle management (PLM), SAP S/4HANA engineering, and field service.",
     challenges: [
@@ -189,7 +189,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryDetail> = {
     slug: "transportation-services-logistics",
     title: "Next-Gen Logistics, Fleet Telemetry & Freight Management",
     subtitle: "Empowering fleet operators and logistics leaders with SAP Transportation Management, Tyre Health analytics, and Pre-Journey Planning.",
-    image: "/Transportation_Industry.jpg",
+    image: "/industries/Transportation and Logistics/transportation-logistics-industry.webp",
     iconName: "Truck",
     overview: "Modern transportation demands real-time visibility over every route, vehicle asset, and payload. Acceleron equips logistics operators with integrated telematics, route optimization, tyre lifecycle management, and driver safety apps.",
     challenges: [
@@ -238,7 +238,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryDetail> = {
     slug: "healthcare",
     title: "Precision Technology & Quality Compliance in Healthcare",
     subtitle: "Enabling medical device innovators, pharmaceuticals, and precision ceramics manufacturers with automated regulatory compliance and end-to-end traceability.",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=75&w=1200&auto=format&fit=crop",
+    image: "/industries/Healthcare/healthcare-industry.webp",
     iconName: "Activity",
     overview: "Healthcare and precision medical technology organizations face stringent global regulations, strict quality controls, and demanding traceability requirements. Acceleron provides validated digital platforms, automated audit trails, and end-to-end quality systems.",
     challenges: [
@@ -279,7 +279,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryDetail> = {
     slug: "engineering-construction-operations",
     title: "Digital Control for Heavy Construction & EPC Projects",
     subtitle: "Unifying mega-project estimation, sub-contractor management, equipment billing, and site safety into a single source of truth.",
-    image: "/Engineering_COnstruction_Industry.jpg",
+    image: "/industries/Engineering & Construction/engineering-construction-industry.webp",
     iconName: "Building2",
     overview: "Engineering & Construction (EC&O) enterprises manage complex capital projects with razor-thin margins. Acceleron empowers EPC contractors with integrated SAP S/4HANA project controls, sub-contractor platforms, and safety digitization.",
     challenges: [
