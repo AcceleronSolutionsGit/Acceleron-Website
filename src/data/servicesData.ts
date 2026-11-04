@@ -1138,24 +1138,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "Robust, scalable, and secure IT infrastructure design and management.",
-    overview: "Build a resilient foundation for your digital operations with our IT Infrastructure Services. From on-premise data centers to hybrid cloud environments, we design, deploy, and manage scalable IT architectures that ensure high availability and performance.",
+    overview: "Robust, scalable, and secure IT infrastructure design and management. We engineer resilient physical and cloud architectures that maximize business continuity, high-speed collaboration, and reliable day-to-day operations.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Network Design & Implementation", desc: "Secure, high-performance LAN/WAN and SD-WAN architectures." },
-      { title: "Server & Storage Solutions", desc: "Optimized compute and storage infrastructure (SAN/NAS) deployment." },
-      { title: "Virtualization", desc: "Server and desktop virtualization using VMware or Hyper-V." },
-      { title: "Disaster Recovery & Backup", desc: "Robust data protection and business continuity planning." }
+      { title: "Cloud Infrastructure Management", desc: "Provisioning, hosting, and optimizing cloud workloads across AWS, Microsoft Azure, and GCP." },
+      { title: "Enterprise Email Management", desc: "Implementation, migration, and administration for Microsoft O365, Google Workspace, and open-source email systems like Zimbra." },
+      { title: "Network Setup & Monitoring", desc: "Architecting remote site networks, managed switches, enterprise routers, SD-WAN, and firewall policies." },
+      { title: "Infrastructure AMC & SLA Support", desc: "Round-the-clock proactive monitoring, hardware lifecycle management, and SLA-driven maintenance." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "System Reliability", metric: "99.99%", desc: "High availability architectures minimizing downtime." },
-      { title: "Scalability", metric: "High", desc: "Infrastructure that grows seamlessly with your business." },
-      { title: "Security", metric: "Enhanced", desc: "Robust network and physical security measures." },
-      { title: "IT Costs", metric: "-20%", desc: "Optimized resource utilization through virtualization." }
+      { title: "Maximum Uptime & Reliability", metric: "99.99%", desc: "Round-the-clock proactive monitoring and SLA-driven maintenance minimize unexpected downtime." },
+      { title: "Scalable Cloud Operations", metric: "Multi-Cloud", desc: "Seamless provisioning and optimization across AWS, Microsoft Azure, and GCP allow your infrastructure to grow alongside business demand." },
+      { title: "Enhanced Collaboration", metric: "Secure", desc: "Robust enterprise email and network architectures secure communications and streamline remote site connectivity." }
     ],
     process: [
-      { step: "01", title: "Assessment", desc: "Evaluate existing infrastructure and identify bottlenecks." },
-      { step: "02", title: "Design", desc: "Architect a scalable, secure, and cost-effective IT environment." },
-      { step: "03", title: "Deployment", desc: "Procure, install, and configure hardware and network components." },
-      { step: "04", title: "Managed Services", desc: "Ongoing monitoring, maintenance, and IT support." }
+      { step: "01", title: "Infrastructure Assessment", desc: "Evaluate existing on-premise, cloud, and network topology for capacity and reliability." },
+      { step: "02", title: "Architecture & Provisioning", desc: "Architect high-availability cloud fabrics, enterprise email domains, and SD-WAN networks." },
+      { step: "03", title: "Migration & Hardening", desc: "Execute zero-downtime cutovers, establish security policies, and deploy redundant gateways." },
+      { step: "04", title: "24/7 Managed NOC Support", desc: "Continuous proactive telemetry, hardware lifecycle AMC, and SLA-driven incident response." }
     ],
     image: "/Threatcorp_Banner.png",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -1166,24 +1167,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "Tailor-made software solutions designed to solve your unique business challenges.",
-    overview: "Accelerate your digital transformation with bespoke software applications. Our full-stack development team builds scalable, secure, and user-centric web and mobile applications tailored precisely to your operational requirements and business goals.",
+    overview: "Tailor-made software solutions designed to solve your unique business challenges. Our full-stack engineering practices build scalable, intuitive, and high-performance digital products engineered to match your operational reality.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Full-Stack Development", desc: "End-to-end development using modern frameworks (React, Node.js, Python, Java)." },
-      { title: "Mobile App Development", desc: "Native (iOS/Android) and cross-platform mobile applications." },
-      { title: "UI/UX Design", desc: "Intuitive, engaging, and accessible user interfaces." },
-      { title: "API Development & Integration", desc: "Seamless connectivity with existing enterprise systems." }
+      { title: "Full-Stack Web Development", desc: "High-performance web apps built with modern JavaScript frameworks (React, Angular, Node.js), Python, and Java." },
+      { title: "Enterprise Mobile Applications", desc: "Native iOS/Android and cross-platform mobile apps for field workforce enablement and customer engagement." },
+      { title: "Custom Software Engineering", desc: "End-to-end product development lifecycle—from MVP design to scalable multi-tenant SaaS deployment." },
+      { title: "Legacy Modernization", desc: "Refactoring legacy monolithic software into modular microservices architectures." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Business Fit", metric: "100%", desc: "Software that perfectly matches your unique workflows." },
-      { title: "Scalability", metric: "High", desc: "Cloud-native architectures built for future growth." },
-      { title: "Competitive Edge", metric: "Strong", desc: "Innovative solutions that off-the-shelf software cannot provide." },
-      { title: "Process Automation", metric: "+40%", desc: "Streamlined operations reducing manual effort." }
+      { title: "Tailored Business Alignment", metric: "100%", desc: "Custom-built web and mobile applications directly solve unique operational challenges rather than forcing rigid out-of-the-box workflows." },
+      { title: "Future-Proof Architecture", metric: "Agile", desc: "Modernization of legacy systems into modular microservices ensures long-term agility and easier feature deployment." },
+      { title: "Multi-Platform Engagement", metric: "Cross-Platform", desc: "High-performance native and cross-platform solutions empower field workforces and elevate customer experiences." }
     ],
     process: [
-      { step: "01", title: "Requirement Gathering", desc: "Collaborative workshops to define scope and wireframes." },
-      { step: "02", title: "Agile Development", desc: "Iterative sprints delivering functional increments of the software." },
-      { step: "03", title: "Quality Assurance", desc: "Rigorous automated and manual testing for bugs and performance." },
-      { step: "04", title: "Deployment & Support", desc: "Smooth rollout, user training, and continuous maintenance." }
+      { step: "01", title: "Discovery & Solution Blueprint", desc: "Map enterprise requirements, user journeys, data schemas, and integration touchpoints." },
+      { step: "02", title: "Agile Sprints & Prototyping", desc: "Iterative two-week delivery cycles building production-grade UI components and microservices." },
+      { step: "03", title: "Automated QA & Security Testing", desc: "Comprehensive unit testing, load testing, and security code reviews." },
+      { step: "04", title: "Deployment & Lifecycle AMS", desc: "Containerized CI/CD rollout, user training, and continuous feature enhancement." }
     ],
     image: "/capital_goods.jpg",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -1194,24 +1196,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "Intelligent AI-driven applications to automate processes and generate insights.",
-    overview: "Leverage the power of Artificial Intelligence and Machine Learning to gain a competitive advantage. We develop custom AI models, generative AI tools, and intelligent automation solutions that integrate seamlessly into your business processes.",
+    overview: "Intelligent AI-driven applications to automate processes and generate insights. We build custom machine learning models, autonomous agent frameworks, and document processing systems that turn data into measurable operational advantages.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Generative AI Solutions", desc: "Custom LLMs, chatbots, and content generation tools." },
-      { title: "Predictive Analytics", desc: "Machine learning models for demand forecasting and risk analysis." },
-      { title: "Computer Vision", desc: "Image recognition and processing for quality control and security." },
-      { title: "Natural Language Processing", desc: "Sentiment analysis, document processing, and intelligent search." }
+      { title: "Autonomous AI Agent Swarms", desc: "Multi-agent AI architectures for complex automated code refactoring, document analysis, and decision execution." },
+      { title: "Predictive Analytics Engines", desc: "Custom ML models for predictive equipment maintenance, demand forecasting, and customer churn prediction." },
+      { title: "Intelligent Document Processing (IDP)", desc: "AI-powered OCR and NLP pipelines for automated invoice extraction and contract parsing." },
+      { title: "Domain-Specific AI Copilots", desc: "Enterprise copilots trained on private organizational knowledge bases for internal support and query resolution." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Automation", metric: "+50%", desc: "Significant reduction in repetitive, manual tasks." },
-      { title: "Decision Making", metric: "Data-Driven", desc: "Actionable insights derived from complex datasets." },
-      { title: "Customer Experience", metric: "Enhanced", desc: "Personalized interactions and 24/7 intelligent support." },
-      { title: "Innovation", metric: "High", desc: "Unlock new business models and revenue streams." }
+      { title: "Process Automation", metric: "AI Swarms", desc: "Autonomous multi-agent AI swarms and intelligent document processing (IDP) eliminate manual bottlenecks in code refactoring and contract parsing." },
+      { title: "Data-Driven Decision Making", metric: "Predictive", desc: "Predictive analytics engines forecast equipment maintenance needs, demand shifts, and customer churn accurately." },
+      { title: "Secure Knowledge Retrieval", metric: "Private LLM", desc: "Domain-specific AI copilots leverage private organizational data safely to accelerate internal support and issue resolution." }
     ],
     process: [
-      { step: "01", title: "Use Case Discovery", desc: "Identify high-value AI opportunities within your business." },
-      { step: "02", title: "Data Preparation", desc: "Data gathering, cleaning, and feature engineering." },
-      { step: "03", title: "Model Development", desc: "Training, testing, and optimizing machine learning models." },
-      { step: "04", title: "Integration & Monitoring", desc: "Deploying models into production and monitoring performance drift." }
+      { step: "01", title: "AI Opportunity Assessment", desc: "Identify operational bottlenecks and formulate data readiness and feasibility blueprints." },
+      { step: "02", title: "Data Pipeline & Feature Engineering", desc: "Aggregate, clean, and vectorize organizational knowledge bases and historical telemetry." },
+      { step: "03", title: "Model Training & Guardrail Engineering", desc: "Develop custom ML models, agent coordination swarms, and hallucination guardrails." },
+      { step: "04", title: "Production Deployment & Observability", desc: "Deploy edge/cloud inferencing endpoints with real-time drift monitoring and feedback loops." }
     ],
     image: "/outcome_driven.jpg",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -1222,24 +1225,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "Robust cybersecurity architectures to protect your data and network perimeter.",
-    overview: "Safeguard your critical digital assets against evolving cyber threats. We design and implement comprehensive network security solutions, including Next-Generation Firewalls, Zero Trust architectures, and intrusion prevention systems, ensuring your enterprise remains secure.",
+    overview: "Robust cybersecurity architectures to protect your data and network perimeter. We design, deploy, and manage zero-trust boundary defenses, next-generation firewalls, and unified threat management systems tailored for enterprise resilience.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Next-Gen Firewalls (NGFW)", desc: "Advanced threat protection, application control, and deep packet inspection." },
-      { title: "Zero Trust Network Access", desc: "Secure, identity-based access to applications from anywhere." },
-      { title: "Intrusion Detection/Prevention (IDS/IPS)", desc: "Real-time monitoring and blocking of malicious network traffic." },
-      { title: "VPN & Secure Remote Access", desc: "Encrypted connectivity for your remote and mobile workforce." }
+      { title: "Next-Generation Firewalls (NGFW)", desc: "Perimeter defense and deep packet inspection using Fortinet, Check Point, Sophos, and Cisco." },
+      { title: "Zero Trust Network Access (ZTNA)", desc: "Implementing Zscaler and micro-segmentation architectures to enforce strict identity verification." },
+      { title: "Endpoint Detection & Response (EDR/XDR)", desc: "Deploying CrowdStrike and Sophos EDR platforms across enterprise workstations and servers." },
+      { title: "Email & Cloud Security", desc: "Check Point Harmony Email security, Data Loss Prevention (DLP), and Web Application Firewalls (WAF)." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Threat Mitigation", metric: "99%", desc: "Proactive defense against malware, ransomware, and attacks." },
-      { title: "Data Protection", metric: "High", desc: "Secure critical business information and customer data." },
-      { title: "Compliance", metric: "100%", desc: "Adherence to industry security standards (ISO 27001, GDPR)." },
-      { title: "Network Visibility", metric: "Complete", desc: "Deep insights into network traffic and user behavior." }
+      { title: "Perimeter Defense", metric: "NGFW", desc: "Advanced Next-Generation Firewalls (NGFW) and deep packet inspection shield critical corporate networks from emerging cyber threats." },
+      { title: "Strict Identity Enforcement", metric: "Zero Trust", desc: "Zero Trust Network Access (ZTNA) and micro-segmentation ensure that only verified users access sensitive resources." },
+      { title: "Rapid Threat Mitigation", metric: "Real-Time", desc: "Endpoint Detection & Response (EDR/XDR) platforms proactively detect and neutralize risks across enterprise servers and workstations." }
     ],
     process: [
-      { step: "01", title: "Security Assessment", desc: "Identify vulnerabilities and gaps in the current network architecture." },
-      { step: "02", title: "Architecture Design", desc: "Design a multi-layered security strategy tailored to your risk profile." },
-      { step: "03", title: "Implementation", desc: "Deploy and configure firewalls, VPNs, and security appliances." },
-      { step: "04", title: "Monitoring & Tuning", desc: "Continuous monitoring, policy optimization, and incident response." }
+      { step: "01", title: "Perimeter & Vulnerability Audit", desc: "Assess ingress/egress points, firewall rulesets, and identity verification gaps." },
+      { step: "02", title: "Zero-Trust Architecture Design", desc: "Define micro-segmentation boundaries, least-privilege RBAC, and EDR deployment matrices." },
+      { step: "03", title: "Appliance & Agent Deployment", desc: "Implement NGFW hardware/virtual appliances, Zscaler ZTNA, and CrowdStrike/Sophos agents." },
+      { step: "04", title: "24/7 Threat Hunting & SOC", desc: "Continuous SIEM/SOC event correlation, threat containment, and automated incident response." }
     ],
     image: "/Checkpoint_Harmony_Banner.png",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -1250,24 +1254,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "Comprehensive vulnerability assessments and penetration testing to identify risks.",
-    overview: "Proactively identify and remediate security weaknesses before they can be exploited. Our expert security audits and penetration testing services provide a thorough evaluation of your IT environment, applications, and processes against industry best practices.",
+    overview: "Comprehensive vulnerability assessments and penetration testing to identify risks. Our certified cybersecurity specialists rigorously evaluate your networks, cloud estates, web applications, and source code to eliminate vulnerabilities before adversaries can exploit them.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Vulnerability Assessments", desc: "Automated and manual scanning to identify known security flaws." },
-      { title: "Penetration Testing", desc: "Ethical hacking to simulate real-world cyberattacks on your systems." },
-      { title: "Compliance Audits", desc: "Assessments against regulatory frameworks (HIPAA, PCI-DSS, ISO)." },
-      { title: "Security Posture Review", desc: "Evaluation of security policies, access controls, and incident response plans." }
+      { title: "Vulnerability Assessment & Penetration Testing (VAPT)", desc: "Black-box, grey-box, and white-box penetration testing for web apps, mobile apps, and networks." },
+      { title: "ISO 27001 & Compliance Audits", desc: "Gap analysis, policy formulation, and certification readiness support for ISO 27001 and DPDP frameworks." },
+      { title: "Source Code Security Review", desc: "Static and dynamic application security testing (SAST/DAST) to detect vulnerability risks." },
+      { title: "Phishing Simulations & Training", desc: "Employee cyber awareness training programs and controlled phishing simulations." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Risk Reduction", metric: "Significant", desc: "Identify and patch vulnerabilities proactively." },
-      { title: "Regulatory Compliance", metric: "Assured", desc: "Avoid fines and legal issues by meeting compliance mandates." },
-      { title: "Customer Trust", metric: "Enhanced", desc: "Demonstrate commitment to protecting sensitive data." },
-      { title: "Actionable Insights", metric: "Detailed", desc: "Clear reports with prioritized remediation steps." }
+      { title: "Proactive Risk Discovery", metric: "VAPT", desc: "Comprehensive vulnerability assessments and penetration testing (VAPT) uncover critical security gaps before malicious actors exploit them." },
+      { title: "Regulatory Compliance Readiness", metric: "ISO 27001", desc: "Structured gap analysis and policy formulation streamline certification paths for ISO 27001 and DPDP frameworks." },
+      { title: "Human Error Reduction", metric: "Human Shield", desc: "Controlled phishing simulations and employee awareness training transform your workforce into a reliable human firewall." }
     ],
     process: [
-      { step: "01", title: "Scoping", desc: "Define the boundaries, objectives, and rules of engagement for the audit." },
-      { step: "02", title: "Execution", desc: "Perform vulnerability scans, penetration tests, and policy reviews." },
-      { step: "03", title: "Analysis & Reporting", desc: "Compile findings into a comprehensive report with risk ratings." },
-      { step: "04", title: "Remediation Support", desc: "Provide guidance on patching and securing identified vulnerabilities." }
+      { step: "01", title: "Scoping & Threat Modeling", desc: "Define testing boundaries, regulatory frameworks (ISO/DPDP), and rules of engagement." },
+      { step: "02", title: "In-Depth VAPT & Source Code Testing", desc: "Execute automated vulnerability sweeps, manual penetration attempts, and static code scans." },
+      { step: "03", title: "Executive & Technical Risk Reporting", desc: "Deliver prioritized CVSS remediation scorecards, evidence logs, and executive risk summaries." },
+      { step: "04", title: "Remediation Verification & Re-Testing", desc: "Validate that all identified vulnerabilities have been securely patched and issue compliance certificates." }
     ],
     image: "/DPDP_ACT_Banner.png",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -1278,24 +1283,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "In-depth evaluations of your IT infrastructure for performance, efficiency, and alignment.",
-    overview: "Ensure your IT investments are delivering maximum value. Our IT System Audits evaluate the performance, reliability, and alignment of your technology stack with business objectives, identifying areas for optimization and modernization.",
+    overview: "In-depth evaluations of your IT infrastructure for performance, efficiency, and alignment. We conduct rigorous assessments of your IT systems, governance controls, cloud spending, and disaster preparedness to ensure maximum ROI and operational resilience.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Infrastructure Assessment", desc: "Evaluate server, storage, and network performance and capacity." },
-      { title: "Cloud Readiness Audit", desc: "Assess legacy applications and infrastructure for cloud migration suitability." },
-      { title: "Software Licensing Audit", desc: "Ensure compliance and optimize costs for enterprise software." },
-      { title: "IT Governance Review", desc: "Evaluate IT management processes, disaster recovery, and operational maturity." }
+      { title: "IT General Controls (ITGC) Audit", desc: "Evaluating access management, change management controls, backup verification, and audit trails." },
+      { title: "Infrastructure Performance Review", desc: "Assessing server load, storage health, network throughput, and database efficiency." },
+      { title: "Cloud FinOps & Cost Optimization", desc: "Reviewing cloud utilization to identify idle compute resources and cost-reduction opportunities." },
+      { title: "Disaster Recovery (DR/BCP) Testing", desc: "Evaluating recovery time objectives (RTO) and recovery point objectives (RPO) under simulated outage conditions." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Cost Optimization", metric: "15-20%", desc: "Identify wasted resources and optimize licensing and hardware usage." },
-      { title: "System Performance", metric: "Improved", desc: "Resolve bottlenecks to enhance overall system speed and reliability." },
-      { title: "Strategic Alignment", metric: "Aligned", desc: "Ensure IT initiatives support overarching business goals." },
-      { title: "Future-Proofing", metric: "High", desc: "Roadmap for modernization and adopting emerging technologies." }
+      { title: "Optimized Resource Utilization", metric: "FinOps", desc: "Cloud FinOps reviews eliminate idle compute resources to drive continuous cloud cost reduction." },
+      { title: "Assured Business Continuity", metric: "DR / RTO", desc: "Rigorous Disaster Recovery (DR/BCP) testing validates recovery time objectives (RTO) under simulated outage conditions." },
+      { title: "Strengthened Governance", metric: "ITGC", desc: "IT General Controls (ITGC) audits ensure ironclad access controls, change management tracking, and reliable backup integrity." }
     ],
     process: [
-      { step: "01", title: "Discovery & Data Gathering", desc: "Collect data on inventory, performance metrics, and processes." },
-      { step: "02", title: "Analysis", desc: "Evaluate findings against industry benchmarks and best practices." },
-      { step: "03", title: "Gap Identification", desc: "Identify performance bottlenecks, risks, and inefficiencies." },
-      { step: "04", title: "Strategic Recommendations", desc: "Deliver an actionable roadmap for IT optimization and transformation." }
+      { step: "01", title: "Audit Scoping & Baseline Discovery", desc: "Identify critical systems, access control matrices, cloud subscriptions, and DR parameters." },
+      { step: "02", title: "ITGC & Performance Analysis", desc: "Evaluate server utilization, audit logs, backup restorations, and change control procedures." },
+      { step: "03", title: "FinOps & Disaster Simulation", desc: "Execute cloud spend telemetry audits and simulate failover scenarios to measure RTO/RPO." },
+      { step: "04", title: "Audit Findings & Optimization Roadmap", desc: "Deliver formal audit reports, cost-saving recommendations, and governance remediation steps." }
     ],
     image: "/header-2x.png",
     customLogo: "/Acceleron_Short_Logo.png"

@@ -72,6 +72,7 @@ export interface ProductItem {
 export interface ProductCategory {
   id: string;
   anchorId: string;
+  landingHref: string;
   title: string;
   subtitle: string;
   badge: string;
@@ -85,6 +86,7 @@ const PRODUCT_CATEGORIES: ProductCategory[] = [
   {
     id: "industrial-solutions",
     anchorId: "industrial-solutions",
+    landingHref: "/products/industrial-solutions",
     title: "Industrial Solutions",
     subtitle: "Plant Maintenance, In-Plant Flow & Quality Governance",
     badge: "INDUSTRIAL SOLUTIONS",
@@ -178,6 +180,7 @@ const PRODUCT_CATEGORIES: ProductCategory[] = [
   {
     id: "people-solutions",
     anchorId: "people-solutions",
+    landingHref: "/products/people-solutions",
     title: "People Solutions",
     subtitle: "Labour Scheduling, Safety Governance & Performance Appraisal",
     badge: "PEOPLE SOLUTIONS",
@@ -271,6 +274,7 @@ const PRODUCT_CATEGORIES: ProductCategory[] = [
   {
     id: "cx-solutions",
     anchorId: "cx-solutions",
+    landingHref: "/products/cx-solutions",
     title: "CX Solutions",
     subtitle: "Field Service, Order-to-Cash, Loyalty & Sales CRM",
     badge: "CX SOLUTIONS",
@@ -364,6 +368,7 @@ const PRODUCT_CATEGORIES: ProductCategory[] = [
   {
     id: "office-digitization",
     anchorId: "office-digitization",
+    landingHref: "/products/office-digitization",
     title: "Office Digitization",
     subtitle: "Enterprise Approvals, Treasury, AI & Supplier Portals",
     badge: "OFFICE DIGITIZATION",
@@ -526,31 +531,100 @@ function ProductsHub() {
       <div className="sticky top-20 z-30 border-y border-border/60 bg-background/90 backdrop-blur-md py-3 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
           <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground shrink-0 hidden md:block">
-            Jump to Section:
+            Explore Landing Hubs:
           </div>
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {PRODUCT_CATEGORIES.map((cat) => (
-              <a
+              <Link
                 key={cat.id}
-                href={`#${cat.anchorId}`}
+                to={cat.landingHref as any}
                 className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-muted/40 hover:bg-brand/10 hover:border-brand/40 px-3.5 py-1.5 text-xs font-semibold text-foreground transition-all duration-200"
               >
                 <cat.icon className="h-3.5 w-3.5 text-brand" />
                 <span>{cat.title}</span>
-              </a>
+                <ArrowUpRight className="h-3 w-3 opacity-60" />
+              </Link>
             ))}
           </div>
-          <Link
-            to="/contact"
+          <a
+            href="#directory"
             className="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:text-brand-red transition-colors shrink-0"
           >
-            <span>Talk to Solution Architects</span>
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+            <span>Jump to Directory</span>
+            <ChevronRight className="h-3.5 w-3.5" />
+          </a>
         </div>
       </div>
 
-      {/* SECTION 2: EXECUTIVE SITEMAP & REDIRECTION DIRECTORY */}
+      {/* SECTION 2: 4 DEDICATED SOLUTION LANDING HUBS FEATURE */}
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-16 border-b border-border/60">
+        <Reveal>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand mb-3">
+              Specialized Product Landing Hubs
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Explore Our <span className="text-gradient">4 Product Ecosystems</span>
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">
+              Each solution ecosystem features a dedicated master landing page detailing architectural pillars, industry sector applications, and integrated sub-platforms.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {PRODUCT_CATEGORIES.map((cat, cIdx) => (
+            <Reveal key={cat.id} delay={cIdx * 0.08} className="h-full">
+              <Link
+                to={cat.landingHref as any}
+                className="group rounded-3xl border border-border/80 bg-gradient-to-br from-card via-card to-brand/5 p-6 h-full shadow-card hover:border-brand/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between block"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div
+                      className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${cat.gradient} text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform`}
+                    >
+                      <cat.icon className="h-6 w-6" />
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider bg-brand/10 text-brand px-2.5 py-1 rounded-full border border-brand/20">
+                      Hub Landing Page
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-brand transition-colors">
+                    {cat.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                    {cat.subtitle}
+                  </p>
+
+                  <div className="text-[11px] font-semibold text-foreground/80 space-y-1 pt-3 border-t border-border/50">
+                    <div className="text-muted-foreground text-[10px] uppercase font-bold tracking-wider mb-1">
+                      Includes 5 Sub-Solutions:
+                    </div>
+                    {cat.products.slice(0, 3).map((p) => (
+                      <div key={p.name} className="truncate text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1.5">
+                        <span className="h-1 w-1 rounded-full bg-brand" />
+                        <span className="truncate">{p.name.split(" - ")[0]}</span>
+                      </div>
+                    ))}
+                    <div className="text-xs text-brand font-semibold pt-1">
+                      + 2 more platforms
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4 mt-6 border-t border-border/60 flex items-center justify-between text-xs font-bold text-brand group-hover:text-brand-red transition-colors">
+                  <span>Open Dedicated Hub</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 3: EXECUTIVE SITEMAP & REDIRECTION DIRECTORY */}
       <section
         id="directory"
         className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-16 sm:py-20 border-b border-border/60"
@@ -606,13 +680,20 @@ function ProductsHub() {
                   </div>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-border/60">
-                  <a
-                    href={`#${cat.anchorId}`}
+                <div className="pt-4 mt-4 border-t border-border/60 space-y-2">
+                  <Link
+                    to={cat.landingHref as any}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:text-brand-red transition-colors w-full justify-between"
                   >
-                    <span>Explore {cat.title}</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <span>Visit Dedicated {cat.title} Hub</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </Link>
+                  <a
+                    href={`#${cat.anchorId}`}
+                    className="inline-flex items-center gap-1 text-[11px] font-semibold text-muted-foreground hover:text-foreground transition-colors w-full justify-between"
+                  >
+                    <span>Scroll to on-page details</span>
+                    <ChevronRight className="h-3 w-3" />
                   </a>
                 </div>
               </div>
@@ -645,6 +726,13 @@ function ProductsHub() {
               </div>
 
               <div className="shrink-0 flex items-center gap-3">
+                <Link
+                  to={cat.landingHref as any}
+                  className="rounded-xl border border-brand/40 bg-brand/5 hover:bg-brand/10 text-brand px-4 py-2 text-xs font-bold transition-colors inline-flex items-center gap-1.5"
+                >
+                  <span>Dedicated {cat.title} Hub</span>
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
                 <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider bg-muted/60 px-3.5 py-2 rounded-xl border border-border/60">
                   5 Sub-Solutions
                 </span>
