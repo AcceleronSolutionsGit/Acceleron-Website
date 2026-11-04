@@ -21,16 +21,16 @@ function ProductPage() {
       />
 
       {/* Problem & Solution */}
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
-        <div className="grid lg:grid-cols-2 gap-16">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           <Reveal delay={0.1}>
-            <div className="rounded-3xl border border-border/50 bg-muted/20 p-10 h-full">
+            <div className="rounded-3xl border border-border/50 bg-muted/20 p-6 sm:p-10 h-full">
               <h2 className="text-2xl font-bold text-foreground mb-4">The Problem</h2>
               <p className="text-muted-foreground leading-relaxed text-lg">Slow vendor onboarding, manual document verification, mismatched invoices, and poor visibility into shipping schedules strain supplier relationships and disrupt production.</p>
             </div>
           </Reveal>
           <Reveal delay={0.2}>
-            <div className="rounded-3xl border border-brand/30 bg-brand/5 p-10 h-full shadow-glow">
+            <div className="rounded-3xl border border-brand/30 bg-brand/5 p-6 sm:p-10 h-full shadow-glow">
               <h2 className="text-2xl font-bold text-brand mb-4">The Solution</h2>
               <p className="text-foreground leading-relaxed text-lg">A unified portal that connects suppliers directly to your SAP core, introducing automated workflows from registration to payment.</p>
             </div>
@@ -41,8 +41,8 @@ function ProductPage() {
       <WaveDivider from="dark" to="white" />
 
       {/* Key Features & AI */}
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
-        <div className="grid lg:grid-cols-2 gap-16">
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           <Reveal>
             <div>
               <h2 className="text-3xl font-bold text-foreground mb-8">Key Features</h2>
@@ -85,8 +85,8 @@ function ProductPage() {
       <WaveDivider from="white" to="dark" flip />
 
       {/* UI Mockup & Flow */}
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           <Reveal>
             <UIMockup title="Vendor PO Management" accentColor="#8b5cf6">
               <div className="space-y-4">

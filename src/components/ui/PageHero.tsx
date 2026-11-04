@@ -14,6 +14,8 @@ type PageHeroProps = {
   image: string;
   ctaText?: string;
   ctaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
   icon?: ReactNode;
   gradient?: string;
 };
@@ -25,6 +27,8 @@ export function PageHero({
   image,
   ctaText = "Talk to Our Experts",
   ctaHref = "/contact",
+  secondaryCtaText,
+  secondaryCtaHref,
   icon,
   gradient = "from-[oklch(0.14_0.06_265)] to-[oklch(0.22_0.09_265)]",
 }: PageHeroProps) {
@@ -77,12 +81,31 @@ export function PageHero({
               <p className="text-lg md:text-xl text-white/85 leading-relaxed mb-10 max-w-2xl">
                 {subtitle}
               </p>
-              <Link
-                to={ctaHref as any}
-                className="btn btn-primary btn-lg"
-              >
-                {ctaText} <ArrowUpRight className="h-5 w-5" />
-              </Link>
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  to={ctaHref as any}
+                  className="btn btn-primary btn-lg"
+                >
+                  {ctaText} <ArrowUpRight className="h-5 w-5" />
+                </Link>
+                {secondaryCtaText && (
+                  secondaryCtaHref?.startsWith("#") ? (
+                    <a
+                      href={secondaryCtaHref}
+                      className="btn btn-secondary btn-lg bg-white/10 hover:bg-white/20 text-white border-white/25 backdrop-blur-md"
+                    >
+                      {secondaryCtaText}
+                    </a>
+                  ) : (
+                    <Link
+                      to={(secondaryCtaHref || "/services") as any}
+                      className="btn btn-secondary btn-lg bg-white/10 hover:bg-white/20 text-white border-white/25 backdrop-blur-md"
+                    >
+                      {secondaryCtaText}
+                    </Link>
+                  )
+                )}
+              </div>
             </div>
           </Reveal>
         </div>

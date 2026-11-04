@@ -21,16 +21,16 @@ function ProductPage() {
       />
 
       {/* Problem & Solution */}
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
-        <div className="grid lg:grid-cols-2 gap-16">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           <Reveal delay={0.1}>
-            <div className="rounded-3xl border border-border/50 bg-muted/20 p-10 h-full">
+            <div className="rounded-3xl border border-border/50 bg-muted/20 p-6 sm:p-10 h-full">
               <h2 className="text-2xl font-bold text-foreground mb-4">The Problem</h2>
               <p className="text-muted-foreground leading-relaxed text-lg">Traditional safety reporting relies on manual logging and disjointed follow-ups. Near-misses go undocumented, and compliance tracking for regulatory bodies (like the DGMS) is fragmented and reactive.</p>
             </div>
           </Reveal>
           <Reveal delay={0.2}>
-            <div className="rounded-3xl border border-brand/30 bg-brand/5 p-10 h-full shadow-glow">
+            <div className="rounded-3xl border border-brand/30 bg-brand/5 p-6 sm:p-10 h-full shadow-glow">
               <h2 className="text-2xl font-bold text-brand mb-4">The Solution</h2>
               <p className="text-foreground leading-relaxed text-lg">A centralized digital platform that streams real-time incident reporting, automates corrective action (CAPA) tracking, and provides immediate visibility into site-wide risk profiles.</p>
             </div>
@@ -41,8 +41,8 @@ function ProductPage() {
       <WaveDivider from="dark" to="white" />
 
       {/* Key Features & AI */}
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
-        <div className="grid lg:grid-cols-2 gap-16">
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           <Reveal>
             <div>
               <h2 className="text-3xl font-bold text-foreground mb-8">Key Features</h2>
@@ -86,8 +86,8 @@ function ProductPage() {
       <WaveDivider from="white" to="dark" flip />
 
       {/* UI Mockup & Flow */}
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-24">
           <Reveal>
             <UIMockup title="Suraksha Field App" accentColor="#14b8a6">
               <div className="space-y-4">
@@ -134,7 +134,7 @@ function ProductPage() {
 
       <WaveDivider from="dark" to="white" />
       
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24 text-center">
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24 text-center">
         <Reveal>
           <div className="max-w-3xl mx-auto rounded-3xl border border-teal-500/30 bg-gradient-to-br from-teal-500/20 to-cyan-600/20 p-12 shadow-glow backdrop-blur-xl">
             <h2 className="text-2xl font-bold mb-4 opacity-90 text-teal-500">Proven Impact</h2>

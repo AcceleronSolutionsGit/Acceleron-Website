@@ -62,7 +62,7 @@ function CareersPage() {
       />
 
       {/* Why Join Us & Culture Section */}
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
         <Reveal>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">Life at Acceleron</div>
@@ -108,7 +108,7 @@ function CareersPage() {
       <WaveDivider from="dark" to="white" />
 
       {/* Open Positions List */}
-      <section id="roles" className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
+      <section id="roles" className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
@@ -128,7 +128,7 @@ function CareersPage() {
             <Reveal key={job.id} delay={0.08 * idx}>
               <motion.div
                 whileHover={{ y: -2 }}
-                className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 rounded-3xl border border-border/60 bg-muted/20 p-8 backdrop-blur-xl hover:border-brand/40 hover:bg-muted/40 transition-all shadow-soft"
+                className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 rounded-3xl border border-border/60 bg-muted/20 p-5 sm:p-8 backdrop-blur-xl hover:border-brand/40 hover:bg-muted/40 transition-all shadow-soft"
               >
                 <div>
                   <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-brand-red/10 text-brand-red mb-3">
@@ -144,7 +144,7 @@ function CareersPage() {
 
                 <button
                   onClick={() => handleApplyClick(job.title)}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-7 py-3 text-sm font-bold text-white shadow-glow hover:scale-105 transition-all shrink-0"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-7 py-3 text-sm font-bold text-white shadow-glow hover:scale-105 transition-all w-full sm:w-auto shrink-0"
                 >
                   Apply Now <ArrowUpRight className="h-4 w-4" />
                 </button>
@@ -157,7 +157,7 @@ function CareersPage() {
       <WaveDivider from="white" to="dark" flip />
 
       {/* Submit Resume & Application Form Section */}
-      <section id="apply-form" className="section-dark container mx-auto px-6 max-w-4xl relative z-10 py-24">
+      <section id="apply-form" className="section-dark container mx-auto px-4 sm:px-6 max-w-4xl relative z-10 py-14 sm:py-20 lg:py-24">
         <Reveal>
           <div className="text-center mb-12">
             <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">Join Our Team</div>
@@ -171,7 +171,7 @@ function CareersPage() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="rounded-3xl border border-border/60 bg-background/50 p-8 sm:p-12 backdrop-blur-xl shadow-glow">
+          <div className="rounded-3xl border border-border/60 bg-background/50 p-5 sm:p-8 sm:p-12 backdrop-blur-xl shadow-glow">
             {isSubmitted ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}

@@ -5,7 +5,7 @@ import {
   ArrowRight, ArrowUpRight, Sparkles, Cpu, Cloud, ShieldCheck, LineChart, Boxes,
   Blocks, Rocket, Compass, Layers, Code2, Wrench, HeartPulse, ShoppingBag, Truck,
   GraduationCap, Landmark, Banknote, HardHat, Factory, Flame, MapPin, Mail, Phone,
-  ChevronDown, ChevronLeft, ChevronRight, Calendar, Menu, X, Play, Zap, Globe, Users, Award, Briefcase, Database, Palette,
+  ChevronDown, ChevronLeft, ChevronRight, Calendar, Menu, X, Play, Zap, Globe, Users, Award, Briefcase, Database, Palette, Clock,
   ArrowDown, Star, TrendingUp, Building2, Lightbulb, Target, Sun, Moon,
 } from "lucide-react";
 
@@ -17,6 +17,7 @@ import { Nav, PRODUCTS } from '../components/layout/Nav';
 import { getAssetUrl } from '../lib/assets';
 import { WhyChooseUs, CSRSection, GlobalPresence, InsightsSection } from '../components/home/HomeSections';
 import { OurValuesSection } from '../components/ui/OurValuesGrid';
+import { ScrollToTop } from '../components/ui/ScrollToTop';
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -77,7 +78,7 @@ function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
             </span>
-            Engineering Digital Excellence
+            ACCELERATING TRANSFORMATION. IGNITING INNOVATION.
           </motion.div>
 
           <motion.h1
@@ -100,7 +101,7 @@ function Hero() {
             className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/75"
             style={{ textShadow: '0 1px 8px rgba(0,0,0,0.2)' }}
           >
-            From the Gainwell Group — powering mining, manufacturing, and enterprise transformation with SAP, Zoho, AI, and custom-built digital platforms.
+            As part of the Gainwell Group, Acceleron Solutions drives digital transformation across industrial, supply chain, and commercial enterprises through SAP, Zoho, Applied AI, and custom software solutions.
           </motion.p>
 
           <motion.div
@@ -149,9 +150,142 @@ function Hero() {
   );
 }
 
+/* ═══════════════════ KEY METRICS COUNTER BAR ('Acceleron at a Glance') ═══════════════════ */
+
+const KEY_METRICS = [
+  {
+    metric: "Projects Completed",
+    value: 45,
+    suffix: "+",
+    desc: "Enterprise implementations delivered on time & on budget",
+    icon: Briefcase,
+  },
+  {
+    metric: "Strategic Clients",
+    value: 30,
+    suffix: "+",
+    desc: "Global enterprises trusting Acceleron for core systems",
+    icon: Building2,
+  },
+  {
+    metric: "Tech Experts",
+    value: 170,
+    suffix: "+",
+    desc: "Skilled engineers, SAP architects, and domain consultants",
+    icon: Users,
+  },
+  {
+    metric: "Managed Support",
+    isSupport: true,
+    desc: "Round-the-clock enterprise infrastructure monitoring",
+    icon: Clock,
+  },
+];
+
+function KeyMetricsBar() {
+  return (
+    <section id="at-a-glance" aria-label="Acceleron at a Glance" className="relative overflow-hidden bg-background py-14 sm:py-20 border-b border-border/50">
+      <div className="absolute inset-0 grid-lines opacity-[0.04]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-3/4 max-w-4xl rounded-full bg-brand/5 blur-[120px] pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
+          <div>
+            <Reveal>
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-3.5 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-3">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-red" />
+                </span>
+                Acceleron at a Glance
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+                Key Metrics Driving <span className="text-gradient">Enterprise Impact</span>
+              </h2>
+            </Reveal>
+          </div>
+          <Reveal delay={0.2}>
+            <p className="text-xs sm:text-sm text-muted-foreground max-w-md leading-relaxed">
+              Positioned to deliver end-to-end digital transformation, certified enterprise consulting, and mission-critical 24/7 reliability.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {KEY_METRICS.map((item, idx) => (
+            <Reveal key={item.metric} delay={0.1 + idx * 0.08} className="h-full">
+              <div className="relative group h-full rounded-2xl sm:rounded-3xl border border-border/70 bg-muted/20 hover:bg-muted/30 p-6 backdrop-blur-xl shadow-soft hover:shadow-elevated hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                <div className="absolute -top-12 -right-12 h-24 w-24 rounded-full bg-brand-red/10 blur-xl group-hover:bg-brand-red/20 transition-all duration-500 pointer-events-none" />
+
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-muted-foreground group-hover:text-foreground transition-colors">
+                      {item.metric}
+                    </span>
+                    <div className="h-9 w-9 rounded-xl bg-background/80 border border-border/80 flex items-center justify-center text-foreground group-hover:border-brand-red/40 group-hover:text-brand-red transition-all duration-300 shadow-sm">
+                      <item.icon className="h-4 w-4" />
+                    </div>
+                  </div>
+
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-foreground group-hover:text-gradient transition-all duration-300">
+                    {item.isSupport ? (
+                      <span className="tabular-nums">
+                        <Counter to={24} duration={1.6} />
+                        <span className="text-brand-red mx-1.5">/</span>
+                        <Counter to={7} duration={1.6} />
+                      </span>
+                    ) : (
+                      <span className="tabular-nums">
+                        <Counter to={item.value ?? 0} suffix={item.suffix} duration={1.8} />
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <p className="mt-4 text-xs sm:text-sm text-muted-foreground leading-relaxed border-t border-border/50 pt-3.5">
+                  {item.desc}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ═══════════════════ ABOUT TEASER ═══════════════════ */
 
+const ABOUT_IMAGES = [
+  { src: "/Inaguration Photo.JPG", alt: "Acceleron Solutions Office Inauguration" },
+  { src: "/Office Entrace Photo.JPG", alt: "Acceleron Solutions Kolkata HQ Entrance" },
+  { src: "/Office View 1.JPG", alt: "Acceleron Development Center" },
+  { src: "/Office View 2.JPG", alt: "Acceleron Collaborative Workspaces" },
+  { src: "/Conglomated pic.JPG", alt: "Acceleron Team All-Hands" },
+];
+
 function AboutTeaser() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % ABOUT_IMAGES.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + ABOUT_IMAGES.length) % ABOUT_IMAGES.length);
+  };
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % ABOUT_IMAGES.length);
+  };
+
   return (
     <section className="relative overflow-hidden bg-background py-16 sm:py-24 border-b border-border/50">
       <div className="absolute inset-0 grid-lines opacity-[0.04]" />
@@ -163,12 +297,18 @@ function AboutTeaser() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15]">
-                Empowering Enterprises with <span className="text-gradient">Digital Innovation</span>
+                Empowering Enterprises with <span className="text-gradient">Grounded Digital Innovation</span>
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
-                As the technology arm of the Gainwell Group, Acceleron Solutions delivers bespoke SAP consulting, full-stack Zoho business automation, predictive AI systems, and custom enterprise software built for scale.
+                As the technology arm of the Gainwell Group, Acceleron Solutions delivers bespoke SAP consulting, full-stack Zoho business automation, predictive AI systems, and enterprise software built for scale.
+              </p>
+              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
+                We bridge deep industrial domain knowledge with modern technology to solve complex operational challenges and unlock measurable P&L value.
+              </p>
+              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
+                "Our Vision: Be a trusted solution partner to our clients, delivering industry-leading digital transformation and long-term business impact."
               </p>
             </Reveal>
             <Reveal delay={0.3}>
@@ -202,16 +342,71 @@ function AboutTeaser() {
 
           <div className="lg:col-span-5">
             <Reveal delay={0.2}>
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-border/60 bg-muted/20 shadow-elevated p-2 group">
-                <div className="absolute -top-1 -right-1 w-16 h-16 border-t-2 border-r-2 border-brand-red/40 rounded-tr-3xl pointer-events-none z-10" />
-                <div className="absolute -bottom-1 -left-1 w-16 h-16 border-b-2 border-l-2 border-brand/30 rounded-bl-3xl pointer-events-none z-10" />
-                <img
-                  src={getAssetUrl("/Inaguration Photo.JPG")}
-                  alt="Acceleron Solutions"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-[260px] sm:h-[340px] md:h-[400px] object-cover rounded-xl sm:rounded-2xl transition-transform duration-700 group-hover:scale-[1.02]"
-                />
+              <div
+                className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-border/60 bg-muted/20 shadow-elevated p-2 group"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+              >
+                <div className="absolute -top-1 -right-1 w-16 h-16 border-t-2 border-r-2 border-brand-red/40 rounded-tr-3xl pointer-events-none z-20" />
+                <div className="absolute -bottom-1 -left-1 w-16 h-16 border-b-2 border-l-2 border-brand/30 rounded-bl-3xl pointer-events-none z-20" />
+
+                <div className="relative w-full h-[270px] sm:h-[350px] md:h-[400px] rounded-xl sm:rounded-2xl overflow-hidden bg-black/40">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentImageIndex}
+                      initial={{ opacity: 0, scale: 1.04 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.98 }}
+                      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                      className="absolute inset-0"
+                    >
+                      <img
+                        src={getAssetUrl(ABOUT_IMAGES[currentImageIndex].src)}
+                        alt={ABOUT_IMAGES[currentImageIndex].alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover"
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Manual Arrow Controls (appear on hover on desktop, always visible on mobile) */}
+                  <div className="absolute top-3.5 right-3.5 z-20 flex items-center gap-1.5 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                    <button
+                      type="button"
+                      onClick={handlePrevImage}
+                      aria-label="Previous image"
+                      className="h-8 w-8 rounded-full bg-black/60 hover:bg-brand-red text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105"
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleNextImage}
+                      aria-label="Next image"
+                      className="h-8 w-8 rounded-full bg-black/60 hover:bg-brand-red text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105"
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                    </button>
+                  </div>
+
+                  {/* Slide Indicators / Dots */}
+                  <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5">
+                    {ABOUT_IMAGES.map((_, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => setCurrentImageIndex(idx)}
+                        aria-label={`Go to image ${idx + 1}`}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          idx === currentImageIndex
+                            ? "w-5 sm:w-6 bg-brand-red shadow-glow"
+                            : "w-1.5 bg-white/40 hover:bg-white/80"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -221,16 +416,17 @@ function AboutTeaser() {
   );
 }
 
+
 /* ═══════════════════ SERVICES ═══════════════════ */
 
 const SERVICES = [
-  { icon: Database, t: "SAP", d: "S/4HANA, BTP, RISE — end-to-end SAP transformation for the intelligent enterprise.", url: "/services/sap", img: "/SAP_Homepage.jpg" },
-  { icon: LineChart, t: "Analytics & AI", d: "From dashboards to generative agents. Turn data into direction.", url: "/services/analytics", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=600&auto=format&fit=crop" },
-  { icon: Blocks, t: "Zoho Suite", d: "Rapid business apps across finance, ops, CX — deployed in weeks, not quarters.", url: "/services/zoho", img: "/ZOHO_LOGO.png" },
-  { icon: Code2, t: "Software Development", d: "Custom platforms in React, Node, Flutter — enterprise-grade code, product-grade craft.", url: "/services/software-development", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop" },
-  { icon: Cpu, t: "IT Infrastructure", d: "Cloud, hybrid, on-prem. AWS, Azure, Kubernetes — resilient by design.", url: "/services/it-infrastructure", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=600&auto=format&fit=crop" },
-  { icon: Briefcase, t: "CXO Advisory", d: "Board-level guidance on tech strategy, M&A, and digital operating models.", url: "/services/cxo-advisory", img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=75&w=600&auto=format&fit=crop" },
-  { icon: ShieldCheck, t: "Cyber Security", d: "Zero-trust architectures, SOC modernization, and compliance you can prove.", url: "/services/cyber-security", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=600&auto=format&fit=crop" },
+  { icon: Database, t: "SAP Modernization & Consulting", d: "S/4HANA, BTP, RISE — end-to-end cloud ERP transformation and legacy system modernization for agile enterprise management.", url: "/services/sap", img: "/SAP_Homepage.jpg" },
+  { icon: LineChart, t: "Analytics & Applied AI", d: "From operational executive dashboards to generative AI agents. Turn fragmented operational data into strategic direction.", url: "/services/analytics", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=600&auto=format&fit=crop" },
+  { icon: Blocks, t: "Zoho Suite Enterprise Automation", d: "Rapid business applications across finance, operations, and customer experience — deployed in weeks, not quarters.", url: "/services/zoho", img: "/ZOHO_LOGO.png" },
+  { icon: Code2, t: "Custom Software Engineering", d: "Scalable, enterprise-grade platforms built in React, Node, and Flutter with product-grade craftsmanship and cloud architecture.", url: "/services/software-development", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop" },
+  { icon: Cpu, t: "IT & Cloud Infrastructure", d: "Resilient cloud, hybrid, and on-premises environments built on AWS, Azure, and Kubernetes — designed for 99.99% uptime.", url: "/services/it-infrastructure", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=600&auto=format&fit=crop" },
+  { icon: Briefcase, t: "CXO Digital Advisory", d: "Board-level guidance on technology strategy, M&A digital integration, enterprise architecture, and operating model evolution.", url: "/services/cxo-advisory", img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=75&w=600&auto=format&fit=crop" },
+  { icon: ShieldCheck, t: "Cyber Security & OT Systems", d: "Zero-trust security architectures, SOC modernization, and automated compliance built for industrial OT and corporate networks.", url: "/services/cyber-security", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=600&auto=format&fit=crop" },
 ];
 
 function Services() {
@@ -239,7 +435,7 @@ function Services() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgb(58_73_127/0.06),transparent_70%)]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         <Reveal>
-          <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Services</div>
+          <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Services & Practice Areas</div>
         </Reveal>
         <div className="mt-4 sm:mt-6 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <Reveal delay={0.1}>
@@ -248,7 +444,9 @@ function Services() {
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="max-w-md text-sm sm:text-base leading-relaxed text-muted-foreground">Comprehensive enterprise practices from strategy through steady-state operations.</p>
+            <p className="max-w-md text-sm sm:text-base leading-relaxed text-muted-foreground">
+              A full-stack partner for intelligent enterprises. Comprehensive technology services spanning executive strategy through steady-state operations.
+            </p>
           </Reveal>
         </div>
 
@@ -271,20 +469,25 @@ function Services() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/5 transition-opacity duration-500 group-hover:opacity-100 opacity-75" />
 
                 <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-10">
-                  <div className="flex items-center gap-3 mb-3 sm:mb-4 transform transition-transform duration-300 group-hover:-translate-y-2">
-                    <div className="h-10 w-10 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-white/20 group-hover:shadow-[0_0_20px_-4px_rgba(255,255,255,0.3)] transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="h-10 w-10 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-white/20 group-hover:shadow-[0_0_20px_-4px_rgba(255,255,255,0.3)] transition-all duration-300 shrink-0">
                       <s.icon className="h-5 w-5" />
                     </div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">{s.t}</h3>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white leading-snug">{s.t}</h3>
                   </div>
 
+                  {/* Description appears on hover */}
                   <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
                     <div className="overflow-hidden">
-                      <p className="text-white/80 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed">{s.d}</p>
-                      <div className="flex items-center gap-2 font-semibold text-xs sm:text-sm transition-all duration-300 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 text-red-300">
-                        Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </div>
+                      <p className="text-white/80 text-xs sm:text-sm mb-3.5 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {s.d}
+                      </p>
                     </div>
+                  </div>
+
+                  {/* Learn more CTA initially visible */}
+                  <div className="flex items-center gap-2 font-semibold text-xs sm:text-sm text-red-300 group-hover:text-red-200 transition-colors">
+                    Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                 </div>
               </Link>
@@ -469,12 +672,12 @@ function TechStack() {
 /* ═══════════════════ INDUSTRIES ═══════════════════ */
 
 const INDUSTRIES = [
-  { t: "Mining", desc: "Pit-to-port ERP, fleet telemetry, and predictive maintenance.", icon: Factory, img: "/mining-industry.jpg" },
-  { t: "Discrete Manufacturing", desc: "Smart factories, OEE tracking, and Industry 4.0 automation.", icon: Factory, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=600&auto=format&fit=crop" },
-  { t: "Capital Goods", desc: "ETO project systems, field service, and heavy equipment warranty.", icon: Boxes, img: "/capital_goods.jpg" },
-  { t: "Transportation & Logistics", desc: "Supply chain visibility, tyre health, and fleet route planning.", icon: Truck, img: "/logistics-img.jpg" },
-  { t: "Utilities", desc: "Grid management, IS-U billing, and OT cybersecurity.", icon: Zap, img: "/Utilities_Industry.jpg" },
-  { t: "Engineering & Construction", desc: "Project lifecycle management, contractor safety, and CWMS.", icon: HardHat, img: "/construction-img.jpg" },
+  { t: "Mining", desc: "Pit-to-port ERP systems, fleet telemetry, heavy asset predictive maintenance, and mine safety automation.", icon: Factory, img: "/mining-industry.jpg" },
+  { t: "Discrete Manufacturing", desc: "Smart factory automation, overall equipment effectiveness (OEE) tracking, shop-floor IoT, and Industry 4.0.", icon: Factory, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=600&auto=format&fit=crop" },
+  { t: "Capital Goods & Machinery", desc: "Engineer-to-Order (ETO) project systems, field service management, and heavy machinery warranty tracking.", icon: Boxes, img: "/capital_goods.jpg" },
+  { t: "Transportation & Logistics", desc: "End-to-end supply chain visibility, fleet route optimization, tyre health monitoring, and logistics automation.", icon: Truck, img: "/logistics-img.jpg" },
+  { t: "Utilities", desc: "Grid management integration, IS-U billing optimization, asset management, and OT cybersecurity.", icon: Zap, img: "/Utilities_Industry.jpg" },
+  { t: "Engineering & Construction", desc: "Large-scale project lifecycle management, contractor safety compliance, CWMS, and site workforce tracking.", icon: HardHat, img: "/construction-img.jpg" },
 ];
 
 function Industries() {
@@ -483,13 +686,20 @@ function Industries() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,rgb(58_73_127/0.06),transparent_70%)] pointer-events-none" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         <Reveal>
-          <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Industries</div>
+          <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Core Industry Sectors</div>
         </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="mt-4 sm:mt-6 max-w-3xl text-3xl sm:text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight">
-            Deep expertise across <span className="text-gradient">core industry sectors.</span>
-          </h2>
-        </Reveal>
+        <div className="mt-4 sm:mt-6 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <Reveal delay={0.1}>
+            <h2 className="max-w-3xl text-3xl sm:text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight">
+              Deep expertise across <span className="text-gradient">core industry sectors.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="max-w-md text-sm sm:text-base leading-relaxed text-muted-foreground">
+              Deep domain expertise across core enterprise sectors.
+            </p>
+          </Reveal>
+        </div>
         <div className="mt-12 sm:mt-16 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {INDUSTRIES.map((it, i) => (
             <Reveal key={it.t} delay={i * 0.06}>
@@ -498,25 +708,148 @@ function Industries() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/5 transition-opacity duration-500 group-hover:opacity-100 opacity-70" />
 
                 <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-end z-10">
-                  <div className="flex items-center gap-3 mb-2 transform transition-transform duration-300 group-hover:-translate-y-1">
-                    <div className="h-10 w-10 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-white/20 group-hover:shadow-[0_0_20px_-4px_rgba(255,255,255,0.25)] transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="h-10 w-10 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-white/20 group-hover:shadow-[0_0_20px_-4px_rgba(255,255,255,0.25)] transition-all duration-300 shrink-0">
                       <it.icon className="h-5 w-5" />
                     </div>
                     <h3 className="text-xl font-bold text-white">{it.t}</h3>
                   </div>
 
+                  {/* Description appears on hover */}
                   <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
                     <div className="overflow-hidden">
-                      <p className="text-white/80 text-sm mb-4 leading-relaxed">{it.desc}</p>
-                      <div className="flex items-center gap-2 text-red-300 font-semibold text-xs transition-all duration-300 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
-                        Explore solutions <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                      </div>
+                      <p className="text-white/80 text-sm mb-3.5 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {it.desc}
+                      </p>
                     </div>
+                  </div>
+
+                  {/* Explore solutions CTA initially visible */}
+                  <div className="flex items-center gap-2 text-red-300 font-semibold text-xs sm:text-sm group-hover:text-red-200 transition-colors">
+                    Explore solutions <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </div>
                 </div>
               </Link>
             </Reveal>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════ OUR SELECTED CLIENTELE ═══════════════════ */
+
+const CLIENTELE_ROW_1 = [
+  { name: "Caterpillar", file: "Caterpillar Logo.jpg" },
+  { name: "Gainwell CAT", file: "Gainwell CAT.jpg" },
+  { name: "SEM (A Caterpillar Brand)", file: "SEM (A Caterpillar Brand).png" },
+  { name: "Trimble", file: "Trimble Logo.png" },
+  { name: "SITECH", file: "SITECH.jpg" },
+  { name: "TIL - Tractors India Limited", file: "TIL - Tractors India Limited.png" },
+  { name: "TMC", file: "TMC.png" },
+  { name: "PCM - Parasea Coal Mining", file: "PCM - Parasea Coal Mining.png" },
+  { name: "Resurgent Mining Solutions", file: "Resurgent Mining Solutions.png" },
+  { name: "Knowteq Equipcare", file: "Knowteq Equipcare Logo.jpg" },
+  { name: "Tulip Compression", file: "tulip compression logo.jpg" },
+  { name: "BMW Industries Limited", file: "BMWIL - BMW Industries Limited.png" },
+  { name: "Shyam Steel", file: "Shyam Steel.avif" },
+  { name: "Amit Metaliks", file: "amit alliance - Amit Metaliks.jpg" },
+];
+
+const CLIENTELE_ROW_2 = [
+  { name: "PCBL Chemical", file: "PCBL Chemical.png" },
+  { name: "M P Birla Group", file: "M P Birla Group.jpeg" },
+  { name: "Star Cement", file: "Star Cement.png" },
+  { name: "MAX Cement", file: "MAX Cement.png" },
+  { name: "Century Plyboards", file: "Century Plyboards - Century Ply.png" },
+  { name: "Skipper Pipes", file: "Skipper Pipes.png" },
+  { name: "Neoceram", file: "Neoceram.png" },
+  { name: "Ameya Technologies", file: "Ameya Technologies.png" },
+  { name: "mjunction", file: "mjuncion - Metal Junction.webp" },
+  { name: "Livpure", file: "Livpure.png" },
+  { name: "Linc", file: "Linc.png" },
+  { name: "MDH", file: "MDH spices - MDH.png" },
+  { name: "Viacom 18", file: "Viacom 18.jpg" },
+];
+
+function OurSelectedClientele() {
+  return (
+    <section id="clientele" className="relative overflow-hidden bg-background py-20 sm:py-28 border-b border-border/50">
+      <div className="absolute inset-0 grid-lines opacity-[0.03]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-3/4 max-w-5xl rounded-full bg-brand-red/5 blur-[130px] pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
+        {/* Left-aligned Heading and Paragraph */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6">
+          <div className="max-w-2xl text-left">
+            <Reveal>
+              <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">
+                Strategic Partnerships
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+                Our Selected <span className="text-gradient">Clientele</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-4 max-w-xl">
+                Trusted by global OEMs, heavy engineering conglomerates, infrastructure leaders, and forward-thinking enterprises across core industrial sectors.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal delay={0.3}>
+            <div className="inline-flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-full border border-border/70 bg-muted/30 backdrop-blur-md text-xs sm:text-sm text-muted-foreground font-medium shadow-sm self-start md:self-end">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              30+ Enterprise Deployments
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Continuous Horizontal Scrolling Tracks with Fade Masks */}
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)] py-2">
+          {/* Row 1 - Smoothly scrolls to the left */}
+          <div className="animate-marquee-left gap-4 sm:gap-5 mb-4 sm:mb-5">
+            {[...CLIENTELE_ROW_1, ...CLIENTELE_ROW_1].map((client, idx) => (
+              <div
+                key={`${client.name}-r1-${idx}`}
+                className="group shrink-0 relative flex items-center justify-center p-3.5 sm:p-5 rounded-2xl border border-border/70 bg-white/95 dark:bg-white/[0.95] shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-36 sm:w-44 md:w-52 h-20 sm:h-24 md:h-28 text-center"
+              >
+                <img
+                  src={getAssetUrl(`/clientele/${client.file}`)}
+                  alt={client.name}
+                  title={client.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full max-h-12 sm:max-h-14 md:max-h-16 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2 - Smoothly scrolls to the right */}
+          <div className="animate-marquee-right gap-4 sm:gap-5">
+            {[...CLIENTELE_ROW_2, ...CLIENTELE_ROW_2].map((client, idx) => (
+              <div
+                key={`${client.name}-r2-${idx}`}
+                className="group shrink-0 relative flex items-center justify-center p-3.5 sm:p-5 rounded-2xl border border-border/70 bg-white/95 dark:bg-white/[0.95] shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-36 sm:w-44 md:w-52 h-20 sm:h-24 md:h-28 text-center"
+              >
+                <img
+                  src={getAssetUrl(`/clientele/${client.file}`)}
+                  alt={client.name}
+                  title={client.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full max-h-12 sm:max-h-14 md:max-h-16 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -612,11 +945,13 @@ function Home() {
       <Nav />
       <main>
         <Hero />
+        <KeyMetricsBar />
         <AboutTeaser />
         <WaveDivider from="dark" to="light" />
         <Services />
         <WaveDivider from="light" to="dark" />
         <Industries />
+        <OurSelectedClientele />
         <WhyChooseUs />
         <OurValuesSection />
         <WaveDivider from="dark" to="light" />
@@ -628,6 +963,7 @@ function Home() {
         <WaveDivider from="light" to="dark" />
         <Contact />
       </main>
+      <ScrollToTop />
     </div>
   );
 }

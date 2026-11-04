@@ -49,7 +49,7 @@ function BlogListingPage() {
       />
 
       {/* Main Section */}
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-16">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-12 sm:py-16">
         
         {/* Search & Filter Controls */}
         <Reveal>
@@ -93,9 +93,9 @@ function BlogListingPage() {
               <Link
                 to="/blog/$slug"
                 params={{ slug: featuredPost.slug }}
-                className="group grid lg:grid-cols-12 gap-8 items-center rounded-3xl border border-border bg-muted/20 p-6 md:p-8 hover:bg-muted/40 hover:border-brand/40 transition-all duration-300 shadow-glow overflow-hidden"
+                className="group grid lg:grid-cols-12 gap-8 items-center rounded-3xl border border-border bg-muted/20 p-5 sm:p-6 md:p-8 hover:bg-muted/40 hover:border-brand/40 transition-all duration-300 shadow-glow overflow-hidden"
               >
-                <div className="lg:col-span-7 relative h-72 lg:h-96 rounded-2xl overflow-hidden bg-muted">
+                <div className="lg:col-span-7 relative h-56 sm:h-72 lg:h-96 rounded-2xl overflow-hidden bg-muted">
                   <img
                     src={featuredPost.image}
                     alt={featuredPost.title}

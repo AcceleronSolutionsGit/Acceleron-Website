@@ -53,7 +53,7 @@ function GalleryPage() {
       />
 
       {/* Category Filter Tabs */}
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-16">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-12 sm:py-16">
         <Reveal>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
             <div>
@@ -133,13 +133,13 @@ function GalleryPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl p-4 md:p-8"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl p-2 sm:p-4 md:p-8"
             onClick={() => setLightboxIndex(null)}
           >
             {/* Close Button */}
             <button
               onClick={() => setLightboxIndex(null)}
-              className="absolute top-6 right-6 z-50 grid h-12 w-12 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+              className="absolute top-3 right-3 sm:top-6 sm:right-6 z-50 grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
               aria-label="Close modal"
             >
               <X className="h-6 w-6" />
@@ -151,7 +151,7 @@ function GalleryPage() {
                 e.stopPropagation();
                 handlePrev();
               }}
-              className="absolute left-4 md:left-8 z-50 grid h-12 w-12 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+              className="absolute left-2 sm:left-4 md:left-8 z-50 grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
               aria-label="Previous image"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -163,7 +163,7 @@ function GalleryPage() {
                 e.stopPropagation();
                 handleNext();
               }}
-              className="absolute right-4 md:right-8 z-50 grid h-12 w-12 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+              className="absolute right-2 sm:right-4 md:right-8 z-50 grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
               aria-label="Next image"
             >
               <ChevronRight className="h-6 w-6" />
@@ -181,7 +181,7 @@ function GalleryPage() {
                 style={{ imageOrientation: "from-image" }}
                 className="max-h-[70vh] w-auto max-w-full object-contain"
               />
-              <div className="w-full p-6 bg-muted/90 backdrop-blur-md text-foreground border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div className="w-full p-4 sm:p-6 bg-muted/90 backdrop-blur-md text-foreground border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4">
                 <div>
 
                   <h3 className="text-xl font-bold">{currentItem.title}</h3>

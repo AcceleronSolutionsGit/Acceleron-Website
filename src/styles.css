@@ -164,12 +164,12 @@
     color: var(--color-foreground);
   }
   
-  h1 { @apply text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight; }
-  h2 { @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight; }
-  h3 { @apply text-2xl md:text-3xl font-bold; }
-  h4 { @apply text-xl md:text-2xl font-semibold; }
-  h5 { @apply text-lg md:text-xl font-semibold; }
-  h6 { @apply text-base font-semibold; }
+  h1 { @apply text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight; }
+  h2 { @apply text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight; }
+  h3 { @apply text-lg sm:text-2xl md:text-3xl font-bold; }
+  h4 { @apply text-base sm:text-xl md:text-2xl font-semibold; }
+  h5 { @apply text-base sm:text-lg md:text-xl font-semibold; }
+  h6 { @apply text-sm sm:text-base font-semibold; }
 
   p {
     text-wrap: pretty;
@@ -197,7 +197,7 @@
     @apply bg-background text-foreground border border-border hover:bg-muted/50 hover:border-brand/30 hover:text-brand;
   }
   .btn-lg {
-    @apply px-8 py-4 text-base;
+    @apply px-5 sm:px-8 py-3 sm:py-4 text-sm sm:text-base;
   }
   .btn-md {
     @apply px-6 py-3 text-sm;
@@ -514,3 +514,32 @@
 
 .wave-bg-transparent { background-color: transparent; }
 .wave-fill-transparent { fill: transparent; }
+
+/* ───── Infinite Marquee Animations for Clientele ───── */
+
+@keyframes marquee-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 42s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 42s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}

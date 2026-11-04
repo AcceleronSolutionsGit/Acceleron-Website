@@ -121,7 +121,7 @@ function AdminJobs() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">Job Postings</h2>
           <p className="text-muted-foreground">
@@ -144,33 +144,33 @@ function AdminJobs() {
                 </DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="title" className="text-right">Title</Label>
-                  <Input id="title" required value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} className="col-span-3" placeholder="e.g. Senior Frontend Engineer" />
+                <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-1.5 sm:gap-4">
+                  <Label htmlFor="title" className="text-left sm:text-right">Title</Label>
+                  <Input id="title" required value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} className="sm:col-span-3" placeholder="e.g. Senior Frontend Engineer" />
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="department" className="text-right">Department</Label>
-                  <Input id="department" required value={formData.department} onChange={(e) => setFormData({ ...formData, department: e.target.value })} className="col-span-3" placeholder="e.g. Engineering" />
+                <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-1.5 sm:gap-4">
+                  <Label htmlFor="department" className="text-left sm:text-right">Department</Label>
+                  <Input id="department" required value={formData.department} onChange={(e) => setFormData({ ...formData, department: e.target.value })} className="sm:col-span-3" placeholder="e.g. Engineering" />
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="sub_department" className="text-right">Sub Dept (Optional)</Label>
-                  <Input id="sub_department" value={formData.sub_department} onChange={(e) => setFormData({ ...formData, sub_department: e.target.value })} className="col-span-3" placeholder="e.g. Frontend" />
+                <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-1.5 sm:gap-4">
+                  <Label htmlFor="sub_department" className="text-left sm:text-right">Sub Dept (Optional)</Label>
+                  <Input id="sub_department" value={formData.sub_department} onChange={(e) => setFormData({ ...formData, sub_department: e.target.value })} className="sm:col-span-3" placeholder="e.g. Frontend" />
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="location" className="text-right">Location</Label>
-                  <Input id="location" required value={formData.location} onChange={(e) => setFormData({ ...formData, location: e.target.value })} className="col-span-3" placeholder="e.g. Remote / New York" />
+                <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-1.5 sm:gap-4">
+                  <Label htmlFor="location" className="text-left sm:text-right">Location</Label>
+                  <Input id="location" required value={formData.location} onChange={(e) => setFormData({ ...formData, location: e.target.value })} className="sm:col-span-3" placeholder="e.g. Remote / New York" />
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="years_of_experience" className="text-right">Experience</Label>
-                  <Input id="years_of_experience" value={formData.years_of_experience} onChange={(e) => setFormData({ ...formData, years_of_experience: e.target.value })} className="col-span-3" placeholder="e.g. 3-5 Years" />
+                <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-1.5 sm:gap-4">
+                  <Label htmlFor="years_of_experience" className="text-left sm:text-right">Experience</Label>
+                  <Input id="years_of_experience" value={formData.years_of_experience} onChange={(e) => setFormData({ ...formData, years_of_experience: e.target.value })} className="sm:col-span-3" placeholder="e.g. 3-5 Years" />
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="apply_url" className="text-right">Darwinbox URL</Label>
-                  <Input id="apply_url" type="url" required value={formData.apply_url} onChange={(e) => setFormData({ ...formData, apply_url: e.target.value })} className="col-span-3" placeholder="https://acceleron.darwinbox.in/..." />
+                <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-1.5 sm:gap-4">
+                  <Label htmlFor="apply_url" className="text-left sm:text-right">Darwinbox URL</Label>
+                  <Input id="apply_url" type="url" required value={formData.apply_url} onChange={(e) => setFormData({ ...formData, apply_url: e.target.value })} className="sm:col-span-3" placeholder="https://acceleron.darwinbox.in/..." />
                 </div>
-                <div className="grid grid-cols-4 items-start gap-4">
-                  <Label htmlFor="description" className="text-right mt-2">Description</Label>
-                  <Textarea id="description" required value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} className="col-span-3 min-h-[100px]" placeholder="Brief description of the role..." />
+                <div className="grid grid-cols-1 sm:grid-cols-4 items-start gap-1.5 sm:gap-4">
+                  <Label htmlFor="description" className="text-left sm:text-right mt-0 sm:mt-2">Description</Label>
+                  <Textarea id="description" required value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} className="sm:col-span-3 min-h-[100px]" placeholder="Brief description of the role..." />
                 </div>
               </div>
               <DialogFooter>

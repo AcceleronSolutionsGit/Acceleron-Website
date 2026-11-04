@@ -67,10 +67,10 @@ function FileUploadInput({ name, defaultValue = '', label, accept = "image/*" }:
   return (
     <div className="space-y-2">
       <Label>{label}</Label>
-      <div className="flex gap-2 items-center">
+      <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
         <Input type="hidden" name={name} value={url} />
-        <Input type="url" value={url} onChange={e => setUrl(e.target.value)} placeholder="Enter URL or upload file" className="flex-1" />
-        <div className="relative">
+        <Input type="url" value={url} onChange={e => setUrl(e.target.value)} placeholder="Enter URL or upload file" className="flex-1 min-w-0" />
+        <div className="relative shrink-0">
           <Input type="file" accept={accept} onChange={handleUpload} className="absolute inset-0 opacity-0 cursor-pointer w-full z-10" disabled={uploading} />
           <Button type="button" variant="secondary" disabled={uploading}>
             {uploading ? '...' : <><UploadCloud className="w-4 h-4 mr-2" /> Upload</>}
@@ -315,7 +315,7 @@ function AdminContentManage() {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-gray-800 rounded-lg border p-6 shadow-sm">
+      <div className="bg-white dark:bg-gray-800 rounded-lg border p-4 sm:p-6 shadow-sm">
         
         {type === 'service' && (
           <form onSubmit={onServiceSubmit} className="space-y-6">

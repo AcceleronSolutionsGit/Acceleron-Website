@@ -65,11 +65,11 @@ function ProductsHub() {
       />
 
       {/* Products Grid */}
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PRODUCTS.map((prod, idx) => (
             <Reveal key={prod.name} delay={0.1 * idx}>
-              <Link to={prod.url as any} className="block group rounded-3xl border border-border/50 bg-background/50 p-8 hover:border-brand/30 transition-all hover:shadow-soft hover:-translate-y-1 backdrop-blur-xl h-full flex flex-col">
+              <Link to={prod.url as any} className="block group rounded-3xl border border-border/50 bg-background/50 p-6 sm:p-8 hover:border-brand/30 transition-all hover:shadow-soft hover:-translate-y-1 backdrop-blur-xl h-full flex flex-col">
                 <div className={`mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${prod.gradient} text-white shadow-glow transition-transform group-hover:scale-110`}>
                   <prod.icon className="h-8 w-8" />
                 </div>

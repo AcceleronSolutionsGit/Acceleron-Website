@@ -71,7 +71,7 @@ function ServicesHub() {
       />
 
       {/* Services Grid */}
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-8">
           {SERVICES.map((srv, idx) => {
             const IconComp = srv.icon;
@@ -79,7 +79,7 @@ function ServicesHub() {
               <Reveal key={srv.title} delay={0.08 * idx}>
                 <motion.div
                   whileHover={{ y: -4 }}
-                  className="rounded-3xl border border-border bg-card p-10 hover:border-brand/30 transition-all hover:shadow-soft group h-full flex flex-col justify-between"
+                  className="rounded-3xl border border-border bg-card p-6 sm:p-10 hover:border-brand/30 transition-all hover:shadow-soft group h-full flex flex-col justify-between"
                 >
                   <div>
                     <Link to={srv.url as any} className="block cursor-pointer">

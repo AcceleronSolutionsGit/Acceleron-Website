@@ -30,7 +30,7 @@ function TeamPage() {
         ctaHref="/careers"
       />
 
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
         <Reveal>
           <div className="text-center max-w-3xl mx-auto mb-20">
             <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-4">Leadership & Vision</div>

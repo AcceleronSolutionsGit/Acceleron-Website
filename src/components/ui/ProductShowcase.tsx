@@ -29,7 +29,7 @@ export function UIMockup({ title, accentColor = "#4c5a8a", children }: MockupPro
         </div>
       </div>
       {/* Content */}
-      <div className="p-6">{children}</div>
+      <div className="p-4 sm:p-6">{children}</div>
     </div>
   );
 }
