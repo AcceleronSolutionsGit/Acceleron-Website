@@ -37,14 +37,21 @@ export const PRODUCTS: ProductItem[] = [
   { name: "Tyre Health", desc: "Fleet Lifecycle Tracking", href: "/products/tyre-health", icon: Activity, gradient: "from-blue-500 to-indigo-600" },
 ];
 
+export const PRODUCT_HUBS = [
+  { name: "Industrial Solutions", desc: "QMS, WOMS, Logistics & Safety", href: "/products/industrial-solutions", icon: Factory },
+  { name: "CX Solutions", desc: "iFMS, Vanijya, Loyalty & Sales", href: "/products/cx-solutions", icon: ShoppingBag },
+  { name: "People Solutions", desc: "Workforce, Attendance & Appraisals", href: "/products/people-solutions", icon: Users },
+  { name: "Office Digitization", desc: "Approvals, Treasury, AI & EDMS", href: "/products/office-digitization", icon: Brain },
+];
+
 type IndustryNavItem = { name: string; desc: string; href: string; icon: any; gradient: string };
 
 export const INDUSTRIES_NAV: IndustryNavItem[] = [
   { name: "Mining", desc: "Pit-to-port ERP, fleet telemetry", href: "/industries/mining", icon: Pickaxe, gradient: "from-amber-600 to-orange-700" },
-  { name: "Discrete Manufacturing", desc: "Smart factory SAP RISE, QMS", href: "/industries/discrete-manufacturing", icon: Factory, gradient: "from-blue-600 to-cyan-700" },
+  { name: "Manufacturing", desc: "Smart factory SAP RISE, QMS", href: "/industries/discrete-manufacturing", icon: Factory, gradient: "from-blue-600 to-cyan-700" },
   { name: "Capital Goods", desc: "ETO project systems, service", href: "/industries/capital-goods", icon: Boxes, gradient: "from-violet-600 to-purple-700" },
   { name: "Transportation & Logistics", desc: "Tyre health, route PJP", href: "/industries/transportation-services-logistics", icon: Truck, gradient: "from-teal-600 to-emerald-700" },
-  { name: "Utilities", desc: "Grid IS-U, IT/OT zero-trust", href: "/industries/utilities", icon: Zap, gradient: "from-yellow-500 to-amber-600" },
+  { name: "Healthcare", desc: "Precision tech, compliance, traceability", href: "/industries/healthcare", icon: Activity, gradient: "from-rose-500 to-red-600" },
   { name: "Engineering & Construction", desc: "EC&O controls, contractor CWMS", href: "/industries/engineering-construction-operations", icon: Building2, gradient: "from-slate-600 to-zinc-800" },
 ];
 
@@ -209,31 +216,68 @@ function Nav() {
                       <div className="col-span-8 border-l border-border/60 pl-5">
                         {hoveredItem === "products" ? (
                           <>
-                            <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center justify-between mb-2">
                               <Link
                                 to="/products"
                                 onClick={() => setActiveDropdown(null)}
                                 className="text-xs font-bold uppercase tracking-widest text-brand-red hover:text-brand transition-colors flex items-center gap-1.5 group/header"
                               >
-                                <span>Products</span>
+                                <span>Solution Hubs</span>
                                 <ArrowRight className="h-3 w-3 opacity-70 transition-transform group-hover/header:translate-x-0.5" />
                               </Link>
+                              <Link
+                                to="/products"
+                                onClick={() => setActiveDropdown(null)}
+                                className="text-[11px] font-semibold text-muted-foreground hover:text-brand transition-colors flex items-center gap-1"
+                              >
+                                <span>All 20 Products</span>
+                                <ArrowRight className="h-3 w-3" />
+                              </Link>
                             </div>
-                            <div className="space-y-0.5">
-                              {PRODUCTS.map((p) => (
+
+                            {/* 4 Dedicated Category Landing Hubs */}
+                            <div className="grid grid-cols-2 gap-2 mb-3">
+                              {PRODUCT_HUBS.map((hub) => (
                                 <Link
-                                  key={p.name}
-                                  to={p.href as any}
+                                  key={hub.name}
+                                  to={hub.href as any}
                                   onClick={() => setActiveDropdown(null)}
-                                  className="group flex items-center justify-between rounded-lg px-3 py-2 transition-all hover:bg-muted/40 dark:hover:bg-muted/10"
+                                  className="group rounded-xl border border-border/80 bg-muted/20 hover:bg-brand/5 hover:border-brand/40 p-2.5 transition-all block"
                                 >
-                                  <div>
-                                    <div className="text-sm font-medium text-foreground group-hover:text-brand transition-colors">{p.name}</div>
-                                    <div className="text-xs text-muted-foreground">{p.desc}</div>
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <hub.icon className="h-3.5 w-3.5 text-brand" />
+                                    <span className="text-xs font-bold text-foreground group-hover:text-brand transition-colors">
+                                      {hub.name}
+                                    </span>
                                   </div>
-                                  <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand" />
+                                  <div className="text-[10px] text-muted-foreground line-clamp-1">
+                                    {hub.desc}
+                                  </div>
                                 </Link>
                               ))}
+                            </div>
+
+                            {/* Featured Applications */}
+                            <div className="pt-2 border-t border-border/60">
+                              <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
+                                Featured Applications
+                              </div>
+                              <div className="grid grid-cols-2 gap-1">
+                                {PRODUCTS.map((p) => (
+                                  <Link
+                                    key={p.name}
+                                    to={p.href as any}
+                                    onClick={() => setActiveDropdown(null)}
+                                    className="group flex items-center justify-between rounded-lg px-2 py-1 transition-all hover:bg-muted/40 dark:hover:bg-muted/10"
+                                  >
+                                    <div className="truncate pr-1">
+                                      <div className="text-xs font-medium text-foreground group-hover:text-brand transition-colors truncate">{p.name}</div>
+                                      <div className="text-[10px] text-muted-foreground truncate">{p.desc}</div>
+                                    </div>
+                                    <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand shrink-0" />
+                                  </Link>
+                                ))}
+                              </div>
                             </div>
                           </>
                         ) : (
@@ -392,14 +436,24 @@ function Nav() {
                                     onClick={() => setOpen(false)}
                                     className="text-xs font-bold text-brand-red mb-2 uppercase tracking-wider flex items-center justify-between hover:text-brand transition-colors"
                                   >
-                                    <span>Products</span>
+                                    <span>Products &amp; Solution Hubs</span>
                                     <ArrowRight className="h-3 w-3" />
                                   </Link>
-                                {PRODUCTS.map((p) => (
-                                  <Link key={p.name} to={p.href as any} onClick={() => setOpen(false)} className="block rounded-lg py-2 text-sm text-foreground/70 hover:text-brand transition-colors">
-                                    {p.name}
-                                  </Link>
-                                ))}
+                                <div className="space-y-1 mb-2">
+                                  {PRODUCT_HUBS.map((hub) => (
+                                    <Link key={hub.name} to={hub.href as any} onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-lg py-1.5 text-xs font-semibold text-foreground hover:text-brand transition-colors">
+                                      <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                                      {hub.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                                <div className="pt-2 border-t border-border/40 space-y-0.5">
+                                  {PRODUCTS.map((p) => (
+                                    <Link key={p.name} to={p.href as any} onClick={() => setOpen(false)} className="block rounded-lg py-1.5 text-xs text-foreground/70 hover:text-brand transition-colors">
+                                      {p.name}
+                                    </Link>
+                                  ))}
+                                </div>
                               </div>
                             </div>
                           </motion.div>

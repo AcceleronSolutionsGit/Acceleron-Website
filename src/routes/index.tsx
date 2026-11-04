@@ -6,7 +6,7 @@ import {
   Blocks, Rocket, Compass, Layers, Code2, Wrench, HeartPulse, ShoppingBag, Truck,
   GraduationCap, Landmark, Banknote, HardHat, Factory, Flame, MapPin, Mail, Phone,
   ChevronDown, ChevronLeft, ChevronRight, Calendar, Menu, X, Play, Zap, Globe, Users, Award, Briefcase, Database, Palette, Clock,
-  ArrowDown, Star, TrendingUp, Building2, Lightbulb, Target, Sun, Moon,
+  ArrowDown, Star, TrendingUp, Building2, Lightbulb, Target, Sun, Moon, Pickaxe, Activity,
 } from "lucide-react";
 
 import { LinkedInIcon, XTwitterIcon, GitHubIcon, InstagramIcon, SAPLogo, ZohoLogo, AWSLogo, MicrosoftLogo, DockerLogo, KubernetesLogo, PythonLogo, NodejsLogo, ReactLogo, NextjsLogo, OpenAILogo, SnowflakeLogo, FlutterLogo, PowerBILogo, DatabricksLogo } from '../components/ui/Icons';
@@ -581,12 +581,54 @@ function TechStack() {
 /* ═══════════════════ INDUSTRIES ═══════════════════ */
 
 const INDUSTRIES = [
-  { t: "Mining", desc: "Pit-to-port ERP systems, fleet telemetry, heavy asset predictive maintenance, and mine safety automation.", icon: Factory, img: "/mining-industry.jpg" },
-  { t: "Discrete Manufacturing", desc: "Smart factory automation, overall equipment effectiveness (OEE) tracking, shop-floor IoT, and Industry 4.0.", icon: Factory, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=600&auto=format&fit=crop" },
-  { t: "Capital Goods & Machinery", desc: "Engineer-to-Order (ETO) project systems, field service management, and heavy machinery warranty tracking.", icon: Boxes, img: "/capital_goods.jpg" },
-  { t: "Transportation & Logistics", desc: "End-to-end supply chain visibility, fleet route optimization, tyre health monitoring, and logistics automation.", icon: Truck, img: "/logistics-img.jpg" },
-  { t: "Utilities", desc: "Grid management integration, IS-U billing optimization, asset management, and OT cybersecurity.", icon: Zap, img: "/Utilities_Industry.jpg" },
-  { t: "Engineering & Construction", desc: "Large-scale project lifecycle management, contractor safety compliance, CWMS, and site workforce tracking.", icon: HardHat, img: "/construction-img.jpg" },
+  {
+    t: "Mining",
+    desc: "Pit-to-port ERP systems, fleet telemetry, heavy asset predictive maintenance, and mine safety automation.",
+    icon: Pickaxe,
+    img: "/Mining_Industry.jpeg",
+    href: "/industries/mining",
+    badge: "2 Case Studies",
+  },
+  {
+    t: "Manufacturing",
+    desc: "Smart factory automation, overall equipment effectiveness (OEE) tracking, shop-floor IoT, and discrete manufacturing ERP.",
+    icon: Factory,
+    img: "/Distcrete_Manufacturing_Industry.jpg",
+    href: "/industries/discrete-manufacturing",
+    badge: "3 Case Studies",
+  },
+  {
+    t: "Capital Goods",
+    desc: "Engineer-to-Order (ETO) project systems, field service management, workshop QMS, and heavy machinery warranty tracking.",
+    icon: Boxes,
+    img: "/Capital_Good_Industry.jpg",
+    href: "/industries/capital-goods",
+    badge: "3 Case Studies",
+  },
+  {
+    t: "Transportation & Logistics",
+    desc: "End-to-end supply chain visibility, fleet route optimization, tyre health monitoring, and automated warehouse management.",
+    icon: Truck,
+    img: "/Transportation_Industry.jpg",
+    href: "/industries/transportation-services-logistics",
+    badge: "2 Case Studies",
+  },
+  {
+    t: "Healthcare",
+    desc: "Precision technologies, material traceability, electronic batch records, and automated regulatory compliance.",
+    icon: Activity,
+    img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=75&w=600&auto=format&fit=crop",
+    href: "/industries/healthcare",
+    badge: "1 Case Study",
+  },
+  {
+    t: "Engineering & Construction",
+    desc: "Large-scale project lifecycle management, contractor safety compliance, CWMS, and site workforce tracking.",
+    icon: Building2,
+    img: "/Engineering_COnstruction_Industry.jpg",
+    href: "/industries/engineering-construction-operations",
+    badge: "2 Case Studies",
+  },
 ];
 
 function Industries() {
@@ -600,42 +642,57 @@ function Industries() {
         <div className="mt-4 sm:mt-6 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <Reveal delay={0.1}>
             <h2 className="max-w-3xl text-3xl sm:text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight">
-              Deep expertise across <span className="text-gradient">core industry sectors.</span>
+              Deep domain expertise across <span className="text-gradient">core industry sectors.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="max-w-md text-sm sm:text-base leading-relaxed text-muted-foreground">
-              Deep domain expertise across core enterprise sectors.
+              Proven digital core transformations and specialized operational platforms delivering concrete P&amp;L impact.
             </p>
           </Reveal>
         </div>
         <div className="mt-12 sm:mt-16 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {INDUSTRIES.map((it, i) => (
             <Reveal key={it.t} delay={i * 0.06}>
-              <Link to="/contact" className="group relative overflow-hidden rounded-3xl h-[300px] sm:h-[320px] block cursor-pointer border border-white/5 hover:border-white/10 shadow-soft transition-all duration-500">
-                <img src={it.img} alt={it.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/5 transition-opacity duration-500 group-hover:opacity-100 opacity-70" />
+              <Link
+                to={it.href as any}
+                className="group relative overflow-hidden rounded-3xl h-[320px] sm:h-[340px] block cursor-pointer border border-border/40 hover:border-brand/40 shadow-card hover:shadow-elevated transition-all duration-500"
+              >
+                <img
+                  src={it.img}
+                  alt={it.t}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/10 transition-opacity duration-500 group-hover:opacity-100 opacity-80" />
 
-                <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-end z-10">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="h-10 w-10 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-white/20 group-hover:shadow-[0_0_20px_-4px_rgba(255,255,255,0.25)] transition-all duration-300 shrink-0">
-                      <it.icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white">{it.t}</h3>
+                <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-between z-10">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-white border border-white/20">
+                      {it.badge}
+                    </span>
+                    <span className="h-8 w-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white/80 group-hover:bg-brand-red group-hover:text-white transition-all">
+                      <ArrowUpRight className="h-4 w-4" />
+                    </span>
                   </div>
 
-                  {/* Description appears on hover */}
-                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
-                    <div className="overflow-hidden">
-                      <p className="text-white/80 text-sm mb-3.5 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        {it.desc}
-                      </p>
+                  <div>
+                    <div className="flex items-center gap-3 mb-2.5">
+                      <div className="h-10 w-10 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-brand-red/80 group-hover:shadow-[0_0_20px_-4px_rgba(255,255,255,0.25)] transition-all duration-300 shrink-0">
+                        <it.icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white group-hover:text-red-200 transition-colors">
+                        {it.t}
+                      </h3>
                     </div>
-                  </div>
 
-                  {/* Explore solutions CTA initially visible */}
-                  <div className="flex items-center gap-2 text-red-300 font-semibold text-xs sm:text-sm group-hover:text-red-200 transition-colors">
-                    Explore solutions <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    <p className="text-white/80 text-xs sm:text-sm mb-3.5 leading-relaxed line-clamp-2">
+                      {it.desc}
+                    </p>
+
+                    <div className="flex items-center gap-2 text-red-300 font-semibold text-xs sm:text-sm group-hover:text-white transition-colors">
+                      <span>Explore Sector &amp; Case Studies</span>
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    </div>
                   </div>
                 </div>
               </Link>

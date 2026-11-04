@@ -35,6 +35,7 @@ import { Route as IndustriesIndexRouteImport } from './routes/industries/index'
 import { Route as IndustriesCapitalGoodsRouteImport } from './routes/industries/capital-goods'
 import { Route as IndustriesDiscreteManufacturingRouteImport } from './routes/industries/discrete-manufacturing'
 import { Route as IndustriesEngineeringConstructionOperationsRouteImport } from './routes/industries/engineering-construction-operations'
+import { Route as IndustriesHealthcareRouteImport } from './routes/industries/healthcare'
 import { Route as IndustriesMiningRouteImport } from './routes/industries/mining'
 import { Route as IndustriesTransportationServicesLogisticsRouteImport } from './routes/industries/transportation-services-logistics'
 import { Route as IndustriesUtilitiesRouteImport } from './routes/industries/utilities'
@@ -44,9 +45,13 @@ import { Route as ProductsAppraisalManagementRouteImport } from './routes/produc
 import { Route as ProductsApprovalManagementRouteImport } from './routes/products/approval-management'
 import { Route as ProductsAttendanceManagementRouteImport } from './routes/products/attendance-management'
 import { Route as ProductsCwmsRouteImport } from './routes/products/cwms'
+import { Route as ProductsCxSolutionsRouteImport } from './routes/products/cx-solutions'
 import { Route as ProductsEdmsRouteImport } from './routes/products/edms'
 import { Route as ProductsIfmsRouteImport } from './routes/products/ifms'
+import { Route as ProductsIndustrialSolutionsRouteImport } from './routes/products/industrial-solutions'
 import { Route as ProductsInplantLogisticsRouteImport } from './routes/products/inplant-logistics'
+import { Route as ProductsOfficeDigitizationRouteImport } from './routes/products/office-digitization'
+import { Route as ProductsPeopleSolutionsRouteImport } from './routes/products/people-solutions'
 import { Route as ProductsPjpRouteImport } from './routes/products/pjp'
 import { Route as ProductsQmsRouteImport } from './routes/products/qms'
 import { Route as ProductsSalesorbitRouteImport } from './routes/products/salesorbit'
@@ -201,6 +206,11 @@ const IndustriesEngineeringConstructionOperationsRoute =
     path: '/industries/engineering-construction-operations',
     getParentRoute: () => rootRouteImport,
   } as any)
+const IndustriesHealthcareRoute = IndustriesHealthcareRouteImport.update({
+  id: '/industries/healthcare',
+  path: '/industries/healthcare',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndustriesMiningRoute = IndustriesMiningRouteImport.update({
   id: '/industries/mining',
   path: '/industries/mining',
@@ -250,6 +260,11 @@ const ProductsCwmsRoute = ProductsCwmsRouteImport.update({
   path: '/products/cwms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsCxSolutionsRoute = ProductsCxSolutionsRouteImport.update({
+  id: '/products/cx-solutions',
+  path: '/products/cx-solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsEdmsRoute = ProductsEdmsRouteImport.update({
   id: '/products/edms',
   path: '/products/edms',
@@ -260,12 +275,29 @@ const ProductsIfmsRoute = ProductsIfmsRouteImport.update({
   path: '/products/ifms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsIndustrialSolutionsRoute =
+  ProductsIndustrialSolutionsRouteImport.update({
+    id: '/products/industrial-solutions',
+    path: '/products/industrial-solutions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProductsInplantLogisticsRoute =
   ProductsInplantLogisticsRouteImport.update({
     id: '/products/inplant-logistics',
     path: '/products/inplant-logistics',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProductsOfficeDigitizationRoute =
+  ProductsOfficeDigitizationRouteImport.update({
+    id: '/products/office-digitization',
+    path: '/products/office-digitization',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsPeopleSolutionsRoute = ProductsPeopleSolutionsRouteImport.update({
+  id: '/products/people-solutions',
+  path: '/products/people-solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsPjpRoute = ProductsPjpRouteImport.update({
   id: '/products/pjp',
   path: '/products/pjp',
@@ -401,6 +433,7 @@ export interface FileRoutesByFullPath {
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
   '/industries/engineering-construction-operations': typeof IndustriesEngineeringConstructionOperationsRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
   '/industries/mining': typeof IndustriesMiningRoute
   '/industries/transportation-services-logistics': typeof IndustriesTransportationServicesLogisticsRoute
   '/industries/utilities': typeof IndustriesUtilitiesRoute
@@ -409,9 +442,13 @@ export interface FileRoutesByFullPath {
   '/products/approval-management': typeof ProductsApprovalManagementRoute
   '/products/attendance-management': typeof ProductsAttendanceManagementRoute
   '/products/cwms': typeof ProductsCwmsRoute
+  '/products/cx-solutions': typeof ProductsCxSolutionsRoute
   '/products/edms': typeof ProductsEdmsRoute
   '/products/ifms': typeof ProductsIfmsRoute
+  '/products/industrial-solutions': typeof ProductsIndustrialSolutionsRoute
   '/products/inplant-logistics': typeof ProductsInplantLogisticsRoute
+  '/products/office-digitization': typeof ProductsOfficeDigitizationRoute
+  '/products/people-solutions': typeof ProductsPeopleSolutionsRoute
   '/products/pjp': typeof ProductsPjpRoute
   '/products/qms': typeof ProductsQmsRoute
   '/products/salesorbit': typeof ProductsSalesorbitRoute
@@ -461,6 +498,7 @@ export interface FileRoutesByTo {
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
   '/industries/engineering-construction-operations': typeof IndustriesEngineeringConstructionOperationsRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
   '/industries/mining': typeof IndustriesMiningRoute
   '/industries/transportation-services-logistics': typeof IndustriesTransportationServicesLogisticsRoute
   '/industries/utilities': typeof IndustriesUtilitiesRoute
@@ -469,9 +507,13 @@ export interface FileRoutesByTo {
   '/products/approval-management': typeof ProductsApprovalManagementRoute
   '/products/attendance-management': typeof ProductsAttendanceManagementRoute
   '/products/cwms': typeof ProductsCwmsRoute
+  '/products/cx-solutions': typeof ProductsCxSolutionsRoute
   '/products/edms': typeof ProductsEdmsRoute
   '/products/ifms': typeof ProductsIfmsRoute
+  '/products/industrial-solutions': typeof ProductsIndustrialSolutionsRoute
   '/products/inplant-logistics': typeof ProductsInplantLogisticsRoute
+  '/products/office-digitization': typeof ProductsOfficeDigitizationRoute
+  '/products/people-solutions': typeof ProductsPeopleSolutionsRoute
   '/products/pjp': typeof ProductsPjpRoute
   '/products/qms': typeof ProductsQmsRoute
   '/products/salesorbit': typeof ProductsSalesorbitRoute
@@ -523,6 +565,7 @@ export interface FileRoutesById {
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
   '/industries/engineering-construction-operations': typeof IndustriesEngineeringConstructionOperationsRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
   '/industries/mining': typeof IndustriesMiningRoute
   '/industries/transportation-services-logistics': typeof IndustriesTransportationServicesLogisticsRoute
   '/industries/utilities': typeof IndustriesUtilitiesRoute
@@ -531,9 +574,13 @@ export interface FileRoutesById {
   '/products/approval-management': typeof ProductsApprovalManagementRoute
   '/products/attendance-management': typeof ProductsAttendanceManagementRoute
   '/products/cwms': typeof ProductsCwmsRoute
+  '/products/cx-solutions': typeof ProductsCxSolutionsRoute
   '/products/edms': typeof ProductsEdmsRoute
   '/products/ifms': typeof ProductsIfmsRoute
+  '/products/industrial-solutions': typeof ProductsIndustrialSolutionsRoute
   '/products/inplant-logistics': typeof ProductsInplantLogisticsRoute
+  '/products/office-digitization': typeof ProductsOfficeDigitizationRoute
+  '/products/people-solutions': typeof ProductsPeopleSolutionsRoute
   '/products/pjp': typeof ProductsPjpRoute
   '/products/qms': typeof ProductsQmsRoute
   '/products/salesorbit': typeof ProductsSalesorbitRoute
@@ -586,6 +633,7 @@ export interface FileRouteTypes {
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
     | '/industries/engineering-construction-operations'
+    | '/industries/healthcare'
     | '/industries/mining'
     | '/industries/transportation-services-logistics'
     | '/industries/utilities'
@@ -594,9 +642,13 @@ export interface FileRouteTypes {
     | '/products/approval-management'
     | '/products/attendance-management'
     | '/products/cwms'
+    | '/products/cx-solutions'
     | '/products/edms'
     | '/products/ifms'
+    | '/products/industrial-solutions'
     | '/products/inplant-logistics'
+    | '/products/office-digitization'
+    | '/products/people-solutions'
     | '/products/pjp'
     | '/products/qms'
     | '/products/salesorbit'
@@ -646,6 +698,7 @@ export interface FileRouteTypes {
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
     | '/industries/engineering-construction-operations'
+    | '/industries/healthcare'
     | '/industries/mining'
     | '/industries/transportation-services-logistics'
     | '/industries/utilities'
@@ -654,9 +707,13 @@ export interface FileRouteTypes {
     | '/products/approval-management'
     | '/products/attendance-management'
     | '/products/cwms'
+    | '/products/cx-solutions'
     | '/products/edms'
     | '/products/ifms'
+    | '/products/industrial-solutions'
     | '/products/inplant-logistics'
+    | '/products/office-digitization'
+    | '/products/people-solutions'
     | '/products/pjp'
     | '/products/qms'
     | '/products/salesorbit'
@@ -707,6 +764,7 @@ export interface FileRouteTypes {
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
     | '/industries/engineering-construction-operations'
+    | '/industries/healthcare'
     | '/industries/mining'
     | '/industries/transportation-services-logistics'
     | '/industries/utilities'
@@ -715,9 +773,13 @@ export interface FileRouteTypes {
     | '/products/approval-management'
     | '/products/attendance-management'
     | '/products/cwms'
+    | '/products/cx-solutions'
     | '/products/edms'
     | '/products/ifms'
+    | '/products/industrial-solutions'
     | '/products/inplant-logistics'
+    | '/products/office-digitization'
+    | '/products/people-solutions'
     | '/products/pjp'
     | '/products/qms'
     | '/products/salesorbit'
@@ -764,6 +826,7 @@ export interface RootRouteChildren {
   IndustriesCapitalGoodsRoute: typeof IndustriesCapitalGoodsRoute
   IndustriesDiscreteManufacturingRoute: typeof IndustriesDiscreteManufacturingRoute
   IndustriesEngineeringConstructionOperationsRoute: typeof IndustriesEngineeringConstructionOperationsRoute
+  IndustriesHealthcareRoute: typeof IndustriesHealthcareRoute
   IndustriesMiningRoute: typeof IndustriesMiningRoute
   IndustriesTransportationServicesLogisticsRoute: typeof IndustriesTransportationServicesLogisticsRoute
   IndustriesUtilitiesRoute: typeof IndustriesUtilitiesRoute
@@ -772,9 +835,13 @@ export interface RootRouteChildren {
   ProductsApprovalManagementRoute: typeof ProductsApprovalManagementRoute
   ProductsAttendanceManagementRoute: typeof ProductsAttendanceManagementRoute
   ProductsCwmsRoute: typeof ProductsCwmsRoute
+  ProductsCxSolutionsRoute: typeof ProductsCxSolutionsRoute
   ProductsEdmsRoute: typeof ProductsEdmsRoute
   ProductsIfmsRoute: typeof ProductsIfmsRoute
+  ProductsIndustrialSolutionsRoute: typeof ProductsIndustrialSolutionsRoute
   ProductsInplantLogisticsRoute: typeof ProductsInplantLogisticsRoute
+  ProductsOfficeDigitizationRoute: typeof ProductsOfficeDigitizationRoute
+  ProductsPeopleSolutionsRoute: typeof ProductsPeopleSolutionsRoute
   ProductsPjpRoute: typeof ProductsPjpRoute
   ProductsQmsRoute: typeof ProductsQmsRoute
   ProductsSalesorbitRoute: typeof ProductsSalesorbitRoute
@@ -984,6 +1051,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesEngineeringConstructionOperationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries/healthcare': {
+      id: '/industries/healthcare'
+      path: '/industries/healthcare'
+      fullPath: '/industries/healthcare'
+      preLoaderRoute: typeof IndustriesHealthcareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/industries/mining': {
       id: '/industries/mining'
       path: '/industries/mining'
@@ -1047,6 +1121,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsCwmsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/cx-solutions': {
+      id: '/products/cx-solutions'
+      path: '/products/cx-solutions'
+      fullPath: '/products/cx-solutions'
+      preLoaderRoute: typeof ProductsCxSolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/edms': {
       id: '/products/edms'
       path: '/products/edms'
@@ -1061,11 +1142,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsIfmsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/industrial-solutions': {
+      id: '/products/industrial-solutions'
+      path: '/products/industrial-solutions'
+      fullPath: '/products/industrial-solutions'
+      preLoaderRoute: typeof ProductsIndustrialSolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/inplant-logistics': {
       id: '/products/inplant-logistics'
       path: '/products/inplant-logistics'
       fullPath: '/products/inplant-logistics'
       preLoaderRoute: typeof ProductsInplantLogisticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/office-digitization': {
+      id: '/products/office-digitization'
+      path: '/products/office-digitization'
+      fullPath: '/products/office-digitization'
+      preLoaderRoute: typeof ProductsOfficeDigitizationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/people-solutions': {
+      id: '/products/people-solutions'
+      path: '/products/people-solutions'
+      fullPath: '/products/people-solutions'
+      preLoaderRoute: typeof ProductsPeopleSolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products/pjp': {
@@ -1259,6 +1361,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesDiscreteManufacturingRoute: IndustriesDiscreteManufacturingRoute,
   IndustriesEngineeringConstructionOperationsRoute:
     IndustriesEngineeringConstructionOperationsRoute,
+  IndustriesHealthcareRoute: IndustriesHealthcareRoute,
   IndustriesMiningRoute: IndustriesMiningRoute,
   IndustriesTransportationServicesLogisticsRoute:
     IndustriesTransportationServicesLogisticsRoute,
@@ -1268,9 +1371,13 @@ const rootRouteChildren: RootRouteChildren = {
   ProductsApprovalManagementRoute: ProductsApprovalManagementRoute,
   ProductsAttendanceManagementRoute: ProductsAttendanceManagementRoute,
   ProductsCwmsRoute: ProductsCwmsRoute,
+  ProductsCxSolutionsRoute: ProductsCxSolutionsRoute,
   ProductsEdmsRoute: ProductsEdmsRoute,
   ProductsIfmsRoute: ProductsIfmsRoute,
+  ProductsIndustrialSolutionsRoute: ProductsIndustrialSolutionsRoute,
   ProductsInplantLogisticsRoute: ProductsInplantLogisticsRoute,
+  ProductsOfficeDigitizationRoute: ProductsOfficeDigitizationRoute,
+  ProductsPeopleSolutionsRoute: ProductsPeopleSolutionsRoute,
   ProductsPjpRoute: ProductsPjpRoute,
   ProductsQmsRoute: ProductsQmsRoute,
   ProductsSalesorbitRoute: ProductsSalesorbitRoute,
