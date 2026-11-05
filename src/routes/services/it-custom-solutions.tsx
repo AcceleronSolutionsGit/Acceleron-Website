@@ -1,71 +1,385 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Code2 } from "lucide-react";
+import {
+  ArrowUpRight,
+  Server,
+  Code2,
+  Sparkles,
+  ShieldCheck,
+  ShieldAlert,
+  SlidersHorizontal,
+  Cloud,
+  Cpu,
+  Mail,
+  Phone,
+  Check,
+  Layers,
+  ArrowRight,
+} from "lucide-react";
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { PageHero } from "../../components/ui/PageHero";
+import { ProcessFlow } from "../../components/ui/ProductShowcase";
 import { Link } from "@tanstack/react-router";
-import { getSubServicesByCategory } from "../../data/servicesData";
 import { getAssetUrl } from "../../lib/assets";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
 
 export const Route = createFileRoute("/services/it-custom-solutions")({
+  head: () => ({
+    meta: [
+      { title: "IT & Custom Solutions — Acceleron Solutions" },
+      {
+        name: "description",
+        content:
+          "From bespoke enterprise applications and applied AI to resilient IT infrastructure and zero-trust cybersecurity, Acceleron delivers solutions built for complex operational requirements.",
+      },
+    ],
+  }),
   component: ITCustomSolutionsPage,
 });
 
-const IT_BANNERS = [
-  "/CWMS_Banner.png",
-  "/IFSM_Banner.png",
-  "/AMMT_Banner.png",
+const CORE_PRACTICES = [
+  {
+    title: "IT Infrastructure Services",
+    slug: "it-infrastructure-services",
+    desc: "Robust, scalable, and secure IT infrastructure design and management.",
+    features: [
+      "Cloud Infrastructure Management (AWS, Azure & GCP)",
+      "Enterprise Email Management (M365, Workspace, Zimbra)",
+      "Network Setup, SD-WAN & Firewall Policies",
+      "Infrastructure AMC & 24/7 SLA-driven Maintenance",
+    ],
+    icon: Server,
+  },
+  {
+    title: "Custom Software Application Development",
+    slug: "custom-software-application-development",
+    desc: "Tailor-made software solutions designed to solve your unique business challenges.",
+    features: [
+      "Full-Stack Web Development (React, Angular, Node, Python, Java)",
+      "Enterprise Mobile Apps for field workforce enablement",
+      "End-to-End Custom Software Engineering & SaaS Deployment",
+      "Legacy Modernization into modular microservices architectures",
+    ],
+    icon: Code2,
+  },
+  {
+    title: "Custom AI Application Development",
+    slug: "custom-ai-application-development",
+    desc: "Intelligent AI-driven applications to automate processes and generate insights.",
+    features: [
+      "Autonomous AI Agent Swarms for complex task execution",
+      "Predictive Analytics Engines for maintenance & churn forecasting",
+      "Intelligent Document Processing (IDP) for invoices & contracts",
+      "Domain-Specific AI Copilots trained on private enterprise data",
+    ],
+    icon: Sparkles,
+  },
+  {
+    title: "Network Security Implementation",
+    slug: "network-security-implementation",
+    desc: "Robust cybersecurity architectures to protect your data and network perimeter.",
+    features: [
+      "Next-Generation Firewalls (Fortinet, Check Point, Sophos, Cisco)",
+      "Zero Trust Network Access (ZTNA) & Zscaler micro-segmentation",
+      "Endpoint Detection & Response (CrowdStrike, Sophos EDR/XDR)",
+      "Check Point Harmony Email Security, DLP & WAF",
+    ],
+    icon: ShieldCheck,
+  },
+  {
+    title: "Security Audits",
+    slug: "security-audits",
+    desc: "Comprehensive vulnerability assessments and penetration testing to identify risks.",
+    features: [
+      "Vulnerability Assessment & Penetration Testing (Black/Grey/White VAPT)",
+      "ISO 27001 & DPDP regulatory compliance gap analysis",
+      "Source Code Security Review (Static SAST & Dynamic DAST)",
+      "Phishing Simulations & employee cyber awareness training",
+    ],
+    icon: ShieldAlert,
+  },
+  {
+    title: "IT System Audits",
+    slug: "it-system-audits",
+    desc: "In-depth evaluations of your IT infrastructure for performance, efficiency, and alignment.",
+    features: [
+      "IT General Controls (ITGC) access, changes & audit trails",
+      "Infrastructure performance review for server load & storage health",
+      "Cloud FinOps reviews to eliminate idle compute & reduce costs",
+      "Disaster Recovery (DR/BCP) testing validating RTO/RPO objectives",
+    ],
+    icon: SlidersHorizontal,
+  },
+];
+
+const PARTNER_ECOSYSTEM = [
+  {
+    category: "Cloud & Infrastructure",
+    icon: Cloud,
+    partners: ["AWS", "Microsoft Azure", "Google Cloud Platform", "Zimbra"],
+  },
+  {
+    category: "Cybersecurity & Zero-Trust",
+    icon: ShieldCheck,
+    partners: ["Fortinet", "Zscaler", "Check Point", "CrowdStrike", "ManageEngine"],
+  },
+  {
+    category: "Hardware & OT Safety",
+    icon: Cpu,
+    partners: ["Honeywell", "CP Plus", "Matrix", "Alpha Tech"],
+  },
+];
+
+const CUSTOM_IP_PLATFORMS = [
+  {
+    name: "WOMS",
+    fullName: "Work Order Management System",
+    logo: "/woms.png",
+    desc: "Streamlined work order allocation, real-time task tracking, and ERP integration.",
+    stat: "Real-Time Task Tracking",
+    href: "/contact",
+  },
+  {
+    name: "QMS",
+    fullName: "Workshop Quality Management",
+    logo: "/qms.png",
+    desc: "AI-driven defect detection, smart KPI forecasting, and component tracking.",
+    stat: "AI Defect Detection",
+    href: "/products/qms",
+  },
+  {
+    name: "iFSM",
+    fullName: "Field Service Management",
+    logo: "/IFSM.png",
+    desc: "Digitized field operations reducing call assignment time from 60 mins to under 2 mins.",
+    stat: "60 mins → <2 mins Assignment",
+    href: "/contact",
+  },
+  {
+    name: "e-CAS",
+    fullName: "Compliance System",
+    logo: "/Acceleron_Short_Logo.png",
+    desc: "Automated compliance scheduling reducing administrative burden by 40%.",
+    stat: "-40% Administrative Burden",
+    href: "/contact",
+  },
+];
+
+const CLIENT_SHOWCASE = [
+  { name: "Caterpillar", logo: "/clientele/Caterpillar Logo.jpg" },
+  { name: "Exide", isText: true },
+  { name: "MP Birla Group", logo: "/clientele/M P Birla Group.jpeg" },
+  { name: "PCBL", logo: "/clientele/PCBL Chemical.png" },
+  { name: "Resurgent Mining Solutions", logo: "/clientele/Resurgent Mining Solutions.png" },
+  { name: "mJunction", logo: "/clientele/mjuncion - Metal Junction.webp" },
+  { name: "Shyam Steel", logo: "/clientele/Shyam Steel.avif" },
+  { name: "Skipper Pipes", logo: "/clientele/Skipper Pipes.png" },
+  { name: "Viacom18", logo: "/clientele/Viacom 18.jpg" },
+];
+
+const DELIVERY_PHASES = [
+  { step: "01", title: "Discover & Architect", desc: "In-depth analysis of workflows, constraints, and integration points." },
+  { step: "02", title: "Agile Build", desc: "Modular development with continuous integration and transparent demos." },
+  { step: "03", title: "Hardening & Audit", desc: "Rigorous VAPT testing, stress testing, and zero-trust verification." },
+  { step: "04", title: "Deploy & Manage", desc: "Seamless go-live with 24/7 SLA managed operations and NOC/SOC support." },
 ];
 
 function ITCustomSolutionsPage() {
-  const subServices = getSubServicesByCategory("it-custom-solutions");
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    if (IT_BANNERS.length <= 1) return;
-    const t = setInterval(() => setIndex((i) => (i + 1) % IT_BANNERS.length), 6000);
-    return () => clearInterval(t);
-  }, []);
-
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
+      {/* SECTION 1: HERO BANNER */}
       <PageHero
-        title="IT & Custom Solutions"
-        subtitle="From bespoke software to secure infrastructure, we deliver solutions tailored to your unique requirements."
+        title="IT & Custom Solutions Engineered for Enterprise Scale"
+        subtitle="From bespoke enterprise applications and applied AI to resilient IT infrastructure and zero-trust cybersecurity, Acceleron delivers solutions built for complex operational requirements."
         breadcrumbs={[
           { label: "Services", href: "/services" },
           { label: "IT & Custom Solutions" }
         ]}
         image="/capital_goods.jpg"
+        ctaText="Consult with Our Architects"
+        ctaHref="/contact"
+        secondaryCtaText="Explore Offerings"
+        secondaryCtaHref="#offerings"
         icon={
           <div className="h-20 w-auto bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-xl flex items-center justify-center">
-            <img src={getAssetUrl("/Acceleron_Short_Logo.png")} alt="Acceleron Solutions" className="h-12 w-auto object-contain drop-shadow-lg" />
+            <img
+              src={getAssetUrl("/Acceleron_Short_Logo.png")}
+              alt="Acceleron Solutions"
+              className="h-12 w-auto object-contain drop-shadow-lg"
+            />
           </div>
         }
       />
 
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
+      {/* SECTION 2: CORE PRACTICE CARDS (6 SERVICE TILES) */}
+      <section id="offerings" className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
         <Reveal>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Our IT & Custom Solutions</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">From bespoke software to secure infrastructure, we deliver solutions tailored to your unique requirements.</p>
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-3">
+              Core Practice Areas
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Core <span className="text-gradient">Practices</span>
+            </h2>
+            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+              Engineered capabilities covering mission-critical infrastructure, custom software engineering, applied machine learning, and cybersecurity.
+            </p>
           </div>
         </Reveal>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {subServices.map((s, i) => (
-            <Reveal key={s.slug} delay={i * 0.08}>
-              <Link to={`/services/${s.categorySlug}/${s.slug}` as any} className="block h-full group">
-                <div className="rounded-2xl border border-border bg-card p-8 h-full transition-all hover:border-brand/30 hover:shadow-soft flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-start justify-between gap-3 mb-4">
-                      <div className="flex items-start gap-3">
-                        <Code2 className="h-6 w-6 text-brand shrink-0 mt-0.5" />
-                        <h3 className="text-lg font-bold text-foreground group-hover:text-brand transition-colors">{s.title}</h3>
-                      </div>
-                      <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-brand group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {CORE_PRACTICES.map((p, i) => (
+            <Reveal key={p.slug} delay={i * 0.08} className="h-full">
+              <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-8 h-full transition-all duration-300 hover:border-brand/40 hover:shadow-elevated hover:-translate-y-1 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="h-12 w-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <p.icon className="h-6 w-6" />
                     </div>
-                    <p className="text-muted-foreground leading-relaxed text-sm">{s.desc}</p>
+                    <span className="text-xs font-mono font-bold text-muted-foreground/60 group-hover:text-brand transition-colors">
+                      0{i + 1}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-brand transition-colors">
+                    {p.title}
+                  </h3>
+
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    {p.desc}
+                  </p>
+
+                  <div className="space-y-2.5 pt-4 border-t border-border/50 mb-6">
+                    <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground/80 mb-2">
+                      Key Highlights
+                    </div>
+                    {p.features.map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/80">
+                        <Check className="h-4 w-4 text-brand shrink-0 mt-0.5" />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-border/50">
+                  <Link
+                    to={`/services/it-custom-solutions/${p.slug}` as any}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-brand hover:text-brand-red transition-colors group/link"
+                  >
+                    <span>Learn More</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 3: TECHNOLOGY & SECURITY PARTNER ECOSYSTEM */}
+      <section className="relative overflow-hidden bg-muted/20 py-14 sm:py-20 border-y border-border/50">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+          <Reveal>
+            <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-3">
+                Partner Ecosystem
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
+                Powered by <span className="text-gradient">World-Class Technology Leaders</span>
+              </h2>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+                We partner with industry leaders to deliver secure, resilient, and enterprise-grade infrastructure and cybersecurity.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+            {PARTNER_ECOSYSTEM.map((cat, idx) => (
+              <Reveal key={cat.category} delay={idx * 0.1} className="h-full">
+                <div className="rounded-3xl border border-border/70 bg-card p-6 sm:p-8 h-full shadow-soft hover:shadow-elevated hover:border-brand/30 transition-all flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3.5 mb-6">
+                      <div className="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+                        <cat.icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-lg font-bold text-foreground">
+                        {cat.category}
+                      </h3>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2.5">
+                      {cat.partners.map((partner) => (
+                        <div
+                          key={partner}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-muted/40 hover:bg-muted/70 border border-border/60 text-xs sm:text-sm font-semibold text-foreground transition-colors"
+                        >
+                          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                          {partner}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: CUSTOM ENTERPRISE SOLUTIONS & IP SHOWCASE */}
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
+        <Reveal>
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-3">
+              Proprietary IP & Platforms
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
+              Proven Custom Platforms <span className="text-gradient">Built by Acceleron</span>
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore pre-built enterprise frameworks and custom IP engineered for industrial operations.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {CUSTOM_IP_PLATFORMS.map((ip, i) => (
+            <Reveal key={ip.name} delay={i * 0.08} className="h-full">
+              <Link to={ip.href as any} className="block h-full group">
+                <div className="rounded-3xl border border-border/70 bg-card p-6 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="h-12 w-24 rounded-xl bg-white p-2 border border-border/40 shadow-sm flex items-center justify-center">
+                        <img
+                          src={getAssetUrl(ip.logo)}
+                          alt={ip.name}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                      <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-brand group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </div>
+
+                    <div className="mb-2">
+                      <div className="text-xs font-bold uppercase tracking-wider text-brand-red">
+                        {ip.name}
+                      </div>
+                      <h3 className="text-lg font-bold text-foreground group-hover:text-brand transition-colors">
+                        {ip.fullName}
+                      </h3>
+                    </div>
+
+                    <div className="inline-block px-2.5 py-1 rounded-md bg-brand/10 text-brand text-[11px] font-bold mb-3">
+                      {ip.stat}
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      {ip.desc}
+                    </p>
+                  </div>
+
+                  <div className="mt-5 pt-3.5 border-t border-border/50 text-xs font-bold text-brand group-hover:text-brand-red transition-colors">
+                    Explore Solution →
                   </div>
                 </div>
               </Link>
@@ -74,14 +388,112 @@ function ITCustomSolutionsPage() {
         </div>
       </section>
 
+      {/* SECTION 5: TRUSTED BY INDUSTRY LEADERS */}
+      <section className="relative overflow-hidden bg-muted/20 py-14 sm:py-20 border-y border-border/50">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+          <Reveal>
+            <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-3">
+                Proven Client Impact
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
+                Delivering Digital Excellence for <span className="text-gradient">Global Enterprises</span>
+              </h2>
+              <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+                Trusted by heavy industry leaders, multinational conglomerates, and fast-growing organizations.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
+            {CLIENT_SHOWCASE.map((client, idx) => (
+              <Reveal key={client.name} delay={idx * 0.05}>
+                <div className="group flex items-center justify-center p-4 sm:p-5 rounded-2xl border border-border/70 bg-white/95 dark:bg-card/90 backdrop-blur-md hover:border-brand/50 hover:shadow-glow hover:-translate-y-0.5 transition-all h-28 sm:h-32 text-center">
+                  {client.logo ? (
+                    <img
+                      src={getAssetUrl(client.logo)}
+                      alt={client.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="max-h-14 sm:max-h-16 max-w-[85%] object-contain filter transition-transform group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="text-base sm:text-lg font-black tracking-wider text-foreground group-hover:text-brand transition-colors">
+                      {client.name}
+                    </div>
+                  )}
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: HOW WE DELIVER */}
       <WaveDivider from="white" to="dark" />
 
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24 text-center">
+      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-20 sm:py-24">
         <Reveal>
-          <h2 className="text-3xl font-bold text-foreground mb-6">Build Your Custom Solution</h2>
-          <Link to="/contact" className="btn btn-primary btn-lg">
-            Consult with our Architects <ArrowUpRight className="h-5 w-5" />
-          </Link>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-3">
+              Delivery Methodology
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+              How We <span className="text-gradient">Deliver</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg">
+              Our proven engineering lifecycle guarantees zero operational disruption, enterprise-grade security, and transparent milestones.
+            </p>
+          </div>
+        </Reveal>
+        <ProcessFlow steps={DELIVERY_PHASES} />
+      </section>
+
+      <WaveDivider from="dark" to="white" />
+
+      {/* SECTION 7: BOTTOM CTA BANNER */}
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-16 sm:py-24 text-center">
+        <Reveal>
+          <div className="rounded-3xl border border-brand/40 bg-brand-gradient/10 p-8 sm:p-12 md:p-16 backdrop-blur-xl relative overflow-hidden shadow-glow max-w-5xl mx-auto">
+            <div className="relative z-10 space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red">
+                Next Steps
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+                Build Your Custom <span className="text-gradient">Enterprise Solution</span>
+              </h2>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                Schedule a consultation with our senior solution architects to evaluate your software, AI, or infrastructure roadmap.
+              </p>
+
+              <div className="pt-2">
+                <Link
+                  to="/contact"
+                  className="btn btn-primary btn-lg inline-flex items-center gap-2 shadow-lg shadow-brand-red/20"
+                >
+                  Consult with Our Architects <ArrowUpRight className="h-5 w-5" />
+                </Link>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-6 pt-4 text-xs sm:text-sm text-foreground/80 border-t border-border/50 max-w-md mx-auto">
+                <a
+                  href="mailto:enquiry@acceleronsolutions.io"
+                  className="inline-flex items-center gap-2 hover:text-brand transition-colors font-medium"
+                >
+                  <Mail className="h-4 w-4 text-brand" />
+                  <span>enquiry@acceleronsolutions.io</span>
+                </a>
+                <span className="text-border">|</span>
+                <a
+                  href="tel:+913335346222"
+                  className="inline-flex items-center gap-2 hover:text-brand transition-colors font-medium"
+                >
+                  <Phone className="h-4 w-4 text-brand" />
+                  <span>+91 33 3534 6222</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </Reveal>
       </section>
     </main>

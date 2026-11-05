@@ -1,25 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Pickaxe, Factory, Boxes, Truck, Zap, Building2 } from "lucide-react";
+import { ArrowRight, Pickaxe, Factory, Boxes, Truck, Zap, Building2, Activity } from "lucide-react";
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { PageHero } from "../../components/ui/PageHero";
 import { Link } from "@tanstack/react-router";
+import { getAssetUrl } from "../../lib/assets";
 import { INDUSTRIES_DATA } from "../../data/industriesData";
 
 export const Route = createFileRoute("/industries/")({
   head: () => ({
     meta: [
       { title: "Industries & Verticals — Acceleron Solutions" },
-      { name: "description", content: "Deep operational tech solutions across Mining, Discrete Manufacturing, Capital Goods, Logistics, Utilities, and Construction." },
+      { name: "description", content: "Deep operational tech solutions across Mining, Discrete Manufacturing, Capital Goods, Logistics, Healthcare, and Construction." },
     ],
   }),
   component: IndustriesHub,
 });
 
-const ICON_MAP = {
+const ICON_MAP: Record<string, any> = {
   mining: Pickaxe,
   "discrete-manufacturing": Factory,
   "capital-goods": Boxes,
   "transportation-services-logistics": Truck,
+  healthcare: Activity,
   utilities: Zap,
   "engineering-construction-operations": Building2,
 };
@@ -31,7 +33,7 @@ function IndustriesHub() {
     <main className="relative min-h-screen overflow-hidden bg-background">
       <PageHero
         title="We Build for Heavy Industry & Enterprise Operations"
-        subtitle="Our solutions are forged in the reality of mines, manufacturing plants, logistics hubs, and utility grids—where software reliability directly impacts production and safety."
+        subtitle="Our solutions are forged in the reality of mines, manufacturing plants, logistics hubs, and healthcare facilities—where software reliability directly impacts production and safety."
         breadcrumbs={[{ label: "Industries" }]}
         image="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=1200&auto=format&fit=crop"
         ctaText="Discuss Your Industry Needs"
@@ -39,19 +41,19 @@ function IndustriesHub() {
       />
 
       {/* Industries Grid */}
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
         <Reveal>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">Sectors We Transform</div>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-              Industry Verticals & <span className="text-gradient">Domain Mastery</span>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground">
+              Industry Verticals &amp; <span className="text-gradient">Domain Mastery</span>
             </h2>
           </div>
         </Reveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {industriesList.map((ind, idx) => {
-            const IconComp = ICON_MAP[ind.slug as keyof typeof ICON_MAP] || Factory;
+            const IconComp = ICON_MAP[ind.slug] || Factory;
             return (
               <Reveal key={ind.slug} delay={0.08 * idx}>
                 <Link
@@ -60,7 +62,7 @@ function IndustriesHub() {
                 >
                   <div className="relative h-52 w-full overflow-hidden bg-muted">
                     <img
-                      src={ind.image}
+                      src={getAssetUrl(ind.image)}
                       alt={ind.title}
                       loading="lazy"
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"

@@ -2,6 +2,10 @@ import { motion } from "motion/react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { OFFICIAL_HQ } from "../../constants/company";
+import { getAssetUrl } from "../../lib/assets";
+
+// Gainwell Group Logo constant
+export const GAINWELL_GROUP_LOGO = "/Gainwell_Group_SVG_logo file.svg";
 
 export function Footer() {
   return (
@@ -21,8 +25,8 @@ export function Footer() {
       </svg>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8 mb-16">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+          <div className="lg:col-span-4">
             <Link
               to="/"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -35,7 +39,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex md:justify-end">
+          <div className="lg:col-span-5 flex lg:justify-center">
             <div>
               <h4 className="font-semibold text-foreground mb-6 text-sm uppercase tracking-wider text-brand-red">Contact Us</h4>
               <ul className="space-y-4 text-xs text-muted-foreground leading-relaxed">
@@ -61,6 +65,26 @@ export function Footer() {
                   </a>
                 </li>
               </ul>
+            </div>
+          </div>
+
+          <div className="lg:col-span-3 flex lg:justify-end">
+            <div>
+              {/* Gainwell Group Logo on top */}
+              <div className="mb-4">
+                <img
+                  src={getAssetUrl(GAINWELL_GROUP_LOGO)}
+                  alt="Gainwell Group"
+                  className="h-12 md:h-14 w-auto object-contain rounded-md dark:brightness-0 dark:invert opacity-95 transition-all hover:scale-105 origin-left"
+                />
+              </div>
+              {/* Text below logo */}
+              <h4 className="font-semibold text-foreground mb-2 text-sm uppercase tracking-wider text-brand-red">
+                Part of The Gainwell Group
+              </h4>
+              <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">
+                Backed by an 80-year industrial legacy of engineering excellence, heavy equipment, and global enterprise leadership.
+              </p>
             </div>
           </div>
         </div>

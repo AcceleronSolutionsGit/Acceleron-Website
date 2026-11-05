@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ShieldCheck, Zap, Heart, Leaf, MapPin, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ShieldCheck, Zap, Heart, Leaf, MapPin, ArrowRight, ArrowUpRight , Globe} from "lucide-react";
 import { Reveal } from "../ui/Animations";
 import { useEffect, useState, lazy, Suspense } from "react";
 import { getAssetUrl } from "../../lib/assets";
@@ -10,9 +10,9 @@ const LeafletMap = lazy(() => import('./LeafletMap'));
 
 export function WhyChooseUs() {
   const reasons = [
-    { title: "Deep Domain Expertise", desc: "Proven deep domain expertise powering industrial & enterprise growth.", icon: ShieldCheck, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=600&auto=format&fit=crop" },
-    { title: "End-to-End Execution", desc: "From strategy to steady-state, we take full accountability.", icon: Zap, img: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=600&auto=format&fit=crop" },
-    { title: "Outcome Driven", desc: "We don't just ship code; we deliver measurable P&L impact.", icon: ArrowUpRight, img: "/outcome_driven.jpg" },
+    { title: "Deep Domain Expertise", desc: "Backed by Gainwell Group's industrial heritage, we speak the real operational language of mining, manufacturing, and heavy engineering.", icon: ShieldCheck, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=600&auto=format&fit=crop" },
+    { title: "End-to-End Execution", desc: "From board-level digital strategy through custom development to 24×7 steady-state managed operations, we take single-point accountability. ", icon: Zap, img: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=600&auto=format&fit=crop" },
+    { title: "Measurable P&L Impact", desc: "We don't just ship software code; we focus strictly on business outcomes—reducing downtime, improving safety, and optimizing operational costs.", icon: ArrowUpRight, img: "/outcome_driven.jpg" },
   ];
   return (
     <section className="relative overflow-hidden bg-background py-20 sm:py-28 md:py-32">
@@ -30,36 +30,51 @@ export function WhyChooseUs() {
         <div className="mt-12 sm:mt-16 grid md:grid-cols-3 gap-6 sm:gap-8">
           {reasons.map((r, i) => (
             <Reveal key={r.title} delay={i * 0.1}>
-              <Link to="/contact" className="group relative overflow-hidden rounded-3xl h-[300px] sm:h-[340px] block cursor-pointer shadow-soft border border-white/5 hover:border-white/10 transition-all duration-500">
+              <div className="group relative overflow-hidden rounded-3xl min-h-[320px] sm:min-h-[360px] h-full flex flex-col justify-end p-6 sm:p-8 shadow-soft border border-white/10 hover:border-brand-red/40 hover:shadow-glow transition-all duration-500">
                 {/* Base Image */}
-                <img src={r.img} alt={r.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <img
+                  src={r.img}
+                  alt={r.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
 
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/5 transition-opacity duration-500 group-hover:opacity-100 opacity-75" />
+                {/* Dark Overlay for optimal readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20" />
 
-                {/* Content Container */}
-                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-10">
-                  <div className="flex items-center gap-3 mb-4 transform transition-transform duration-300 group-hover:-translate-y-2">
+                {/* Content Container - Heading & Sub-text constantly visible */}
+                <div className="relative z-10 space-y-3">
+                  <div className="flex items-center gap-3">
                     <div className="h-10 sm:h-12 w-10 sm:w-12 bg-brand-gradient/80 backdrop-blur-xl rounded-xl flex items-center justify-center text-white shadow-glow shrink-0 group-hover:shadow-[0_0_30px_-6px_rgba(222,30,36,0.4)] transition-all duration-300">
                       <r.icon className="h-5 sm:h-6 w-5 sm:w-6" />
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight">{r.title}</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight">
+                      {r.title}
+                    </h3>
                   </div>
 
-                  {/* Hover Content */}
-                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
-                    <div className="overflow-hidden">
-                      <p className="text-white/80 text-sm mb-4 sm:mb-6 leading-relaxed">{r.desc}</p>
-                      <div className="flex items-center gap-2 text-red-300 font-semibold text-sm transition-all duration-300 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
-                        Partner with us <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-white/85 text-xs sm:text-sm leading-relaxed pt-1">
+                    {r.desc}
+                  </p>
                 </div>
-              </Link>
+              </div>
             </Reveal>
           ))}
         </div>
+
+        {/* Separate CTA button below the cards */}
+        <Reveal delay={0.3}>
+          <div className="mt-12 sm:mt-16 text-center">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-gradient px-8 sm:px-10 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-glow hover:shadow-red-glow hover:scale-105 transition-all duration-300"
+            >
+              Partner with us
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -73,7 +88,7 @@ export function CSRSection() {
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 items-center">
           <div>
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">CSR & Sustainability</div>
+              <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Acceleron Cares: CSR</div>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight text-foreground">
@@ -82,19 +97,50 @@ export function CSRSection() {
             </Reveal>
             <Reveal delay={0.2}>
               <p className="mt-4 sm:mt-6 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                We believe technology should serve humanity. Through Acceleron Cares, we invest in environmental sustainability, digital literacy, and community well-being, ensuring our growth creates a positive ripple effect worldwide.
+                We believe technology should serve humanity. Through the ‘Acceleron Cares’ initiative, we invest in environmental sustainability, digital literacy, and community well-being, ensuring our growth creates a positive ripple effect worldwide.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
-              <div className="mt-6 sm:mt-8 flex flex-wrap gap-4 sm:gap-6">
-                <div className="flex items-center gap-2">
-                  <Leaf className="h-5 w-5 text-brand" />
-                  <span className="text-sm font-semibold text-foreground">Green Future</span>
+              <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                <div className="flex items-start gap-3.5 p-4 rounded-2xl border border-border/60 bg-background/60 dark:bg-card/40 backdrop-blur-md shadow-soft hover:border-brand-red/30 transition-all">
+                  <div className="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <Leaf className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-foreground">
+                      Green Future
+                    </h4>
+                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                      Environmental stewardship &amp; carbon reduction
+                    </p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Heart className="h-5 w-5 text-brand" />
-                  <span className="text-sm font-semibold text-foreground">Community First</span>
+
+                <div className="flex items-start gap-3.5 p-4 rounded-2xl border border-border/60 bg-background/60 dark:bg-card/40 backdrop-blur-md shadow-soft hover:border-brand-red/30 transition-all">
+                  <div className="h-9 w-9 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <Heart className="h-5 w-5 text-brand-red" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-foreground">
+                      Community First
+                    </h4>
+                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                      Digital literacy &amp; workforce skill development
+                    </p>
+                  </div>
                 </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.4}>
+              <div className="mt-6">
+                <Link
+                  to="/csr"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-brand-red hover:text-brand-red-dark transition-colors"
+                >
+                  Explore CSR Initiatives
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </div>
             </Reveal>
           </div>
@@ -117,34 +163,48 @@ export function CSRSection() {
 
 export interface LocationCardItem {
   city: string;
-  country: string;
+  country?: string;
   label: string;
   address: string;
-  lat: number;
-  lng: number;
-  directionsUrl: string;
+  lat?: number;
+  lng?: number;
+  zoomLevel?: number;
+  directionsUrl?: string;
   isHq?: boolean;
+  isInternational?: boolean;
 }
 
 export const LOCATION_CARDS: LocationCardItem[] = [
   {
-    city: "Kolkata",
+    city: "Kolkata Headquarters",
     country: "India",
-    label: "Global Headquarters & CoE",
+    label: "Global HQ & Center of Excellence (CoE)",
     address: "3rd Floor, STPI IT Park, Block-DP, Plot-5/1, Sector V, Salt Lake, Kolkata – 700091, West Bengal, India",
     lat: 22.574625,
     lng: 88.438630,
+    zoomLevel: 14,
     directionsUrl: "https://maps.app.goo.gl/PDjDU26TL5tt7HgD6",
     isHq: true,
   },
   {
-    city: "Delhi NCR",
+    city: "Delhi NCR Hub",
     country: "India",
-    label: "Enterprise Delivery Hub",
+    label: "Enterprise Delivery Center",
     address: "Gainwell Ecotech II, 1-C/1, Udyog Vihar, Greater Noida, Delhi NCR – 201306, Uttar Pradesh, India",
     lat: 28.4986,
     lng: 77.5348,
+    zoomLevel: 14,
     directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=28.4986,77.5348",
+  },
+  {
+    city: "International Footprint",
+    country: "Global Reach",
+    label: "Strategic Client Reach & Operations",
+    address: "Active enterprise engagements across USA (West Virginia), Australia (NSW), Singapore, and the Middle East",
+    lat: 20.0,
+    lng: 35.0,
+    zoomLevel: 2,
+    isInternational: true,
   },
 ];
 
@@ -189,7 +249,11 @@ export function GlobalPresence() {
                             : "bg-muted/10 text-brand"
                         }`}
                       >
+                        {loc.isInternational ? (
+                        <Globe className="h-5 w-5" />
+                      ) : (
                         <MapPin className="h-5 w-5" />
+                      )}
                       </div>
                       <div className="space-y-1.5 min-w-0">
                         <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
@@ -199,24 +263,26 @@ export function GlobalPresence() {
                               HQ
                             </span>
                           )}
-                          <span className="text-xs text-muted-foreground">• {loc.country}</span>
+                          {loc.country && <span className="text-xs text-muted-foreground">• {loc.country}</span>}
                         </div>
                         <p className="text-xs font-semibold text-brand-red">{loc.label}</p>
                         <p className="text-xs text-muted-foreground leading-relaxed pt-1 break-words">
                           {loc.address}
                         </p>
-                        <div className="pt-2">
-                          <a
-                            href={loc.directionsUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand hover:text-brand-red transition-colors"
-                          >
-                            <span>Get Directions</span>
-                            <ArrowRight className="h-3.5 w-3.5" />
-                          </a>
-                        </div>
+                        {loc.directionsUrl && (
+                          <div className="pt-2">
+                            <a
+                              href={loc.directionsUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand hover:text-brand-red transition-colors"
+                            >
+                              <span>Get Directions</span>
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </a>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <ArrowRight

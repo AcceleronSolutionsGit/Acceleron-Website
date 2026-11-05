@@ -34,7 +34,7 @@ function PartnersPage() {
         image={getAssetUrl("https://images.unsplash.com/photo-1557804506-669a67965ba0?q=75&w=1200&auto=format&fit=crop")}
       />
 
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-16 md:py-24">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-12 sm:py-16 md:py-24">
         <Reveal>
           <div className="text-center mb-16">
             <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Trusted By</div>
@@ -51,14 +51,14 @@ function PartnersPage() {
                 <AccordionItem 
                   key={idx} 
                   value={`item-${idx}`} 
-                  className="border border-border/50 bg-muted/10 rounded-xl px-6 data-[state=open]:bg-muted/20 transition-colors"
+                  className="border border-border/50 bg-muted/10 rounded-xl px-4 sm:px-6 data-[state=open]:bg-muted/20 transition-colors"
                 >
                   <AccordionTrigger className="text-lg md:text-xl font-semibold hover:no-underline py-6">
                     {item.name}
                   </AccordionTrigger>
                   <AccordionContent className="pb-6">
                     <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-                      <div className="w-48 shrink-0 flex items-center justify-center bg-white rounded-xl p-4 border border-border/50 shadow-sm">
+                      <div className="w-full sm:w-48 shrink-0 flex items-center justify-center bg-white rounded-xl p-4 border border-border/50 shadow-sm">
                         <img 
                           src={getAssetUrl(item.logo)} 
                           alt={item.name} 

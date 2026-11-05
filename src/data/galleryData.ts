@@ -1,211 +1,187 @@
+export type GalleryCategory =
+  | "Kolkata HQ (Salt Lake Sector V)"
+  | "Delhi NCR Office (Janpath)"
+  | "Team Culture & Events"
+  | "Technology Summits";
+
 export type GalleryItem = {
   id: string;
   src: string;
   alt: string;
-  category: "Conferences" | "Office" | "Culture & Team" | "CSR & Events";
+  category: GalleryCategory;
   title: string;
   caption?: string;
+  location?: string;
 };
 
 export const GALLERY_ITEMS: GalleryItem[] = [
+  // Kolkata HQ
   {
-    id: "1",
-    src: "/Arindam Hari Speaking.JPG",
-    alt: "Arindam Hari Speaking at Tech Event",
-    category: "Conferences",
-    title: "Keynote Presentation",
-    caption: "Arindam Hari sharing strategic insights at the Enterprise Leadership Summit."
+    id: "kol-1",
+    src: "/Office Entrace Photo.JPG",
+    alt: "Kolkata HQ Reception & Entrance",
+    category: "Kolkata HQ (Salt Lake Sector V)",
+    title: "Reception & Visitor Gallery",
+    caption: "State-of-the-art entrance welcoming global enterprise clients and technology partners.",
+    location: "3rd Floor, STPI IT Park, Sector V, Salt Lake, Kolkata"
   },
   {
-    id: "2",
+    id: "kol-2",
+    src: "/Inaguration Photo.JPG",
+    alt: "Grand Inauguration Ceremony at Kolkata HQ",
+    category: "Kolkata HQ (Salt Lake Sector V)",
+    title: "Inauguration Ceremony",
+    caption: "Executive ribbon cutting inaugurating Acceleron's advanced digital center of excellence.",
+    location: "STPI IT Park, Sector V, Salt Lake, Kolkata"
+  },
+  {
+    id: "kol-3",
+    src: "/Office Photo 1.JPG",
+    alt: "Collaborative Open Workstations in Kolkata",
+    category: "Kolkata HQ (Salt Lake Sector V)",
+    title: "Collaborative Engineering Bay",
+    caption: "High-throughput workstations designed for cross-functional scrum teams and cloud architects.",
+    location: "Kolkata Delivery Center"
+  },
+  {
+    id: "kol-4",
+    src: "/Office Photo 2.JPG",
+    alt: "Modern Meeting Suites & Innovation Pods",
+    category: "Kolkata HQ (Salt Lake Sector V)",
+    title: "Strategy & Innovation Pods",
+    caption: "Equipped with immersive hybrid conferencing and interactive architecture ideation screens.",
+    location: "Kolkata Delivery Center"
+  },
+
+  // Delhi NCR Office
+  {
+    id: "del-1",
+    src: "/Office Photo 1.JPG",
+    alt: "Delhi NCR Executive Hub at Janpath",
+    category: "Delhi NCR Office (Janpath)",
+    title: "Executive Advisory Suite",
+    caption: "Central Delhi office delivering strategic consultation for North India enterprise accounts.",
+    location: "801-802 Kailash Building, 26 KG Marg, Janpath, Central Delhi"
+  },
+  {
+    id: "del-2",
+    src: "/Office Photo 2.JPG",
+    alt: "Delhi NCR Client Briefing Center",
+    category: "Delhi NCR Office (Janpath)",
+    title: "Client Briefing Center",
+    caption: "Dedicated executive briefing room for SAP transformation discovery and roadmapping.",
+    location: "Kailash Building, Janpath, New Delhi"
+  },
+
+  // Technology Summits
+  {
+    id: "sum-1",
+    src: "/Arindam Hari Speaking.JPG",
+    alt: "Arindam Hari Keynote Address",
+    category: "Technology Summits",
+    title: "Enterprise Leadership Keynote",
+    caption: "Director & CEO Arindam Hari discussing SAP modernization and operational speed at the summit.",
+    location: "Enterprise Tech Leadership Summit"
+  },
+  {
+    id: "sum-2",
     src: "/Meena Chaturvedi Speaking.JPG",
     alt: "Meena Chaturvedi Keynote Speech",
-    category: "Conferences",
-    title: "Executive Keynote",
-    caption: "Meena Chaturvedi delivering an inspirational keynote address."
+    category: "Technology Summits",
+    title: "Executive Keynote Address",
+    caption: "Meena Chaturvedi delivering insights on customer lifecycle transformation and people-first culture.",
+    location: "Industry Leadership Forum"
   },
   {
-    id: "3",
+    id: "sum-3",
     src: "/Rishabh Nair Speaking.JPG",
-    alt: "Rishabh Nair Tech Session",
-    category: "Conferences",
-    title: "Tech Innovation Talk",
-    caption: "Rishabh Nair discussing next-gen cloud and SAP architectures."
+    alt: "Rishabh Nair AI Architecture Talk",
+    category: "Technology Summits",
+    title: "Applied AI & Cloud Session",
+    caption: "Director Rishabh P Nair sharing engineering breakthroughs in edge telematics and cognitive workflows.",
+    location: "Applied AI & Cloud Symposium"
   },
   {
-    id: "4",
+    id: "sum-4",
     src: "/Sunik Kumar Chaturvedi Speaking.JPG",
-    alt: "Sunil Kumar Chaturvedi Speaking",
-    category: "Conferences",
-    title: "Industry Vision Address",
-    caption: "Strategic roadmap session on industrial transformation."
+    alt: "Sunil Kumar Chaturvedi Industry Vision Talk",
+    category: "Technology Summits",
+    title: "Industrial Transformation Vision",
+    caption: "Chairman Sunil Kumar Chaturvedi outlining the convergence of industrial heritage with digital scale.",
+    location: "Global Industry Leaders Forum"
   },
   {
-    id: "5",
+    id: "sum-5",
     src: "/Excon pic 1.jpg",
     alt: "Acceleron Stall at EXCON Exhibition",
-    category: "Conferences",
-    title: "EXCON Expo 2024",
-    caption: "Showcasing Suraksha & Tyre Health platforms at EXCON."
+    category: "Technology Summits",
+    title: "EXCON 2024 Showcase",
+    caption: "Live demonstrations of Suraksha and Tyre Health Management IoT systems to global heavy industry delegates.",
+    location: "BIEC, Bengaluru"
   },
   {
-    id: "6",
+    id: "sum-6",
     src: "/Excon pic 2.jpg",
-    alt: "Team at EXCON Stall",
-    category: "Conferences",
-    title: "EXCON Engagement",
-    caption: "Engaging with heavy industry delegates and partners at EXCON."
+    alt: "Team EXCON Partner Interactions",
+    category: "Technology Summits",
+    title: "EXCON Partner Demonstrations",
+    caption: "Engaging delegates with live edge device telemetry and work order optimization workflows.",
+    location: "Stall OD 4A01, EXCON"
   },
+
+  // Team Culture & Events
   {
-    id: "7",
-    src: "/Excon pic 3.jpg",
-    alt: "EXCON Exhibition Showcase",
-    category: "Conferences",
-    title: "Live Product Demonstrations",
-    caption: "Demonstrating IoT and real-time fleet analytics to industrial leaders."
-  },
-  {
-    id: "8",
-    src: "/Excon pic 4.jpg",
-    alt: "Acceleron EXCON Booth",
-    category: "Conferences",
-    title: "EXCON Leadership Meet",
-    caption: "Interacting with enterprise partners and clients at Stall OD 4A01."
-  },
-  {
-    id: "9",
-    src: "/Excon pic 5 Stall No. OD 4A01.png",
-    alt: "Acceleron Solutions Stall Banner",
-    category: "Conferences",
-    title: "Stall OD 4A01",
-    caption: "Acceleron Solutions official booth layout at EXCON."
-  },
-  {
-    id: "10",
-    src: "/Inaguration Photo.JPG",
-    alt: "Office Ribbon Cutting Ceremony",
-    category: "Office",
-    title: "Office Inauguration",
-    caption: "Grand inauguration of the state-of-the-art tech center."
-  },
-  {
-    id: "11",
-    src: "/Office Entrace Photo.JPG",
-    alt: "Acceleron Office Reception & Entrance",
-    category: "Office",
-    title: "HQ Reception & Entrance",
-    caption: "Welcoming visitors to Acceleron Solutions Kolkata HQ."
-  },
-  {
-    id: "12",
-    src: "/Office View 1.JPG",
-    alt: "Modern Workspace View",
-    category: "Office",
-    title: "Development Hub",
-    caption: "High-energy open floor plan facilitating collaborative engineering."
-  },
-  {
-    id: "13",
-    src: "/Office View 2.JPG",
-    alt: "Collaborative Workstation Area",
-    category: "Office",
-    title: "Collaborative Zones",
-    caption: "Design and strategy spaces for product engineering."
-  },
-  {
-    id: "14",
-    src: "/Meena Mam & Arindam sir.JPG",
-    alt: "Leadership Moment",
-    category: "Culture & Team",
-    title: "Leadership Exchange",
-    caption: "Executive leaders sharing a moment at the annual team meet."
-  },
-  {
-    id: "15",
-    src: "/Rishab sir & Arindam sir.JPG",
-    alt: "Executive Partnership",
-    category: "Culture & Team",
-    title: "Strategic Alignment",
-    caption: "Discussing future technology roadmaps."
-  },
-  {
-    id: "16",
-    src: "/Conglomated pic.JPG",
-    alt: "Acceleron Team Gathering",
-    category: "Culture & Team",
-    title: "All-Hands Celebration",
-    caption: "Celebrating major delivery milestones together."
-  },
-  {
-    id: "17",
-    src: "/DSC03576.JPG",
-    alt: "Team Event Moments",
-    category: "Culture & Team",
-    title: "Annual Cultural Fest",
-    caption: "Team members coming together for cultural celebrations."
-  },
-  {
-    id: "18",
-    src: "/DSC03584.JPG",
-    alt: "Celebration Gathering",
-    category: "Culture & Team",
-    title: "Festive Gatherings",
-    caption: "Bringing energy and team spirit to life."
-  },
-  {
-    id: "19",
-    src: "/DSC03610.JPG",
-    alt: "Workshop & Seminar",
-    category: "CSR & Events",
-    title: "Tech Workshop Series",
-    caption: "Knowledge-sharing workshops across enterprise domains."
-  },
-  {
-    id: "20",
-    src: "/DSC03626.JPG",
-    alt: "CSR Drive & Community Outreach",
-    category: "CSR & Events",
-    title: "Community Outreach Drive",
-    caption: "Empowering local communities through CSR initiatives."
-  },
-  {
-    id: "21",
-    src: "/DSC03909.JPG",
-    alt: "Team Awards Night",
-    category: "Culture & Team",
-    title: "Excellence Awards",
-    caption: "Recognizing outstanding engineering and operational contributions."
-  },
-  {
-    id: "22",
-    src: "/DSC03936.JPG",
-    alt: "Special Event",
-    category: "CSR & Events",
-    title: "Partner Appreciation Day",
-    caption: "Honoring customer and vendor partnerships."
-  },
-  {
-    id: "23",
-    src: "/DSC07543.JPG",
-    alt: "Conference Hall",
-    category: "Conferences",
-    title: "Global Tech Summit",
-    caption: "Keynote sessions attended by global engineering leads."
-  },
-  {
-    id: "24",
-    src: "/IMG_20250620_083216430_HDR_AE.jpg",
-    alt: "CSR Environment Drive",
-    category: "CSR & Events",
-    title: "Green Future Initiative",
-    caption: "Tree plantation and sustainability drive organized by Acceleron Cares."
-  },
-  {
-    id: "25",
+    id: "cul-1",
     src: "/IMG_20250704_172405529_HDR_AE.jpg",
-    alt: "Team Building Outdoor Event",
-    category: "Culture & Team",
-    title: "Outdoor Retreat",
-    caption: "Annual team-building and wellness retreat."
+    alt: "Team Building Outdoor Wellness Retreat",
+    category: "Team Culture & Events",
+    title: "Annual Team Retreat & Wellness",
+    caption: "Outdoor retreat uniting team members for mindful rejuvenation, sports, and team bonding.",
+    location: "Acceleron Wellness Retreat"
+  },
+  {
+    id: "cul-2",
+    src: "/DSC03909.JPG",
+    alt: "Acceleron Excellence Awards Night",
+    category: "Team Culture & Events",
+    title: "Annual Excellence Awards Night",
+    caption: "Honoring outstanding engineering contributions, customer champion awards, and cultural values.",
+    location: "Grand Annual Gala"
+  },
+  {
+    id: "cul-3",
+    src: "/DSC03626.JPG",
+    alt: "Acceleron Cares Blood Donation & Community Drive",
+    category: "Team Culture & Events",
+    title: "Acceleron Cares Community Drive",
+    caption: "CIOs and Acceleron employees volunteering together for our landmark blood donation drive.",
+    location: "Kolkata HQ Community Camp"
+  },
+  {
+    id: "cul-4",
+    src: "/IMG_20250620_083216430_HDR_AE.jpg",
+    alt: "Roots of Responsibility Tree Plantation",
+    category: "Team Culture & Events",
+    title: "Roots of Responsibility Plantation",
+    caption: "Acceleron team members planting saplings to drive environmental consciousness and a greener future.",
+    location: "Environmental Stewardship Drive"
+  },
+  {
+    id: "cul-5",
+    src: "/DSC03610.JPG",
+    alt: "Interactive Engineering Workshop",
+    category: "Team Culture & Events",
+    title: "Tech Innovation Hack-Day",
+    caption: "Collaborative sprint sessions solving complex customer challenges through rapid prototyping.",
+    location: "Acceleron Innovation Lab"
+  },
+  {
+    id: "cul-6",
+    src: "/DSC03936.JPG",
+    alt: "Team Celebrations and Partner Appreciation",
+    category: "Team Culture & Events",
+    title: "Partner & Milestone Celebration",
+    caption: "Celebrating project milestones, customer go-lives, and festive traditions as one family.",
+    location: "Acceleron Social Hub"
   }
 ];

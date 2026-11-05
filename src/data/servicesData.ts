@@ -3,404 +3,936 @@ export interface SubServiceData {
   title: string;
   category: string;
   categorySlug: string;
+  badge?: string;
   desc: string;
   overview: string;
+  primaryCtaText?: string;
+  primaryCtaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  featuresTitle?: string;
   features: Array<{ title: string; desc: string }>;
+  deliveryScopeTitle?: string;
+  deliveryScope?: Array<{ title: string; desc: string }>;
+  benefitsTitle?: string;
   benefits: Array<{ title: string; metric?: string; desc: string }>;
+  processTitle?: string;
   process: Array<{ step: string; title: string; desc: string }>;
+  ctaBanner?: {
+    headline: string;
+    subheadline?: string;
+    actionText: string;
+    actionHref?: string;
+  };
   image: string;
   customImage?: string; // Slot for user custom image
   customLogo?: string; // Product software logo
 }
 
 export const SUB_SERVICES_DATA: SubServiceData[] = [
-  {
+    {
     slug: "sap-ams",
     title: "SAP AMS",
+    badge: "24/7 PROACTIVE ENTERPRISE GOVERNANCE",
     category: "SAP",
     categorySlug: "sap",
-    desc: "24/7 application management, monitoring, and optimization for your SAP environment.",
-    overview: "Ensure peak performance, continuous compliance, and high availability across your SAP applications with our L1-L3 AMS services. We handle routine maintenance, security patching, ABAP enhancements, and basis administration so your internal team can focus on innovation.",
+    desc: "Transitioning from reactive IT troubleshooting to SLA-backed continuous SAP system optimization.",
+    overview: "Acceleron delivers enterprise-grade SAP Managed Services tailored for high-volume, multi-location operations. Backed by Gainwell Group's 80+ years of industrial heritage, our certified SAP professionals maintain system stability, resolve ticket backlogs, and optimize SAP module performance (FI/CO, MM, SD, PP, PM, EWM) with guaranteed SLAs and zero business disruption.",
+    primaryCtaText: "Consult with Our AMS Lead",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "View SLA Commitments",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core SAP Managed Services & Support Capabilities",
     features: [
-      { title: "24/7 Basis & Application Support", desc: "Proactive system health monitoring and rapid incident remediation." },
-      { title: "ABAP Custom Development & Enhancements", desc: "Continuous improvement, custom reports, and Fiori app updates." },
-      { title: "Security Patching & Compliance Audit", desc: "Regular kernel updates, role checks, and vulnerability management." },
-      { title: "Dedicated Delivery Management", desc: "Monthly SLA reviews, capacity planning, and strategic IT recommendations." }
+      {
+        title: "24/7 L1-L4 Incident & Ticket Resolution",
+        desc: "Tool-based ITSM ticket governance covering functional issues, technical bugs, interface errors, and user access requests with strict resolution timelines."
+      },
+      {
+        title: "Proactive SAP System Hygiene & Monitoring",
+        desc: "Continuous monitoring of background jobs, database growth, Basis health checks, and memory utilization to prevent downtime before business impact occurs."
+      },
+      {
+        title: "Support Package Stacks (SPS) & Patching",
+        desc: "Routine implementation of SAP Notes, legal updates, GST patch releases, and system updates to keep your ERP secure and compliant."
+      },
+      {
+        title: "Root-Cause Remediation & Process Optimization",
+        desc: "Eliminating recurring module tickets across Finance, Supply Chain, Maintenance, and Sales through systematic root-cause analysis and workflow tuning."
+      }
     ],
+    benefitsTitle: "Business Value & Key Metrics Delivered",
     benefits: [
-      { title: "Resolution Time", metric: "-50%", desc: "Rapid mean-time-to-resolve (MTTR) with dedicated L2/L3 engineers." },
-      { title: "System Stability", metric: "99.95%", desc: "SLA-backed application uptime and proactive alerts." },
-      { title: "Support Costs", metric: "-40%", desc: "Predictable monthly operational cost vs maintaining full in-house staff." },
-      { title: "Compliance", metric: "100%", desc: "Continuous alignment with audit and security requirements." }
+      {
+        title: "Core ERP System Uptime",
+        metric: "99.99%",
+        desc: "Guaranteeing that plant operations, sales dispatch, and financial settlements operate without interruption."
+      },
+      {
+        title: "Reduction in TCO",
+        metric: "Up to 35%",
+        desc: "Flexible onshore and nearshore delivery models that lower maintenance overhead while elevating service responsiveness."
+      },
+      {
+        title: "Delivery Governance",
+        metric: "Pre-packaged",
+        desc: "Standardized SLAs, transparent ticketing metrics, and monthly executive health dashboards for CIOs and IT directors."
+      },
+      {
+        title: "Module Coverage",
+        metric: "FI/CO to EWM",
+        desc: "Cross-functional support spanning production planning, logistics, materials, and financial accounting."
+      }
     ],
     process: [
-      { step: "01", title: "Transition & Shadowing", desc: "Knowledge transfer and documentation of custom ABAP objects and SOPs." },
-      { step: "02", title: "SLA Activation", desc: "Go-live of ticketing portal and 24/7 monitoring tools." },
-      { step: "03", title: "Steady-State Support", desc: "Daily ticket handling, weekly maintenance, and patch deployments." },
-      { step: "04", title: "Continuous Improvement", desc: "Quarterly reviews identifying automation and performance optimization areas." }
+      { step: "01", title: "Transition & Shadowing", desc: "Knowledge transfer and documentation of custom ABAP objects, interfaces, and standard operating procedures." },
+      { step: "02", title: "SLA Activation & Governance", desc: "Tool-based ITSM portal go-live, monitoring rule definition, and multi-tier escalation setup." },
+      { step: "03", title: "Steady-State Support & Patching", desc: "Daily ticket resolution, weekly maintenance, support package stack (SPS) releases, and legal patches." },
+      { step: "04", title: "Continuous Optimization", desc: "Systematic root-cause remediation, recurring bug elimination, and monthly executive dashboard reviews." }
     ],
+    ctaBanner: {
+      headline: "Ready to Elevate Your SAP Support Governance?",
+      subheadline: "Schedule a complimentary SAP AMS health audit with our senior Basis and functional leads today.",
+      actionText: "Consult with Our AMS Lead",
+      actionHref: "/contact"
+    },
     image: "/SAP_AMS_Banner.png"
   },
   {
     slug: "sap-s-4hana-implementation",
-    title: "SAP S/4HANA implementation",
+    title: "SAP S/4HANA Implementation",
+    badge: "NEXT-GENERATION ENTERPRISE ERP",
     category: "SAP",
     categorySlug: "sap",
-    desc: "Greenfield and brownfield migrations to S/4HANA with minimal business disruption.",
-    overview: "Modernize your digital core by migrating from SAP ECC to S/4HANA. Whether opting for a clean-slate Greenfield implementation, a system conversion Brownfield approach, or a selective data transition Bluefield approach, we deliver high-speed memory processing and real-time ERP capabilities.",
+    desc: "Modernize core enterprise operations with minimal business disruption and maximum operational impact.",
+    overview: "Acceleron transitions industrial and commercial enterprises to SAP S/4HANA using domain-aware process design and proprietary migration accelerators. As your trusted SAP technology consultant, we bridge legacy operational realities with real-time financial visibility, intelligent procurement, and integrated supply chain management.",
+    primaryCtaText: "Explore S/4HANA Roadmaps",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Download AccelSuite Framework",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Proprietary Delivery Accelerators: AccelSuite",
     features: [
-      { title: "ECC Conversion Readiness Audit", desc: "Custom code simplification checks and data volume management analysis." },
-      { title: "SAP Fiori UX Overhaul", desc: "Role-based, responsive web applications replacing legacy GUI screens." },
-      { title: "Universal Journal & Finance Core", desc: "Single source of truth for financial accounting and management accounting." },
-      { title: "Selective Data Transition (Bluefield)", desc: "Migrating only historical data that matters while cleaning up master records." }
+      {
+        title: "60+ Best-Practice Process Flow Diagrams",
+        desc: "Pre-engineered flowcharts, FDS, and test scripts built specifically for heavy manufacturing, mining, and capital goods industries."
+      },
+      {
+        title: "50+ Key Decision Design (KDD) Split Documents",
+        desc: "Standardized architectural design blueprints that accelerate blueprinting across Finance, Procurement, Sales, and Plant Maintenance."
+      },
+      {
+        title: "100+ Customizing Worksheets & 200+ User Requirements",
+        desc: "Pre-mapped requirement templates ensuring audit-ready blueprint validation from day one."
+      },
+      {
+        title: "LLM-Powered AI Swarm Agents",
+        desc: "AI Swarm architecture (Discover, Developer, and Decision Agents) that analyzes legacy custom code (RICEFW) to execute S/4HANA migration up to 30% faster."
+      }
     ],
+    deliveryScopeTitle: "Flexible Migration Methodologies",
+    deliveryScope: [
+      {
+        title: "Greenfield Implementation",
+        desc: "Complete process re-engineering on S/4HANA standard best practices for organizations seeking a clean slate."
+      },
+      {
+        title: "Brownfield System Conversion",
+        desc: "Rapid technical conversion preserving historical transactional data, custom ABAP code, and existing business logic."
+      },
+      {
+        title: "Bluefield Selective Data Transition",
+        desc: "Hybrid approach isolating core master data, company codes, and split entity structures for phased migration."
+      }
+    ],
+    benefitsTitle: "Business Value & Key Metrics Delivered",
     benefits: [
-      { title: "Database Footprint", metric: "-65%", desc: "Compression and simplification of data tables in SAP HANA memory." },
-      { title: "Report Execution", metric: "100x", desc: "Instant execution of complex financial and inventory reports." },
-      { title: "User Satisfaction", metric: "+80%", desc: "Intuitive mobile-friendly Fiori interface across all departments." },
-      { title: "Process Automation", metric: "40%", desc: "Embedded machine learning workflows reducing manual entries." }
+      { title: "Faster Migration", metric: "Up to 30%", desc: "Accelerated delivery using LLM-powered AI Swarm agents and pre-engineered AccelSuite templates." },
+      { title: "Process Diagrams", metric: "60+", desc: "Pre-engineered best practice workflows for manufacturing, mining, and capital goods." },
+      { title: "KDD Blueprints", metric: "50+", desc: "Standardized Key Decision Design split documents across core modules." },
+      { title: "Data Simplification", metric: "Audit-Ready", desc: "Clean financial core and optimized master data structures with real-time analytics." }
     ],
     process: [
-      { step: "01", title: "Readiness Check & Sandbox", desc: "Running SAP transformation assessments and code scan audits." },
-      { step: "02", title: "Technical Conversion & Cleanup", desc: "Executing database migration and ABAP custom code remediation." },
-      { step: "03", title: "Functional Testing & UAT", desc: "Rigorous validation of end-to-end business scenarios and Fiori apps." },
-      { step: "04", title: "Go-Live & Hyper-care", desc: "Final data synchronization and intensive post-launch support." }
+      { step: "01", title: "Readiness Check & Sandbox", desc: "Assessment of custom code, data volume management, and sandbox technical conversion." },
+      { step: "02", title: "AccelSuite Blueprinting", desc: "Leveraging 60+ process flowcharts and 50+ KDD documents for rapid blueprint validation." },
+      { step: "03", title: "AI Swarm Code Remediation", desc: "Automated RICEFW modernization, Fiori UX configuration, and end-to-end integration testing." },
+      { step: "04", title: "Cutover & Hypercare", desc: "Near-zero downtime cutover execution, user training, and dedicated post-launch hypercare." }
     ],
+    ctaBanner: {
+      headline: "Plan Your Low-Risk SAP S/4HANA Transformation",
+      subheadline: "Talk to an Acceleron Lead SAP Architect today.",
+      actionText: "Explore S/4HANA Roadmaps",
+      actionHref: "/contact"
+    },
     image: "/SAP_Implementation_Banner.png",
     customLogo: "/sap_s4hana-transparentbg.png"
   },
   {
     slug: "sap-integration",
-    title: "SAP integration",
+    title: "SAP Integration",
+    badge: "ENTERPRISE ECOSYSTEM CONNECTIVITY",
     category: "SAP",
     categorySlug: "sap",
-    desc: "Seamless connectivity across your SAP and non-SAP systems, ensuring real-time data flow.",
-    overview: "Break down data silos with robust SAP integration strategies using SAP PI/PO, SAP Cloud Platform Integration (CPI), and APIs. We ensure that your SAP systems flawlessly communicate with legacy systems, third-party apps, and cloud platforms for unified business processes.",
+    desc: "Seamless cloud and hybrid integrations powered by SAP Business Technology Platform (BTP) and Cloud Platform Integration (CPI).",
+    overview: "Acceleron builds secure, high-throughput middleware connectors that integrate SAP S/4HANA with third-party software, cloud applications, and shop-floor hardware. We eliminate data silos by enabling real-time data flows between SAP order management system modules, Salesforce CRMs, Zoho enterprise suites, e-commerce gateways, and industrial telemetry.",
+    primaryCtaText: "Schedule an Integration Assessment",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Explore Integration Patterns",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "End-to-End Enterprise Integration Capabilities",
     features: [
-      { title: "SAP CPI & BTP", desc: "Cloud-native integration services for seamless B2B, B2C, and A2A connectivity." },
-      { title: "API Management", desc: "Securely publish, manage, and analyze APIs across your enterprise ecosystem." },
-      { title: "Legacy System Integration", desc: "Connect older on-premise systems with modern cloud ERP solutions." },
-      { title: "Real-time Event Messaging", desc: "Event-driven architecture ensuring instant data updates across all nodes." }
+      {
+        title: "Salesforce & Zoho CRM to SAP Integration",
+        desc: "Automating bi-directional Lead-to-Cash, Quote-to-Order, and customer master sync between CRM platforms and SAP SD/FI."
+      },
+      {
+        title: "Banking & E-Invoicing API Connectors",
+        desc: "Direct API integrations with corporate banking portals, payment gateways, GST e-invoicing networks, and MSME 3-way matching systems."
+      },
+      {
+        title: "Industrial IoT & Weighbridge Connectors",
+        desc: "Connecting plant machinery, automated weighbridges, fleet GPS sensors, and CCTV analytics directly to SAP Plant Maintenance (PM) and Materials Management (MM)."
+      },
+      {
+        title: "Custom REST/SOAP Microservices",
+        desc: "Building lightweight, scalable BTP microservices to connect custom web portals and mobile apps with SAP ECC or S/4HANA backends."
+      }
     ],
+    deliveryScopeTitle: "Integration Scope & Core Benefits",
+    deliveryScope: [
+      {
+        title: "Zero Manual Data Re-entry",
+        desc: "Eliminating human error in sales order creation, inventory adjustments, and vendor invoice logging."
+      },
+      {
+        title: "Real-Time Inventory Visibility",
+        desc: "Synchronizing SAP inventory management data across multi-site warehouses, distribution centers, and digital sales channels."
+      }
+    ],
+    benefitsTitle: "Integration Benefits & Value",
     benefits: [
-      { title: "Efficiency", metric: "+45%", desc: "Automated data workflows eliminate manual data entry and errors." },
-      { title: "Data Visibility", metric: "100%", desc: "A single, accurate view of data across the entire organization." },
-      { title: "Deployment Speed", metric: "2x", desc: "Faster time-to-market with pre-packaged integration content." },
-      { title: "Maintenance", metric: "-30%", desc: "Reduced IT overhead with centralized integration monitoring." }
+      { title: "Manual Data Entry", metric: "Zero", desc: "Automated real-time synchronization eliminating transcription errors." },
+      { title: "Inventory Visibility", metric: "Real-Time", desc: "Instant stock levels mapped across warehouses and dealer channels." },
+      { title: "API Throughput", metric: "High-Speed", desc: "Scalable BTP CPI microservices engineered for peak transactional volumes." },
+      { title: "Security Standards", metric: "Bank-Grade", desc: "Encrypted payload transmission and tokenized OAuth 2.0 API governance." }
     ],
     process: [
-      { step: "01", title: "Architecture Assessment", desc: "Evaluate existing systems and identify integration touchpoints." },
-      { step: "02", title: "Design & Mapping", desc: "Blueprint data mapping, logic, and select appropriate middleware." },
-      { step: "03", title: "Development & Testing", desc: "Build interfaces and perform rigorous end-to-end integration testing." },
-      { step: "04", title: "Deployment", desc: "Go-live with continuous monitoring and support." }
+      { step: "01", title: "Ecosystem Mapping", desc: "Cataloging all disparate endpoints, payload protocols, and security requirements." },
+      { step: "02", title: "Middleware Architecture", desc: "Configuring SAP BTP CPI flows, API gateways, and automated retry mechanisms." },
+      { step: "03", title: "Connector Development", desc: "Building bi-directional connectors for CRM, banking, IoT, and custom portals." },
+      { step: "04", title: "Validation & 24/7 Monitoring", desc: "End-to-end payload validation, load testing, and transition to managed integration queues." }
     ],
+    ctaBanner: {
+      headline: "Connect Your Disparate Enterprise Applications",
+      subheadline: "Speak with Acceleron Integration Specialists today.",
+      actionText: "Schedule an Integration Assessment",
+      actionHref: "/contact"
+    },
     image: "/SAP_Integration_Banner.png",
     customLogo: "/sap-cx-logo.jpg"
   },
   {
     slug: "rise-with-s-4hana-implementation",
-    title: "RISE with S/4HANA implementation",
+    title: "RISE with S/4HANA Implementation",
+    badge: "BUSINESS TRANSFORMATION AS A SERVICE",
     category: "SAP",
     categorySlug: "sap",
-    desc: "End-to-end business transformation as a service — infrastructure, platform, and applications.",
-    overview: "Accelerate your transition to the intelligent enterprise with RISE with SAP. We guide you through the complete bundle: SAP S/4HANA Cloud, Business Technology Platform (BTP), Business Network access, and business process intelligence—all under a single contract and SLA.",
+    desc: "One consolidated transformation package combining S/4HANA Cloud, infrastructure, and process intelligence.",
+    overview: "Acceleron guides global enterprises through a structured, low-risk journey to RISE with SAP. As an experienced SAP advisory consultant, we manage the entire lifecycle—from initial cloud readiness assessments and licensing optimization to business process re-engineering (Signavio) and post-go-live hypercare.",
+    primaryCtaText: "Request a RISE Readiness Assessment",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Book Executive Briefing",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Value Pillars of RISE with SAP",
     features: [
-      { title: "SAP S/4HANA Cloud Edition", desc: "Private or public cloud deployment with modern embedded AI workflows." },
-      { title: "Business Process Intelligence", desc: "Process mining and gap analysis via SAP Signavio integration." },
-      { title: "SAP BTP Cloud Credits", desc: "Platform tools for custom extensions, data integration, and automation." },
-      { title: "Single SLA Governance", desc: "Unified accountability for infrastructure, software, and technical support." }
+      {
+        title: "Single Accountability & SLA",
+        desc: "Unified cloud infrastructure, software maintenance, and system governance delivered under SAP's premier cloud model."
+      },
+      {
+        title: "Business Process Intelligence (Signavio)",
+        desc: "Analyzing existing SAP ECC process flows to identify operational bottlenecks and standardize workflows before cloud migration."
+      },
+      {
+        title: "Clean Core Architectural Strategy",
+        desc: "Keeping the core S/4HANA system standardized while building custom extensions and side-by-side apps on SAP BTP."
+      },
+      {
+        title: "Automated Code Remediation",
+        desc: "Scanning custom ABAP and RICEFW objects with automated tools to ensure smooth hyperscaler cutover."
+      }
     ],
+    deliveryScopeTitle: "Core Transformation Pillars",
+    deliveryScope: [
+      {
+        title: "Single Accountability & SLA",
+        desc: "Unified cloud infrastructure, software maintenance, and system governance delivered under SAP's premier cloud model."
+      },
+      {
+        title: "Business Process Intelligence (Signavio)",
+        desc: "Analyzing existing SAP ECC process flows to identify operational bottlenecks and standardize workflows before cloud migration."
+      },
+      {
+        title: "Clean Core Architectural Strategy",
+        desc: "Keeping the core S/4HANA system standardized while building custom extensions and side-by-side apps on SAP BTP."
+      }
+    ],
+    benefitsTitle: "Business Transformation Value",
     benefits: [
-      { title: "Time to Value", metric: "2x Faster", desc: "Rapid deployment utilizing standardized SAP best practices." },
-      { title: "IT Complexity", metric: "-45%", desc: "Consolidated contracts and unified cloud infrastructure management." },
-      { title: "Innovation Agility", metric: "Continuous", desc: "Automatic quarterly or bi-annual feature updates." },
-      { title: "Process Efficiency", metric: "+30%", desc: "Streamlined core operations across finance and supply chain." }
+      { title: "Accountability", metric: "Single SLA", desc: "Unified infrastructure, software maintenance, and system governance." },
+      { title: "Process Clarity", metric: "Signavio", desc: "Pre-migration process intelligence identifying shop-floor bottlenecks." },
+      { title: "Architectural Agility", metric: "Clean Core", desc: "Standard core with custom apps decoupled onto SAP BTP." },
+      { title: "Continuous Innovation", metric: "Bi-Annual", desc: "Regular feature upgrades with embedded AI and Joule agent deployments." }
     ],
     process: [
-      { step: "01", title: "Signavio Process Discovery", desc: "Benchmarking current operations and identifying optimization gains." },
-      { step: "02", title: "RISE Blueprinting", desc: "Tailoring SAP S/4HANA Cloud scope and BTP extension architecture." },
-      { step: "03", title: "Agile Implementation", desc: "Iterative sprints deploying core modules and custom BTP apps." },
-      { step: "04", title: "Operational Transition", desc: "Handover to SAP Cloud Operations and continuous SLA monitoring." }
+      { step: "01", title: "Readiness & TCO Discovery", desc: "Evaluating current customization levels, database footprint, and hyperscaler preferences (AWS/Azure/GCP)." },
+      { step: "02", title: "Process Redesign & Blueprinting", desc: "Mapping business processes to SAP Best Practices and eliminating technical debt." },
+      { step: "03", title: "Migration Execution & Cutover", desc: "Executing automated code remediation and database migration with near-zero downtime." },
+      { step: "04", title: "Continuous Innovation", desc: "Deploying SAP Analytics Cloud (SAC) and AI agents for continuous business value." }
     ],
+    ctaBanner: {
+      headline: "Transform Your Business Operating Model with RISE with SAP",
+      subheadline: "Contact Acceleron Advisory Leads today.",
+      actionText: "Request a RISE Readiness Assessment",
+      actionHref: "/contact"
+    },
     image: "/SAP_Implementation_Banner.png",
     customLogo: "/vital-wires-Rise-with-SAP-3.png"
   },
   {
     slug: "sap-migration-to-cloud",
     title: "SAP Migration to Cloud",
+    badge: "SECURE HYPERSCALER MIGRATION",
     category: "SAP",
     categorySlug: "sap",
-    desc: "Seamless lift-and-shift or re-architecture of on-premise SAP systems to cloud-native deployments.",
-    overview: "Transition your mission-critical SAP workloads to hyperscale public or private clouds (AWS, Azure, GCP) with zero operational disruption. Our proven migration factory approach combines automated testing, near-zero downtime cutovers, and comprehensive security hardening.",
+    desc: "Transitioning complex on-premise SAP ECC and S/4HANA workloads to high-availability public and hybrid cloud environments.",
+    overview: "Acceleron migrates enterprise-scale, multi-terabyte SAP environments from legacy on-premise datacenters to hyperscaler clouds (AWS, Azure, GCP). Our cloud architects enforce zero-trust security, build automated disaster recovery (DR) protocols, and optimize compute spend to deliver agility and enterprise security.",
+    primaryCtaText: "Evaluate Cloud Infrastructure",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Download Cloud ROI Guide",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Why Acceleron for SAP Cloud Migration?",
     features: [
-      { title: "Cloud Assessment & Strategy", desc: "TCO modeling, right-sizing analysis, and cloud landing zone architecture." },
-      { title: "Near-Zero Downtime Migration", desc: "Advanced data replication ensuring business continuity during cutover." },
-      { title: "Multi-Cloud & Hybrid Options", desc: "Deployments across hyperscalers optimized for performance and compliance." },
-      { title: "Post-Migration Optimization", desc: "Infrastructure fine-tuning, cost optimization, and high availability setup." }
+      {
+        title: "Proven Multi-Hyperscaler Expertise",
+        desc: "Deep architecture partnerships across AWS, Azure, and private cloud providers with certified engineers."
+      },
+      {
+        title: "Uncompromised Security & Compliance",
+        desc: "Ensuring ISO 27001, SOC 2, and regional data residency compliance across all cloud environments."
+      },
+      {
+        title: "Zero-Downtime Replication",
+        desc: "Advanced data replication ensuring business continuity during production database cutover."
+      },
+      {
+        title: "FinOps Compute Optimization",
+        desc: "Right-sizing HANA memory compute and storage tiers to drive maximum infrastructure cost efficiencies."
+      }
     ],
+    deliveryScopeTitle: "Key Value Pillars",
+    deliveryScope: [
+      {
+        title: "Proven Multi-Hyperscaler Expertise",
+        desc: "Deep architecture partnerships across AWS, Azure, and private cloud providers."
+      },
+      {
+        title: "Uncompromised Security & Compliance",
+        desc: "Ensuring ISO 27001, SOC 2, and regional data residency compliance across all cloud environments."
+      }
+    ],
+    benefitsTitle: "Delivered Cloud Performance",
     benefits: [
-      { title: "Infra Agility", metric: "+60%", desc: "Faster provisioning of SAP environments and sandbox clones." },
-      { title: "Operational Costs", metric: "-35%", desc: "Reduction in on-premise hardware maintenance and energy usage." },
-      { title: "System Uptime", metric: "99.99%", desc: "Enterprise SLA with automated disaster recovery." },
-      { title: "Cutover Speed", metric: "<4 Hours", desc: "Minimal weekend downtime during go-live switchover." }
+      { title: "System Availability", metric: "99.99%", desc: "High-availability multi-zone deployment with automated disaster recovery." },
+      { title: "TCO Savings", metric: "Up to 30%", desc: "Lower monthly compute spend through FinOps right-sizing and reserved instances." },
+      { title: "Cutover Window", metric: "Near-Zero", desc: "Parallel replication ensuring seamless weekend transition without business disruption." },
+      { title: "Provisioning Speed", metric: "10x Faster", desc: "Instant deployment of test sandboxes, training environments, and developer instances." }
     ],
     process: [
-      { step: "01", title: "Cloud Discovery", desc: "Sizing landscape, analyzing dependencies, and selecting hyperscaler." },
-      { step: "02", title: "Sandbox Migration", desc: "Executing pilot run to benchmark transfer speeds and validate configs." },
-      { step: "03", title: "Production Cutover", desc: "Final delta sync and DNS switchover during planned maintenance window." },
-      { step: "04", title: "Hyper-care & FinOps", desc: "Monitoring performance and right-sizing cloud instances post-launch." }
+      { step: "01", title: "Assessment & FinOps Blueprinting", desc: "Analyzing database size, HANA memory requirements, cloud architecture, and total cost of ownership (TCO) savings." },
+      { step: "02", title: "Landing Zone Architecture & Security", desc: "Configuring zero-trust virtual private clouds (VPCs), IAM roles, automated backup schedules, and active-active DR sites." },
+      { step: "03", title: "Near-Zero Downtime Cutover", desc: "Executing parallel data replication and cutover scripts to migrate production databases over weekends with zero business downtime." },
+      { step: "04", title: "Post-Migration FinOps Right-Sizing", desc: "Continuously monitoring cloud resource consumption to eliminate over-provisioning and optimize monthly infrastructure costs." }
     ],
+    ctaBanner: {
+      headline: "Ready to Transition Your SAP Landscape to the Cloud?",
+      subheadline: "Speak with Acceleron Cloud Architects today.",
+      actionText: "Evaluate Cloud Infrastructure",
+      actionHref: "/contact"
+    },
     image: "/SAP_Implementation_Banner.png"
   },
-  {
+    {
     slug: "sap-custom-development",
     title: "SAP Custom Development",
+    badge: "TAILORED ERP INNOVATION & ANALYTICS",
     category: "SAP",
     categorySlug: "sap",
-    desc: "Real-time analytics, planning, and business intelligence across your entire SAP landscape.",
-    overview: "Unlock augmented business intelligence and enterprise planning with SAP Analytics Cloud (SAC) and BW/4HANA. We transform fragmented transactional data into real-time executive dashboards, predictive financial models, and actionable operational insights.",
+    desc: "Extend SAP S/4HANA Capabilities with Fiori, SAC & AI — Transforming complex SAP transactional data into intuitive mobile workflows and executive decision dashboards.",
+    overview: "Acceleron builds enterprise-grade custom extensions on SAP Business Technology Platform (BTP) using the ABAP RESTful Application Programming (RAP) model and Cloud Application Programming (CAP) model. From intuitive, role-based SAP Fiori mobile apps to SAP Analytics Cloud (SAC) predictive dashboards, we modernize user experiences without touching the core ERP.",
+    primaryCtaText: "Explore Custom Capabilities",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Schedule Fiori & SAC Demo",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Custom Development & Analytics Capabilities",
     features: [
-      { title: "SAP Analytics Cloud (SAC)", desc: "Unified BI, enterprise planning, and augmented analytics in a single cloud engine." },
-      { title: "Predictive & AI Modeling", desc: "Automated anomaly detection, smart forecasting, and driver-based simulations." },
-      { title: "BW/4HANA & Datasphere", desc: "Modern data warehousing combining SAP and non-SAP data sources seamlessly." },
-      { title: "Executive Digital Boardroom", desc: "Real-time interactive dashboards tailored for C-suite strategic decisions." }
+      {
+        title: "SAP Fiori Mobile & Web Mobilization",
+        desc: "Designing responsive, role-based Fiori apps for shop-floor inventory checks, purchase approvals, plant maintenance orders, and field service management."
+      },
+      {
+        title: "SAP Analytics Cloud (SAC) Dashboards",
+        desc: "Building real-time executive dashboards combining financial forecasting, supply chain KPIs, plant utilization, and sales pipeline analytics."
+      },
+      {
+        title: "AI Swarm Code Modernization",
+        desc: "Refactoring legacy custom ABAP code (RICEFW) to S/4HANA-compliant Clean Core standards up to 30% faster using LLM AI Swarms."
+      },
+      {
+        title: "BTP Side-by-Side App Development",
+        desc: "Creating standalone web applications and custom logic on BTP that interface seamlessly with SAP backends."
+      }
     ],
+    deliveryScopeTitle: "Business Impact & Delivered Value",
+    deliveryScope: [
+      {
+        title: "Higher User Adoption",
+        desc: "Consumer-grade Fiori interfaces that eliminate user friction and training bottlenecks."
+      },
+      {
+        title: "Real-Time Decision Intelligence",
+        desc: "C-suite dashboards that deliver instant visibility into P&L performance, COGS, and working capital."
+      }
+    ],
+    benefitsTitle: "Business Impact & Metrics",
     benefits: [
-      { title: "Decision Speed", metric: "10x", desc: "Faster financial closing and rolling forecast cycles." },
-      { title: "Forecast Accuracy", metric: "+28%", desc: "Improved demand and revenue prediction precision." },
-      { title: "TCO Reduction", metric: "-30%", desc: "Consolidation of legacy reporting tools into one platform." },
-      { title: "Live Insights", metric: "Real-Time", desc: "Instant visibility into supply chain and financial KPIs." }
+      { title: "User Adoption", metric: "Consumer-Grade", desc: "Intuitive Fiori interfaces that eliminate training bottlenecks and accelerate daily operational approvals." },
+      { title: "Decision Intelligence", metric: "Real-Time", desc: "C-suite dashboards that deliver instant visibility into P&L performance, COGS, and working capital." },
+      { title: "Clean Core Code", metric: "BTP RAP/CAP", desc: "Decoupled side-by-side extensions ensuring zero modification to the underlying SAP ERP core." },
+      { title: "Refactoring Speed", metric: "Up to 30% Faster", desc: "LLM-powered AI Swarm agents accelerating custom code modernization to S/4HANA standards." }
     ],
     process: [
-      { step: "01", title: "Data Assessment", desc: "Evaluating existing BW models, tables, and reporting gaps." },
-      { step: "02", title: "Model Blueprinting", desc: "Designing star schemas, data models, and KPI hierarchies." },
-      { step: "03", title: "Dashboard Engineering", desc: "Building interactive SAC stories and planning input sheets." },
-      { step: "04", title: "Enablement", desc: "Training power users and establishing self-service BI governance." }
+      { step: "01", title: "UX & Analytics Discovery", desc: "Mapping shop-floor workflows, user personas, and executive KPI reporting requirements." },
+      { step: "02", title: "Clean Core Architecture", desc: "Selecting ABAP RAP or CAP models and setting up BTP development environments." },
+      { step: "03", title: "Agile Development & AI Swarm Refactoring", desc: "Sprint-based creation of responsive Fiori apps, SAC data models, and automated code conversion." },
+      { step: "04", title: "Deployment & User Enablement", desc: "Rollout across mobile and web with role-based Fiori launchpads and user training." }
     ],
+    ctaBanner: {
+      headline: "Unlock Greater Value from Your SAP Landscape",
+      subheadline: "Schedule a Fiori & SAC Session with Acceleron.",
+      actionText: "Explore Custom Capabilities",
+      actionHref: "/contact"
+    },
     image: "/SAP_Implementation_Banner.png",
     customLogo: "/Sap_analytics-cloud.png"
   },
   {
     slug: "sap-technical-upgrade",
     title: "SAP Technical Upgrade",
+    badge: "SYSTEM MODERNIZATION & SECURITY",
     category: "SAP",
     categorySlug: "sap",
-    desc: "Ensure your SAP systems run on the latest, most secure, and feature-rich versions.",
-    overview: "Stay ahead of end-of-maintenance deadlines and unlock new functionalities with our SAP Technical Upgrade services. We perform comprehensive version upgrades, support package deployments, and kernel updates with near-zero downtime.",
+    desc: "Keep Your SAP Environment Secure, Compliant, and Feature-Rich — Version upgrades, Enhancement Pack (EHP) execution, Support Package Stack (SPS) patching, and HANA database updates.",
+    overview: "Acceleron performs end-to-end technical upgrades for SAP ECC and S/4HANA landscapes. As an experienced SAP IT consulting provider, we ensure your core enterprise platform stays protected against security vulnerabilities, maintains compliance with changing tax regulations (GST/e-invoicing), and takes advantage of newly released SAP features.",
+    primaryCtaText: "Schedule Technical Upgrade Audit",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "View Upgrade Scope",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Comprehensive Upgrade Scope",
     features: [
-      { title: "System Readiness & SPDD/SPAU", desc: "Detailed upgrade planning and custom code remediation." },
-      { title: "OS/DB Migrations", desc: "Upgrading underlying databases and operating systems for better performance." },
-      { title: "Fiori App Updates", desc: "Deploying the latest Fiori UX packages for improved usability." },
-      { title: "Automated Testing", desc: "Using advanced tools to ensure no business processes are broken post-upgrade." }
+      {
+        title: "SAP EHP & Version Upgrades",
+        desc: "Upgrading SAP ECC EHPs and migrating to the latest S/4HANA release versions with minimal downtime."
+      },
+      {
+        title: "SAP HANA Database Upgrades",
+        desc: "Upgrading underlying SAP HANA DB versions, optimizing column-store memory, and tuning query execution performance."
+      },
+      {
+        title: "Custom Code Adjustment (SPAU/SPDD)",
+        desc: "Automated conflict resolution during upgrade cutover to ensure custom programs, forms, and interfaces remain fully functional."
+      },
+      {
+        title: "System Security & Compliance Patching",
+        desc: "Applying latest SAP Security Notes, kernel patches, and statutory tax localization updates."
+      }
     ],
+    deliveryScopeTitle: "Acceleron Upgrade Advantage",
+    deliveryScope: [
+      {
+        title: "Zero Business Interruption",
+        desc: "Phased weekend cutover strategies that ensure zero operational impact on plant or commercial activities."
+      },
+      {
+        title: "Automated Regression Testing",
+        desc: "Pre-built testing scripts that validate core business flows before production go-live."
+      }
+    ],
+    benefitsTitle: "Technical Upgrade Value",
     benefits: [
-      { title: "Security", metric: "100%", desc: "Protection against the latest vulnerabilities with up-to-date patches." },
-      { title: "Performance", metric: "+20%", desc: "Faster transaction processing speeds with newer kernels." },
-      { title: "Compliance", metric: "Full", desc: "Maintain vendor support and legal compliance." },
-      { title: "Business Disruption", metric: "Minimal", desc: "Carefully planned cutovers to avoid impacting operations." }
+      { title: "Operational Continuity", metric: "Zero Downtime", desc: "Phased weekend cutover strategies guaranteeing zero disruption to manufacturing, dispatch, and billing." },
+      { title: "Regression Testing", metric: "Automated", desc: "Pre-engineered test suites validating end-to-end financial and supply chain transactions." },
+      { title: "Statutory Compliance", metric: "100% Audit-Ready", desc: "Up-to-date GST patches, e-invoicing endpoints, and regulatory compliance." },
+      { title: "HANA Optimization", metric: "High Performance", desc: "Memory compression and query tuning maximizing underlying SAP HANA database speeds." }
     ],
     process: [
-      { step: "01", title: "Planning & Assessment", desc: "Analyze current landscape and define the upgrade path." },
-      { step: "02", title: "Sandbox Upgrade", desc: "Execute a trial upgrade to identify and resolve technical issues." },
-      { step: "03", title: "Testing & Remediation", desc: "Fix custom code conflicts (SPDD/SPAU) and perform UAT." },
-      { step: "04", title: "Production Go-Live", desc: "Final upgrade during a planned downtime window with post-upgrade support." }
+      { step: "01", title: "Landscape Assessment & Audit", desc: "Evaluating current release levels, hardware sizing, OS/DB compatibility, and custom code footprint." },
+      { step: "02", title: "Sandbox Upgrade & Conflict Resolution", desc: "Executing test upgrade, running SPAU/SPDD code adjustments, and verifying interfaces." },
+      { step: "03", title: "Automated Regression Testing", desc: "Validating critical business flows across all modules with pre-engineered test suites." },
+      { step: "04", title: "Weekend Production Cutover", desc: "Seamless weekend cutover, final delta synchronization, and post-upgrade hypercare." }
     ],
+    ctaBanner: {
+      headline: "Ensure Your SAP Systems Are Up to Date and Compliant",
+      subheadline: "Request an Upgrade Assessment today.",
+      actionText: "Schedule Technical Upgrade Audit",
+      actionHref: "/contact"
+    },
     image: "/SAP_Implementation_Banner.png",
-    customLogo: "/sap-cx-logo.jpg"
+    customLogo: "/SAP-s4hana-whitebg.jpg"
   },
   {
     slug: "sap-resource-augmentation",
     title: "SAP Resource Augmentation",
+    badge: "ON-DEMAND ENTERPRISE TALENT",
     category: "SAP",
     categorySlug: "sap",
-    desc: "Scale your SAP capabilities with our pool of certified, experienced SAP professionals.",
-    overview: "Flexibly expand your IT team with our SAP resource augmentation services. Whether you need niche technical expertise for a specific project or ongoing functional support, we provide highly qualified SAP consultants, developers, and architects tailored to your needs.",
+    desc: "Certified SAP Professionals to Scale Your Project Delivery — Immediate deployment of experienced SAP architects, functional consultants, and technical developers.",
+    overview: "Acceleron offers flexible, high-caliber SAP resource augmentation for enterprise IT departments and global system integrators. Our talent pool of certified SAP professionals brings deep hands-on expertise in manufacturing, mining, logistics, capital goods, and utilities to support critical rollout phases, custom developments, or specialized module implementations.",
+    primaryCtaText: "Request Talent Profiles",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Discuss Resource Needs",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Domain-Experienced Talent Matrix Available",
     features: [
-      { title: "Certified SAP Experts", desc: "Access to professionals across all SAP modules (FICO, SD, MM, PP, HCM, etc.)." },
-      { title: "Flexible Engagement Models", desc: "Short-term, long-term, on-site, or remote staffing options." },
-      { title: "Rapid Onboarding", desc: "Quickly deploy resources to ensure your projects stay on track." },
-      { title: "Knowledge Transfer", desc: "Our experts document and share best practices with your internal team." }
+      {
+        title: "SAP Functional Lead Consultants",
+        desc: "Certified experts across FI/CO, MM, SD, PP, PM, QM, EWM, and SAC with 8+ years of industry experience."
+      },
+      {
+        title: "SAP Technical Architects & Developers",
+        desc: "Senior ABAP, ABAP RAP, SAP BTP Integration, Fiori/UI5, and Basis/HANA administration specialists."
+      },
+      {
+        title: "Flexible Deployment Engagement Models",
+        desc: "Onshore, nearshore, or hybrid staffing on monthly, project-based, or time-and-material (T&M) arrangements."
+      },
+      {
+        title: "Specialized Module Leads",
+        desc: "Niche specialists in SAP EWM, BTP CPI, Signavio process mining, and Joule AI agent workflows."
+      }
     ],
+    deliveryScopeTitle: "Why Staff Through Acceleron?",
+    deliveryScope: [
+      {
+        title: "Industrial Domain Rigor",
+        desc: "Consultants backed by Gainwell Group's real-world plant and operational heritage."
+      },
+      {
+        title: "Rapid Onboarding (Under 10 Days)",
+        desc: "Pre-vetted, immediately deployable experts ready to integrate into your existing project governance."
+      }
+    ],
+    benefitsTitle: "Staffing & Augmentation Impact",
     benefits: [
-      { title: "Cost Efficiency", metric: "-30%", desc: "Avoid the overhead of full-time hiring for project-based needs." },
-      { title: "Scalability", metric: "High", desc: "Easily ramp up or down based on your current workload." },
-      { title: "Time to Fill", metric: "<2 Weeks", desc: "Rapid deployment of vetted SAP talent." },
-      { title: "Project Success", metric: "+40%", desc: "Leverage specialized expertise to mitigate project risks." }
+      { title: "Rapid Deployment", metric: "<10 Days", desc: "Pre-vetted, senior SAP professionals onboarded and deployed into active projects in days." },
+      { title: "Domain Experience", metric: "8+ Years Avg", desc: "Specialists with hands-on industrial expertise across manufacturing, mining, and capital goods." },
+      { title: "Engagement Agility", metric: "Flexible Models", desc: "Monthly retainers, milestone-based staff, or time-and-material options matching project velocity." },
+      { title: "Zero Ramp-up Friction", metric: "Immediate", desc: "Domain-fluent architects who understand shop-floor mechanics and enterprise IT governance." }
     ],
     process: [
-      { step: "01", title: "Requirement Analysis", desc: "Understand your specific technical and cultural resource needs." },
-      { step: "02", title: "Candidate Selection", desc: "Present pre-vetted, highly qualified SAP professionals for your review." },
-      { step: "03", title: "Onboarding", desc: "Seamless integration of the resource into your team and workflows." },
-      { step: "04", title: "Performance Management", desc: "Continuous monitoring to ensure quality and project alignment." }
+      { step: "01", title: "Talent Requirement Scoping", desc: "Identifying required module skills, seniority level, project timelines, and delivery model." },
+      { step: "02", title: "Profile Shortlisting & Review", desc: "Submitting pre-vetted consultant profiles within 48 to 72 business hours." },
+      { step: "03", title: "Interview & Onboarding", desc: "Streamlined technical evaluation, NDA execution, and day-one access provisioning." },
+      { step: "04", title: "Governance & Oversight", desc: "Regular delivery reviews, SLA governance, and continuous capability oversight." }
     ],
-    image: "/SAP_Implementation_Banner.png",
-    customLogo: "/sap-cx-logo.jpg"
+    ctaBanner: {
+      headline: "Scale Your SAP Implementation Team with Proven Experts",
+      subheadline: "Connect with Acceleron Staffing Leads today.",
+      actionText: "Request Talent Profiles",
+      actionHref: "/contact"
+    },
+    image: "/SAP_Implementation_Banner.png"
   },
   {
-    slug: "sap-others",
-    title: "SAP - Others",
+    slug: "audit-comply",
+    title: "AuditComply: Automated SAP Compliance & SoD Governance",
+    badge: "PROPRIETARY SAP GOVERNANCE IP",
     category: "SAP",
     categorySlug: "sap",
-    desc: "Comprehensive solutions across the entire SAP portfolio to drive digital transformation.",
-    overview: "Beyond core ERP, we offer specialized consulting and implementation services for the broader SAP ecosystem, including SAP Ariba, SAP SuccessFactors, SAP IBP, and more, ensuring every aspect of your business operates at peak efficiency.",
+    desc: "Automated SAP Compliance, SoD Auditing, and Internal Controls — One-click audit readiness and internal risk governance for SAP ECC and S/4HANA environments.",
+    overview: "Acceleron's proprietary AuditComply solution automates Segregation of Duties (SoD) checking, IT General Controls (ITGC) monitoring, and Indian statutory compliance within SAP. Developed to eliminate manual audit friction, AuditComply gives CFOs, CISOs, and internal auditors continuous visibility into access conflicts, vendor 3-way matching, and statutory tax risks.",
+    primaryCtaText: "Schedule an AuditComply Demo",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Download Product Brochure",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Capabilities of AuditComply",
     features: [
-      { title: "SAP Ariba", desc: "Digitize and optimize your procurement and supply chain processes." },
-      { title: "SAP SuccessFactors", desc: "Modernize HR with cloud-based human experience management." },
-      { title: "SAP IBP", desc: "Advanced supply chain planning with real-time visibility." },
-      { title: "Custom Solutions", desc: "Tailored SAP developments to meet unique industry requirements." }
+      {
+        title: "Segregation of Duties (SoD) Conflict Analysis",
+        desc: "Automated, real-time user role conflict detection across financial posting, procurement authorization, and vendor master creation."
+      },
+      {
+        title: "Statutory & Tax Compliance Automation",
+        desc: "Automated GST portal reconciliation, e-way bill validation, e-invoicing verification, and MSME vendor payment block tracking."
+      },
+      {
+        title: "1-Click Executive Audit Reports",
+        desc: "Generating comprehensive ITGC, user access log, and internal control registers ready for internal and external board audits."
+      },
+      {
+        title: "Vendor 3-Way Match & Risk Alerts",
+        desc: "Continuous monitoring of Purchase Orders, Goods Receipt (GR), and Vendor Invoice (IR) variances with automated escalation blocks."
+      }
     ],
+    deliveryScopeTitle: "Business Benefits & Risk Mitigation",
+    deliveryScope: [
+      {
+        title: "80% Reduction in Audit Preparation Time",
+        desc: "Eliminating manual spreadsheet reconciliation before external audit reviews."
+      },
+      {
+        title: "Zero Penalty Tax Compliance",
+        desc: "Ensuring 100% compliance with statutory e-invoicing and MSME payment guidelines."
+      }
+    ],
+    benefitsTitle: "AuditComply Value Delivered",
     benefits: [
-      { title: "Holistic Transformation", metric: "100%", desc: "End-to-end optimization of all business functions." },
-      { title: "Procurement Savings", metric: "15%", desc: "Reduced spend and improved supplier collaboration." },
-      { title: "HR Efficiency", metric: "30%", desc: "Streamlined talent management and payroll processes." },
-      { title: "Supply Chain Agility", metric: "High", desc: "Better forecasting and responsiveness to market changes." }
+      { title: "Audit Prep Time", metric: "80% Reduction", desc: "Eliminating manual spreadsheet reconciliation and evidence collection before external audits." },
+      { title: "Tax Compliance", metric: "Zero Penalties", desc: "Automated GST reconciliation, e-way bill verification, and MSME 45-day payment tracking." },
+      { title: "SoD Visibility", metric: "100% Real-Time", desc: "Continuous monitoring of conflicting t-codes and authorization role combinations." },
+      { title: "Executive Reporting", metric: "1-Click", desc: "Instant export of ITGC registers, access violation histories, and mitigation logs for the Board." }
     ],
     process: [
-      { step: "01", title: "Discovery", desc: "Identify specific pain points and select the right SAP solution." },
-      { step: "02", title: "Design", desc: "Blueprint the solution architecture and integration points." },
-      { step: "03", title: "Implementation", desc: "Agile deployment of the chosen SAP modules." },
-      { step: "04", title: "Optimization", desc: "Post-go-live tuning and continuous improvement." }
+      { step: "01", title: "Quick Plugin Deployment", desc: "Lightweight installation into SAP ECC or S/4HANA with zero disruption to active database tables." },
+      { step: "02", title: "Rule Matrix Customization", desc: "Configuring standard and industry-specific SoD rules, statutory thresholds, and approval matrices." },
+      { step: "03", title: "Automated Baseline Scan", desc: "Executing initial landscape scan to surface existing role conflicts, ITGC gaps, and vendor variances." },
+      { step: "04", title: "Continuous Governance & Reporting", desc: "Activating automated alerts, scheduled 1-click reports, and continuous statutory compliance monitoring." }
     ],
+    ctaBanner: {
+      headline: "Eliminate SAP Compliance Risks & Audit Bottlenecks",
+      subheadline: "Request an AuditComply Executive Session today.",
+      actionText: "Schedule an AuditComply Demo",
+      actionHref: "/contact"
+    },
     image: "/SAP_Implementation_Banner.png",
-    customLogo: "/sap-cx-logo.jpg"
+    customLogo: "/sap_s4hana-transparentbg.png"
   },
-  {
+    {
     slug: "zoho-crm",
     title: "Zoho CRM",
+    badge: "ZOHO ADVANCED PARTNER",
     category: "Zoho",
     categorySlug: "zoho",
     desc: "Unified customer relationship management to accelerate sales and build lasting relationships.",
-    overview: "Transform your sales processes with Zoho CRM. We implement and customize Zoho CRM to automate workflows, capture leads, manage pipelines, and provide deep analytics, empowering your sales team to close deals faster and smarter.",
+    overview: "Unified customer relationship management to accelerate sales and build lasting relationships. As an Advanced Partner with Zoho, Acceleron implements, customizes, and integrates Zoho CRM with enterprise ERPs and omnichannel communications, empowering sales teams to convert prospects, track deals, and accelerate business growth.",
+    primaryCtaText: "Talk to Our Zoho Experts",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Schedule CRM Demo",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Capabilities & Features",
     features: [
-      { title: "Sales Automation", desc: "Automate lead nurturing, scoring, and routine sales tasks." },
-      { title: "Omnichannel Communication", desc: "Engage customers via email, telephony, social media, and live chat within the CRM." },
-      { title: "Customization & Blueprint", desc: "Tailor the CRM to your specific sales processes with guided workflows." },
-      { title: "AI-Powered Insights (Zia)", desc: "Predictive sales analytics, anomaly detection, and best time to contact recommendations." }
+      {
+        title: "Lead Management & Tracking",
+        desc: "Centralizes all lead data, streamlines lead capture across web/forms, and transforms prospects into measurable business growth."
+      },
+      {
+        title: "Sales Automation & Follow-ups",
+        desc: "Automates follow-up emails, task creation, lead scoring, and lead nurturing workflows to increase conversion rates."
+      },
+      {
+        title: "Pipeline & Deal Visibility",
+        desc: "Real-time pipeline tracking, deal stage management, quota tracking, and sales performance forecasting."
+      },
+      {
+        title: "Integrated Sales Suite",
+        desc: "Native integration with Zoho Bigin, Zoho Forms, Zoho Sign, Zoho Bookings, and Zoho SalesIQ for live visitor chat."
+      }
     ],
+    deliveryScopeTitle: "Implementation & Support Scope",
+    deliveryScope: [
+      {
+        title: "Implementation & Customization",
+        desc: "Bespoke pipeline configuration, field customization, workflow rule setup, and legacy CRM data migration."
+      },
+      {
+        title: "AMS & Post-Go-Live Support",
+        desc: "Ongoing Application Maintenance Services (AMS), user role governance, and performance optimization."
+      }
+    ],
+    benefitsTitle: "Business Value & Sales Impact",
     benefits: [
-      { title: "Sales Productivity", metric: "+40%", desc: "Reduced manual data entry and streamlined sales cycles." },
-      { title: "Lead Conversion", metric: "+25%", desc: "Better lead tracking and timely follow-ups." },
-      { title: "Customer Retention", metric: "+30%", desc: "Improved customer relationships through personalized engagement." },
-      { title: "Data Accuracy", metric: "100%", desc: "A single source of truth for all customer interactions." }
+      { title: "Sales Velocity", metric: "+40%", desc: "Faster sales cycles and automated follow-ups." },
+      { title: "Lead Conversion", metric: "+25%", desc: "Centralized lead scoring and prompt pipeline tracking." },
+      { title: "Data Accuracy", metric: "100%", desc: "Single source of truth across leads, quotes, and customer accounts." },
+      { title: "Omnichannel Sync", metric: "Real-Time", desc: "Integrated web forms, digital signatures, and live visitor engagement." }
     ],
     process: [
-      { step: "01", title: "Process Mapping", desc: "Analyze your sales funnel and define CRM requirements." },
-      { step: "02", title: "Configuration & Customization", desc: "Set up modules, fields, workflows, and automation rules." },
-      { step: "03", title: "Data Migration & Integration", desc: "Import legacy data and connect with other business tools." },
-      { step: "04", title: "Training & Adoption", desc: "User training sessions to ensure high adoption rates." }
+      { step: "01", title: "Sales Funnel Discovery", desc: "Mapping customer journey touchpoints, sales stages, and legacy data structures." },
+      { step: "02", title: "Bespoke Configuration", desc: "Setting up custom modules, validation rules, assignment criteria, and automated blueprints." },
+      { step: "03", title: "Migration & Integration", desc: "Migrating historical contacts/deals and connecting Zoho Forms, Sign, and SalesIQ." },
+      { step: "04", title: "User Enablement & AMS", desc: "Hands-on sales team training, launch hypercare, and ongoing SLA-backed support." }
     ],
+    ctaBanner: {
+      headline: "Ready to Accelerate Your Sales Operations?",
+      subheadline: "Consult with our certified Zoho CRM architects to design an automated lead-to-cash pipeline.",
+      actionText: "Talk to Our Zoho Experts",
+      actionHref: "/contact"
+    },
     image: "/ZOHO_CRM_Banner.png",
     customLogo: "/Zoho_CRM_application.svg_.png"
   },
   {
     slug: "zoho-books",
     title: "Zoho Books",
+    badge: "FINANCIAL MANAGEMENT & GST COMPLIANCE",
     category: "Zoho",
     categorySlug: "zoho",
     desc: "Smart, automated online accounting software for growing businesses.",
-    overview: "Streamline your financial operations with Zoho Books. We help you implement this powerful accounting platform to manage finances, automate business workflows, and work collectively across departments to ensure tax compliance and healthy cash flow.",
+    overview: "Smart, automated online accounting software for growing businesses. Acceleron delivers end-to-end accounting setup, automated billing, multi-currency cash flow tracking, and seamless GST/e-invoicing compliance, bridging front-office sales with backend financial controls.",
+    primaryCtaText: "Consult Accounting Leads",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "View Accounting Scope",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Capabilities & Features",
     features: [
-      { title: "Automated Invoicing & Payments", desc: "Create professional invoices, send reminders, and accept online payments securely." },
-      { title: "Expense Tracking", desc: "Track receipts, categorize expenses, and monitor cash outflows." },
-      { title: "Bank Reconciliation", desc: "Connect bank accounts for automatic transaction fetching and easy reconciliation." },
-      { title: "Comprehensive Reporting", desc: "Generate real-time P&L statements, balance sheets, and cash flow reports." }
+      {
+        title: "Financial Control & Accounting",
+        desc: "Smart online accounting platform providing end-to-end financial control, general ledger management, and cash flow tracking."
+      },
+      {
+        title: "Invoicing & Billing Automation",
+        desc: "Custom invoice creation, automated recurring billing, integration with Zoho Expense, Zoho Invoice, Zoho Checkout, and Zoho Billing."
+      },
+      {
+        title: "GST & Tax Compliance",
+        desc: "GST-compliant tax calculations, e-invoicing generation, audit-ready financial reporting, and statutory tax readiness."
+      },
+      {
+        title: "Bank Reconciliation & Financial Insights",
+        desc: "Automated bank feed reconciliation, multi-currency accounting, accounts receivable/payable tracking, and real-time financial dashboards."
+      }
     ],
+    deliveryScopeTitle: "Implementation & Support Scope",
+    deliveryScope: [
+      {
+        title: "Chart of Accounts Setup",
+        desc: "Configuring organizational chart of accounts, tax templates, and opening balance reconciliation."
+      },
+      {
+        title: "ERP & SAP Integration",
+        desc: "Connecting Zoho Books with enterprise ERP systems, bank gateways, and custom inventory databases."
+      }
+    ],
+    benefitsTitle: "Financial Impact Delivered",
     benefits: [
-      { title: "Accounting Efficiency", metric: "+50%", desc: "Automate recurring transactions and reduce manual bookkeeping." },
+      { title: "Billing Efficiency", metric: "+50%", desc: "Automate recurring transactions and reduce manual bookkeeping." },
       { title: "Payment Collection", metric: "2x Faster", desc: "Get paid quicker with integrated payment gateways." },
       { title: "Financial Visibility", metric: "Real-Time", desc: "Instant access to critical financial metrics and reports." },
-      { title: "Compliance", metric: "100%", desc: "Stay compliant with local tax regulations and audit trails." }
+      { title: "Tax Compliance", metric: "100%", desc: "Stay compliant with local tax regulations and audit trails." }
     ],
     process: [
-      { step: "01", title: "Financial Assessment", desc: "Understand your accounting processes and chart of accounts." },
-      { step: "02", title: "Setup & Configuration", desc: "Configure taxes, banking, and custom invoice templates." },
-      { step: "03", title: "Migration", desc: "Securely transfer historical financial data from legacy systems." },
-      { step: "04", title: "Training", desc: "Train your finance team on daily operations and reporting." }
+      { step: "01", title: "Financial Assessment", desc: "Understand your accounting processes, chart of accounts, and tax requirements." },
+      { step: "02", title: "Setup & Configuration", desc: "Configure taxes, banking feeds, opening balances, and custom invoice templates." },
+      { step: "03", title: "ERP & Gateway Integration", desc: "Securely connect banking gateways, payment links, and enterprise ERP sync." },
+      { step: "04", title: "Finance Team Enablement", desc: "Train your accounting team on daily operations, closing routines, and compliance reports." }
     ],
+    ctaBanner: {
+      headline: "Modernize Your Enterprise Accounting & Compliance",
+      subheadline: "Schedule a financial workflow consultation with our certified Zoho Books specialists.",
+      actionText: "Consult Accounting Leads",
+      actionHref: "/contact"
+    },
     image: "/ZOHO_CRM_Banner.png",
     customLogo: "/zoho-books_logo.png"
   },
   {
     slug: "zoho-hrms-people-and-payroll",
     title: "Zoho HRMS (People and Payroll)",
+    badge: "MODERN WORKFORCE & PAYROLL AUTOMATION",
     category: "Zoho",
     categorySlug: "zoho",
     desc: "Comprehensive HR and payroll management for a modern, engaged workforce.",
-    overview: "Simplify your HR operations with Zoho People and Zoho Payroll. We deploy this unified HRMS to manage the entire employee lifecycle—from onboarding and attendance tracking to performance appraisals and compliant payroll processing.",
+    overview: "Comprehensive HR and payroll management for a modern, engaged workforce. Acceleron deploys tailored HRMS configurations that streamline recruit-to-retire operations, ensure 100% statutory compliance, and empower staff with self-service mobile tools.",
+    primaryCtaText: "Schedule HRMS Consultation",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Explore Module Features",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Capabilities & Features",
     features: [
-      { title: "Core HR & Employee Self-Service", desc: "Centralized employee database with an intuitive portal for leave and profile management." },
-      { title: "Time & Attendance", desc: "Automated attendance tracking, shift management, and biometric integration." },
-      { title: "Performance Management", desc: "Set goals, conduct 360-degree appraisals, and track employee development." },
-      { title: "Automated Payroll Processing", desc: "Error-free payroll calculation with built-in statutory compliance." }
+      {
+        title: "Employee Lifecycle Management",
+        desc: "Centralized employee database, digital onboarding, document management, and organizational hierarchy tracking."
+      },
+      {
+        title: "Attendance, Leave & Shift Roster",
+        desc: "Time and attendance tracking, biometric integration, holiday calendar management, and shift scheduling via Zoho Shifts."
+      },
+      {
+        title: "Statutory Payroll Processing",
+        desc: "Automated salary computation, PF, ESI, Professional Tax, TDS deductions, direct payslip distribution via Zoho Payroll."
+      },
+      {
+        title: "Talent Acquisition & Contract Workforce",
+        desc: "End-to-end recruitment tracking with Zoho Recruit and temporary/contract labor management via Zoho Workerly."
+      }
     ],
+    deliveryScopeTitle: "Implementation & Support Scope",
+    deliveryScope: [
+      {
+        title: "HR Policy Configuration",
+        desc: "Mapping corporate HR policies, leave rules, appraisal templates, and statutory payroll structures."
+      },
+      {
+        title: "Employee Self-Service Portal",
+        desc: "Mobile app and web portal rollout for leave requests, payslip downloads, and reimbursement claims."
+      }
+    ],
+    benefitsTitle: "Workforce & HR Impact",
     benefits: [
-      { title: "HR Admin Time", metric: "-60%", desc: "Reduction in paperwork and manual HR tasks." },
+      { title: "Admin Time Saved", metric: "-60%", desc: "Reduction in paperwork and manual attendance reconciliations." },
       { title: "Payroll Accuracy", metric: "100%", desc: "Ensure timely, accurate, and compliant salary disbursements." },
-      { title: "Employee Engagement", metric: "+40%", desc: "Improved transparency and easy access to HR services." },
-      { title: "Data Security", metric: "High", desc: "Secure handling of sensitive employee and financial data." }
+      { title: "Employee Adoption", metric: "+40%", desc: "Mobile-first self-service for check-ins, leave, and payslips." },
+      { title: "Data Security", metric: "High", desc: "Role-based access control and enterprise encryption of confidential records." }
     ],
     process: [
-      { step: "01", title: "HR Policy Review", desc: "Map your leave, attendance, and payroll policies." },
-      { step: "02", title: "System Configuration", desc: "Set up the HRMS structure, workflows, and payroll components." },
-      { step: "03", title: "Data Import & Testing", desc: "Migrate employee data and run parallel payroll tests." },
-      { step: "04", title: "Rollout", desc: "Company-wide launch with manager and employee training." }
+      { step: "01", title: "HR Policy Review", desc: "Mapping organizational hierarchies, leave policies, salary structures, and tax rules." },
+      { step: "02", title: "System Configuration", desc: "Setting up Zoho People, Zoho Payroll, shift rosters, and appraisal cycles." },
+      { step: "03", title: "Biometric & Bank Integration", desc: "Connecting biometric devices, direct banking disbursements, and migrating employee data." },
+      { step: "04", title: "Parallel Run & Rollout", desc: "Running parallel payroll validations, mobile app rollout, and HR team training." }
     ],
+    ctaBanner: {
+      headline: "Transform Your People Operations & Payroll",
+      subheadline: "Deploy a seamless recruit-to-retire HRMS tailored for multi-location workforces.",
+      actionText: "Schedule HRMS Consultation",
+      actionHref: "/contact"
+    },
     image: "/Zoho_HRMS_Banner.png",
     customLogo: "/zoho_people-trasparentbg.png"
   },
   {
     slug: "zoho-erp",
     title: "Zoho ERP",
+    badge: "ENTERPRISE CLOUD ERP (ZOHO ONE)",
     category: "Zoho",
     categorySlug: "zoho",
     desc: "Unified cloud ERP suite (Zoho One) to run your entire business from a single platform.",
-    overview: "Break down software silos with a comprehensive Zoho ERP implementation. We leverage Zoho One to provide an integrated system of applications that connect your sales, marketing, finance, HR, and operations, offering unparalleled operational visibility.",
+    overview: "Unified cloud ERP suite (Zoho One) to run your entire business from a single platform. Acceleron orchestrates 45+ unified business applications across Finance, Sales, HR, Supply Chain, and Field Service under a single operating system, combining custom low-code app development with enterprise-wide real-time business intelligence.",
+    primaryCtaText: "Talk to Our Zoho Experts",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Explore Application Ecosystem",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Capabilities & Features",
     features: [
-      { title: "Integrated Business Suite", desc: "Access 40+ integrated applications covering every business function." },
-      { title: "Centralized Admin Panel", desc: "Manage users, access controls, and security policies from one console." },
-      { title: "Cross-App Analytics", desc: "Unified dashboards combining data from CRM, finance, and operations." },
-      { title: "Custom App Development", desc: "Build tailored applications using Zoho Creator to fill functional gaps." }
+      {
+        title: "Integrated 45+ Business Applications",
+        desc: "Unifies Finance, Sales, People & Payroll, Operations, Marketing, and Collaboration under one platform, one database, and one login."
+      },
+      {
+        title: "Operations & Inventory Management",
+        desc: "Real-time inventory tracking, warehouse management, project management (Zoho Projects), field service (Zoho FSM), and customer desk support (Zoho Desk)."
+      },
+      {
+        title: "Custom Application Engineering",
+        desc: "Building custom business workflows, low-code modules, and unique process applications using Zoho Creator and Zoho Flow."
+      },
+      {
+        title: "Business Process Analytics",
+        desc: "Cross-departmental reporting, data warehousing, and predictive dashboards using Zoho Analytics and Zoho DataPrep."
+      }
     ],
+    deliveryScopeTitle: "Implementation & Support Scope",
+    deliveryScope: [
+      {
+        title: "Enterprise Deployment & Architecture",
+        desc: "End-to-end Zoho One / Zoho ERP implementation, system architecture design, and process optimization."
+      },
+      {
+        title: "Custom Integration & Maintenance",
+        desc: "Connecting Zoho ERP with existing SAP, Salesforce, or legacy IT infrastructure with dedicated post-go-live support."
+      }
+    ],
+    benefitsTitle: "Unified Business Impact",
     benefits: [
-      { title: "Software Costs", metric: "-50%", desc: "Replace fragmented, expensive legacy software with a single unified suite." },
-      { title: "Operational Efficiency", metric: "+45%", desc: "Seamless data flow between departments eliminates duplicate data entry." },
-      { title: "Scalability", metric: "High", desc: "Easily add new apps and users as your business grows." },
-      { title: "Decision Making", metric: "Real-Time", desc: "Holistic insights across the entire organization." }
+      { title: "Software TCO", metric: "-50%", desc: "Replace fragmented standalone SaaS licenses with a single unified ERP suite." },
+      { title: "Operational Agility", metric: "+45%", desc: "Seamless data flow between departments eliminates duplicate data entry." },
+      { title: "Custom Apps", metric: "Low-Code", desc: "Rapid deployment of bespoke process tools via Zoho Creator and Zoho Flow." },
+      { title: "Decision Making", metric: "Real-Time", desc: "Cross-departmental reporting and holistic insights across the entire organization." }
     ],
     process: [
-      { step: "01", title: "Business Process Discovery", desc: "Comprehensive analysis of cross-departmental workflows." },
-      { step: "02", title: "Phased Implementation Plan", desc: "Strategic roadmap prioritizing critical modules for quick wins." },
-      { step: "03", title: "Configuration & Integration", desc: "Set up the suite and ensure seamless data exchange between apps." },
-      { step: "04", title: "Change Management", desc: "Ongoing training and support to drive organization-wide adoption." }
+      { step: "01", title: "Enterprise Workflow Architecture", desc: "Evaluating cross-functional requirements, data dependencies, and user role hierarchies." },
+      { step: "02", title: "Zoho One System Design", desc: "Configuring core modules, inventory parameters, project milestones, and support desks." },
+      { step: "03", title: "Custom Creator Apps & Bridges", desc: "Developing specialized workflows on Zoho Creator and integrating external ERP databases." },
+      { step: "04", title: "Cutover & Managed AMS", desc: "Phased department rollouts, administrator enablement, and ongoing governance." }
     ],
+    ctaBanner: {
+      headline: "Run Your Entire Business on One Operating System",
+      subheadline: "Connect with Acceleron's Zoho Advanced Practice Leads for a full-suite architectural evaluation.",
+      actionText: "Talk to Our Zoho Experts",
+      actionHref: "/contact"
+    },
     image: "/ZOHO_CRM_Banner.png",
     customLogo: "/ZohoERP-colored.png"
   },
   {
     slug: "zoho-mail",
     title: "Zoho Mail",
+    badge: "SECURE ENTERPRISE WORKPLACE & COLLABORATION",
     category: "Zoho",
     categorySlug: "zoho",
     desc: "Secure, ad-free business email hosting tailored for professional communication.",
-    overview: "Upgrade your corporate communication with Zoho Mail. We set up a secure, reliable, and privacy-focused email infrastructure for your business, complete with collaboration tools like calendars, tasks, and notes to boost team productivity.",
+    overview: "Secure, ad-free business email hosting tailored for professional communication. Acceleron delivers enterprise Zoho Mail deployments featuring zero-downtime migrations, strict email security (SPF, DKIM, DMARC), team messaging, and unified device administration via ManageEngine Endpoint Central.",
+    primaryCtaText: "Consult Workplace Leads",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "View Security Features",
+    secondaryCtaHref: "#consultation",
+    featuresTitle: "Core Capabilities & Features",
     features: [
-      { title: "Custom Domain Email", desc: "Professional email addresses (name@yourcompany.com) building brand trust." },
-      { title: "Advanced Security & Privacy", desc: "End-to-end encryption, S/MIME, and strict ad-free privacy policies." },
-      { title: "Integrated Collaboration Suite", desc: "Shared calendars, group tasks, and instant messaging built-in." },
-      { title: "Comprehensive Control Panel", desc: "Extensive admin policies for user management, spam control, and data retention." }
+      {
+        title: "Enterprise Business Email",
+        desc: "Secure, ad-free business email hosting with custom domain configuration, guaranteed uptime, and user administration controls."
+      },
+      {
+        title: "Collaboration Ecosystem",
+        desc: "Seamless integration with Zoho Cliq (team messaging), Zoho Meeting (video calls), Zoho WorkDrive (cloud storage), and Zoho Office Suite (Writer, Sheet, Show)."
+      },
+      {
+        title: "Security, DLP & Compliance",
+        desc: "Encrypted email transmission, advanced spam filtering, malware protection, eDiscovery retention, and integration with Check Point Harmony Email security."
+      },
+      {
+        title: "ManageEngine Administration",
+        desc: "Centralized user onboarding, group policies, desktop/mobile sync, and integration with ManageEngine Endpoint Central."
+      }
     ],
+    deliveryScopeTitle: "Implementation & Support Scope",
+    deliveryScope: [
+      {
+        title: "Email Migration Services",
+        desc: "Zero-downtime email migration from Microsoft O365, Google Workspace, Exchange, or open-source email platforms."
+      },
+      {
+        title: "Security & Domain Configuration",
+        desc: "Configuring DKIM, SPF, DMARC records, multi-factor authentication (OneAuth), and corporate security policies."
+      }
+    ],
+    benefitsTitle: "Workplace Performance & Security",
     benefits: [
-      { title: "Email Security", metric: "99.9%", desc: "Protection against spam, malware, and phishing attacks." },
-      { title: "Uptime", metric: "99.9%", desc: "Reliable enterprise-grade servers ensuring constant availability." },
-      { title: "Team Collaboration", metric: "+30%", desc: "Improved teamwork with integrated apps and shared resources." },
-      { title: "IT Overhead", metric: "-25%", desc: "Easy-to-manage admin console reduces IT support requests." }
+      { title: "Email Uptime", metric: "99.99%", desc: "High-availability cloud infrastructure ensuring continuous executive communication." },
+      { title: "Team Collaboration", metric: "+35%", desc: "Integrated team chat, video meetings, and shared cloud document storage." },
+      { title: "Threat Defense", metric: "Zero-Trust", desc: "Advanced malware protection, anti-spoofing DMARC controls, and DLP compliance." },
+      { title: "Admin Control", metric: "Centralized", desc: "Unified user provisioning and device security sync with ManageEngine Endpoint Central." }
     ],
     process: [
-      { step: "01", title: "Domain Verification", desc: "Verify domain ownership and configure DNS records (MX, SPF, DKIM)." },
-      { step: "02", title: "User Provisioning", desc: "Create accounts, set up groups, and configure routing policies." },
-      { step: "03", title: "Data Migration", desc: "Seamlessly migrate emails, contacts, and calendars from legacy providers." },
-      { step: "04", title: "Go-Live & Support", desc: "Final MX cutover and end-user onboarding." }
+      { step: "01", title: "Domain & Security Audit", desc: "Verifying domain ownership, reviewing DNS records (MX, SPF, DKIM), and defining routing policies." },
+      { step: "02", title: "User Provisioning & Policies", desc: "Creating organizational accounts, shared mailboxes, aliases, and security baselines." },
+      { step: "03", title: "Zero-Downtime Data Migration", desc: "Migrating historical emails, calendars, and contacts from Google Workspace, O365, or Exchange." },
+      { step: "04", title: "MX Cutover & Support", desc: "Final DNS cutover, mobile device sync, employee onboarding, and ongoing administration." }
     ],
+    ctaBanner: {
+      headline: "Upgrade to Secure, Ad-Free Business Email",
+      subheadline: "Plan a zero-downtime migration to Zoho Workplace with Acceleron's certified infrastructure team.",
+      actionText: "Consult Workplace Leads",
+      actionHref: "/contact"
+    },
     image: "/ZOHO_CRM_Banner.png",
     customLogo: "/ZOHO_logo_2023.svg_.png"
   },
@@ -409,13 +941,35 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     title: "ManageEngine-ITSM",
     category: "ManageEngine",
     categorySlug: "manageengine",
-    desc: "ITIL-ready IT Service Management to streamline support and deliver exceptional service.",
-    overview: "Transform your IT support with ManageEngine ServiceDesk Plus. We implement this robust ITSM solution to help you manage incidents, problems, changes, and IT assets efficiently, ensuring alignment with ITIL best practices and improving end-user satisfaction.",
+    desc: "ITIL-ready IT Service Management to streamline support and deliver exceptional service across enterprise IT operations.",
+    overview: "ITIL-ready IT Service Management to streamline support and deliver exceptional service across enterprise IT operations. Transform your IT support with ManageEngine ServiceDesk Plus. We implement this robust ITSM solution to help you manage incidents, problems, changes, and IT assets efficiently, ensuring alignment with ITIL best practices and improving end-user satisfaction.",
     features: [
-      { title: "Incident & Problem Management", desc: "Streamlined ticketing workflows to resolve issues faster and identify root causes." },
-      { title: "IT Asset Management (ITAM)", desc: "Track hardware and software inventory, licenses, and lifecycle." },
-      { title: "Change Management", desc: "Controlled IT changes with approval workflows to minimize risks." },
-      { title: "Self-Service Portal", desc: "Empower users with a knowledge base and automated service requests." }
+      {
+        title: "Incident & Request Management",
+        desc: "Automate ticket creation, intelligent SLA routing, multi-tier escalation, and automated incident resolution workflows."
+      },
+      {
+        title: "Asset & CMDB Management",
+        desc: "Track IT hardware, software licenses, contract renewals, and asset relationship mapping across corporate environments."
+      },
+      {
+        title: "Change & Release Management",
+        desc: "Standardize change approvals, risk evaluation models, maintenance windows, and automated rollback deployment workflows."
+      },
+      {
+        title: "Service Catalog & Knowledge Base",
+        desc: "Self-service portal empowering employees with standardized IT request forms, FAQs, and automated solution suggestions."
+      }
+    ],
+    deliveryScope: [
+      {
+        title: "ITIL Framework Alignment",
+        desc: "Mapping enterprise IT operations to standard ITIL v4 processes for incident, problem, and change governance."
+      },
+      {
+        title: "Integration & AMS",
+        desc: "Connecting ServiceDesk Plus with Active Directory, Microsoft O365, Zoho Desk, and legacy ERP systems."
+      }
     ],
     benefits: [
       { title: "Resolution Time", metric: "-40%", desc: "Faster ticket resolution with automated routing and SLAs." },
@@ -424,25 +978,47 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { title: "User Satisfaction", metric: "+35%", desc: "Improved end-user experience with self-service capabilities." }
     ],
     process: [
-      { step: "01", title: "Process Assessment", desc: "Evaluate current IT support processes against ITIL standards." },
-      { step: "02", title: "Implementation & Configuration", desc: "Set up categories, SLAs, workflows, and the self-service portal." },
-      { step: "03", title: "Asset Discovery", desc: "Deploy agents for automated network scanning and asset inventory." },
-      { step: "04", title: "Training & Rollout", desc: "Train technicians and launch the service desk to end-users." }
+      { step: "01", title: "ITIL Alignment Assessment", desc: "Evaluate existing IT support workflows against ITIL standards and SLA requirements." },
+      { step: "02", title: "System Architecture & Setup", desc: "Configure ServiceDesk Plus categories, approval tiers, SLAs, and notification rules." },
+      { step: "03", title: "Integration & Asset Discovery", desc: "Connect with Active Directory, Office 365, and deploy network scan agents for CMDB mapping." },
+      { step: "04", title: "Self-Service Portal & AMS Rollout", desc: "Publish end-user service catalogs, train technicians, and transition to 24/7 managed support." }
     ],
     image: "/Manage_Engine_Banner.png"
   },
   {
     slug: "manageengine-op-manager",
-    title: "ManageEngine-Op Manager",
+    title: "ManageEngine-OpManager",
     category: "ManageEngine",
     categorySlug: "manageengine",
-    desc: "Comprehensive network monitoring for complete visibility and proactive fault management.",
-    overview: "Ensure high availability and optimal performance of your IT infrastructure with ManageEngine OpManager. We deploy this powerful monitoring tool to provide real-time insights into your routers, switches, firewalls, servers, and VMs.",
+    desc: "Comprehensive network monitoring for complete visibility and proactive fault management across multi-site enterprise environments.",
+    overview: "Comprehensive network monitoring for complete visibility and proactive fault management across multi-site enterprise environments. Ensure high availability and optimal performance of your IT infrastructure with ManageEngine OpManager. We deploy this powerful monitoring tool to provide real-time insights into your routers, switches, firewalls, servers, and VMs.",
     features: [
-      { title: "Real-time Network Monitoring", desc: "Monitor network performance, traffic, and bandwidth usage continuously." },
-      { title: "Server & VM Monitoring", desc: "Track CPU, memory, and disk utilization across physical and virtual environments." },
-      { title: "Proactive Fault Management", desc: "Threshold-based alerts and automated troubleshooting workflows." },
-      { title: "Custom Dashboards", desc: "Visual representations of network health with intuitive maps and widgets." }
+      {
+        title: "Network Performance Monitoring",
+        desc: "Real-time monitoring of routers, switches, firewalls, wireless APs, and virtual infrastructure (VMware/Hyper-V)."
+      },
+      {
+        title: "Proactive Fault Management",
+        desc: "Threshold-based alerting, automated root cause analysis (RCA), and instant SMS/email notification triggers."
+      },
+      {
+        title: "Bandwidth & Traffic Analysis",
+        desc: "NetFlow, sFlow, and IPFIX analysis to detect network congestion, high-bandwidth applications, and unauthorized traffic."
+      },
+      {
+        title: "Configuration & Compliance Management",
+        desc: "Automated network configuration backups, change tracking, and regulatory compliance auditing (NCM module)."
+      }
+    ],
+    deliveryScope: [
+      {
+        title: "Deployment & Topology Mapping",
+        desc: "Automated discovery of network devices, physical/logical map generation, and custom dashboard setup."
+      },
+      {
+        title: "NOC Managed Operations",
+        desc: "24/7 Network Operations Center (NOC) monitoring, SLA enforcement, and routine health check reports."
+      }
     ],
     benefits: [
       { title: "Network Uptime", metric: "99.9%", desc: "Proactively detect and resolve issues before they impact the business." },
@@ -451,10 +1027,10 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { title: "IT Visibility", metric: "100%", desc: "A single pane of glass for your entire IT infrastructure." }
     ],
     process: [
-      { step: "01", title: "Infrastructure Discovery", desc: "Scan the network to identify all devices and topologies." },
-      { step: "02", title: "Monitoring Setup", desc: "Configure performance monitors, thresholds, and alert notifications." },
-      { step: "03", title: "Dashboard Creation", desc: "Design customized views for NOC teams and IT management." },
-      { step: "04", title: "Tuning & Handover", desc: "Refine alerts to reduce noise and train the IT operations team." }
+      { step: "01", title: "Network Discovery & Audit", desc: "Scan IP subnets to identify switches, routers, firewalls, and server nodes." },
+      { step: "02", title: "Monitoring & Threshold Tuning", desc: "Set up performance monitors, alert thresholds, and NetFlow traffic collectors." },
+      { step: "03", title: "NOC Dashboards & Topology Maps", desc: "Generate dynamic physical/logical network topologies and executive views." },
+      { step: "04", title: "24/7 NOC Handover & Governance", desc: "Establish automated alert escalations and routine monthly health reporting." }
     ],
     image: "/Manage_Engine_Banner.png"
   },
@@ -463,13 +1039,35 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     title: "ManageEngine-Endpoint Control",
     category: "ManageEngine",
     categorySlug: "manageengine",
-    desc: "Unified endpoint management to secure and manage all devices in your organization.",
-    overview: "Secure and manage your corporate endpoints with ManageEngine Endpoint Central. We help you automate patch management, deploy software, manage IT assets, and enforce security policies across Windows, Mac, Linux, and mobile devices from a central location.",
+    desc: "Unified endpoint management to secure and manage all devices in your organization from a single centralized platform.",
+    overview: "Unified endpoint management to secure and manage all devices in your organization from a single centralized platform. Secure and manage your corporate endpoints with ManageEngine Endpoint Central. We help you automate patch management, deploy software, manage IT assets, and enforce security policies across Windows, Mac, Linux, and mobile devices from a central location.",
     features: [
-      { title: "Automated Patch Management", desc: "Keep OS and third-party applications up-to-date with automated patching." },
-      { title: "Software Deployment", desc: "Silently distribute software packages to devices across the network." },
-      { title: "Endpoint Security", desc: "Vulnerability assessment, browser security, and application control." },
-      { title: "Remote Troubleshooting", desc: "Secure remote desktop access with file transfer and video recording." }
+      {
+        title: "Automated Patch Management",
+        desc: "Automated patching for Windows, macOS, Linux, and 350+ third-party software applications to eliminate vulnerabilities."
+      },
+      {
+        title: "Software Deployment & Inventory",
+        desc: "Silent software deployment, self-service portal publishing, and real-time software/hardware inventory audits."
+      },
+      {
+        title: "Remote Troubleshooting & Control",
+        desc: "Secure web-based remote desktop control with integrated screen recording, file transfer, and chat."
+      },
+      {
+        title: "Vulnerability & Device Control",
+        desc: "Restricting unauthorized USB/peripheral devices, enforcing BitLocker encryption, and mitigating zero-day security risks."
+      }
+    ],
+    deliveryScope: [
+      {
+        title: "Enterprise Endpoint Rollout",
+        desc: "Agent deployment across thousands of corporate laptops, desktops, servers, and remote work assets."
+      },
+      {
+        title: "Zero Trust & EDR Integration",
+        desc: "Integrating Endpoint Central with CrowdStrike, Sophos EDR, and Active Directory security policies."
+      }
     ],
     benefits: [
       { title: "Endpoint Security", metric: "+50%", desc: "Significantly reduce vulnerabilities with timely patching." },
@@ -478,10 +1076,10 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { title: "Remote Support", metric: "Instant", desc: "Quickly resolve issues for a distributed workforce." }
     ],
     process: [
-      { step: "01", title: "Architecture Design", desc: "Plan the server deployment and agent distribution strategy." },
-      { step: "02", title: "Policy Configuration", desc: "Set up patch deployment policies and software repositories." },
-      { step: "03", title: "Agent Rollout", desc: "Deploy agents to all endpoints and verify communication." },
-      { step: "04", title: "Optimization", desc: "Fine-tune policies and establish reporting routines." }
+      { step: "01", title: "Architecture & Security Design", desc: "Design distribution server architecture for branch offices and remote workers." },
+      { step: "02", title: "Patch & Software Repository Setup", desc: "Configure test and production patch deployment rings and enterprise software catalogs." },
+      { step: "03", title: "Silent Agent Rollout", desc: "Automate agent distribution via Active Directory GPO and cloud enrollment." },
+      { step: "04", title: "Policy Enforcement & Zero Trust", desc: "Activate USB peripheral blocking, browser security policies, and EDR integrations." }
     ],
     image: "/Manage_Engine_Banner.png"
   },
@@ -490,13 +1088,35 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     title: "ManageEngine-MDM Plus",
     category: "ManageEngine",
     categorySlug: "manageengine",
-    desc: "Comprehensive mobile device management for a secure, productive mobile workforce.",
-    overview: "Empower your mobile workforce while maintaining security with ManageEngine Mobile Device Manager Plus. We implement MDM solutions to enroll, manage, and secure corporate-owned and BYOD smartphones and tablets across iOS, Android, and Windows.",
+    desc: "Comprehensive mobile device management for a secure, productive mobile workforce across corporate and BYOD environments.",
+    overview: "Comprehensive mobile device management for a secure, productive mobile workforce across corporate and BYOD environments. Empower your mobile workforce while maintaining security with ManageEngine Mobile Device Manager Plus. We implement MDM solutions to enroll, manage, and secure corporate-owned and BYOD smartphones and tablets across iOS, Android, and Windows.",
     features: [
-      { title: "Device Enrollment & Provisioning", desc: "Automated enrollment (DEP/Zero-touch) and secure profile configuration." },
-      { title: "App Management", desc: "Distribute, manage, and secure enterprise and public apps." },
-      { title: "Security Management", desc: "Enforce passcodes, remote wipe, geo-tracking, and containerization." },
-      { title: "BYOD Support", desc: "Separate corporate data from personal data to protect privacy and security." }
+      {
+        title: "Mobile Device Onboarding",
+        desc: "Over-the-air (OTA) enrollment, Apple Business Manager (ABM), Android Enterprise, and Knox deployment."
+      },
+      {
+        title: "Corporate Containerization",
+        desc: "Isolating corporate emails, applications, and confidential data from personal apps on BYOD devices."
+      },
+      {
+        title: "App Distribution & Governance",
+        desc: "Silently pushing enterprise mobile applications, blocking blacklisted apps, and managing app licenses."
+      },
+      {
+        title: "Remote Wipe & Location Tracking",
+        desc: "Real-time device tracking, geo-fencing policies, and instant remote wipe for lost or stolen devices."
+      }
+    ],
+    deliveryScope: [
+      {
+        title: "Mobile Security Policy Setup",
+        desc: "Configuring Wi-Fi profiles, VPN settings, passcode enforcement, and camera/kiosk restriction policies."
+      },
+      {
+        title: "Post-Deployment Maintenance",
+        desc: "Continuous mobile device maintenance, OS version update management, and user support."
+      }
     ],
     benefits: [
       { title: "Data Security", metric: "High", desc: "Protect corporate data on mobile devices against loss or theft." },
@@ -505,10 +1125,10 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { title: "Employee Productivity", metric: "+25%", desc: "Secure access to corporate resources from anywhere." }
     ],
     process: [
-      { step: "01", title: "MDM Strategy", desc: "Define policies for corporate vs. BYOD devices." },
-      { step: "02", title: "Platform Setup", desc: "Configure Apple APNs, Android Enterprise, and MDM profiles." },
-      { step: "03", title: "App Catalog Creation", desc: "Set up the enterprise app store and configure app configurations." },
-      { step: "04", title: "Device Enrollment", desc: "Roll out to users with clear instructions and support." }
+      { step: "01", title: "Mobility & BYOD Strategy", desc: "Define corporate device and BYOD privacy policies, security baselines, and ownership rules." },
+      { step: "02", title: "Apple / Android Platform Setup", desc: "Configure Apple APNs, ABM integration, and Google Android Enterprise bindings." },
+      { step: "03", title: "App Catalog & Container Policies", desc: "Package enterprise mobile apps, configure per-app VPNs, and containerize data." },
+      { step: "04", title: "Fleet Enrollment & Maintenance", desc: "Over-the-air rollout to mobile users with automated updates and continuous support." }
     ],
     image: "/Manage_Engine_Banner.png"
   },
@@ -518,24 +1138,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "Robust, scalable, and secure IT infrastructure design and management.",
-    overview: "Build a resilient foundation for your digital operations with our IT Infrastructure Services. From on-premise data centers to hybrid cloud environments, we design, deploy, and manage scalable IT architectures that ensure high availability and performance.",
+    overview: "Robust, scalable, and secure IT infrastructure design and management. We engineer resilient physical and cloud architectures that maximize business continuity, high-speed collaboration, and reliable day-to-day operations.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Network Design & Implementation", desc: "Secure, high-performance LAN/WAN and SD-WAN architectures." },
-      { title: "Server & Storage Solutions", desc: "Optimized compute and storage infrastructure (SAN/NAS) deployment." },
-      { title: "Virtualization", desc: "Server and desktop virtualization using VMware or Hyper-V." },
-      { title: "Disaster Recovery & Backup", desc: "Robust data protection and business continuity planning." }
+      { title: "Cloud Infrastructure Management", desc: "Provisioning, hosting, and optimizing cloud workloads across AWS, Microsoft Azure, and GCP." },
+      { title: "Enterprise Email Management", desc: "Implementation, migration, and administration for Microsoft O365, Google Workspace, and open-source email systems like Zimbra." },
+      { title: "Network Setup & Monitoring", desc: "Architecting remote site networks, managed switches, enterprise routers, SD-WAN, and firewall policies." },
+      { title: "Infrastructure AMC & SLA Support", desc: "Round-the-clock proactive monitoring, hardware lifecycle management, and SLA-driven maintenance." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "System Reliability", metric: "99.99%", desc: "High availability architectures minimizing downtime." },
-      { title: "Scalability", metric: "High", desc: "Infrastructure that grows seamlessly with your business." },
-      { title: "Security", metric: "Enhanced", desc: "Robust network and physical security measures." },
-      { title: "IT Costs", metric: "-20%", desc: "Optimized resource utilization through virtualization." }
+      { title: "Maximum Uptime & Reliability", metric: "99.99%", desc: "Round-the-clock proactive monitoring and SLA-driven maintenance minimize unexpected downtime." },
+      { title: "Scalable Cloud Operations", metric: "Multi-Cloud", desc: "Seamless provisioning and optimization across AWS, Microsoft Azure, and GCP allow your infrastructure to grow alongside business demand." },
+      { title: "Enhanced Collaboration", metric: "Secure", desc: "Robust enterprise email and network architectures secure communications and streamline remote site connectivity." }
     ],
     process: [
-      { step: "01", title: "Assessment", desc: "Evaluate existing infrastructure and identify bottlenecks." },
-      { step: "02", title: "Design", desc: "Architect a scalable, secure, and cost-effective IT environment." },
-      { step: "03", title: "Deployment", desc: "Procure, install, and configure hardware and network components." },
-      { step: "04", title: "Managed Services", desc: "Ongoing monitoring, maintenance, and IT support." }
+      { step: "01", title: "Infrastructure Assessment", desc: "Evaluate existing on-premise, cloud, and network topology for capacity and reliability." },
+      { step: "02", title: "Architecture & Provisioning", desc: "Architect high-availability cloud fabrics, enterprise email domains, and SD-WAN networks." },
+      { step: "03", title: "Migration & Hardening", desc: "Execute zero-downtime cutovers, establish security policies, and deploy redundant gateways." },
+      { step: "04", title: "24/7 Managed NOC Support", desc: "Continuous proactive telemetry, hardware lifecycle AMC, and SLA-driven incident response." }
     ],
     image: "/Threatcorp_Banner.png",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -546,24 +1167,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "Tailor-made software solutions designed to solve your unique business challenges.",
-    overview: "Accelerate your digital transformation with bespoke software applications. Our full-stack development team builds scalable, secure, and user-centric web and mobile applications tailored precisely to your operational requirements and business goals.",
+    overview: "Tailor-made software solutions designed to solve your unique business challenges. Our full-stack engineering practices build scalable, intuitive, and high-performance digital products engineered to match your operational reality.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Full-Stack Development", desc: "End-to-end development using modern frameworks (React, Node.js, Python, Java)." },
-      { title: "Mobile App Development", desc: "Native (iOS/Android) and cross-platform mobile applications." },
-      { title: "UI/UX Design", desc: "Intuitive, engaging, and accessible user interfaces." },
-      { title: "API Development & Integration", desc: "Seamless connectivity with existing enterprise systems." }
+      { title: "Full-Stack Web Development", desc: "High-performance web apps built with modern JavaScript frameworks (React, Angular, Node.js), Python, and Java." },
+      { title: "Enterprise Mobile Applications", desc: "Native iOS/Android and cross-platform mobile apps for field workforce enablement and customer engagement." },
+      { title: "Custom Software Engineering", desc: "End-to-end product development lifecycle—from MVP design to scalable multi-tenant SaaS deployment." },
+      { title: "Legacy Modernization", desc: "Refactoring legacy monolithic software into modular microservices architectures." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Business Fit", metric: "100%", desc: "Software that perfectly matches your unique workflows." },
-      { title: "Scalability", metric: "High", desc: "Cloud-native architectures built for future growth." },
-      { title: "Competitive Edge", metric: "Strong", desc: "Innovative solutions that off-the-shelf software cannot provide." },
-      { title: "Process Automation", metric: "+40%", desc: "Streamlined operations reducing manual effort." }
+      { title: "Tailored Business Alignment", metric: "100%", desc: "Custom-built web and mobile applications directly solve unique operational challenges rather than forcing rigid out-of-the-box workflows." },
+      { title: "Future-Proof Architecture", metric: "Agile", desc: "Modernization of legacy systems into modular microservices ensures long-term agility and easier feature deployment." },
+      { title: "Multi-Platform Engagement", metric: "Cross-Platform", desc: "High-performance native and cross-platform solutions empower field workforces and elevate customer experiences." }
     ],
     process: [
-      { step: "01", title: "Requirement Gathering", desc: "Collaborative workshops to define scope and wireframes." },
-      { step: "02", title: "Agile Development", desc: "Iterative sprints delivering functional increments of the software." },
-      { step: "03", title: "Quality Assurance", desc: "Rigorous automated and manual testing for bugs and performance." },
-      { step: "04", title: "Deployment & Support", desc: "Smooth rollout, user training, and continuous maintenance." }
+      { step: "01", title: "Discovery & Solution Blueprint", desc: "Map enterprise requirements, user journeys, data schemas, and integration touchpoints." },
+      { step: "02", title: "Agile Sprints & Prototyping", desc: "Iterative two-week delivery cycles building production-grade UI components and microservices." },
+      { step: "03", title: "Automated QA & Security Testing", desc: "Comprehensive unit testing, load testing, and security code reviews." },
+      { step: "04", title: "Deployment & Lifecycle AMS", desc: "Containerized CI/CD rollout, user training, and continuous feature enhancement." }
     ],
     image: "/capital_goods.jpg",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -574,24 +1196,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "Intelligent AI-driven applications to automate processes and generate insights.",
-    overview: "Leverage the power of Artificial Intelligence and Machine Learning to gain a competitive advantage. We develop custom AI models, generative AI tools, and intelligent automation solutions that integrate seamlessly into your business processes.",
+    overview: "Intelligent AI-driven applications to automate processes and generate insights. We build custom machine learning models, autonomous agent frameworks, and document processing systems that turn data into measurable operational advantages.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Generative AI Solutions", desc: "Custom LLMs, chatbots, and content generation tools." },
-      { title: "Predictive Analytics", desc: "Machine learning models for demand forecasting and risk analysis." },
-      { title: "Computer Vision", desc: "Image recognition and processing for quality control and security." },
-      { title: "Natural Language Processing", desc: "Sentiment analysis, document processing, and intelligent search." }
+      { title: "Autonomous AI Agent Swarms", desc: "Multi-agent AI architectures for complex automated code refactoring, document analysis, and decision execution." },
+      { title: "Predictive Analytics Engines", desc: "Custom ML models for predictive equipment maintenance, demand forecasting, and customer churn prediction." },
+      { title: "Intelligent Document Processing (IDP)", desc: "AI-powered OCR and NLP pipelines for automated invoice extraction and contract parsing." },
+      { title: "Domain-Specific AI Copilots", desc: "Enterprise copilots trained on private organizational knowledge bases for internal support and query resolution." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Automation", metric: "+50%", desc: "Significant reduction in repetitive, manual tasks." },
-      { title: "Decision Making", metric: "Data-Driven", desc: "Actionable insights derived from complex datasets." },
-      { title: "Customer Experience", metric: "Enhanced", desc: "Personalized interactions and 24/7 intelligent support." },
-      { title: "Innovation", metric: "High", desc: "Unlock new business models and revenue streams." }
+      { title: "Process Automation", metric: "AI Swarms", desc: "Autonomous multi-agent AI swarms and intelligent document processing (IDP) eliminate manual bottlenecks in code refactoring and contract parsing." },
+      { title: "Data-Driven Decision Making", metric: "Predictive", desc: "Predictive analytics engines forecast equipment maintenance needs, demand shifts, and customer churn accurately." },
+      { title: "Secure Knowledge Retrieval", metric: "Private LLM", desc: "Domain-specific AI copilots leverage private organizational data safely to accelerate internal support and issue resolution." }
     ],
     process: [
-      { step: "01", title: "Use Case Discovery", desc: "Identify high-value AI opportunities within your business." },
-      { step: "02", title: "Data Preparation", desc: "Data gathering, cleaning, and feature engineering." },
-      { step: "03", title: "Model Development", desc: "Training, testing, and optimizing machine learning models." },
-      { step: "04", title: "Integration & Monitoring", desc: "Deploying models into production and monitoring performance drift." }
+      { step: "01", title: "AI Opportunity Assessment", desc: "Identify operational bottlenecks and formulate data readiness and feasibility blueprints." },
+      { step: "02", title: "Data Pipeline & Feature Engineering", desc: "Aggregate, clean, and vectorize organizational knowledge bases and historical telemetry." },
+      { step: "03", title: "Model Training & Guardrail Engineering", desc: "Develop custom ML models, agent coordination swarms, and hallucination guardrails." },
+      { step: "04", title: "Production Deployment & Observability", desc: "Deploy edge/cloud inferencing endpoints with real-time drift monitoring and feedback loops." }
     ],
     image: "/outcome_driven.jpg",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -602,24 +1225,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "Robust cybersecurity architectures to protect your data and network perimeter.",
-    overview: "Safeguard your critical digital assets against evolving cyber threats. We design and implement comprehensive network security solutions, including Next-Generation Firewalls, Zero Trust architectures, and intrusion prevention systems, ensuring your enterprise remains secure.",
+    overview: "Robust cybersecurity architectures to protect your data and network perimeter. We design, deploy, and manage zero-trust boundary defenses, next-generation firewalls, and unified threat management systems tailored for enterprise resilience.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Next-Gen Firewalls (NGFW)", desc: "Advanced threat protection, application control, and deep packet inspection." },
-      { title: "Zero Trust Network Access", desc: "Secure, identity-based access to applications from anywhere." },
-      { title: "Intrusion Detection/Prevention (IDS/IPS)", desc: "Real-time monitoring and blocking of malicious network traffic." },
-      { title: "VPN & Secure Remote Access", desc: "Encrypted connectivity for your remote and mobile workforce." }
+      { title: "Next-Generation Firewalls (NGFW)", desc: "Perimeter defense and deep packet inspection using Fortinet, Check Point, Sophos, and Cisco." },
+      { title: "Zero Trust Network Access (ZTNA)", desc: "Implementing Zscaler and micro-segmentation architectures to enforce strict identity verification." },
+      { title: "Endpoint Detection & Response (EDR/XDR)", desc: "Deploying CrowdStrike and Sophos EDR platforms across enterprise workstations and servers." },
+      { title: "Email & Cloud Security", desc: "Check Point Harmony Email security, Data Loss Prevention (DLP), and Web Application Firewalls (WAF)." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Threat Mitigation", metric: "99%", desc: "Proactive defense against malware, ransomware, and attacks." },
-      { title: "Data Protection", metric: "High", desc: "Secure critical business information and customer data." },
-      { title: "Compliance", metric: "100%", desc: "Adherence to industry security standards (ISO 27001, GDPR)." },
-      { title: "Network Visibility", metric: "Complete", desc: "Deep insights into network traffic and user behavior." }
+      { title: "Perimeter Defense", metric: "NGFW", desc: "Advanced Next-Generation Firewalls (NGFW) and deep packet inspection shield critical corporate networks from emerging cyber threats." },
+      { title: "Strict Identity Enforcement", metric: "Zero Trust", desc: "Zero Trust Network Access (ZTNA) and micro-segmentation ensure that only verified users access sensitive resources." },
+      { title: "Rapid Threat Mitigation", metric: "Real-Time", desc: "Endpoint Detection & Response (EDR/XDR) platforms proactively detect and neutralize risks across enterprise servers and workstations." }
     ],
     process: [
-      { step: "01", title: "Security Assessment", desc: "Identify vulnerabilities and gaps in the current network architecture." },
-      { step: "02", title: "Architecture Design", desc: "Design a multi-layered security strategy tailored to your risk profile." },
-      { step: "03", title: "Implementation", desc: "Deploy and configure firewalls, VPNs, and security appliances." },
-      { step: "04", title: "Monitoring & Tuning", desc: "Continuous monitoring, policy optimization, and incident response." }
+      { step: "01", title: "Perimeter & Vulnerability Audit", desc: "Assess ingress/egress points, firewall rulesets, and identity verification gaps." },
+      { step: "02", title: "Zero-Trust Architecture Design", desc: "Define micro-segmentation boundaries, least-privilege RBAC, and EDR deployment matrices." },
+      { step: "03", title: "Appliance & Agent Deployment", desc: "Implement NGFW hardware/virtual appliances, Zscaler ZTNA, and CrowdStrike/Sophos agents." },
+      { step: "04", title: "24/7 Threat Hunting & SOC", desc: "Continuous SIEM/SOC event correlation, threat containment, and automated incident response." }
     ],
     image: "/Checkpoint_Harmony_Banner.png",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -630,24 +1254,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "Comprehensive vulnerability assessments and penetration testing to identify risks.",
-    overview: "Proactively identify and remediate security weaknesses before they can be exploited. Our expert security audits and penetration testing services provide a thorough evaluation of your IT environment, applications, and processes against industry best practices.",
+    overview: "Comprehensive vulnerability assessments and penetration testing to identify risks. Our certified cybersecurity specialists rigorously evaluate your networks, cloud estates, web applications, and source code to eliminate vulnerabilities before adversaries can exploit them.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Vulnerability Assessments", desc: "Automated and manual scanning to identify known security flaws." },
-      { title: "Penetration Testing", desc: "Ethical hacking to simulate real-world cyberattacks on your systems." },
-      { title: "Compliance Audits", desc: "Assessments against regulatory frameworks (HIPAA, PCI-DSS, ISO)." },
-      { title: "Security Posture Review", desc: "Evaluation of security policies, access controls, and incident response plans." }
+      { title: "Vulnerability Assessment & Penetration Testing (VAPT)", desc: "Black-box, grey-box, and white-box penetration testing for web apps, mobile apps, and networks." },
+      { title: "ISO 27001 & Compliance Audits", desc: "Gap analysis, policy formulation, and certification readiness support for ISO 27001 and DPDP frameworks." },
+      { title: "Source Code Security Review", desc: "Static and dynamic application security testing (SAST/DAST) to detect vulnerability risks." },
+      { title: "Phishing Simulations & Training", desc: "Employee cyber awareness training programs and controlled phishing simulations." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Risk Reduction", metric: "Significant", desc: "Identify and patch vulnerabilities proactively." },
-      { title: "Regulatory Compliance", metric: "Assured", desc: "Avoid fines and legal issues by meeting compliance mandates." },
-      { title: "Customer Trust", metric: "Enhanced", desc: "Demonstrate commitment to protecting sensitive data." },
-      { title: "Actionable Insights", metric: "Detailed", desc: "Clear reports with prioritized remediation steps." }
+      { title: "Proactive Risk Discovery", metric: "VAPT", desc: "Comprehensive vulnerability assessments and penetration testing (VAPT) uncover critical security gaps before malicious actors exploit them." },
+      { title: "Regulatory Compliance Readiness", metric: "ISO 27001", desc: "Structured gap analysis and policy formulation streamline certification paths for ISO 27001 and DPDP frameworks." },
+      { title: "Human Error Reduction", metric: "Human Shield", desc: "Controlled phishing simulations and employee awareness training transform your workforce into a reliable human firewall." }
     ],
     process: [
-      { step: "01", title: "Scoping", desc: "Define the boundaries, objectives, and rules of engagement for the audit." },
-      { step: "02", title: "Execution", desc: "Perform vulnerability scans, penetration tests, and policy reviews." },
-      { step: "03", title: "Analysis & Reporting", desc: "Compile findings into a comprehensive report with risk ratings." },
-      { step: "04", title: "Remediation Support", desc: "Provide guidance on patching and securing identified vulnerabilities." }
+      { step: "01", title: "Scoping & Threat Modeling", desc: "Define testing boundaries, regulatory frameworks (ISO/DPDP), and rules of engagement." },
+      { step: "02", title: "In-Depth VAPT & Source Code Testing", desc: "Execute automated vulnerability sweeps, manual penetration attempts, and static code scans." },
+      { step: "03", title: "Executive & Technical Risk Reporting", desc: "Deliver prioritized CVSS remediation scorecards, evidence logs, and executive risk summaries." },
+      { step: "04", title: "Remediation Verification & Re-Testing", desc: "Validate that all identified vulnerabilities have been securely patched and issue compliance certificates." }
     ],
     image: "/DPDP_ACT_Banner.png",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -658,24 +1283,25 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "In-depth evaluations of your IT infrastructure for performance, efficiency, and alignment.",
-    overview: "Ensure your IT investments are delivering maximum value. Our IT System Audits evaluate the performance, reliability, and alignment of your technology stack with business objectives, identifying areas for optimization and modernization.",
+    overview: "In-depth evaluations of your IT infrastructure for performance, efficiency, and alignment. We conduct rigorous assessments of your IT systems, governance controls, cloud spending, and disaster preparedness to ensure maximum ROI and operational resilience.",
+    featuresTitle: "Service Scope & Capabilities",
     features: [
-      { title: "Infrastructure Assessment", desc: "Evaluate server, storage, and network performance and capacity." },
-      { title: "Cloud Readiness Audit", desc: "Assess legacy applications and infrastructure for cloud migration suitability." },
-      { title: "Software Licensing Audit", desc: "Ensure compliance and optimize costs for enterprise software." },
-      { title: "IT Governance Review", desc: "Evaluate IT management processes, disaster recovery, and operational maturity." }
+      { title: "IT General Controls (ITGC) Audit", desc: "Evaluating access management, change management controls, backup verification, and audit trails." },
+      { title: "Infrastructure Performance Review", desc: "Assessing server load, storage health, network throughput, and database efficiency." },
+      { title: "Cloud FinOps & Cost Optimization", desc: "Reviewing cloud utilization to identify idle compute resources and cost-reduction opportunities." },
+      { title: "Disaster Recovery (DR/BCP) Testing", desc: "Evaluating recovery time objectives (RTO) and recovery point objectives (RPO) under simulated outage conditions." }
     ],
+    benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Cost Optimization", metric: "15-20%", desc: "Identify wasted resources and optimize licensing and hardware usage." },
-      { title: "System Performance", metric: "Improved", desc: "Resolve bottlenecks to enhance overall system speed and reliability." },
-      { title: "Strategic Alignment", metric: "Aligned", desc: "Ensure IT initiatives support overarching business goals." },
-      { title: "Future-Proofing", metric: "High", desc: "Roadmap for modernization and adopting emerging technologies." }
+      { title: "Optimized Resource Utilization", metric: "FinOps", desc: "Cloud FinOps reviews eliminate idle compute resources to drive continuous cloud cost reduction." },
+      { title: "Assured Business Continuity", metric: "DR / RTO", desc: "Rigorous Disaster Recovery (DR/BCP) testing validates recovery time objectives (RTO) under simulated outage conditions." },
+      { title: "Strengthened Governance", metric: "ITGC", desc: "IT General Controls (ITGC) audits ensure ironclad access controls, change management tracking, and reliable backup integrity." }
     ],
     process: [
-      { step: "01", title: "Discovery & Data Gathering", desc: "Collect data on inventory, performance metrics, and processes." },
-      { step: "02", title: "Analysis", desc: "Evaluate findings against industry benchmarks and best practices." },
-      { step: "03", title: "Gap Identification", desc: "Identify performance bottlenecks, risks, and inefficiencies." },
-      { step: "04", title: "Strategic Recommendations", desc: "Deliver an actionable roadmap for IT optimization and transformation." }
+      { step: "01", title: "Audit Scoping & Baseline Discovery", desc: "Identify critical systems, access control matrices, cloud subscriptions, and DR parameters." },
+      { step: "02", title: "ITGC & Performance Analysis", desc: "Evaluate server utilization, audit logs, backup restorations, and change control procedures." },
+      { step: "03", title: "FinOps & Disaster Simulation", desc: "Execute cloud spend telemetry audits and simulate failover scenarios to measure RTO/RPO." },
+      { step: "04", title: "Audit Findings & Optimization Roadmap", desc: "Deliver formal audit reports, cost-saving recommendations, and governance remediation steps." }
     ],
     image: "/header-2x.png",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -697,5 +1323,16 @@ export function getSubServiceUrlByTitle(catSlug: string, subTitle: string): stri
 }
 
 export function getSubServiceBySlug(slug: string): SubServiceData | undefined {
-  return SUB_SERVICES_DATA.find((s) => s.slug === slug);
+  if (!slug) return undefined;
+  const directMatch = SUB_SERVICES_DATA.find((s) => s.slug === slug);
+  if (directMatch) return directMatch;
+
+  if (slug === "sap-others" || slug === "sapothers") {
+    return SUB_SERVICES_DATA.find((s) => s.slug === "audit-comply");
+  }
+
+  const normalized = slug.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return SUB_SERVICES_DATA.find(
+    (s) => s.slug.toLowerCase().replace(/[^a-z0-9]/g, "") === normalized
+  );
 }

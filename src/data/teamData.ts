@@ -55,7 +55,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: "Tanay Khandelwal",
     role: "Director",
     bio: "Driving strategic initiatives and corporate growth at Acceleron Solutions.",
-    image: "Tanay_Khandelwal.webp",
+    image: "/Tanay_Khandelwal.webp",
     department: "Executive Leadership",
     linkedin: "https://www.linkedin.com/",
     email: "tanay@acceleronsolutions.io"

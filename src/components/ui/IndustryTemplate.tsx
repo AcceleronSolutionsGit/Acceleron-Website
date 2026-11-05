@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Award, ArrowRight } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Award, ArrowRight, FileText, Check } from "lucide-react";
 import { Reveal, WaveDivider } from "./Animations";
 import { PageHero } from "./PageHero";
 import { type IndustryDetail } from "../../data/industriesData";
@@ -29,6 +29,8 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
         }
         ctaText="Speak with Industry Practice Lead"
         ctaHref="/contact"
+        secondaryCtaText={data.caseStudies && data.caseStudies.length > 0 ? "View Case Studies" : undefined}
+        secondaryCtaHref={data.caseStudies && data.caseStudies.length > 0 ? "#case-studies" : undefined}
       />
 
       {/* Section 1: Overview & Challenges */}
@@ -78,7 +80,7 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">Tailored Architecture</div>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Acceleron Solutions & <span className="text-gradient">Capabilities</span>
+              Acceleron Solutions &amp; <span className="text-gradient">Capabilities</span>
             </h2>
             <p className="text-muted-foreground text-lg">
               Enterprise platforms, custom applications, and domain-specific tools engineered to deliver measurable operational outcomes.
@@ -154,7 +156,111 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
         </div>
       </section>
 
-      <WaveDivider from="dark" to="white" />
+      {/* Section 4: Proven Real-World Case Studies */}
+      {data.caseStudies && data.caseStudies.length > 0 && (
+        <>
+          <WaveDivider from="dark" to="white" />
+          <section id="case-studies" className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
+            <Reveal>
+              <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-3">
+                  Proven Real-World Impact
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+                  Industry <span className="text-gradient">Case Studies</span>
+                </h2>
+                <p className="text-muted-foreground text-lg">
+                  Explore how Acceleron delivers measurable operational improvements, automated workflows, and data-driven P&amp;L value for leading organizations.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="space-y-12">
+              {data.caseStudies.map((cs, idx) => (
+                <Reveal key={cs.id} delay={idx * 0.1}>
+                  <div className="rounded-3xl border border-border/80 bg-card p-8 sm:p-12 shadow-card hover:border-brand/40 transition-all duration-300">
+                    <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-border/60">
+                      <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand/10 text-brand px-3.5 py-1.5 rounded-full border border-brand/20">
+                        {cs.badge}
+                      </span>
+                      <span className="text-xs font-semibold text-muted-foreground">
+                        Acceleron Domain Engagement
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 leading-tight">
+                      {cs.title}
+                    </h3>
+
+                    <div className="grid lg:grid-cols-3 gap-8">
+                      {/* Challenge Block */}
+                      <div className="rounded-2xl border border-red-500/20 bg-red-500/5 p-6 flex flex-col justify-between">
+                        <div>
+                          <div className="text-xs font-bold uppercase tracking-wider text-red-500 mb-3 flex items-center gap-2">
+                            <span className="h-2 w-2 rounded-full bg-red-500" />
+                            Operational Challenge
+                          </div>
+                          <p className="text-sm text-foreground/85 leading-relaxed">
+                            {cs.challenge}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Solution Block */}
+                      <div className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-6 flex flex-col justify-between">
+                        <div>
+                          <div className="text-xs font-bold uppercase tracking-wider text-blue-500 mb-3 flex items-center gap-2">
+                            <span className="h-2 w-2 rounded-full bg-blue-500" />
+                            Acceleron Solution
+                          </div>
+                          <p className="text-sm text-foreground/85 leading-relaxed">
+                            {cs.solution}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Impact Block */}
+                      <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-6 flex flex-col justify-between">
+                        <div>
+                          <div className="text-xs font-bold uppercase tracking-wider text-emerald-500 mb-3 flex items-center gap-2">
+                            <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                            Measurable Impact
+                          </div>
+                          <p className="text-sm text-foreground/85 leading-relaxed">
+                            {cs.impact}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* Bottom CTA Banner */}
+      <section className="border-t border-border/60 bg-gradient-to-br from-card via-card to-brand/5 py-16">
+        <div className="container mx-auto px-6 max-w-5xl text-center">
+          <Reveal>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Ready to Transform Your Industry Operations?
+            </h2>
+            <p className="text-muted-foreground text-base max-w-2xl mx-auto mb-8">
+              Consult with our industry practice architects to benchmark your technology roadmap against sector leaders.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                to="/contact"
+                className="rounded-2xl bg-brand-gradient px-8 py-4 text-sm font-bold text-white shadow-glow hover:opacity-95 transition-opacity"
+              >
+                Schedule Executive Discovery
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </main>
   );
 }

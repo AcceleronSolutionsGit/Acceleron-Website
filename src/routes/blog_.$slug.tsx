@@ -29,7 +29,7 @@ function BlogDetailPage() {
         ctaHref="/blog"
       />
 
-      <section className="section-dark container mx-auto px-6 max-w-4xl relative z-10 py-16">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-4xl relative z-10 py-12 sm:py-16">
         
         {/* Back Link */}
         <Reveal>
@@ -67,7 +67,7 @@ function BlogDetailPage() {
 
         {/* Article Main Image */}
         <Reveal delay={0.2}>
-          <div className="relative h-96 rounded-3xl overflow-hidden mb-12 shadow-glow border border-border">
+          <div className="relative h-56 sm:h-80 md:h-96 rounded-3xl overflow-hidden mb-8 sm:mb-12 shadow-glow border border-border">
             <img
               src={post.image}
               alt={post.title}

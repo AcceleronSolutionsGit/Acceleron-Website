@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { LOCATION_CARDS } from "./HomeSections";
+import { LocationCardItem } from "./HomeSections";
 
 // Fix Leaflet marker icons in React
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -12,22 +12,105 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
 
-function MapController({ activeLocation }: { activeLocation: typeof LOCATION_CARDS[0] | null }) {
+export interface MapPinItem {
+  id: string;
+  city: string;
+  country: string;
+  label: string;
+  address: string;
+  lat: number;
+  lng: number;
+  isHq?: boolean;
+  isInternational?: boolean;
+  directionsUrl?: string;
+}
+
+export const MAP_PINS: MapPinItem[] = [
+  {
+    id: "kolkata",
+    city: "Kolkata Headquarters",
+    country: "India",
+    label: "Global HQ & Center of Excellence (CoE)",
+    address: "3rd Floor, STPI IT Park, Block-DP, Plot-5/1, Sector V, Salt Lake, Kolkata – 700091, West Bengal, India",
+    lat: 22.574625,
+    lng: 88.438630,
+    directionsUrl: "https://maps.app.goo.gl/PDjDU26TL5tt7HgD6",
+    isHq: true,
+  },
+  {
+    id: "delhi",
+    city: "Delhi NCR Hub",
+    country: "India",
+    label: "Enterprise Delivery Center",
+    address: "Gainwell Ecotech II, 1-C/1, Udyog Vihar, Greater Noida, Delhi NCR – 201306, Uttar Pradesh, India",
+    lat: 28.4986,
+    lng: 77.5348,
+    directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=28.4986,77.5348",
+  },
+  {
+    id: "usa",
+    city: "USA Engagement Hub",
+    country: "USA (West Virginia)",
+    label: "Strategic Client Engagements",
+    address: "Active enterprise engagements across West Virginia, USA",
+    lat: 38.5976,
+    lng: -80.4549,
+    isInternational: true,
+  },
+  {
+    id: "australia",
+    city: "Australia Engagement Hub",
+    country: "Australia (NSW)",
+    label: "Strategic Client Engagements",
+    address: "Active enterprise engagements across New South Wales, Australia",
+    lat: -33.8688,
+    lng: 151.2093,
+    isInternational: true,
+  },
+  {
+    id: "singapore",
+    city: "Singapore Operations",
+    country: "Singapore",
+    label: "Strategic Client Operations",
+    address: "Active enterprise engagements across Singapore",
+    lat: 1.3521,
+    lng: 103.8198,
+    isInternational: true,
+  },
+  {
+    id: "middle-east",
+    city: "Middle East Hub",
+    country: "Middle East",
+    label: "Strategic Client Operations",
+    address: "Active enterprise engagements across the Middle East",
+    lat: 25.2048,
+    lng: 55.2708,
+    isInternational: true,
+  },
+];
+
+function MapController({ activeLocation }: { activeLocation: LocationCardItem | null }) {
   const map = useMap();
   useEffect(() => {
-    if (activeLocation) {
-      map.flyTo([activeLocation.lat, activeLocation.lng], 14, { duration: 1.5 });
+    if (activeLocation && activeLocation.lat !== undefined && activeLocation.lng !== undefined) {
+      const zoom = activeLocation.zoomLevel ?? 14;
+      map.flyTo([activeLocation.lat, activeLocation.lng], zoom, { duration: 1.5 });
     }
   }, [activeLocation, map]);
   return null;
 }
 
-export default function LeafletMap({ activeLocation }: { activeLocation: typeof LOCATION_CARDS[0] | null }) {
-  const createPinIcon = (isHq?: boolean) => {
-    const bgGradient = isHq
-      ? "linear-gradient(135deg, #e11d48 0%, #be123c 100%)"
-      : "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)";
-    const shadowColor = isHq ? "rgba(225, 29, 72, 0.4)" : "rgba(37, 99, 235, 0.4)";
+export default function LeafletMap({ activeLocation }: { activeLocation: LocationCardItem | null }) {
+  const createPinIcon = (isHq?: boolean, isInternational?: boolean) => {
+    let bgGradient = "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)";
+    let shadowColor = "rgba(37, 99, 235, 0.4)";
+    if (isHq) {
+      bgGradient = "linear-gradient(135deg, #e11d48 0%, #be123c 100%)";
+      shadowColor = "rgba(225, 29, 72, 0.4)";
+    } else if (isInternational) {
+      bgGradient = "linear-gradient(135deg, #059669 0%, #047857 100%)";
+      shadowColor = "rgba(5, 150, 105, 0.4)";
+    }
 
     return L.divIcon({
       html: `
@@ -69,8 +152,8 @@ export default function LeafletMap({ activeLocation }: { activeLocation: typeof 
   return (
     <div className="h-[320px] sm:h-[400px] md:h-[500px] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-border shadow-glow relative z-10">
       <MapContainer 
-        center={[25.5, 82.5]} 
-        zoom={5} 
+        center={[23.5, 80.0]} 
+        zoom={4} 
         scrollWheelZoom={false}
         style={{ height: '100%', width: '100%', zIndex: 1 }}
         zoomControl={true}
@@ -79,8 +162,8 @@ export default function LeafletMap({ activeLocation }: { activeLocation: typeof 
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-        {LOCATION_CARDS.map((loc) => (
-          <Marker key={loc.city} position={[loc.lat, loc.lng]} icon={createPinIcon(loc.isHq)}>
+        {MAP_PINS.map((loc) => (
+          <Marker key={loc.id} position={[loc.lat, loc.lng]} icon={createPinIcon(loc.isHq, loc.isInternational)}>
             <Popup maxWidth={300} minWidth={240}>
               <div className="font-sans text-slate-900 py-1">
                 <div className="flex items-center justify-between gap-2 mb-1">
@@ -100,18 +183,20 @@ export default function LeafletMap({ activeLocation }: { activeLocation: typeof 
                 <p className="text-xs text-slate-600 leading-relaxed mb-3">
                   {loc.address}
                 </p>
-                <a
-                  href={loc.directionsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 w-full px-3 py-2 text-xs font-semibold text-white bg-slate-900 hover:bg-rose-600 rounded-lg transition-colors shadow-sm"
-                  style={{ color: '#ffffff', textDecoration: 'none' }}
-                >
-                  <svg style={{ width: '14px', height: '14px' }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                  </svg>
-                  Get Directions
-                </a>
+                {loc.directionsUrl && (
+                  <a
+                    href={loc.directionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 w-full px-3 py-2 text-xs font-semibold text-white bg-slate-900 hover:bg-rose-600 rounded-lg transition-colors shadow-sm"
+                    style={{ color: '#ffffff', textDecoration: 'none' }}
+                  >
+                    <svg style={{ width: '14px', height: '14px' }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                    Get Directions
+                  </a>
+                )}
               </div>
             </Popup>
           </Marker>
