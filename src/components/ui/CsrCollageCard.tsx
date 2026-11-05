@@ -117,7 +117,7 @@ export function CsrCollageCard({
 
           <div
             className={`grid gap-2 sm:gap-3 ${
-              thumbnails.length >= 4 ? "grid-cols-4" : `grid-cols-${thumbnails.length}`
+              thumbnails.length >= 4 ? "grid-cols-4" : thumbnails.length === 3 ? "grid-cols-3" : thumbnails.length === 2 ? "grid-cols-2" : "grid-cols-1"
             }`}
           >
             {thumbnails.slice(0, 4).map((thumbSrc, idx) => {

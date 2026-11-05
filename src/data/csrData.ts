@@ -76,7 +76,6 @@ export const CSR_INITIATIVES: CsrInitiative[] = [
       "/csr/blood donation/Blood-donation-Acceleron-Solutions-1.png.webp",
       "/csr/blood donation/Blood-donation-Acceleron-Solutions-2.png.webp",
       "/csr/blood donation/Blood-donation-Acceleron-Solutions-3.png.webp",
-      "/DSC03626.JPG",
     ],
   },
   {

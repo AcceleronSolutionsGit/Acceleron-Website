@@ -118,7 +118,6 @@ const PERFORMANCE_METRICS = [
 ];
 
 const CLIENT_LOGOS = [
-  { name: "Client 1", logo: "/client (1).png" },
   { name: "Client 2", logo: "/client (2).png" },
   { name: "Client 3", logo: "/client (3).png" },
   { name: "Client 4", logo: "/client (4).png" },
@@ -174,8 +173,8 @@ function AboutPage() {
 
       {/* 2. THE ORIGIN STORY & PROBLEM SOLVED */}
       <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          <div className="lg:col-span-7 space-y-6">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-5 space-y-5">
             <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red">
                 Origin & Heritage
@@ -229,7 +228,7 @@ function AboutPage() {
             </Reveal>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-7">
             <Reveal delay={0.2}>
               <AboutImageSlider showCaption={true} />
             </Reveal>
@@ -407,11 +406,10 @@ function AboutPage() {
             <Reveal key={loc.city} delay={i * 0.08}>
               <motion.div
                 whileHover={{ y: -6, scale: 1.02 }}
-                className={`relative rounded-3xl border p-6 sm:p-8 transition-all duration-300 flex flex-col justify-between h-full ${
-                  loc.isHq
-                    ? "border-brand bg-brand-gradient/10 shadow-glow"
-                    : "border-border/60 bg-background/50 hover:border-brand/40 hover:shadow-soft"
-                }`}
+                className={`relative rounded-3xl border p-6 sm:p-8 transition-all duration-300 flex flex-col justify-between h-full ${loc.isHq
+                  ? "border-brand bg-brand-gradient/10 shadow-glow"
+                  : "border-border/60 bg-background/50 hover:border-brand/40 hover:shadow-soft"
+                  }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -445,7 +443,7 @@ function AboutPage() {
                           <span>{loc.address}</span>
                         </div>
                       )}
-                      {loc.phone && (
+                      {/* {loc.phone && (
                         <div className="flex items-center gap-2.5">
                           <Phone className="h-4 w-4 text-brand shrink-0" />
                           <div className="flex flex-wrap items-center gap-x-2 font-medium text-foreground">
@@ -458,7 +456,7 @@ function AboutPage() {
                             </a>
                           </div>
                         </div>
-                      )}
+                      )} */}
                       {loc.email && (
                         <div className="flex items-center gap-2.5">
                           <Mail className="h-4 w-4 text-brand shrink-0" />
@@ -505,7 +503,7 @@ function AboutPage() {
               </p>
               <div className="pt-4">
                 <Link to="/contact" className="btn btn-primary btn-lg inline-flex items-center gap-2">
-                  Contact Our Leadership <ArrowRight className="h-5 w-5" />
+                  Connect with our Experts <ArrowRight className="h-5 w-5" />
                 </Link>
               </div>
             </div>

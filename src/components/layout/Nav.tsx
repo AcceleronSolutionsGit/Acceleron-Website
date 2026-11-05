@@ -17,8 +17,8 @@ function getSubUrl(catHref: string, subTitle: string): string {
 }
 
 const NAV_LINKS = [
-  { label: "What We Do", href: "/services", dropdown: "what-we-do" },
-  { label: "Perspectives", href: "/blog", dropdown: "perspectives" },
+  { label: "Services", href: "/services", dropdown: "what-we-do" },
+  { label: "Insights", href: "/blog", dropdown: "perspectives" },
   { label: "Who We Are", href: "/about", dropdown: "who-we-are" },
   { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
@@ -134,8 +134,8 @@ function Nav() {
     <motion.header
       initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled
-          ? "bg-white/95 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 py-1.5 shadow-md"
-          : "bg-white/90 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60 py-2.5 shadow-sm"
+        ? "bg-white/95 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 py-1.5 shadow-md"
+        : "bg-white/90 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60 py-2.5 shadow-sm"
         }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">

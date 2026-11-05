@@ -50,14 +50,14 @@ export function Footer() {
                     <span>{OFFICIAL_HQ.address}</span>
                   </div>
                 </li>
-                <li className="flex items-center gap-3">
+                {/* <li className="flex items-center gap-3">
                   <Phone className="h-4 w-4 text-brand shrink-0" />
                   <div className="flex flex-wrap items-center gap-x-2 font-medium">
                     <a href="tel:03335346200" className="hover:text-brand transition-colors">033-35346200</a>
                     <span>/</span>
                     <a href="tel:03335346222" className="hover:text-brand transition-colors">033-35346222</a>
                   </div>
-                </li>
+                </li> */}
                 <li className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-brand shrink-0" />
                   <a href={`mailto:${OFFICIAL_HQ.email}`} className="hover:text-brand transition-colors font-medium">

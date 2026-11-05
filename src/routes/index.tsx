@@ -125,7 +125,7 @@ function Hero() {
               <span className="grid h-6 w-6 place-items-center rounded-full border border-white/25 transition-transform group-hover:scale-110">
                 <Layers className="h-3 w-3 text-white/80" />
               </span>
-              Explore Services
+              Explore Our Services
             </Link>
           </motion.div>
         </div>
@@ -277,10 +277,10 @@ function AboutTeaser() {
     <section className="relative overflow-hidden bg-background py-16 sm:py-24 border-b border-border/50">
       <div className="absolute inset-0 grid-lines opacity-[0.04]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
           {/* Narrative & Story (Left Column on Desktop, Top on Mobile) */}
-          <div className="lg:col-span-7 space-y-5">
+          <div className="lg:col-span-5 space-y-5">
             <Reveal>
               <div className="text-xs uppercase tracking-[0.35em] text-primary dark:text-cyan-400 font-bold">
                 About Acceleron Solutions
@@ -335,7 +335,7 @@ function AboutTeaser() {
           </div>
 
           {/* Visual Showcase (Image ABOVE CTA) */}
-          <div className="lg:col-span-5 flex flex-col">
+          <div className="lg:col-span-7 flex flex-col">
             <Reveal delay={0.2}>
               {/* Image Slider: Renders ABOVE the CTA button */}
               <AboutImageSlider />
@@ -531,8 +531,8 @@ function TechStack() {
                     onMouseLeave={() => setHoveredIdx(null)}
                   >
                     <div className={`grid h-[70px] w-[70px] place-items-center rounded-2xl border backdrop-blur-xl transition-all duration-300 ${isHovered
-                        ? "border-border bg-muted/[0.18] shadow-[0_0_50px_-10px_rgba(255,255,255,0.3)]"
-                        : "border-border bg-muted/[0.06]"
+                      ? "border-border bg-muted/[0.18] shadow-[0_0_50px_-10px_rgba(255,255,255,0.3)]"
+                      : "border-border bg-muted/[0.06]"
                       }`} style={isHovered ? { borderColor: `${tech.color}88`, boxShadow: `0 0 40px -8px ${tech.color}55` } : {}}>
                       <tech.Logo className="h-8 w-8 text-foreground" style={{ filter: `drop-shadow(0 0 8px ${tech.color}44)` }} />
                     </div>
@@ -540,7 +540,7 @@ function TechStack() {
                 );
               })}
             </div>
-          
+
           </div>
 
           {/* Mobile & Tablet Interactive Grid View (Visible on screens < lg) */}
@@ -557,11 +557,10 @@ function TechStack() {
                     key={tech.n}
                     type="button"
                     onClick={() => setHoveredIdx(i)}
-                    className={`flex items-center gap-2 p-2.5 rounded-xl border text-left transition-all ${
-                      isSelected
-                        ? "border-primary dark:border-cyan-400 bg-muted/40 shadow-sm"
-                        : "border-border/60 bg-card/60 hover:border-brand/40 hover:bg-muted/30"
-                    }`}
+                    className={`flex items-center gap-2 p-2.5 rounded-xl border text-left transition-all ${isSelected
+                      ? "border-primary dark:border-cyan-400 bg-muted/40 shadow-sm"
+                      : "border-border/60 bg-card/60 hover:border-brand/40 hover:bg-muted/30"
+                      }`}
                     style={isSelected ? { borderColor: tech.color } : {}}
                   >
                     <div className="h-7 w-7 rounded-lg bg-muted/40 flex items-center justify-center shrink-0">
@@ -927,9 +926,9 @@ function Contact() {
                   <div className="text-xs uppercase tracking-wider font-bold text-brand-red mb-3">Direct Contact</div>
                   <div className="space-y-3 text-xs sm:text-sm">
                     <div className="flex items-center gap-3">
-                      <div className="h-8 w-8 rounded-lg bg-brand/10 flex items-center justify-center shrink-0">
+                      {/* <div className="h-8 w-8 rounded-lg bg-brand/10 flex items-center justify-center shrink-0">
                         <Phone className="h-4 w-4 text-brand" />
-                      </div>
+                      </div> */}
                       <div className="flex flex-wrap items-center gap-x-2 font-semibold text-foreground">
                         <a href="tel:03335346200" className="hover:text-brand-red transition-colors">033-35346200</a>
                         <span className="text-muted-foreground">/</span>
