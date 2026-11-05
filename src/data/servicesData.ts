@@ -96,7 +96,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Consult with Our AMS Lead",
       actionHref: "/contact"
     },
-    image: "/SAP_AMS_Banner.png"
+    image: "/sap/sap ams.png"
   },
   {
     slug: "sap-s-4hana-implementation",
@@ -163,7 +163,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Explore S/4HANA Roadmaps",
       actionHref: "/contact"
     },
-    image: "/SAP_Implementation_Banner.png",
+    image: "/sap/SAP S4 HANA - Acceleron Solutions.png",
     customLogo: "/sap_s4hana-transparentbg.png"
   },
   {
@@ -227,7 +227,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Schedule an Integration Assessment",
       actionHref: "/contact"
     },
-    image: "/SAP_Integration_Banner.png",
+    image: "/sap/SAP Cloud Integration - Acceleron Solutions.png",
     customLogo: "/sap-cx-logo.jpg"
   },
   {
@@ -295,7 +295,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Request a RISE Readiness Assessment",
       actionHref: "/contact"
     },
-    image: "/SAP_Implementation_Banner.png",
+    image: "/sap/RISE with SAP S4 HANA - Acceleron Solutions.png",
     customLogo: "/vital-wires-Rise-with-SAP-3.png"
   },
   {
@@ -359,7 +359,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Evaluate Cloud Infrastructure",
       actionHref: "/contact"
     },
-    image: "/SAP_Implementation_Banner.png"
+    image: "/sap/SAP Migration to Cloud - Acceleron Solutions.png"
   },
   {
     slug: "sap-custom-development",
@@ -422,7 +422,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Explore Custom Capabilities",
       actionHref: "/contact"
     },
-    image: "/SAP_Implementation_Banner.png",
+    image: "/sap/SAP Custom Development - Acceleron Solutions.png",
     customLogo: "/Sap_analytics-cloud.png"
   },
   {
@@ -486,7 +486,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Schedule Technical Upgrade Audit",
       actionHref: "/contact"
     },
-    image: "/SAP_Implementation_Banner.png",
+    image: "/sap/SAP Technical Upgrade - Acceleron solutions.png",
     customLogo: "/SAP-s4hana-whitebg.jpg"
   },
   {
@@ -550,7 +550,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Request Talent Profiles",
       actionHref: "/contact"
     },
-    image: "/SAP_Implementation_Banner.png"
+    image: "/sap/SAP Resource Augmentation - Acceleron Solutions.png"
   },
   {
     slug: "audit-comply",
@@ -613,7 +613,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Schedule an AuditComply Demo",
       actionHref: "/contact"
     },
-    image: "/SAP_Implementation_Banner.png",
+    image: "/sap/SAP Autonomous Enterprise - Acceleron solutions.png",
     customLogo: "/sap_s4hana-transparentbg.png"
   },
   {

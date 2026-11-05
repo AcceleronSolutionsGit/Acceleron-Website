@@ -66,9 +66,9 @@ function Hero() {
       {/* Text overlay & CTAs */}
       <motion.div
         style={{ y: heroY, opacity: heroOpacity }}
-        className="relative z-10 mx-auto flex min-h-[100svh] w-full items-center px-4 sm:px-6 pt-24 sm:pt-28 pb-12"
+        className="relative z-10 mx-auto flex min-h-[100svh] w-full items-center pt-24 sm:pt-28 pb-12"
       >
-        <div className="mx-auto w-full max-w-7xl">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}

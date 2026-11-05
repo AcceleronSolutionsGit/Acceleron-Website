@@ -179,7 +179,7 @@ function SAPPage() {
           { label: "Services", href: "/services" },
           { label: "SAP" }
         ]}
-        image="/capital_goods.jpg"
+        image="/sap/SAP Hub - SAP Home Cover page Acceleron Solutions.jpg"
         icon={
           <div className="h-20 w-auto bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-xl flex items-center justify-center">
             <img src={getAssetUrl("/sap_s4hana-transparentbg.png")} alt="SAP" className="h-12 w-auto object-contain drop-shadow-lg" />
