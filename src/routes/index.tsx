@@ -787,37 +787,53 @@ function Industries() {
 
 /* ═══════════════════ OUR SELECTED CLIENTELE ═══════════════════ */
 
-const CLIENTELE_ROW_1 = [
-  { name: "Caterpillar", file: "Caterpillar Logo.jpg" },
-  { name: "Gainwell CAT", file: "Gainwell CAT.jpg" },
-  { name: "SEM (A Caterpillar Brand)", file: "SEM (A Caterpillar Brand).png" },
-  { name: "Trimble", file: "Trimble Logo.png" },
-  { name: "SITECH", file: "SITECH.jpg" },
-  { name: "TIL - Tractors India Limited", file: "TIL - Tractors India Limited.png" },
-  { name: "TMC", file: "TMC.png" },
-  { name: "PCM - Parasea Coal Mining", file: "PCM - Parasea Coal Mining.png" },
-  { name: "Resurgent Mining Solutions", file: "Resurgent Mining Solutions.png" },
-  { name: "Knowteq Equipcare", file: "Knowteq Equipcare Logo.jpg" },
-  { name: "Tulip Compression", file: "tulip compression logo.jpg" },
-  { name: "BMW Industries Limited", file: "BMWIL - BMW Industries Limited.png" },
-  { name: "Shyam Steel", file: "Shyam Steel.avif" },
-  { name: "Amit Metaliks", file: "amit alliance - Amit Metaliks.jpg" },
+interface ClienteleLogoItem {
+  name: string;
+  src: string;
+  profile: "square" | "medium" | "wide";
+  scaleClass?: string;
+}
+
+const CLIENTELE_PROFILE_CLASSES: Record<ClienteleLogoItem["profile"], string> = {
+  // Square/compact logos (1:1 aspect) capped so they do not tower over horizontal logos
+  square: "h-8 sm:h-9 md:h-10 w-auto max-w-[56%] sm:max-w-[58%] object-contain",
+  // Medium logos (1.3:1 to 2.2:1 aspect) balanced optical footprint
+  medium: "h-9 sm:h-10 md:h-11 w-auto max-w-[78%] sm:max-w-[80%] object-contain",
+  // Wide logos (2.4:1 to 4.5:1 aspect) given ample width so text and brand mark are easily readable
+  wide: "h-9 sm:h-11 md:h-12 w-auto max-w-[88%] sm:max-w-[92%] object-contain",
+};
+
+const CLIENTELE_ROW_1: ClienteleLogoItem[] = [
+  { name: "Caterpillar", src: "/clientele/Caterpillar Logo.jpg", profile: "medium" },
+  { name: "Gainwell CAT", src: "/clientele/Gainwell CAT.jpg", profile: "medium" },
+  { name: "SEM (A Caterpillar Brand)", src: "/SEM.png", profile: "medium" },
+  { name: "Trimble", src: "/TRIMBLE.png", profile: "wide", scaleClass: "scale-105" },
+  { name: "SITECH", src: "/SITECH.png", profile: "wide" },
+  { name: "TIL - Tractors India Limited", src: "/clientele/TIL - Tractors India Limited.png", profile: "square" },
+  { name: "TMC", src: "/TMC-removebg-preview.png", profile: "wide" },
+  { name: "PCM - Parasea Coal Mining", src: "/clientele/PCM - Parasea Coal Mining.png", profile: "wide", scaleClass: "scale-105" },
+  { name: "Resurgent Mining Solutions", src: "/clientele/Resurgent Mining Solutions.png", profile: "wide" },
+  { name: "Knowteq Equipcare", src: "/equipcare.png", profile: "medium" },
+  { name: "Tulip Compression", src: "/TulipCompression.png", profile: "wide" },
+  { name: "BMW Industries Limited", src: "/clientele/BMWIL - BMW Industries Limited.png", profile: "wide", scaleClass: "scale-110" },
+  { name: "Shyam Steel", src: "/clientele/Shyam Steel.avif", profile: "medium" },
+  { name: "Amit Metaliks", src: "/clientele/amit alliance - Amit Metaliks.jpg", profile: "square" },
 ];
 
-const CLIENTELE_ROW_2 = [
-  { name: "PCBL Chemical", file: "PCBL Chemical.png" },
-  { name: "M P Birla Group", file: "M P Birla Group.jpeg" },
-  { name: "Star Cement", file: "Star Cement.png" },
-  { name: "MAX Cement", file: "MAX Cement.png" },
-  { name: "Century Plyboards", file: "Century Plyboards - Century Ply.png" },
-  { name: "Skipper Pipes", file: "Skipper Pipes.png" },
-  { name: "Neoceram", file: "Neoceram.png" },
-  { name: "Ameya Technologies", file: "Ameya Technologies.png" },
-  { name: "mjunction", file: "mjuncion - Metal Junction.webp" },
-  { name: "Livpure", file: "Livpure.png" },
-  { name: "Linc", file: "Linc.png" },
-  { name: "MDH", file: "MDH spices - MDH.png" },
-  { name: "Viacom 18", file: "Viacom 18.jpg" },
+const CLIENTELE_ROW_2: ClienteleLogoItem[] = [
+  { name: "PCBL Chemical", src: "/clientele/PCBL Chemical.png", profile: "square" },
+  { name: "M P Birla Group", src: "/clientele/M P Birla Group.jpeg", profile: "medium" },
+  { name: "Star Cement", src: "/clientele/Star Cement.png", profile: "square", scaleClass: "scale-110" },
+  { name: "MAX Cement", src: "/clientele/MAX Cement.png", profile: "square" },
+  { name: "Century Plyboards", src: "/clientele/Century Plyboards - Century Ply.png", profile: "square" },
+  { name: "Skipper Pipes", src: "/clientele/Skipper Pipes.png", profile: "medium" },
+  { name: "Neoceram", src: "/clientele/Neoceram.png", profile: "wide", scaleClass: "scale-105" },
+  { name: "Ameya Technologies", src: "/clientele/Ameya Technologies.png", profile: "square" },
+  { name: "mjunction", src: "/clientele/mjuncion - Metal Junction.webp", profile: "medium" },
+  { name: "Livpure", src: "/clientele/Livpure.png", profile: "square" },
+  { name: "Linc", src: "/clientele/Linc.png", profile: "medium" },
+  { name: "MDH", src: "/clientele/MDH spices - MDH.png", profile: "wide" },
+  { name: "Viacom 18", src: "/clientele/Viacom 18.jpg", profile: "medium" },
 ];
 
 function OurSelectedClientele() {
@@ -865,15 +881,15 @@ function OurSelectedClientele() {
             {[...CLIENTELE_ROW_1, ...CLIENTELE_ROW_1].map((client, idx) => (
               <div
                 key={`${client.name}-r1-${idx}`}
-                className="group shrink-0 relative flex items-center justify-center p-3.5 sm:p-5 rounded-2xl border border-border/70 bg-white/95 dark:bg-white/[0.95] shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-36 sm:w-44 md:w-52 h-20 sm:h-24 md:h-28 text-center"
+                className="group shrink-0 relative flex items-center justify-center px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-white shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-40 sm:w-48 md:w-56 h-20 sm:h-24 text-center overflow-hidden"
               >
                 <img
-                  src={getAssetUrl(`/clientele/${client.file}`)}
+                  src={getAssetUrl(client.src)}
                   alt={client.name}
                   title={client.name}
                   loading="lazy"
                   decoding="async"
-                  className="h-full w-full max-h-12 sm:max-h-14 md:max-h-16 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  className={`${CLIENTELE_PROFILE_CLASSES[client.profile]} ${client.scaleClass || ""} transition-transform duration-300 group-hover:scale-105`}
                 />
               </div>
             ))}
@@ -884,15 +900,15 @@ function OurSelectedClientele() {
             {[...CLIENTELE_ROW_2, ...CLIENTELE_ROW_2].map((client, idx) => (
               <div
                 key={`${client.name}-r2-${idx}`}
-                className="group shrink-0 relative flex items-center justify-center p-3.5 sm:p-5 rounded-2xl border border-border/70 bg-white/95 dark:bg-white/[0.95] shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-36 sm:w-44 md:w-52 h-20 sm:h-24 md:h-28 text-center"
+                className="group shrink-0 relative flex items-center justify-center px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-white shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-40 sm:w-48 md:w-56 h-20 sm:h-24 text-center overflow-hidden"
               >
                 <img
-                  src={getAssetUrl(`/clientele/${client.file}`)}
+                  src={getAssetUrl(client.src)}
                   alt={client.name}
                   title={client.name}
                   loading="lazy"
                   decoding="async"
-                  className="h-full w-full max-h-12 sm:max-h-14 md:max-h-16 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  className={`${CLIENTELE_PROFILE_CLASSES[client.profile]} ${client.scaleClass || ""} transition-transform duration-300 group-hover:scale-105`}
                 />
               </div>
             ))}

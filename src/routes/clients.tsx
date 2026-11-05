@@ -46,14 +46,14 @@ function ClientsPage() {
             <Reveal key={client.id} delay={Math.min(0.2, (idx % 6) * 0.04)}>
               <motion.div
                 whileHover={{ y: -4, scale: 1.04 }}
-                className="group relative flex items-center justify-center p-3 sm:p-5 rounded-2xl border border-border/60 bg-white/95 dark:bg-muted/20 backdrop-blur-md hover:border-brand/50 hover:shadow-glow transition-all h-24 sm:h-32 md:h-40 text-center"
+                className="group relative flex items-center justify-center p-3 sm:p-5 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-white shadow-soft hover:border-brand/50 hover:shadow-glow transition-all h-24 sm:h-28 md:h-32 text-center"
               >
                 <img
                   src={getAssetUrl(client.logo)}
                   alt={client.name}
                   loading="lazy"
                   decoding="async"
-                  className="h-full w-full max-h-20 sm:max-h-24 md:max-h-28 max-w-[90%] object-contain filter transition-transform duration-300 group-hover:scale-110"
+                  className="h-full w-full max-h-12 sm:max-h-14 md:max-h-16 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </motion.div>
             </Reveal>
