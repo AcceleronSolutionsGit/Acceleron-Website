@@ -240,7 +240,7 @@ function AboutPage() {
       <WaveDivider from="dark" to="white" />
 
       {/* 3. CORE MISSION & VISION */}
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-20 sm:py-24">
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-20 sm:py-24">
         <Reveal>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">
@@ -310,7 +310,7 @@ function AboutPage() {
       <WaveDivider from="dark" to="white" />
 
       {/* 5. TRUST SIGNALS & PERFORMANCE METRICS */}
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-20 sm:py-24">
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-20 sm:py-24">
         <Reveal>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">
@@ -325,7 +325,7 @@ function AboutPage() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-5">
           {PERFORMANCE_METRICS.map((item, idx) => (
             <Reveal key={item.label} delay={idx * 0.08} className="h-full">
               <div className="group rounded-3xl border border-border/70 bg-card p-6 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
@@ -364,12 +364,12 @@ function AboutPage() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-4 md:gap-6">
           {CLIENT_LOGOS.map((client, idx) => (
             <Reveal key={client.name} delay={idx * 0.02}>
               <motion.div
                 whileHover={{ y: -4, scale: 1.04 }}
-                className="group flex items-center justify-center p-3 sm:p-5 rounded-2xl border border-border/60 bg-white/95 dark:bg-muted/30 backdrop-blur-md hover:border-brand/50 hover:shadow-glow transition-all h-32 sm:h-36 md:h-40 text-center"
+                className="group flex items-center justify-center p-3 sm:p-5 rounded-2xl border border-border/60 bg-white/95 dark:bg-muted/30 backdrop-blur-md hover:border-brand/50 hover:shadow-glow transition-all h-24 sm:h-32 md:h-40 text-center"
               >
                 <img
                   src={getAssetUrl(client.logo)}
@@ -387,7 +387,7 @@ function AboutPage() {
       <WaveDivider from="dark" to="white" />
 
       {/* Global Presence */}
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-20 sm:py-24">
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-20 sm:py-24">
         <Reveal>
           <div className="text-center mb-16">
             <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-4">
@@ -402,7 +402,7 @@ function AboutPage() {
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {LOCATION_CARDS.map((loc, i) => (
             <Reveal key={loc.city} delay={i * 0.08}>
               <motion.div

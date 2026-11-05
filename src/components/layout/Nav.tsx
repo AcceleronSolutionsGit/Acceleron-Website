@@ -401,55 +401,108 @@ function Nav() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-border mt-3 p-4 shadow-xl max-h-[85vh] overflow-y-auto"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="lg:hidden overflow-hidden bg-background/98 backdrop-blur-2xl border-t border-border mt-3 p-3 sm:p-4 shadow-2xl max-h-[85vh] overflow-y-auto"
           >
-            <div className="mx-auto max-w-7xl px-2 py-2 flex flex-col gap-1">
+            <div className="mx-auto max-w-7xl px-1 sm:px-2 py-2 flex flex-col gap-1.5">
               {NAV_LINKS.map((l) => (
                 <div key={l.label}>
                   {l.dropdown === "what-we-do" ? (
                     <>
                       <button
                         onClick={() => setMobileExpanded(mobileExpanded === "what-we-do" ? null : "what-we-do")}
-                        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-foreground/90 hover:bg-muted/50 transition-colors"
+                        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-bold text-foreground hover:bg-muted/50 transition-colors"
                         aria-expanded={mobileExpanded === "what-we-do"}
                       >
-                        {l.label}
+                        <span className="flex items-center gap-2">
+                          <Layers className="h-4 w-4 text-brand-red" />
+                          {l.label}
+                        </span>
                         <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${mobileExpanded === "what-we-do" ? "rotate-180" : ""}`} />
                       </button>
                       <AnimatePresence>
                         {mobileExpanded === "what-we-do" && (
                           <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} className="overflow-hidden">
-                            <div className="pl-6 pb-4 space-y-4 pt-2">
+                            <div className="px-2 pb-4 space-y-4 pt-2">
+                              {/* Services Grid */}
                               <div>
-                                <div className="text-xs font-bold text-brand-red mb-2 uppercase tracking-wider">Services</div>
-                                {MEGA_SERVICES.map((cat) => (
-                                  <Link key={cat.name} to={cat.href as any} onClick={() => setOpen(false)} className="block rounded-lg py-2 text-sm text-foreground/70 hover:text-brand transition-colors">
-                                    {cat.name}
+                                <div className="flex items-center justify-between mb-2">
+                                  <span className="text-[11px] font-bold text-brand-red uppercase tracking-wider">Practice Areas</span>
+                                  <Link to="/services" onClick={() => setOpen(false)} className="text-[11px] text-brand font-semibold hover:underline">
+                                    All Services →
                                   </Link>
-                                ))}
-                              </div>
-                              <div>
-                                <Link
-                                  to="/products"
-                                  onClick={() => setOpen(false)}
-                                  className="text-xs font-bold text-brand-red mb-2 uppercase tracking-wider flex items-center justify-between hover:text-brand transition-colors"
-                                >
-                                  <span>Products &amp; Solution Hubs</span>
-                                  <ArrowRight className="h-3 w-3" />
-                                </Link>
-                                <div className="space-y-1 mb-2">
-                                  {PRODUCT_HUBS.map((hub) => (
-                                    <Link key={hub.name} to={hub.href as any} onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-lg py-1.5 text-xs font-semibold text-foreground hover:text-brand transition-colors">
-                                      <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                                      {hub.name}
+                                </div>
+                                <div className="grid grid-cols-2 gap-2">
+                                  {MEGA_SERVICES.map((cat) => (
+                                    <Link
+                                      key={cat.name}
+                                      to={cat.href as any}
+                                      onClick={() => setOpen(false)}
+                                      className="flex items-center gap-2 rounded-xl p-2.5 border border-border/60 bg-muted/20 hover:bg-muted/50 hover:border-brand/30 transition-all"
+                                    >
+                                      <cat.icon className="h-4 w-4 text-brand shrink-0" />
+                                      <span className="text-xs font-semibold text-foreground truncate">{cat.name}</span>
                                     </Link>
                                   ))}
                                 </div>
-                                <div className="pt-2 border-t border-border/40 space-y-0.5">
-                                  {PRODUCTS.map((p) => (
-                                    <Link key={p.name} to={p.href as any} onClick={() => setOpen(false)} className="block rounded-lg py-1.5 text-xs text-foreground/70 hover:text-brand transition-colors">
-                                      {p.name}
+                              </div>
+
+                              {/* Products & Hubs Grid */}
+                              <div>
+                                <div className="flex items-center justify-between mb-2">
+                                  <span className="text-[11px] font-bold text-brand-red uppercase tracking-wider">Product Ecosystems</span>
+                                  <Link to="/products" onClick={() => setOpen(false)} className="text-[11px] text-brand font-semibold hover:underline">
+                                    All Products →
+                                  </Link>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2 mb-2">
+                                  {PRODUCT_HUBS.map((hub) => (
+                                    <Link
+                                      key={hub.name}
+                                      to={hub.href as any}
+                                      onClick={() => setOpen(false)}
+                                      className="flex items-center gap-2 rounded-xl p-2.5 border border-border/60 bg-card hover:bg-muted/40 hover:border-brand/30 transition-all"
+                                    >
+                                      <hub.icon className="h-4 w-4 text-brand-red shrink-0" />
+                                      <span className="text-xs font-semibold text-foreground truncate">{hub.name}</span>
+                                    </Link>
+                                  ))}
+                                </div>
+                                <div className="grid grid-cols-2 gap-1.5 pt-2 border-t border-border/40">
+                                  {PRODUCTS.slice(0, 6).map((p) => (
+                                    <Link
+                                      key={p.name}
+                                      to={p.href as any}
+                                      onClick={() => setOpen(false)}
+                                      className="flex items-center gap-1.5 rounded-lg py-1 px-2 text-[11px] text-muted-foreground hover:text-brand transition-colors truncate"
+                                    >
+                                      <span className="h-1 w-1 rounded-full bg-brand shrink-0" />
+                                      <span className="truncate">{p.name}</span>
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+
+                              {/* Industries Grid */}
+                              <div>
+                                <div className="flex items-center justify-between mb-2">
+                                  <span className="text-[11px] font-bold text-brand-red uppercase tracking-wider">Industry Verticals</span>
+                                  <Link to="/industries" onClick={() => setOpen(false)} className="text-[11px] text-brand font-semibold hover:underline">
+                                    All Verticals →
+                                  </Link>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2">
+                                  {INDUSTRIES_NAV.map((ind) => (
+                                    <Link
+                                      key={ind.name}
+                                      to={ind.href as any}
+                                      onClick={() => setOpen(false)}
+                                      className="flex items-center gap-2 rounded-xl p-2.5 border border-border/60 bg-muted/20 hover:bg-muted/50 hover:border-brand/30 transition-all"
+                                    >
+                                      <ind.icon className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                                      <span className="text-xs font-semibold text-foreground truncate">{ind.name}</span>
                                     </Link>
                                   ))}
                                 </div>
@@ -463,21 +516,32 @@ function Nav() {
                     <>
                       <button
                         onClick={() => setMobileExpanded(mobileExpanded === "who-we-are" ? null : "who-we-are")}
-                        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-foreground/90 hover:bg-muted/50 transition-colors"
+                        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-bold text-foreground hover:bg-muted/50 transition-colors"
                         aria-expanded={mobileExpanded === "who-we-are"}
                       >
-                        {l.label}
+                        <span className="flex items-center gap-2">
+                          <Building2 className="h-4 w-4 text-brand-red" />
+                          {l.label}
+                        </span>
                         <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${mobileExpanded === "who-we-are" ? "rotate-180" : ""}`} />
                       </button>
                       <AnimatePresence>
                         {mobileExpanded === "who-we-are" && (
                           <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} className="overflow-hidden">
-                            <div className="pl-6 pb-2 space-y-1 pt-1">
-                              {WHO_WE_ARE.map((item) => (
-                                <Link key={item.name} to={item.href as any} onClick={() => setOpen(false)} className="block rounded-lg py-2.5 text-sm text-foreground/70 hover:text-brand transition-colors">
-                                  {item.name}
-                                </Link>
-                              ))}
+                            <div className="px-2 pb-3 pt-1">
+                              <div className="grid grid-cols-2 gap-2">
+                                {WHO_WE_ARE.map((item) => (
+                                  <Link
+                                    key={item.name}
+                                    to={item.href as any}
+                                    onClick={() => setOpen(false)}
+                                    className="flex items-center gap-2 rounded-xl p-2.5 border border-border/60 bg-muted/20 hover:bg-muted/50 hover:border-brand/30 transition-all"
+                                  >
+                                    <item.icon className="h-4 w-4 text-brand-red shrink-0" />
+                                    <span className="text-xs font-semibold text-foreground truncate">{item.name}</span>
+                                  </Link>
+                                ))}
+                              </div>
                             </div>
                           </motion.div>
                         )}
@@ -487,39 +551,51 @@ function Nav() {
                     <>
                       <button
                         onClick={() => setMobileExpanded(mobileExpanded === "perspectives" ? null : "perspectives")}
-                        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-foreground/90 hover:bg-muted/50 transition-colors"
+                        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-bold text-foreground hover:bg-muted/50 transition-colors"
                         aria-expanded={mobileExpanded === "perspectives"}
                       >
-                        {l.label}
+                        <span className="flex items-center gap-2">
+                          <FileText className="h-4 w-4 text-brand-red" />
+                          {l.label}
+                        </span>
                         <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${mobileExpanded === "perspectives" ? "rotate-180" : ""}`} />
                       </button>
                       <AnimatePresence>
                         {mobileExpanded === "perspectives" && (
                           <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} className="overflow-hidden">
-                            <div className="pl-6 pb-2 space-y-1 pt-1">
-                              {PERSPECTIVES.map((item) => (
-                                <Link key={item.name} to={item.href as any} onClick={() => setOpen(false)} className="block rounded-lg py-2.5 text-sm text-foreground/70 hover:text-brand transition-colors">
-                                  {item.name}
-                                </Link>
-                              ))}
+                            <div className="px-2 pb-3 pt-1">
+                              <div className="grid grid-cols-2 gap-2">
+                                {PERSPECTIVES.map((item) => (
+                                  <Link
+                                    key={item.name}
+                                    to={item.href as any}
+                                    onClick={() => setOpen(false)}
+                                    className="flex items-center gap-2 rounded-xl p-2.5 border border-border/60 bg-muted/20 hover:bg-muted/50 hover:border-brand/30 transition-all"
+                                  >
+                                    <item.icon className="h-4 w-4 text-brand-red shrink-0" />
+                                    <span className="text-xs font-semibold text-foreground truncate">{item.name}</span>
+                                  </Link>
+                                ))}
+                              </div>
                             </div>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </>
                   ) : (
-                    <Link to={l.href as any} onClick={() => setOpen(false)} className="block rounded-xl px-4 py-3 text-sm font-semibold text-foreground/90 hover:bg-muted/50 transition-colors">
-                      {l.label}
+                    <Link to={l.href as any} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-bold text-foreground hover:bg-muted/50 transition-colors">
+                      <span>{l.label}</span>
+                      <ArrowRight className="h-4 w-4 text-muted-foreground/60" />
                     </Link>
                   )}
                 </div>
               ))}
-              <div className="mt-6 flex flex-col gap-4 border-t border-border pt-6 pb-2">
-                <div className="flex items-center justify-between px-2">
-                  <span className="text-sm font-semibold text-foreground/80">Theme</span>
+              <div className="mt-4 flex flex-col gap-3 border-t border-border pt-4 pb-2">
+                <div className="flex items-center justify-between px-3 py-2 bg-muted/40 rounded-xl border border-border/50">
+                  <span className="text-xs font-semibold text-foreground/80">Appearance Mode</span>
                   <ThemeToggle />
                 </div>
-                <Link to="/contact" onClick={() => setOpen(false)} className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-gradient py-3.5 text-sm font-bold text-white shadow-glow">
+                <Link to="/contact" onClick={() => setOpen(false)} className="btn btn-primary btn-md w-full justify-center">
                   Get in touch <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

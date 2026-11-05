@@ -9,7 +9,7 @@ export const GAINWELL_GROUP_LOGO = "/Gainwell_Group_SVG_logo file.svg";
 
 export function Footer() {
   return (
-    <footer className="relative bg-background pt-24 pb-12 overflow-hidden text-foreground">
+    <footer className="relative bg-background pt-16 sm:pt-24 pb-10 sm:pb-12 overflow-hidden text-foreground">
       <div className="absolute inset-0 grid-lines opacity-10" />
       <svg className="absolute inset-x-0 top-0 h-16 w-full" preserveAspectRatio="none" viewBox="0 0 1440 60">
         <motion.path
@@ -24,8 +24,8 @@ export function Footer() {
         </defs>
       </svg>
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-8 mb-10 sm:mb-16">
           <div className="lg:col-span-4">
             <Link
               to="/"

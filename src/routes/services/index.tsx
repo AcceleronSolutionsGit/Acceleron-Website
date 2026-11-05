@@ -543,7 +543,7 @@ function ServicesHub() {
         </Reveal>
 
         {/* 4 PRACTICE SUMMARY CARDS */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {PRACTICES.map((practice, idx) => (
             <Reveal key={practice.id} delay={idx * 0.08} className="h-full">
               <div className="rounded-3xl border border-border/80 bg-card p-6 h-full shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
@@ -621,7 +621,7 @@ function ServicesHub() {
                 </p>
               </div>
 
-              <div className="shrink-0 flex items-center gap-3">
+              <div className="shrink-0 flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-3">
                 <Link
                   to={practice.hubUrl as any}
                   className="rounded-xl border border-brand/40 bg-brand/5 hover:bg-brand/10 text-brand px-4 py-2 text-xs font-bold transition-colors inline-flex items-center gap-1.5"
@@ -640,7 +640,7 @@ function ServicesHub() {
           </Reveal>
 
           {/* CAPABILITY CARDS */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {practice.capabilities.map((cap, cIdx) => (
               <Reveal key={cap.title} delay={cIdx * 0.08} className="h-full">
                 <div className="group rounded-3xl border border-border/70 bg-card p-7 sm:p-8 h-full shadow-card hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">

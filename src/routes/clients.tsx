@@ -87,12 +87,12 @@ function ClientsPage() {
         </Reveal>
 
         {/* Client Logos Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-4 md:gap-6">
           {ALL_CLIENTS.map((client, idx) => (
             <Reveal key={client.id} delay={Math.min(0.2, (idx % 6) * 0.04)}>
               <motion.div
                 whileHover={{ y: -4, scale: 1.04 }}
-                className="group relative flex items-center justify-center p-3 sm:p-5 rounded-2xl border border-border/60 bg-white/95 dark:bg-muted/20 backdrop-blur-md hover:border-brand/50 hover:shadow-glow transition-all h-32 sm:h-36 md:h-40 text-center"
+                className="group relative flex items-center justify-center p-3 sm:p-5 rounded-2xl border border-border/60 bg-white/95 dark:bg-muted/20 backdrop-blur-md hover:border-brand/50 hover:shadow-glow transition-all h-24 sm:h-32 md:h-40 text-center"
               >
                 <img
                   src={getAssetUrl(client.logo)}
@@ -120,7 +120,7 @@ function ClientsPage() {
           </div>
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {[
             {
               icon: Building2,

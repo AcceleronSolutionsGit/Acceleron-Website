@@ -64,11 +64,11 @@ export function PageHero({
         <div className={`hidden dark:block absolute inset-0 bg-gradient-to-br ${gradient} opacity-20 mix-blend-multiply`} />
 
         {/* Banner Content Container */}
-        <div className="relative z-10 container mx-auto px-6 max-w-7xl pt-36 pb-20">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 max-w-7xl pt-28 sm:pt-36 pb-12 sm:pb-20">
           <Reveal>
             <div className="flex flex-col items-start max-w-4xl">
               {badge && (
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.25em] text-white/90 backdrop-blur-md mb-4 shadow-sm">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 sm:px-3.5 sm:py-1 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-white/90 backdrop-blur-md mb-3 sm:mb-4 shadow-sm">
                   {badge}
                 </div>
               )}
@@ -77,21 +77,21 @@ export function PageHero({
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 0.4 }}
-                  className="mb-6"
+                  className="mb-4 sm:mb-6"
                 >
                   {icon}
                 </motion.div>
               )}
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.05]">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-4 sm:mb-6 leading-[1.1] break-words">
                 {title}
               </h1>
-              <p className="text-lg md:text-xl text-white/85 leading-relaxed mb-10 max-w-2xl">
+              <p className="text-base sm:text-lg md:text-xl text-white/85 leading-relaxed mb-6 sm:mb-10 max-w-2xl">
                 {subtitle}
               </p>
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
                 <Link
                   to={ctaHref as any}
-                  className="btn btn-primary btn-lg"
+                  className="btn btn-primary btn-lg w-full sm:w-auto justify-center"
                 >
                   {ctaText} <ArrowUpRight className="h-5 w-5" />
                 </Link>
@@ -99,14 +99,14 @@ export function PageHero({
                   secondaryCtaHref?.startsWith("#") ? (
                     <a
                       href={secondaryCtaHref}
-                      className="btn btn-secondary btn-lg bg-white/10 hover:bg-white/20 text-white border-white/25 backdrop-blur-md"
+                      className="btn btn-secondary btn-lg bg-white/10 hover:bg-white/20 text-white border-white/25 backdrop-blur-md w-full sm:w-auto justify-center"
                     >
                       {secondaryCtaText}
                     </a>
                   ) : (
                     <Link
                       to={(secondaryCtaHref || "/services") as any}
-                      className="btn btn-secondary btn-lg bg-white/10 hover:bg-white/20 text-white border-white/25 backdrop-blur-md"
+                      className="btn btn-secondary btn-lg bg-white/10 hover:bg-white/20 text-white border-white/25 backdrop-blur-md w-full sm:w-auto justify-center"
                     >
                       {secondaryCtaText}
                     </Link>
@@ -120,8 +120,8 @@ export function PageHero({
 
       {/* Breadcrumbs Bar Below Banner */}
       {breadcrumbs && breadcrumbs.length > 0 && (
-        <div className="w-full border-y border-border/50 bg-muted/40 py-3.5 backdrop-blur-md relative z-20">
-          <div className="container mx-auto px-6 max-w-7xl">
+        <div className="w-full border-y border-border/50 bg-muted/40 py-2.5 sm:py-3.5 backdrop-blur-md relative z-20">
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
             <Breadcrumbs items={breadcrumbs} />
           </div>
         </div>

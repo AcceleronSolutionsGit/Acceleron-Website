@@ -34,7 +34,7 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
       />
 
       {/* Section 1: Overview & Challenges */}
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
         <Reveal>
           <div className="max-w-3xl mb-16">
             <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">Industry Overview</div>
@@ -55,7 +55,7 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
               Core Industry Challenges We Solve
             </h3>
           </Reveal>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {data.challenges.map((c, i) => (
               <Reveal key={c.title} delay={0.1 * i}>
                 <motion.div
@@ -75,7 +75,7 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
       <WaveDivider from="dark" to="white" />
 
       {/* Section 2: Acceleron Solutions */}
-      <section className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
+      <section className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
         <Reveal>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold mb-3">Tailored Architecture</div>
@@ -88,7 +88,7 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {data.solutions.map((s, idx) => (
             <Reveal key={s.title} delay={idx * 0.1}>
               <div className="group rounded-3xl border border-border/60 bg-muted/20 p-8 hover:bg-muted/40 hover:border-brand/40 transition-all duration-300 shadow-soft hover:shadow-glow flex items-start gap-5">
@@ -112,7 +112,7 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
       <WaveDivider from="white" to="dark" flip />
 
       {/* Section 3: Benefits & Why Acceleron */}
-      <section className="section-dark container mx-auto px-6 max-w-7xl relative z-10 py-24">
+      <section className="section-dark container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
             <div>
@@ -160,7 +160,7 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
       {data.caseStudies && data.caseStudies.length > 0 && (
         <>
           <WaveDivider from="dark" to="white" />
-          <section id="case-studies" className="container mx-auto px-6 max-w-7xl relative z-10 py-24">
+          <section id="case-studies" className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24">
             <Reveal>
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-3">
@@ -178,7 +178,7 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
             <div className="space-y-12">
               {data.caseStudies.map((cs, idx) => (
                 <Reveal key={cs.id} delay={idx * 0.1}>
-                  <div className="rounded-3xl border border-border/80 bg-card p-8 sm:p-12 shadow-card hover:border-brand/40 transition-all duration-300">
+                  <div className="rounded-3xl border border-border/80 bg-card p-5 sm:p-8 md:p-12 shadow-card hover:border-brand/40 transition-all duration-300">
                     <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-border/60">
                       <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-brand/10 text-brand px-3.5 py-1.5 rounded-full border border-brand/20">
                         {cs.badge}
@@ -192,7 +192,7 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
                       {cs.title}
                     </h3>
 
-                    <div className="grid lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                       {/* Challenge Block */}
                       <div className="rounded-2xl border border-red-500/20 bg-red-500/5 p-6 flex flex-col justify-between">
                         <div>

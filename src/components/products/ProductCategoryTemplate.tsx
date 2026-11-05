@@ -167,7 +167,7 @@ export function ProductCategoryTemplate({ data }: ProductCategoryTemplateProps) 
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {data.products.map((prod, pIdx) => (
             <Reveal key={prod.name} delay={pIdx * 0.08} className="h-full">
               <div className="group rounded-3xl border border-border/70 bg-card p-7 sm:p-8 h-full shadow-card hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
@@ -241,7 +241,7 @@ export function ProductCategoryTemplate({ data }: ProductCategoryTemplateProps) 
             </div>
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {data.pillars.map((pillar, idx) => (
               <Reveal key={pillar.title} delay={idx * 0.1}>
                 <div className="rounded-3xl border border-border/70 bg-card p-8 shadow-card hover:border-brand/40 transition-all h-full flex flex-col justify-between">
@@ -359,7 +359,7 @@ export function ProductCategoryTemplate({ data }: ProductCategoryTemplateProps) 
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {OTHER_CATEGORIES.map((cat) => (
               <Link
                 key={cat.slug}
@@ -394,7 +394,7 @@ export function ProductCategoryTemplate({ data }: ProductCategoryTemplateProps) 
             <p className="text-muted-foreground text-base max-w-2xl mx-auto mb-8">
               Schedule a technical discovery session with our solution architects to evaluate platform fit and pilot deployment timelines.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               <Link
                 to="/contact"
                 className="rounded-2xl bg-brand-gradient px-8 py-4 text-sm font-bold text-white shadow-glow hover:opacity-95 transition-opacity"

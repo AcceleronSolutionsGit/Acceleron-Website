@@ -100,10 +100,10 @@ function TeamPage() {
         </Reveal>
 
         {/* 3 CORE LEADERSHIP PILLARS */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
           {LEADERSHIP_PILLARS.map((pillar, idx) => (
             <Reveal key={pillar.title} delay={idx * 0.1}>
-              <div className="rounded-3xl border border-border/80 bg-card p-8 h-full flex flex-col justify-between shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300">
+              <div className="rounded-3xl border border-border/80 bg-card p-6 sm:p-8 h-full flex flex-col justify-between shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300">
                 <div>
                   <div className="h-12 w-12 rounded-2xl bg-brand-gradient text-white flex items-center justify-center mb-6 shadow-glow">
                     <pillar.icon className="h-6 w-6" />
@@ -147,7 +147,7 @@ function TeamPage() {
         </Reveal>
 
         {/* TEAM GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
           {TEAM_MEMBERS.map((member, idx) => (
             <Reveal key={member.id} delay={0.08 * idx}>
               <div className="group relative flex flex-col h-full rounded-3xl border border-border/80 bg-card/70 backdrop-blur-xl p-5 shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300">
@@ -160,7 +160,7 @@ function TeamPage() {
                     decoding="async"
                     className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3 sm:p-4">
                     {member.linkedin && (
                       <a
                         href={member.linkedin}

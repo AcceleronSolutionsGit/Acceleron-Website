@@ -47,7 +47,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
 
       {/* ═══════════════════ OVERVIEW & CORE CAPABILITIES ═══════════════════ */}
       <section className="py-24 bg-background">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid lg:grid-cols-12 gap-16 items-start">
             <div className="lg:col-span-7 space-y-6">
               <Reveal>
@@ -121,7 +121,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
       {/* ═══════════════════ IMPLEMENTATION & SERVICE DELIVERY SCOPE ═══════════════════ */}
       {data.deliveryScope && data.deliveryScope.length > 0 && (
         <section className="py-20 bg-muted/20 border-t border-border/40">
-          <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <Reveal>
                 <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Execution Framework</div>
@@ -142,7 +142,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
               </Reveal>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
               {data.deliveryScope.map((scope, idx) => (
                 <Reveal key={idx} delay={idx * 0.12}>
                   <motion.div
@@ -175,7 +175,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
       {/* ═══════════════════ METHODOLOGY / PROCESS ═══════════════════ */}
       {data.process && data.process.length > 0 && (
         <section className="py-24 bg-muted/40">
-          <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <Reveal>
                 <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Methodology</div>
@@ -196,7 +196,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
               </Reveal>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {data.process.map((step, idx) => (
                 <Reveal key={idx} delay={idx * 0.1}>
                   <motion.div
@@ -225,7 +225,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
       {/* ═══════════════════ RECOMMENDED FOOTER CTA BANNER ═══════════════════ */}
       {data.ctaBanner && (
         <section className="relative py-16 bg-gradient-to-r from-brand/10 via-brand-red/10 to-brand/10 border-y border-border/50">
-          <div className="mx-auto max-w-5xl px-6 text-center">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 text-center">
             <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-4">
                 Recommended Consultation
@@ -254,13 +254,13 @@ export function SubServicePageView({ data }: SubServicePageProps) {
       <WaveDivider from="white" to="dark" />
 
       {/* ═══════════════════ CONSULTATION / CONTACT FORM ═══════════════════ */}
-      <section id="consultation" className="section-dark relative py-32 bg-muted text-foreground overflow-hidden">
+      <section id="consultation" className="section-dark relative py-16 sm:py-24 lg:py-32 bg-muted text-foreground overflow-hidden">
         <div className="absolute inset-0 diagonal-stripes opacity-15" />
         <div className="absolute top-10 left-10 h-72 w-72 rounded-full bg-brand/15 blur-[120px]" />
         <div className="absolute bottom-10 right-10 h-72 w-72 rounded-full bg-brand-red/15 blur-[120px]" />
 
-        <div className="mx-auto max-w-7xl px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start md:items-center">
             <div>
               <Reveal>
                 <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Initiate Project</div>

@@ -17,6 +17,7 @@ import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CsrRouteImport } from './routes/csr'
+import { Route as CultureRouteImport } from './routes/culture'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as LoginRouteImport } from './routes/login'
@@ -34,18 +35,39 @@ import { Route as IndustriesIndexRouteImport } from './routes/industries/index'
 import { Route as IndustriesCapitalGoodsRouteImport } from './routes/industries/capital-goods'
 import { Route as IndustriesDiscreteManufacturingRouteImport } from './routes/industries/discrete-manufacturing'
 import { Route as IndustriesEngineeringConstructionOperationsRouteImport } from './routes/industries/engineering-construction-operations'
+import { Route as IndustriesHealthcareRouteImport } from './routes/industries/healthcare'
 import { Route as IndustriesMiningRouteImport } from './routes/industries/mining'
 import { Route as IndustriesTransportationServicesLogisticsRouteImport } from './routes/industries/transportation-services-logistics'
 import { Route as IndustriesUtilitiesRouteImport } from './routes/industries/utilities'
 import { Route as ProductsIndexRouteImport } from './routes/products/index'
+import { Route as ProductsAcceledgeAiRouteImport } from './routes/products/acceledge-ai'
+import { Route as ProductsAppraisalManagementRouteImport } from './routes/products/appraisal-management'
+import { Route as ProductsApprovalManagementRouteImport } from './routes/products/approval-management'
+import { Route as ProductsAttendanceManagementRouteImport } from './routes/products/attendance-management'
 import { Route as ProductsCwmsRouteImport } from './routes/products/cwms'
+import { Route as ProductsCxSolutionsRouteImport } from './routes/products/cx-solutions'
+import { Route as ProductsEdmsRouteImport } from './routes/products/edms'
+import { Route as ProductsIfmsRouteImport } from './routes/products/ifms'
+import { Route as ProductsIndustrialSolutionsRouteImport } from './routes/products/industrial-solutions'
+import { Route as ProductsInplantLogisticsRouteImport } from './routes/products/inplant-logistics'
+import { Route as ProductsOfficeDigitizationRouteImport } from './routes/products/office-digitization'
+import { Route as ProductsPeopleSolutionsRouteImport } from './routes/products/people-solutions'
 import { Route as ProductsPjpRouteImport } from './routes/products/pjp'
 import { Route as ProductsQmsRouteImport } from './routes/products/qms'
+import { Route as ProductsSalesorbitRouteImport } from './routes/products/salesorbit'
+import { Route as ProductsSamriddhiRouteImport } from './routes/products/samriddhi'
 import { Route as ProductsSupplierPortalRouteImport } from './routes/products/supplier-portal'
 import { Route as ProductsSurakshaRouteImport } from './routes/products/suraksha'
+import { Route as ProductsTreasuryManagementRouteImport } from './routes/products/treasury-management'
 import { Route as ProductsTyreHealthRouteImport } from './routes/products/tyre-health'
+import { Route as ProductsVanijyaRouteImport } from './routes/products/vanijya'
+import { Route as ProductsWarrantyManagementRouteImport } from './routes/products/warranty-management'
+import { Route as ProductsWomsRouteImport } from './routes/products/woms'
+import { Route as ProductsWorkforceManagementRouteImport } from './routes/products/workforce-management'
+import { Route as ProductsYogdaanRouteImport } from './routes/products/yogdaan'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as ServicesItCustomSolutionsRouteImport } from './routes/services/it-custom-solutions'
+import { Route as ServicesManageEngineRouteImport } from './routes/services/manage-engine'
 import { Route as ServicesManageengineRouteImport } from './routes/services/manageengine'
 import { Route as ServicesSapRouteImport } from './routes/services/sap'
 import { Route as ServicesZohoRouteImport } from './routes/services/zoho'
@@ -90,6 +112,11 @@ const ContactRoute = ContactRouteImport.update({
 const CsrRoute = CsrRouteImport.update({
   id: '/csr',
   path: '/csr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CultureRoute = CultureRouteImport.update({
+  id: '/culture',
+  path: '/culture',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsRoute = EventsRouteImport.update({
@@ -179,6 +206,11 @@ const IndustriesEngineeringConstructionOperationsRoute =
     path: '/industries/engineering-construction-operations',
     getParentRoute: () => rootRouteImport,
   } as any)
+const IndustriesHealthcareRoute = IndustriesHealthcareRouteImport.update({
+  id: '/industries/healthcare',
+  path: '/industries/healthcare',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndustriesMiningRoute = IndustriesMiningRouteImport.update({
   id: '/industries/mining',
   path: '/industries/mining',
@@ -200,9 +232,70 @@ const ProductsIndexRoute = ProductsIndexRouteImport.update({
   path: '/products/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsAcceledgeAiRoute = ProductsAcceledgeAiRouteImport.update({
+  id: '/products/acceledge-ai',
+  path: '/products/acceledge-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsAppraisalManagementRoute =
+  ProductsAppraisalManagementRouteImport.update({
+    id: '/products/appraisal-management',
+    path: '/products/appraisal-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsApprovalManagementRoute =
+  ProductsApprovalManagementRouteImport.update({
+    id: '/products/approval-management',
+    path: '/products/approval-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsAttendanceManagementRoute =
+  ProductsAttendanceManagementRouteImport.update({
+    id: '/products/attendance-management',
+    path: '/products/attendance-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProductsCwmsRoute = ProductsCwmsRouteImport.update({
   id: '/products/cwms',
   path: '/products/cwms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsCxSolutionsRoute = ProductsCxSolutionsRouteImport.update({
+  id: '/products/cx-solutions',
+  path: '/products/cx-solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsEdmsRoute = ProductsEdmsRouteImport.update({
+  id: '/products/edms',
+  path: '/products/edms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIfmsRoute = ProductsIfmsRouteImport.update({
+  id: '/products/ifms',
+  path: '/products/ifms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIndustrialSolutionsRoute =
+  ProductsIndustrialSolutionsRouteImport.update({
+    id: '/products/industrial-solutions',
+    path: '/products/industrial-solutions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsInplantLogisticsRoute =
+  ProductsInplantLogisticsRouteImport.update({
+    id: '/products/inplant-logistics',
+    path: '/products/inplant-logistics',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsOfficeDigitizationRoute =
+  ProductsOfficeDigitizationRouteImport.update({
+    id: '/products/office-digitization',
+    path: '/products/office-digitization',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsPeopleSolutionsRoute = ProductsPeopleSolutionsRouteImport.update({
+  id: '/products/people-solutions',
+  path: '/products/people-solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsPjpRoute = ProductsPjpRouteImport.update({
@@ -215,6 +308,16 @@ const ProductsQmsRoute = ProductsQmsRouteImport.update({
   path: '/products/qms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsSalesorbitRoute = ProductsSalesorbitRouteImport.update({
+  id: '/products/salesorbit',
+  path: '/products/salesorbit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSamriddhiRoute = ProductsSamriddhiRouteImport.update({
+  id: '/products/samriddhi',
+  path: '/products/samriddhi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsSupplierPortalRoute = ProductsSupplierPortalRouteImport.update({
   id: '/products/supplier-portal',
   path: '/products/supplier-portal',
@@ -225,9 +328,42 @@ const ProductsSurakshaRoute = ProductsSurakshaRouteImport.update({
   path: '/products/suraksha',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsTreasuryManagementRoute =
+  ProductsTreasuryManagementRouteImport.update({
+    id: '/products/treasury-management',
+    path: '/products/treasury-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProductsTyreHealthRoute = ProductsTyreHealthRouteImport.update({
   id: '/products/tyre-health',
   path: '/products/tyre-health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsVanijyaRoute = ProductsVanijyaRouteImport.update({
+  id: '/products/vanijya',
+  path: '/products/vanijya',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsWarrantyManagementRoute =
+  ProductsWarrantyManagementRouteImport.update({
+    id: '/products/warranty-management',
+    path: '/products/warranty-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsWomsRoute = ProductsWomsRouteImport.update({
+  id: '/products/woms',
+  path: '/products/woms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsWorkforceManagementRoute =
+  ProductsWorkforceManagementRouteImport.update({
+    id: '/products/workforce-management',
+    path: '/products/workforce-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsYogdaanRoute = ProductsYogdaanRouteImport.update({
+  id: '/products/yogdaan',
+  path: '/products/yogdaan',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -241,6 +377,11 @@ const ServicesItCustomSolutionsRoute =
     path: '/services/it-custom-solutions',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ServicesManageEngineRoute = ServicesManageEngineRouteImport.update({
+  id: '/services/manage-engine',
+  path: '/services/manage-engine',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesManageengineRoute = ServicesManageengineRouteImport.update({
   id: '/services/manageengine',
   path: '/services/manageengine',
@@ -276,6 +417,7 @@ export interface FileRoutesByFullPath {
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/csr': typeof CsrRoute
+  '/culture': typeof CultureRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
@@ -291,16 +433,37 @@ export interface FileRoutesByFullPath {
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
   '/industries/engineering-construction-operations': typeof IndustriesEngineeringConstructionOperationsRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
   '/industries/mining': typeof IndustriesMiningRoute
   '/industries/transportation-services-logistics': typeof IndustriesTransportationServicesLogisticsRoute
   '/industries/utilities': typeof IndustriesUtilitiesRoute
+  '/products/acceledge-ai': typeof ProductsAcceledgeAiRoute
+  '/products/appraisal-management': typeof ProductsAppraisalManagementRoute
+  '/products/approval-management': typeof ProductsApprovalManagementRoute
+  '/products/attendance-management': typeof ProductsAttendanceManagementRoute
   '/products/cwms': typeof ProductsCwmsRoute
+  '/products/cx-solutions': typeof ProductsCxSolutionsRoute
+  '/products/edms': typeof ProductsEdmsRoute
+  '/products/ifms': typeof ProductsIfmsRoute
+  '/products/industrial-solutions': typeof ProductsIndustrialSolutionsRoute
+  '/products/inplant-logistics': typeof ProductsInplantLogisticsRoute
+  '/products/office-digitization': typeof ProductsOfficeDigitizationRoute
+  '/products/people-solutions': typeof ProductsPeopleSolutionsRoute
   '/products/pjp': typeof ProductsPjpRoute
   '/products/qms': typeof ProductsQmsRoute
+  '/products/salesorbit': typeof ProductsSalesorbitRoute
+  '/products/samriddhi': typeof ProductsSamriddhiRoute
   '/products/supplier-portal': typeof ProductsSupplierPortalRoute
   '/products/suraksha': typeof ProductsSurakshaRoute
+  '/products/treasury-management': typeof ProductsTreasuryManagementRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
+  '/products/vanijya': typeof ProductsVanijyaRoute
+  '/products/warranty-management': typeof ProductsWarrantyManagementRoute
+  '/products/woms': typeof ProductsWomsRoute
+  '/products/workforce-management': typeof ProductsWorkforceManagementRoute
+  '/products/yogdaan': typeof ProductsYogdaanRoute
   '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/zoho': typeof ServicesZohoRoute
@@ -319,6 +482,7 @@ export interface FileRoutesByTo {
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/csr': typeof CsrRoute
+  '/culture': typeof CultureRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
@@ -334,16 +498,37 @@ export interface FileRoutesByTo {
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
   '/industries/engineering-construction-operations': typeof IndustriesEngineeringConstructionOperationsRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
   '/industries/mining': typeof IndustriesMiningRoute
   '/industries/transportation-services-logistics': typeof IndustriesTransportationServicesLogisticsRoute
   '/industries/utilities': typeof IndustriesUtilitiesRoute
+  '/products/acceledge-ai': typeof ProductsAcceledgeAiRoute
+  '/products/appraisal-management': typeof ProductsAppraisalManagementRoute
+  '/products/approval-management': typeof ProductsApprovalManagementRoute
+  '/products/attendance-management': typeof ProductsAttendanceManagementRoute
   '/products/cwms': typeof ProductsCwmsRoute
+  '/products/cx-solutions': typeof ProductsCxSolutionsRoute
+  '/products/edms': typeof ProductsEdmsRoute
+  '/products/ifms': typeof ProductsIfmsRoute
+  '/products/industrial-solutions': typeof ProductsIndustrialSolutionsRoute
+  '/products/inplant-logistics': typeof ProductsInplantLogisticsRoute
+  '/products/office-digitization': typeof ProductsOfficeDigitizationRoute
+  '/products/people-solutions': typeof ProductsPeopleSolutionsRoute
   '/products/pjp': typeof ProductsPjpRoute
   '/products/qms': typeof ProductsQmsRoute
+  '/products/salesorbit': typeof ProductsSalesorbitRoute
+  '/products/samriddhi': typeof ProductsSamriddhiRoute
   '/products/supplier-portal': typeof ProductsSupplierPortalRoute
   '/products/suraksha': typeof ProductsSurakshaRoute
+  '/products/treasury-management': typeof ProductsTreasuryManagementRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
+  '/products/vanijya': typeof ProductsVanijyaRoute
+  '/products/warranty-management': typeof ProductsWarrantyManagementRoute
+  '/products/woms': typeof ProductsWomsRoute
+  '/products/workforce-management': typeof ProductsWorkforceManagementRoute
+  '/products/yogdaan': typeof ProductsYogdaanRoute
   '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/zoho': typeof ServicesZohoRoute
@@ -364,6 +549,7 @@ export interface FileRoutesById {
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/csr': typeof CsrRoute
+  '/culture': typeof CultureRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
@@ -379,16 +565,37 @@ export interface FileRoutesById {
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
   '/industries/engineering-construction-operations': typeof IndustriesEngineeringConstructionOperationsRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
   '/industries/mining': typeof IndustriesMiningRoute
   '/industries/transportation-services-logistics': typeof IndustriesTransportationServicesLogisticsRoute
   '/industries/utilities': typeof IndustriesUtilitiesRoute
+  '/products/acceledge-ai': typeof ProductsAcceledgeAiRoute
+  '/products/appraisal-management': typeof ProductsAppraisalManagementRoute
+  '/products/approval-management': typeof ProductsApprovalManagementRoute
+  '/products/attendance-management': typeof ProductsAttendanceManagementRoute
   '/products/cwms': typeof ProductsCwmsRoute
+  '/products/cx-solutions': typeof ProductsCxSolutionsRoute
+  '/products/edms': typeof ProductsEdmsRoute
+  '/products/ifms': typeof ProductsIfmsRoute
+  '/products/industrial-solutions': typeof ProductsIndustrialSolutionsRoute
+  '/products/inplant-logistics': typeof ProductsInplantLogisticsRoute
+  '/products/office-digitization': typeof ProductsOfficeDigitizationRoute
+  '/products/people-solutions': typeof ProductsPeopleSolutionsRoute
   '/products/pjp': typeof ProductsPjpRoute
   '/products/qms': typeof ProductsQmsRoute
+  '/products/salesorbit': typeof ProductsSalesorbitRoute
+  '/products/samriddhi': typeof ProductsSamriddhiRoute
   '/products/supplier-portal': typeof ProductsSupplierPortalRoute
   '/products/suraksha': typeof ProductsSurakshaRoute
+  '/products/treasury-management': typeof ProductsTreasuryManagementRoute
   '/products/tyre-health': typeof ProductsTyreHealthRoute
+  '/products/vanijya': typeof ProductsVanijyaRoute
+  '/products/warranty-management': typeof ProductsWarrantyManagementRoute
+  '/products/woms': typeof ProductsWomsRoute
+  '/products/workforce-management': typeof ProductsWorkforceManagementRoute
+  '/products/yogdaan': typeof ProductsYogdaanRoute
   '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
   '/services/zoho': typeof ServicesZohoRoute
@@ -410,6 +617,7 @@ export interface FileRouteTypes {
     | '/clients'
     | '/contact'
     | '/csr'
+    | '/culture'
     | '/events'
     | '/gallery'
     | '/login'
@@ -425,16 +633,37 @@ export interface FileRouteTypes {
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
     | '/industries/engineering-construction-operations'
+    | '/industries/healthcare'
     | '/industries/mining'
     | '/industries/transportation-services-logistics'
     | '/industries/utilities'
+    | '/products/acceledge-ai'
+    | '/products/appraisal-management'
+    | '/products/approval-management'
+    | '/products/attendance-management'
     | '/products/cwms'
+    | '/products/cx-solutions'
+    | '/products/edms'
+    | '/products/ifms'
+    | '/products/industrial-solutions'
+    | '/products/inplant-logistics'
+    | '/products/office-digitization'
+    | '/products/people-solutions'
     | '/products/pjp'
     | '/products/qms'
+    | '/products/salesorbit'
+    | '/products/samriddhi'
     | '/products/supplier-portal'
     | '/products/suraksha'
+    | '/products/treasury-management'
     | '/products/tyre-health'
+    | '/products/vanijya'
+    | '/products/warranty-management'
+    | '/products/woms'
+    | '/products/workforce-management'
+    | '/products/yogdaan'
     | '/services/it-custom-solutions'
+    | '/services/manage-engine'
     | '/services/manageengine'
     | '/services/sap'
     | '/services/zoho'
@@ -453,6 +682,7 @@ export interface FileRouteTypes {
     | '/clients'
     | '/contact'
     | '/csr'
+    | '/culture'
     | '/events'
     | '/gallery'
     | '/login'
@@ -468,16 +698,37 @@ export interface FileRouteTypes {
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
     | '/industries/engineering-construction-operations'
+    | '/industries/healthcare'
     | '/industries/mining'
     | '/industries/transportation-services-logistics'
     | '/industries/utilities'
+    | '/products/acceledge-ai'
+    | '/products/appraisal-management'
+    | '/products/approval-management'
+    | '/products/attendance-management'
     | '/products/cwms'
+    | '/products/cx-solutions'
+    | '/products/edms'
+    | '/products/ifms'
+    | '/products/industrial-solutions'
+    | '/products/inplant-logistics'
+    | '/products/office-digitization'
+    | '/products/people-solutions'
     | '/products/pjp'
     | '/products/qms'
+    | '/products/salesorbit'
+    | '/products/samriddhi'
     | '/products/supplier-portal'
     | '/products/suraksha'
+    | '/products/treasury-management'
     | '/products/tyre-health'
+    | '/products/vanijya'
+    | '/products/warranty-management'
+    | '/products/woms'
+    | '/products/workforce-management'
+    | '/products/yogdaan'
     | '/services/it-custom-solutions'
+    | '/services/manage-engine'
     | '/services/manageengine'
     | '/services/sap'
     | '/services/zoho'
@@ -497,6 +748,7 @@ export interface FileRouteTypes {
     | '/clients'
     | '/contact'
     | '/csr'
+    | '/culture'
     | '/events'
     | '/gallery'
     | '/login'
@@ -512,16 +764,37 @@ export interface FileRouteTypes {
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
     | '/industries/engineering-construction-operations'
+    | '/industries/healthcare'
     | '/industries/mining'
     | '/industries/transportation-services-logistics'
     | '/industries/utilities'
+    | '/products/acceledge-ai'
+    | '/products/appraisal-management'
+    | '/products/approval-management'
+    | '/products/attendance-management'
     | '/products/cwms'
+    | '/products/cx-solutions'
+    | '/products/edms'
+    | '/products/ifms'
+    | '/products/industrial-solutions'
+    | '/products/inplant-logistics'
+    | '/products/office-digitization'
+    | '/products/people-solutions'
     | '/products/pjp'
     | '/products/qms'
+    | '/products/salesorbit'
+    | '/products/samriddhi'
     | '/products/supplier-portal'
     | '/products/suraksha'
+    | '/products/treasury-management'
     | '/products/tyre-health'
+    | '/products/vanijya'
+    | '/products/warranty-management'
+    | '/products/woms'
+    | '/products/workforce-management'
+    | '/products/yogdaan'
     | '/services/it-custom-solutions'
+    | '/services/manage-engine'
     | '/services/manageengine'
     | '/services/sap'
     | '/services/zoho'
@@ -542,6 +815,7 @@ export interface RootRouteChildren {
   ClientsRoute: typeof ClientsRoute
   ContactRoute: typeof ContactRoute
   CsrRoute: typeof CsrRoute
+  CultureRoute: typeof CultureRoute
   EventsRoute: typeof EventsRoute
   GalleryRoute: typeof GalleryRoute
   LoginRoute: typeof LoginRoute
@@ -552,16 +826,37 @@ export interface RootRouteChildren {
   IndustriesCapitalGoodsRoute: typeof IndustriesCapitalGoodsRoute
   IndustriesDiscreteManufacturingRoute: typeof IndustriesDiscreteManufacturingRoute
   IndustriesEngineeringConstructionOperationsRoute: typeof IndustriesEngineeringConstructionOperationsRoute
+  IndustriesHealthcareRoute: typeof IndustriesHealthcareRoute
   IndustriesMiningRoute: typeof IndustriesMiningRoute
   IndustriesTransportationServicesLogisticsRoute: typeof IndustriesTransportationServicesLogisticsRoute
   IndustriesUtilitiesRoute: typeof IndustriesUtilitiesRoute
+  ProductsAcceledgeAiRoute: typeof ProductsAcceledgeAiRoute
+  ProductsAppraisalManagementRoute: typeof ProductsAppraisalManagementRoute
+  ProductsApprovalManagementRoute: typeof ProductsApprovalManagementRoute
+  ProductsAttendanceManagementRoute: typeof ProductsAttendanceManagementRoute
   ProductsCwmsRoute: typeof ProductsCwmsRoute
+  ProductsCxSolutionsRoute: typeof ProductsCxSolutionsRoute
+  ProductsEdmsRoute: typeof ProductsEdmsRoute
+  ProductsIfmsRoute: typeof ProductsIfmsRoute
+  ProductsIndustrialSolutionsRoute: typeof ProductsIndustrialSolutionsRoute
+  ProductsInplantLogisticsRoute: typeof ProductsInplantLogisticsRoute
+  ProductsOfficeDigitizationRoute: typeof ProductsOfficeDigitizationRoute
+  ProductsPeopleSolutionsRoute: typeof ProductsPeopleSolutionsRoute
   ProductsPjpRoute: typeof ProductsPjpRoute
   ProductsQmsRoute: typeof ProductsQmsRoute
+  ProductsSalesorbitRoute: typeof ProductsSalesorbitRoute
+  ProductsSamriddhiRoute: typeof ProductsSamriddhiRoute
   ProductsSupplierPortalRoute: typeof ProductsSupplierPortalRoute
   ProductsSurakshaRoute: typeof ProductsSurakshaRoute
+  ProductsTreasuryManagementRoute: typeof ProductsTreasuryManagementRoute
   ProductsTyreHealthRoute: typeof ProductsTyreHealthRoute
+  ProductsVanijyaRoute: typeof ProductsVanijyaRoute
+  ProductsWarrantyManagementRoute: typeof ProductsWarrantyManagementRoute
+  ProductsWomsRoute: typeof ProductsWomsRoute
+  ProductsWorkforceManagementRoute: typeof ProductsWorkforceManagementRoute
+  ProductsYogdaanRoute: typeof ProductsYogdaanRoute
   ServicesItCustomSolutionsRoute: typeof ServicesItCustomSolutionsRoute
+  ServicesManageEngineRoute: typeof ServicesManageEngineRoute
   ServicesManageengineRoute: typeof ServicesManageengineRoute
   ServicesSapRoute: typeof ServicesSapRoute
   ServicesZohoRoute: typeof ServicesZohoRoute
@@ -628,6 +923,13 @@ declare module '@tanstack/react-router' {
       path: '/csr'
       fullPath: '/csr'
       preLoaderRoute: typeof CsrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/culture': {
+      id: '/culture'
+      path: '/culture'
+      fullPath: '/culture'
+      preLoaderRoute: typeof CultureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events': {
@@ -749,6 +1051,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesEngineeringConstructionOperationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries/healthcare': {
+      id: '/industries/healthcare'
+      path: '/industries/healthcare'
+      fullPath: '/industries/healthcare'
+      preLoaderRoute: typeof IndustriesHealthcareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/industries/mining': {
       id: '/industries/mining'
       path: '/industries/mining'
@@ -777,11 +1086,88 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/acceledge-ai': {
+      id: '/products/acceledge-ai'
+      path: '/products/acceledge-ai'
+      fullPath: '/products/acceledge-ai'
+      preLoaderRoute: typeof ProductsAcceledgeAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/appraisal-management': {
+      id: '/products/appraisal-management'
+      path: '/products/appraisal-management'
+      fullPath: '/products/appraisal-management'
+      preLoaderRoute: typeof ProductsAppraisalManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/approval-management': {
+      id: '/products/approval-management'
+      path: '/products/approval-management'
+      fullPath: '/products/approval-management'
+      preLoaderRoute: typeof ProductsApprovalManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/attendance-management': {
+      id: '/products/attendance-management'
+      path: '/products/attendance-management'
+      fullPath: '/products/attendance-management'
+      preLoaderRoute: typeof ProductsAttendanceManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/cwms': {
       id: '/products/cwms'
       path: '/products/cwms'
       fullPath: '/products/cwms'
       preLoaderRoute: typeof ProductsCwmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/cx-solutions': {
+      id: '/products/cx-solutions'
+      path: '/products/cx-solutions'
+      fullPath: '/products/cx-solutions'
+      preLoaderRoute: typeof ProductsCxSolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/edms': {
+      id: '/products/edms'
+      path: '/products/edms'
+      fullPath: '/products/edms'
+      preLoaderRoute: typeof ProductsEdmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/ifms': {
+      id: '/products/ifms'
+      path: '/products/ifms'
+      fullPath: '/products/ifms'
+      preLoaderRoute: typeof ProductsIfmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/industrial-solutions': {
+      id: '/products/industrial-solutions'
+      path: '/products/industrial-solutions'
+      fullPath: '/products/industrial-solutions'
+      preLoaderRoute: typeof ProductsIndustrialSolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/inplant-logistics': {
+      id: '/products/inplant-logistics'
+      path: '/products/inplant-logistics'
+      fullPath: '/products/inplant-logistics'
+      preLoaderRoute: typeof ProductsInplantLogisticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/office-digitization': {
+      id: '/products/office-digitization'
+      path: '/products/office-digitization'
+      fullPath: '/products/office-digitization'
+      preLoaderRoute: typeof ProductsOfficeDigitizationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/people-solutions': {
+      id: '/products/people-solutions'
+      path: '/products/people-solutions'
+      fullPath: '/products/people-solutions'
+      preLoaderRoute: typeof ProductsPeopleSolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products/pjp': {
@@ -798,6 +1184,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsQmsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/salesorbit': {
+      id: '/products/salesorbit'
+      path: '/products/salesorbit'
+      fullPath: '/products/salesorbit'
+      preLoaderRoute: typeof ProductsSalesorbitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/samriddhi': {
+      id: '/products/samriddhi'
+      path: '/products/samriddhi'
+      fullPath: '/products/samriddhi'
+      preLoaderRoute: typeof ProductsSamriddhiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/supplier-portal': {
       id: '/products/supplier-portal'
       path: '/products/supplier-portal'
@@ -812,11 +1212,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsSurakshaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/treasury-management': {
+      id: '/products/treasury-management'
+      path: '/products/treasury-management'
+      fullPath: '/products/treasury-management'
+      preLoaderRoute: typeof ProductsTreasuryManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/tyre-health': {
       id: '/products/tyre-health'
       path: '/products/tyre-health'
       fullPath: '/products/tyre-health'
       preLoaderRoute: typeof ProductsTyreHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/vanijya': {
+      id: '/products/vanijya'
+      path: '/products/vanijya'
+      fullPath: '/products/vanijya'
+      preLoaderRoute: typeof ProductsVanijyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/warranty-management': {
+      id: '/products/warranty-management'
+      path: '/products/warranty-management'
+      fullPath: '/products/warranty-management'
+      preLoaderRoute: typeof ProductsWarrantyManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/woms': {
+      id: '/products/woms'
+      path: '/products/woms'
+      fullPath: '/products/woms'
+      preLoaderRoute: typeof ProductsWomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/workforce-management': {
+      id: '/products/workforce-management'
+      path: '/products/workforce-management'
+      fullPath: '/products/workforce-management'
+      preLoaderRoute: typeof ProductsWorkforceManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/yogdaan': {
+      id: '/products/yogdaan'
+      path: '/products/yogdaan'
+      fullPath: '/products/yogdaan'
+      preLoaderRoute: typeof ProductsYogdaanRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -831,6 +1273,13 @@ declare module '@tanstack/react-router' {
       path: '/services/it-custom-solutions'
       fullPath: '/services/it-custom-solutions'
       preLoaderRoute: typeof ServicesItCustomSolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/manage-engine': {
+      id: '/services/manage-engine'
+      path: '/services/manage-engine'
+      fullPath: '/services/manage-engine'
+      preLoaderRoute: typeof ServicesManageEngineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/manageengine': {
@@ -900,6 +1349,7 @@ const rootRouteChildren: RootRouteChildren = {
   ClientsRoute: ClientsRoute,
   ContactRoute: ContactRoute,
   CsrRoute: CsrRoute,
+  CultureRoute: CultureRoute,
   EventsRoute: EventsRoute,
   GalleryRoute: GalleryRoute,
   LoginRoute: LoginRoute,
@@ -911,17 +1361,38 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesDiscreteManufacturingRoute: IndustriesDiscreteManufacturingRoute,
   IndustriesEngineeringConstructionOperationsRoute:
     IndustriesEngineeringConstructionOperationsRoute,
+  IndustriesHealthcareRoute: IndustriesHealthcareRoute,
   IndustriesMiningRoute: IndustriesMiningRoute,
   IndustriesTransportationServicesLogisticsRoute:
     IndustriesTransportationServicesLogisticsRoute,
   IndustriesUtilitiesRoute: IndustriesUtilitiesRoute,
+  ProductsAcceledgeAiRoute: ProductsAcceledgeAiRoute,
+  ProductsAppraisalManagementRoute: ProductsAppraisalManagementRoute,
+  ProductsApprovalManagementRoute: ProductsApprovalManagementRoute,
+  ProductsAttendanceManagementRoute: ProductsAttendanceManagementRoute,
   ProductsCwmsRoute: ProductsCwmsRoute,
+  ProductsCxSolutionsRoute: ProductsCxSolutionsRoute,
+  ProductsEdmsRoute: ProductsEdmsRoute,
+  ProductsIfmsRoute: ProductsIfmsRoute,
+  ProductsIndustrialSolutionsRoute: ProductsIndustrialSolutionsRoute,
+  ProductsInplantLogisticsRoute: ProductsInplantLogisticsRoute,
+  ProductsOfficeDigitizationRoute: ProductsOfficeDigitizationRoute,
+  ProductsPeopleSolutionsRoute: ProductsPeopleSolutionsRoute,
   ProductsPjpRoute: ProductsPjpRoute,
   ProductsQmsRoute: ProductsQmsRoute,
+  ProductsSalesorbitRoute: ProductsSalesorbitRoute,
+  ProductsSamriddhiRoute: ProductsSamriddhiRoute,
   ProductsSupplierPortalRoute: ProductsSupplierPortalRoute,
   ProductsSurakshaRoute: ProductsSurakshaRoute,
+  ProductsTreasuryManagementRoute: ProductsTreasuryManagementRoute,
   ProductsTyreHealthRoute: ProductsTyreHealthRoute,
+  ProductsVanijyaRoute: ProductsVanijyaRoute,
+  ProductsWarrantyManagementRoute: ProductsWarrantyManagementRoute,
+  ProductsWomsRoute: ProductsWomsRoute,
+  ProductsWorkforceManagementRoute: ProductsWorkforceManagementRoute,
+  ProductsYogdaanRoute: ProductsYogdaanRoute,
   ServicesItCustomSolutionsRoute: ServicesItCustomSolutionsRoute,
+  ServicesManageEngineRoute: ServicesManageEngineRoute,
   ServicesManageengineRoute: ServicesManageengineRoute,
   ServicesSapRoute: ServicesSapRoute,
   ServicesZohoRoute: ServicesZohoRoute,

@@ -134,7 +134,7 @@ function GalleryPage() {
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {DELIVERY_HUBS.map((hub, idx) => (
             <Reveal key={hub.name} delay={idx * 0.1}>
               <div className="rounded-3xl border border-border/80 bg-gradient-to-br from-card via-card to-brand/5 p-6 sm:p-8 h-full flex flex-col justify-between shadow-card hover:border-brand/40 transition-all">
@@ -220,7 +220,7 @@ function GalleryPage() {
         </Reveal>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredItems.map((item, idx) => (
             <Reveal key={item.id} delay={(idx % 6) * 0.05}>
               <motion.div
@@ -237,7 +237,7 @@ function GalleryPage() {
                       decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3 sm:p-4">
                       <div className="flex items-center justify-between w-full text-white">
                         <span className="text-[11px] font-semibold bg-brand px-2.5 py-1 rounded-full">
                           Click to Enlarge

@@ -385,10 +385,10 @@ function Services() {
                     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white leading-snug">{s.t}</h3>
                   </div>
 
-                  {/* Description appears on hover */}
-                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
+                  {/* Description - always readable on mobile, animated hover on desktop */}
+                  <div className="grid grid-rows-[1fr] sm:grid-rows-[0fr] sm:group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
                     <div className="overflow-hidden">
-                      <p className="text-white/80 text-xs sm:text-sm mb-3.5 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-white/85 text-xs sm:text-sm mb-3 leading-relaxed opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
                         {s.d}
                       </p>
                     </div>
@@ -462,9 +462,9 @@ function TechStack() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-          <div className="relative h-[280px] sm:h-[400px] lg:h-[600px] flex items-center overflow-hidden lg:overflow-visible order-last lg:order-first">
+          <div className="hidden lg:flex relative h-[600px] items-center overflow-visible order-first">
             <div
-              className="absolute left-[-140px] sm:left-[-180px] lg:left-[-280px] top-1/2 -translate-y-1/2 h-[680px] w-[680px] scale-[0.48] sm:scale-[0.7] lg:scale-100 origin-center"
+              className="absolute left-[-280px] top-1/2 -translate-y-1/2 h-[680px] w-[680px]  origin-center"
               onMouseEnter={() => { isPaused.current = true; }}
               onMouseLeave={() => { isPaused.current = false; setHoveredIdx(null); }}
             >
@@ -500,6 +500,41 @@ function TechStack() {
                       <tech.Logo className="h-8 w-8 text-foreground" style={{ filter: `drop-shadow(0 0 8px ${tech.color}44)` }} />
                     </div>
                   </motion.div>
+                );
+              })}
+            </div>
+          
+          </div>
+
+          {/* Mobile & Tablet Interactive Grid View (Visible on screens < lg) */}
+          <div className="block lg:hidden w-full order-last mt-6">
+            <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3 flex items-center justify-between">
+              <span>Select Technology Stack:</span>
+              <span className="text-[10px] text-brand font-semibold">14 Ecosystem Partners</span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-2.5">
+              {TECH_ITEMS.map((tech, i) => {
+                const isSelected = displayIdx === i;
+                return (
+                  <button
+                    key={tech.n}
+                    type="button"
+                    onClick={() => setHoveredIdx(i)}
+                    className={`flex items-center gap-2 p-2.5 rounded-xl border text-left transition-all ${
+                      isSelected
+                        ? "border-brand-red bg-muted/40 shadow-sm"
+                        : "border-border/60 bg-card/60 hover:border-brand/40 hover:bg-muted/30"
+                    }`}
+                    style={isSelected ? { borderColor: tech.color } : {}}
+                  >
+                    <div className="h-7 w-7 rounded-lg bg-muted/40 flex items-center justify-center shrink-0">
+                      <tech.Logo className="h-4 w-4 text-foreground" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-xs font-bold text-foreground truncate">{tech.n}</div>
+                      <div className="text-[10px] text-muted-foreground truncate">{tech.projects} live</div>
+                    </div>
+                  </button>
                 );
               })}
             </div>
@@ -651,7 +686,7 @@ function Industries() {
             </p>
           </Reveal>
         </div>
-        <div className="mt-12 sm:mt-16 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-10 sm:mt-16 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {INDUSTRIES.map((it, i) => (
             <Reveal key={it.t} delay={i * 0.06}>
               <Link

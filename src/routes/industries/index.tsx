@@ -51,7 +51,7 @@ function IndustriesHub() {
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {industriesList.map((ind, idx) => {
             const IconComp = ICON_MAP[ind.slug] || Factory;
             return (
@@ -72,7 +72,7 @@ function IndustriesHub() {
                       <IconComp className="h-6 w-6" />
                     </div>
                   </div>
-                  <div className="p-8 pt-4 flex-1 flex flex-col justify-between">
+                  <div className="p-5 sm:p-8 pt-4 flex-1 flex flex-col justify-between">
                     <div>
                       <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-brand transition-colors">
                         {ind.slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ')}

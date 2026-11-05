@@ -273,10 +273,10 @@ function EventsPage() {
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {PAST_EVENTS.map((past, pIdx) => (
             <Reveal key={past.id} delay={pIdx * 0.08} className="h-full">
-              <div className="rounded-3xl border border-border/80 bg-card p-6 sm:p-8 h-full flex flex-col justify-between shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300">
+              <div className="rounded-3xl border border-border/80 bg-card p-5 sm:p-8 h-full flex flex-col justify-between shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300">
                 <div>
                   <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-5 bg-muted">
                     <img

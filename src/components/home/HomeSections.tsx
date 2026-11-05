@@ -27,7 +27,7 @@ export function WhyChooseUs() {
             A partner built for the <span className="text-gradient">long haul.</span>
           </h2>
         </Reveal>
-        <div className="mt-12 sm:mt-16 grid md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {reasons.map((r, i) => (
             <Reveal key={r.title} delay={i * 0.1}>
               <div className="group relative overflow-hidden rounded-3xl min-h-[320px] sm:min-h-[360px] h-full flex flex-col justify-end p-6 sm:p-8 shadow-soft border border-white/10 hover:border-brand-red/40 hover:shadow-glow transition-all duration-500">
@@ -320,9 +320,9 @@ export function InsightsSection() {
     { title: "Acceleron Wins Excellence Award", tag: "Company News", image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=75&w=600&auto=format&fit=crop" },
   ];
   return (
-    <section className="relative overflow-hidden bg-muted py-32">
+    <section className="relative overflow-hidden bg-muted py-16 sm:py-24 lg:py-32">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgb(58_73_127/0.06),transparent_70%)] pointer-events-none" />
-      <div className="mx-auto max-w-7xl px-6 relative z-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         <Reveal>
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
             <div>
@@ -336,7 +336,7 @@ export function InsightsSection() {
             </Link>
           </div>
         </Reveal>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
           {posts.map((post, i) => (
             <Reveal key={post.title} delay={i * 0.1}>
               <Link to="/blog" className="group block h-full">
