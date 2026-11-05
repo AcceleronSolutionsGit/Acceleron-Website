@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ShieldCheck, Zap, Heart, Leaf, MapPin, ArrowRight, ArrowUpRight , Globe} from "lucide-react";
+import { ShieldCheck, Zap, Heart, Leaf, MapPin, ArrowRight, ArrowUpRight, Globe, Phone, Mail } from "lucide-react";
 import { Reveal } from "../ui/Animations";
 import { useEffect, useState, lazy, Suspense } from "react";
 import { getAssetUrl } from "../../lib/assets";
@@ -166,6 +166,9 @@ export interface LocationCardItem {
   country?: string;
   label: string;
   address: string;
+  email?: string;
+  phone?: string;
+  phones?: string[];
   lat?: number;
   lng?: number;
   zoomLevel?: number;
@@ -180,6 +183,9 @@ export const LOCATION_CARDS: LocationCardItem[] = [
     country: "India",
     label: "Global HQ & Center of Excellence (CoE)",
     address: "3rd Floor, STPI IT Park, Block-DP, Plot-5/1, Sector V, Salt Lake, Kolkata – 700091, West Bengal, India",
+    email: "enquiry@acceleronsolutions.io",
+    phone: "033-35346200 / 033-35346222",
+    phones: ["033-35346200", "033-35346222"],
     lat: 22.574625,
     lng: 88.438630,
     zoomLevel: 14,
@@ -191,6 +197,9 @@ export const LOCATION_CARDS: LocationCardItem[] = [
     country: "India",
     label: "Enterprise Delivery Center",
     address: "Gainwell Ecotech II, 1-C/1, Udyog Vihar, Greater Noida, Delhi NCR – 201306, Uttar Pradesh, India",
+    email: "enquiry@acceleronsolutions.io",
+    phone: "033-35346200 / 033-35346222",
+    phones: ["033-35346200", "033-35346222"],
     lat: 28.4986,
     lng: 77.5348,
     zoomLevel: 14,
@@ -201,6 +210,7 @@ export const LOCATION_CARDS: LocationCardItem[] = [
     country: "Global Reach",
     label: "Strategic Client Reach & Operations",
     address: "Active enterprise engagements across USA (West Virginia), Australia (NSW), Singapore, and the Middle East",
+    email: "enquiry@acceleronsolutions.io",
     lat: 20.0,
     lng: 35.0,
     zoomLevel: 2,
@@ -269,6 +279,47 @@ export function GlobalPresence() {
                         <p className="text-xs text-muted-foreground leading-relaxed pt-1 break-words">
                           {loc.address}
                         </p>
+                        {loc.phone && (
+                          <div className="flex items-center gap-2 pt-1 text-xs text-foreground/90 font-medium">
+                            <Phone className="h-3.5 w-3.5 text-brand shrink-0" />
+                            <div className="flex flex-wrap items-center gap-x-2">
+                              {loc.phones ? (
+                                loc.phones.map((p, pIdx) => (
+                                  <span key={pIdx} className="inline-flex items-center gap-1">
+                                    {pIdx > 0 && <span className="text-muted-foreground">/</span>}
+                                    <a
+                                      href={`tel:${p.replace(/[^0-9+]/g, '')}`}
+                                      onClick={(e) => e.stopPropagation()}
+                                      className="hover:text-brand transition-colors"
+                                    >
+                                      {p}
+                                    </a>
+                                  </span>
+                                ))
+                              ) : (
+                                <a
+                                  href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`}
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="hover:text-brand transition-colors"
+                                >
+                                  {loc.phone}
+                                </a>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                        {loc.email && (
+                          <div className="flex items-center gap-2 pt-0.5 text-xs text-muted-foreground">
+                            <Mail className="h-3.5 w-3.5 text-brand shrink-0" />
+                            <a
+                              href={`mailto:${loc.email}`}
+                              onClick={(e) => e.stopPropagation()}
+                              className="hover:text-brand transition-colors"
+                            >
+                              {loc.email}
+                            </a>
+                          </div>
+                        )}
                         {loc.directionsUrl && (
                           <div className="pt-2">
                             <a

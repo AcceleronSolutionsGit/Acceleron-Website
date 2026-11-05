@@ -30,7 +30,7 @@ export interface SubServiceData {
 }
 
 export const SUB_SERVICES_DATA: SubServiceData[] = [
-    {
+  {
     slug: "sap-ams",
     title: "SAP AMS",
     badge: "24/7 PROACTIVE ENTERPRISE GOVERNANCE",
@@ -361,7 +361,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     },
     image: "/SAP_Implementation_Banner.png"
   },
-    {
+  {
     slug: "sap-custom-development",
     title: "SAP Custom Development",
     badge: "TAILORED ERP INNOVATION & ANALYTICS",
@@ -616,7 +616,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     image: "/SAP_Implementation_Banner.png",
     customLogo: "/sap_s4hana-transparentbg.png"
   },
-    {
+  {
     slug: "zoho-crm",
     title: "Zoho CRM",
     badge: "ZOHO ADVANCED PARTNER",
@@ -1137,8 +1137,8 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     title: "IT Infrastructure Services",
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
-    desc: "Robust, scalable, and secure IT infrastructure design and management.",
-    overview: "Robust, scalable, and secure IT infrastructure design and management. We engineer resilient physical and cloud architectures that maximize business continuity, high-speed collaboration, and reliable day-to-day operations.",
+    desc: "Robust, high-availability hybrid cloud and network management engineered for 99.99% uptime.",
+    overview: " Robust, high-availability hybrid cloud and network management engineered for 99.99% uptime We engineer resilient physical and cloud architectures that maximize business continuity, high-speed collaboration, and reliable day-to-day operations.",
     featuresTitle: "Service Scope & Capabilities",
     features: [
       { title: "Cloud Infrastructure Management", desc: "Provisioning, hosting, and optimizing cloud workloads across AWS, Microsoft Azure, and GCP." },
@@ -1166,7 +1166,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     title: "Custom Software Application Development",
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
-    desc: "Tailor-made software solutions designed to solve your unique business challenges.",
+    desc: "Tailor-made web, mobile, and cloud software built for unique enterprise workflows.",
     overview: "Tailor-made software solutions designed to solve your unique business challenges. Our full-stack engineering practices build scalable, intuitive, and high-performance digital products engineered to match your operational reality.",
     featuresTitle: "Service Scope & Capabilities",
     features: [
@@ -1195,7 +1195,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     title: "Custom AI Application Development",
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
-    desc: "Intelligent AI-driven applications to automate processes and generate insights.",
+    desc: "Domain-specific AI and machine learning models to automate tasks and unlock business intelligence.",
     overview: "Intelligent AI-driven applications to automate processes and generate insights. We build custom machine learning models, autonomous agent frameworks, and document processing systems that turn data into measurable operational advantages.",
     featuresTitle: "Service Scope & Capabilities",
     features: [
@@ -1224,7 +1224,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     title: "Network Security Implementation",
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
-    desc: "Robust cybersecurity architectures to protect your data and network perimeter.",
+    desc: "Zero-trust cybersecurity architectures protecting enterprise networks, remote teams, and OT environments.",
     overview: "Robust cybersecurity architectures to protect your data and network perimeter. We design, deploy, and manage zero-trust boundary defenses, next-generation firewalls, and unified threat management systems tailored for enterprise resilience.",
     featuresTitle: "Service Scope & Capabilities",
     features: [
@@ -1250,10 +1250,10 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
   },
   {
     slug: "security-audits",
-    title: "Security Audits",
+    title: "Security Audits & Vulnerability Assessments",
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
-    desc: "Comprehensive vulnerability assessments and penetration testing to identify risks.",
+    desc: "Proactive VAPT and risk evaluations to fortify digital perimeters.",
     overview: "Comprehensive vulnerability assessments and penetration testing to identify risks. Our certified cybersecurity specialists rigorously evaluate your networks, cloud estates, web applications, and source code to eliminate vulnerabilities before adversaries can exploit them.",
     featuresTitle: "Service Scope & Capabilities",
     features: [
@@ -1279,10 +1279,10 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
   },
   {
     slug: "it-system-audits",
-    title: "IT System Audits",
+    title: "Enterprise IT System Audits",
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
-    desc: "In-depth evaluations of your IT infrastructure for performance, efficiency, and alignment.",
+    desc: "In-depth technical evaluations to optimize performance, license expenditure, and tech debt.",
     overview: "In-depth evaluations of your IT infrastructure for performance, efficiency, and alignment. We conduct rigorous assessments of your IT systems, governance controls, cloud spending, and disaster preparedness to ensure maximum ROI and operational resilience.",
     featuresTitle: "Service Scope & Capabilities",
     features: [

@@ -39,72 +39,66 @@ const CORE_PRACTICES = [
   {
     title: "IT Infrastructure Services",
     slug: "it-infrastructure-services",
-    desc: "Robust, scalable, and secure IT infrastructure design and management.",
+    desc: "Robust, high-availability hybrid cloud and network management engineered for 99.99% uptime.",
     features: [
-      "Cloud Infrastructure Management (AWS, Azure & GCP)",
-      "Enterprise Email Management (M365, Workspace, Zimbra)",
-      "Network Setup, SD-WAN & Firewall Policies",
-      "Infrastructure AMC & 24/7 SLA-driven Maintenance",
+      "Multi-cloud & hybrid migration (AWS, Azure, GCP)",
+      "24/7 Managed NOC & SOC operations",
+      "Disaster recovery & business continuity planning",
     ],
     icon: Server,
   },
   {
     title: "Custom Software Application Development",
     slug: "custom-software-application-development",
-    desc: "Tailor-made software solutions designed to solve your unique business challenges.",
+    desc: "Tailor-made web, mobile, and cloud software built for unique enterprise workflows.",
     features: [
-      "Full-Stack Web Development (React, Angular, Node, Python, Java)",
-      "Enterprise Mobile Apps for field workforce enablement",
-      "End-to-End Custom Software Engineering & SaaS Deployment",
-      "Legacy Modernization into modular microservices architectures",
+      "Full-stack enterprise applications (React, Node, Python)",
+      "ERP integration (SAP, Zoho, Legacy)",
+      "Microservices & API middleware design",
     ],
     icon: Code2,
   },
   {
     title: "Custom AI Application Development",
     slug: "custom-ai-application-development",
-    desc: "Intelligent AI-driven applications to automate processes and generate insights.",
+    desc: "Domain-specific AI and machine learning models to automate tasks and unlock business intelligence.",
     features: [
-      "Autonomous AI Agent Swarms for complex task execution",
-      "Predictive Analytics Engines for maintenance & churn forecasting",
-      "Intelligent Document Processing (IDP) for invoices & contracts",
-      "Domain-Specific AI Copilots trained on private enterprise data",
+      "Predictive analytics & industrial forecasting",
+      "Enterprise RAG & knowledge search agents",
+      "Computer vision & quality inspection automation",
     ],
     icon: Sparkles,
   },
   {
     title: "Network Security Implementation",
     slug: "network-security-implementation",
-    desc: "Robust cybersecurity architectures to protect your data and network perimeter.",
+    desc: "Zero-trust cybersecurity architectures protecting enterprise networks, remote teams, and OT environments.",
     features: [
-      "Next-Generation Firewalls (Fortinet, Check Point, Sophos, Cisco)",
-      "Zero Trust Network Access (ZTNA) & Zscaler micro-segmentation",
-      "Endpoint Detection & Response (CrowdStrike, Sophos EDR/XDR)",
-      "Check Point Harmony Email Security, DLP & WAF",
+      "Zero Trust (ZTNA) & SASE deployment",
+      "Next-Gen Firewall (NGFW) & UTM management",
+      "Endpoint & OT network protection",
     ],
     icon: ShieldCheck,
   },
   {
-    title: "Security Audits",
+    title: "Security Audits & Vulnerability Assessments",
     slug: "security-audits",
-    desc: "Comprehensive vulnerability assessments and penetration testing to identify risks.",
+    desc: "Proactive VAPT and risk evaluations to fortify digital perimeters.",
     features: [
-      "Vulnerability Assessment & Penetration Testing (Black/Grey/White VAPT)",
-      "ISO 27001 & DPDP regulatory compliance gap analysis",
-      "Source Code Security Review (Static SAST & Dynamic DAST)",
-      "Phishing Simulations & employee cyber awareness training",
+      "Vulnerability Assessment & Penetration Testing (VAPT)",
+      "Cloud Security Posture Management (CSPM)",
+      "ISO 27001 & regulatory compliance gap analysis",
     ],
     icon: ShieldAlert,
   },
   {
-    title: "IT System Audits",
+    title: "Enterprise IT System Audits",
     slug: "it-system-audits",
-    desc: "In-depth evaluations of your IT infrastructure for performance, efficiency, and alignment.",
+    desc: "In-depth technical evaluations to optimize performance, license expenditure, and tech debt.",
     features: [
-      "IT General Controls (ITGC) access, changes & audit trails",
-      "Infrastructure performance review for server load & storage health",
-      "Cloud FinOps reviews to eliminate idle compute & reduce costs",
-      "Disaster Recovery (DR/BCP) testing validating RTO/RPO objectives",
+      "Infrastructure scalability & health checks",
+      "Cloud cost optimization (FinOps)",
+      "Legacy modernization roadmaps",
     ],
     icon: SlidersHorizontal,
   },
@@ -249,7 +243,7 @@ function ITCustomSolutionsPage() {
 
                   <div className="space-y-2.5 pt-4 border-t border-border/50 mb-6">
                     <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground/80 mb-2">
-                      Key Highlights
+                      Key Features
                     </div>
                     {p.features.map((feat, fIdx) => (
                       <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/80">
@@ -348,7 +342,7 @@ function ITCustomSolutionsPage() {
                 <div className="rounded-3xl border border-border/70 bg-card p-6 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="h-12 w-24 rounded-xl bg-white p-2 border border-border/40 shadow-sm flex items-center justify-center">
+                      <div className="h-12 w-28 rounded-xl bg-slate-900 dark:bg-slate-950 px-3 py-2 border border-slate-700/60 dark:border-slate-800 shadow-md flex items-center justify-center group-hover:border-brand/40 transition-colors">
                         <img
                           src={getAssetUrl(ip.logo)}
                           alt={ip.name}

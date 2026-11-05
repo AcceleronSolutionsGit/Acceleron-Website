@@ -122,7 +122,7 @@ function QMSProductPage() {
         secondaryCtaText="Explore Capabilities"
         secondaryCtaHref="#capabilities"
         icon={
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2.5 shadow-glow">
+          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-900 border border-slate-700/60 p-2.5 shadow-glow">
             <img
               src={getAssetUrl("/qms.png")}
               alt="QMS"

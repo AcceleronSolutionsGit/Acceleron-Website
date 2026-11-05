@@ -76,6 +76,9 @@ const LOCATION_CARDS = [
     label: "Enterprise Delivery Center",
     address:
       "Gainwell Ecotech II, 1-C/1, Udyog Vihar, Greater Noida, Delhi NCR – 201306, Uttar Pradesh, India",
+    email: "enquiry@acceleronsolutions.io",
+    phone: "033-35346200 / 033-35346222",
+    phones: ["033-35346200", "033-35346222"],
     directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=28.4986,77.5348",
     MapComponent: IndiaMapSvg,
   },
@@ -85,6 +88,7 @@ const LOCATION_CARDS = [
     label: "Strategic Client Reach & Operations",
     address:
       "Active enterprise engagements across USA (West Virginia), Australia (NSW), Singapore, and the Middle East",
+    email: "enquiry@acceleronsolutions.io",
     MapComponent: SingaporeMapSvg,
   },
 ];
@@ -443,20 +447,27 @@ function AboutPage() {
                           <span>{loc.address}</span>
                         </div>
                       )}
-                      {/* {loc.phone && (
+                      {loc.phone && (
                         <div className="flex items-center gap-2.5">
                           <Phone className="h-4 w-4 text-brand shrink-0" />
                           <div className="flex flex-wrap items-center gap-x-2 font-medium text-foreground">
-                            <a href="tel:03335346200" className="hover:text-brand transition-colors">
-                              033-35346200
-                            </a>
-                            <span className="text-muted-foreground">/</span>
-                            <a href="tel:03335346222" className="hover:text-brand transition-colors">
-                              033-35346222
-                            </a>
+                            {loc.phones ? (
+                              loc.phones.map((p, pIdx) => (
+                                <span key={pIdx} className="inline-flex items-center gap-1">
+                                  {pIdx > 0 && <span className="text-muted-foreground">/</span>}
+                                  <a href={`tel:${p.replace(/[^0-9+]/g, '')}`} className="hover:text-brand transition-colors">
+                                    {p}
+                                  </a>
+                                </span>
+                              ))
+                            ) : (
+                              <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-brand transition-colors">
+                                {loc.phone}
+                              </a>
+                            )}
                           </div>
                         </div>
-                      )} */}
+                      )}
                       {loc.email && (
                         <div className="flex items-center gap-2.5">
                           <Mail className="h-4 w-4 text-brand shrink-0" />

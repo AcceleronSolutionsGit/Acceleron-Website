@@ -186,7 +186,7 @@ const PRACTICES: PracticeSection[] = [
         title: "IT Infrastructure Services",
         subtitle: "Cloud, Networks & 24/7 SLA Management",
         badge: "Infrastructure",
-        desc: "Robust, scalable, and secure IT infrastructure design and management.",
+        desc: " Robust, high-availability hybrid cloud and network management engineered for 99.99% uptime",
         features: [
           "Cloud infrastructure management across AWS, Azure, and GCP",
           "Enterprise email management (M365, Google Workspace, Zimbra)",
@@ -603,9 +603,8 @@ function ServicesHub() {
         <section
           key={practice.id}
           id={practice.anchorId}
-          className={`container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-16 sm:py-24 ${
-            pIdx < PRACTICES.length - 1 ? "border-b border-border/60" : ""
-          }`}
+          className={`container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-16 sm:py-24 ${pIdx < PRACTICES.length - 1 ? "border-b border-border/60" : ""
+            }`}
         >
           <Reveal>
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">

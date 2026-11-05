@@ -98,8 +98,18 @@ function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/75"
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="mt-3.5 sm:mt-5 max-w-2xl text-base sm:text-xl md:text-2xl font-semibold text-white/95 leading-snug tracking-tight"
+            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}
+          >
+            We don’t just enable technology. We understand the business behind it.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
+            className="mt-3 sm:mt-4 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/75"
             style={{ textShadow: '0 1px 8px rgba(0,0,0,0.2)' }}
           >
             As part of the Gainwell Group, Acceleron Solutions drives digital transformation across industrial, supply chain, and commercial enterprises through SAP, Zoho, Applied AI, and custom software solutions.
@@ -125,7 +135,7 @@ function Hero() {
               <span className="grid h-6 w-6 place-items-center rounded-full border border-white/25 transition-transform group-hover:scale-110">
                 <Layers className="h-3 w-3 text-white/80" />
               </span>
-              Explore Our Services
+              Explore Services
             </Link>
           </motion.div>
         </div>

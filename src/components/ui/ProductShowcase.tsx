@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Reveal } from "./Animations";
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
 
 /* ═══════════════════ UI SCREENSHOT MOCKUP ═══════════════════ */
 
@@ -43,13 +43,43 @@ type FlowStep = {
 };
 
 export function ProcessFlow({ steps, accentColor = "#4c5a8a" }: { steps: FlowStep[]; accentColor?: string }) {
+  const gradientId = useId();
+  const count = steps.length || 1;
+
+  // Center container dynamically based on step count so it does not skew left
+  const containerClass =
+    count <= 3
+      ? "max-w-4xl mx-auto"
+      : count === 4
+      ? "max-w-5xl mx-auto"
+      : count === 5
+      ? "max-w-6xl mx-auto"
+      : "max-w-7xl mx-auto";
+
+  // Grid columns tailored to the step count so items are evenly distributed and centered
+  const gridClass =
+    count === 1
+      ? "grid-cols-1"
+      : count === 2
+      ? "grid-cols-1 sm:grid-cols-2"
+      : count === 3
+      ? "grid-cols-1 sm:grid-cols-3"
+      : count === 4
+      ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
+      : count === 5
+      ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+      : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6";
+
+  const x1 = Math.round(1200 * (1 / (2 * count)));
+  const x2 = Math.round(1200 * (1 - 1 / (2 * count)));
+
   return (
-    <div className="relative">
+    <div className={`relative ${containerClass}`}>
       {/* Connecting line */}
       <div className="pointer-events-none absolute left-0 right-0 top-8 hidden md:block">
         <svg viewBox="0 0 1200 20" preserveAspectRatio="none" className="h-5 w-full">
           <defs>
-            <linearGradient id="flow-line-grad" x1="0" x2="1">
+            <linearGradient id={gradientId} x1="0" x2="1">
               <stop offset="0" stopColor={accentColor} stopOpacity="0.2" />
               <stop offset="0.5" stopColor={accentColor} stopOpacity="0.7" />
               <stop offset="1" stopColor={accentColor} stopOpacity="0.2" />
@@ -60,14 +90,18 @@ export function ProcessFlow({ steps, accentColor = "#4c5a8a" }: { steps: FlowSte
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 2, ease: "easeOut" }}
-            x1="60" y1="10" x2="1140" y2="10"
-            stroke="url(#flow-line-grad)" strokeWidth="2"
+            x1={x1}
+            y1="10"
+            x2={x2}
+            y2="10"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="2"
             strokeDasharray="6 6"
           />
         </svg>
       </div>
 
-      <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4">
+      <div className={`relative grid ${gridClass} gap-6 md:gap-4 justify-center items-start`}>
         {steps.map((s, i) => (
           <Reveal key={s.step} delay={i * 0.1}>
             <motion.div
@@ -84,7 +118,7 @@ export function ProcessFlow({ steps, accentColor = "#4c5a8a" }: { steps: FlowSte
               </motion.div>
               <div className="mt-4 text-center">
                 <div className="text-sm font-semibold text-foreground">{s.title}</div>
-                <div className="mt-1 text-xs text-muted-foreground max-w-[180px] mx-auto">{s.desc}</div>
+                <div className="mt-1 text-xs text-muted-foreground max-w-[210px] mx-auto leading-relaxed">{s.desc}</div>
               </div>
             </motion.div>
           </Reveal>
