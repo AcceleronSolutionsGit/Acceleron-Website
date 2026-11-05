@@ -35,7 +35,7 @@ export function CsrCollageCard({
       {/* 1. Main Large Cover / Selected Image */}
       <div
         onClick={() => onOpenLightbox?.(activeImage, initiative.title)}
-        className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-black/40 border border-border/50 cursor-pointer group/main shadow-soft"
+        className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-black/40 border border-border/50 cursor-pointer group/main shadow-soft flex items-center justify-center"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -44,14 +44,20 @@ export function CsrCollageCard({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0"
+            className="absolute inset-0 flex items-center justify-center overflow-hidden"
           >
+            <img
+              src={getAssetUrl(activeImage)}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover blur-md opacity-30 scale-110 pointer-events-none select-none"
+            />
             <img
               src={getAssetUrl(activeImage)}
               alt={`${initiative.title} photo`}
               loading="lazy"
               decoding="async"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover/main:scale-105"
+              className="relative z-10 max-h-full max-w-full object-contain transition-transform duration-500 group-hover/main:scale-105 drop-shadow-md"
             />
           </motion.div>
         </AnimatePresence>
@@ -117,7 +123,7 @@ export function CsrCollageCard({
 
           <div
             className={`grid gap-2 sm:gap-3 ${
-              thumbnails.length >= 4 ? "grid-cols-4" : thumbnails.length === 3 ? "grid-cols-3" : thumbnails.length === 2 ? "grid-cols-2" : "grid-cols-1"
+              thumbnails.length >= 4 ? "grid-cols-2 sm:grid-cols-4" : thumbnails.length === 3 ? "grid-cols-2 sm:grid-cols-3" : "grid-cols-2"
             }`}
           >
             {thumbnails.slice(0, 4).map((thumbSrc, idx) => {
@@ -128,7 +134,7 @@ export function CsrCollageCard({
                   type="button"
                   aria-label={`View photo ${idx + 1}`}
                   onClick={() => setActiveImage(thumbSrc)}
-                  className={`relative aspect-[4/3] rounded-xl overflow-hidden bg-black/30 border-2 transition-all duration-200 group/thumb ${
+                  className={`relative aspect-[4/3] rounded-xl overflow-hidden bg-black/30 border-2 transition-all duration-200 group/thumb flex items-center justify-center ${
                     isSelected
                       ? "border-brand-red shadow-glow scale-[1.03] ring-2 ring-brand-red/40"
                       : "border-border/60 hover:border-brand-red/70 opacity-80 hover:opacity-100 hover:scale-[1.02]"
@@ -136,13 +142,19 @@ export function CsrCollageCard({
                 >
                   <img
                     src={getAssetUrl(thumbSrc)}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover blur-sm opacity-25 scale-110 pointer-events-none select-none"
+                  />
+                  <img
+                    src={getAssetUrl(thumbSrc)}
                     alt={`${initiative.title} highlight ${idx + 1}`}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover/thumb:scale-110"
+                    className="relative z-10 max-h-full max-w-full object-contain transition-transform duration-300 group-hover/thumb:scale-105"
                   />
                   {isSelected && (
-                    <div className="absolute inset-0 bg-brand-red/15 pointer-events-none" />
+                    <div className="absolute inset-0 z-20 bg-brand-red/15 pointer-events-none" />
                   )}
                 </button>
               );

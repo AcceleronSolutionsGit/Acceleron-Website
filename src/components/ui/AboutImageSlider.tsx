@@ -136,7 +136,7 @@ export function AboutImageSlider({
         {/* Main Image Frame */}
         <div
           onClick={() => setIsLightboxOpen(true)}
-          className={`relative w-full ${imageHeightClassName} rounded-xl sm:rounded-2xl overflow-hidden bg-black/40 cursor-pointer group/frame shadow-soft`}
+          className={`relative w-full ${imageHeightClassName} rounded-xl sm:rounded-2xl overflow-hidden bg-black/40 cursor-pointer group/frame shadow-soft flex items-center justify-center`}
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -145,14 +145,20 @@ export function AboutImageSlider({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-0"
+              className="absolute inset-0 flex items-center justify-center overflow-hidden"
             >
+              <img
+                src={getAssetUrl(currentSlide.src)}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover blur-md opacity-35 scale-110 pointer-events-none select-none"
+              />
               <img
                 src={getAssetUrl(currentSlide.src)}
                 alt={currentSlide.alt}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover object-center transition-transform duration-500 group-hover/frame:scale-105"
+                className="relative z-10 max-h-full max-w-full object-contain transition-transform duration-500 group-hover/frame:scale-105 drop-shadow-md"
               />
             </motion.div>
           </AnimatePresence>

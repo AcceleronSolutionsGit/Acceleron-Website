@@ -28,7 +28,7 @@ export function CultureCollageCard({
       {/* 1. Main Large Cover / Selected Image */}
       <div
         onClick={() => onOpenLightbox?.(activeImage, event.title)}
-        className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-black/40 border border-border/50 cursor-pointer group/main shadow-soft"
+        className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-black/40 border border-border/50 cursor-pointer group/main shadow-soft flex items-center justify-center"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -37,14 +37,20 @@ export function CultureCollageCard({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0"
+            className="absolute inset-0 flex items-center justify-center overflow-hidden"
           >
+            <img
+              src={getAssetUrl(activeImage)}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover blur-md opacity-30 scale-110 pointer-events-none select-none"
+            />
             <img
               src={getAssetUrl(activeImage)}
               alt={`${event.title} spotlight`}
               loading="lazy"
               decoding="async"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover/main:scale-105"
+              className="relative z-10 max-h-full max-w-full object-contain transition-transform duration-500 group-hover/main:scale-105 drop-shadow-md"
             />
           </motion.div>
         </AnimatePresence>
@@ -96,7 +102,7 @@ export function CultureCollageCard({
             )}
           </div>
 
-          <div className="grid grid-cols-4 gap-2 sm:gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
             {event.thumbnails.map((thumbSrc, idx) => {
               const isSelected = activeImage === thumbSrc;
               return (
@@ -105,7 +111,7 @@ export function CultureCollageCard({
                   type="button"
                   onClick={() => setActiveImage(thumbSrc)}
                   aria-label={`View photo ${idx + 1}`}
-                  className={`relative aspect-[4/3] rounded-xl overflow-hidden border-2 transition-all duration-200 group/thumb ${
+                  className={`relative aspect-[4/3] rounded-xl overflow-hidden border-2 transition-all duration-200 group/thumb bg-black/30 flex items-center justify-center ${
                     isSelected
                       ? "border-brand-red ring-2 ring-brand-red/40 scale-[1.03] shadow-md z-10"
                       : "border-border/60 hover:border-brand/60 opacity-80 hover:opacity-100 hover:scale-[1.02]"
@@ -113,15 +119,21 @@ export function CultureCollageCard({
                 >
                   <img
                     src={getAssetUrl(thumbSrc)}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover blur-sm opacity-25 scale-110 pointer-events-none select-none"
+                  />
+                  <img
+                    src={getAssetUrl(thumbSrc)}
                     alt={`${event.title} highlight ${idx + 1}`}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover/thumb:scale-110"
+                    className="relative z-10 max-h-full max-w-full object-contain transition-transform duration-300 group-hover/thumb:scale-105"
                   />
                   {isSelected && (
-                    <div className="absolute inset-0 bg-brand-red/10 pointer-events-none" />
+                    <div className="absolute inset-0 z-20 bg-brand-red/10 pointer-events-none" />
                   )}
-                  <div className="absolute bottom-1 right-1 h-2 w-2 rounded-full bg-black/60 backdrop-blur-sm border border-white/50" />
+                  <div className="absolute bottom-1 right-1 z-20 h-2 w-2 rounded-full bg-black/60 backdrop-blur-sm border border-white/50" />
                 </button>
               );
             })}

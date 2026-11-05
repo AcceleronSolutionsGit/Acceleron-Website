@@ -22,6 +22,7 @@ import {
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
 import { getAssetUrl } from "../lib/assets";
+import { ALL_CLIENTS } from "../data/clientsData";
 import { AboutImageSlider } from "../components/ui/AboutImageSlider";
 import { OurValuesSection } from "../components/ui/OurValuesGrid";
 
@@ -121,44 +122,7 @@ const PERFORMANCE_METRICS = [
   },
 ];
 
-const CLIENT_LOGOS = [
-  { name: "Client 2", logo: "/client (2).png" },
-  { name: "Client 3", logo: "/client (3).png" },
-  { name: "Client 4", logo: "/client (4).png" },
-  { name: "Client 5", logo: "/client (5).png" },
-  { name: "Client 6", logo: "/client (6).png" },
-  { name: "Client 7", logo: "/client (7).png" },
-  { name: "Client 8", logo: "/client (8).png" },
-  { name: "Client 9", logo: "/client (9).png" },
-  { name: "Client 10", logo: "/client (10).png" },
-  { name: "Client 11", logo: "/client (11).png" },
-  { name: "Client 12", logo: "/client (12).png" },
-  { name: "Client 13", logo: "/client (13).png" },
-  { name: "Client 14", logo: "/client (14).png" },
-  { name: "Client 15", logo: "/client (15).png" },
-  { name: "Client 16", logo: "/client (16).png" },
-  { name: "Client 17", logo: "/client (17).png" },
-  { name: "Client 18", logo: "/client (18).png" },
-  { name: "Client 19", logo: "/client (19).png" },
-  { name: "Client 20", logo: "/client (20).png" },
-  { name: "Trimble", logo: "/TRIMBLE.png" },
-  { name: "Tulip Compression", logo: "/TulipCompression.png" },
-  { name: "Sitech", logo: "/SITECH.png" },
-  { name: "SEM", logo: "/SEM.png" },
-  { name: "RPM Global", logo: "/rpmglobal.png" },
-  { name: "Ontrak", logo: "/ontrak.png" },
-  { name: "Lintec & Linnhoff", logo: "/lintec&linhoff.png" },
-  { name: "Paus", logo: "/PAUS.png" },
-  { name: "TIPL CAT", logo: "/TIPL.jpg" },
-  { name: "TIL", logo: "/TractorsIndia.jpg" },
-  { name: "Gainwell CAT", logo: "/GainwellCAT.jpg" },
-  { name: "Gainwell Engineering", logo: "/GainwellEngineering.jpg" },
-  { name: "PCM", logo: "/PCM.png" },
-  { name: "TMC", logo: "/TMC-removebg-preview.png" },
-  { name: "Livpure", logo: "/Livpure_LOGO_Purple_2048x2048_8465dc4a-1c7e-472e-ab6c-b78e8af8446f.png" },
-  { name: "Equipcare", logo: "/equipcare.png" },
-  { name: "Ambey Mining", logo: "/Ampl.png" },
-];
+const CLIENT_LOGOS = ALL_CLIENTS;
 
 function AboutPage() {
   return (

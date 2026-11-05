@@ -273,24 +273,31 @@ function EventsPage() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-6 md:gap-8">
           {PAST_EVENTS.map((past, pIdx) => (
             <Reveal key={past.id} delay={pIdx * 0.08} className="h-full">
-              <div className="rounded-3xl border border-border/80 bg-card p-5 sm:p-8 h-full flex flex-col justify-between shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300">
+              <div className="rounded-2xl sm:rounded-3xl border border-border/80 bg-card p-3 sm:p-6 md:p-8 h-full flex flex-col justify-between shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300">
                 <div>
-                  <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-5 bg-muted">
+                  <div className="relative aspect-[16/10] sm:aspect-[16/9] rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-5 bg-muted/40 flex items-center justify-center">
+                    {/* Ambient blurred backdrop prevents blank space while avoiding crop */}
+                    <img
+                      src={getAssetUrl(past.image)}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-md opacity-25 scale-110 pointer-events-none select-none"
+                    />
                     <img
                       src={getAssetUrl(past.image)}
                       alt={past.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      className="relative z-10 max-h-full max-w-full object-contain transition-transform duration-500 hover:scale-105"
                     />
-                    <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-20 bg-black/70 backdrop-blur-md text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-wider">
                       {past.category}
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3 font-semibold">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-[10px] sm:text-xs text-muted-foreground mb-2 sm:mb-3 font-semibold">
                     <span className="flex items-center gap-1.5">
                       <Calendar className="h-3.5 w-3.5 text-brand" /> {past.date}
                     </span>
@@ -300,11 +307,11 @@ function EventsPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-foreground mb-2 leading-snug">
+                  <h3 className="text-xs sm:text-lg md:text-xl font-bold text-foreground mb-1.5 sm:mb-2 leading-snug line-clamp-2">
                     {past.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground leading-relaxed mb-2.5 sm:mb-4 line-clamp-2 sm:line-clamp-3">
                     {past.description}
                   </p>
                 </div>

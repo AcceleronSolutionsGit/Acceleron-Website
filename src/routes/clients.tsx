@@ -4,6 +4,7 @@ import { PageHero } from "../components/ui/PageHero";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { getAssetUrl } from "../lib/assets";
 import { ArrowRight, Building2, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { ALL_CLIENTS } from "../data/clientsData";
 
 export const Route = createFileRoute("/clients")({
   head: () => ({
@@ -14,53 +15,6 @@ export const Route = createFileRoute("/clients")({
   }),
   component: ClientsPage,
 });
-
-interface ClientItem {
-  id: number;
-  name: string;
-  logo: string;
-  category: "Mining & Heavy Equipment" | "Manufacturing & Engineering" | "Technology & Infrastructure" | "Consumer & Services";
-  description: string;
-}
-
-const ALL_CLIENTS: ClientItem[] = [
-  { id: 1, name: "Enterprise Partner", logo: "/client (1).png", category: "Mining & Heavy Equipment", description: "SAP S/4HANA core modernisation and IoT telemetry architecture." },
-  { id: 2, name: "Industrial Solutions", logo: "/client (2).png", category: "Manufacturing & Engineering", description: "Automated shop floor scheduling and real-time OEE analytics." },
-  { id: 3, name: "Global Engineering", logo: "/client (3).png", category: "Manufacturing & Engineering", description: "Full-stack Zoho enterprise workflow automation." },
-  { id: 4, name: "Mining Operator", logo: "/client (4).png", category: "Mining & Heavy Equipment", description: "Pit-to-port asset management and Suraksha field safety deployment." },
-  { id: 5, name: "Infrastructure Tech", logo: "/client (5).png", category: "Technology & Infrastructure", description: "Multi-cloud migration, AWS data lake, and cyber defense SOC." },
-  { id: 6, name: "Heavy Machinery OEM", logo: "/client (6).png", category: "Mining & Heavy Equipment", description: "Enterprise telemetry, warranty management, and parts catalog." },
-  { id: 7, name: "Precision Manufacturing", logo: "/client (7).png", category: "Manufacturing & Engineering", description: "QMS implementation and zero-defect quality gate tracking." },
-  { id: 8, name: "Smart Logistics", logo: "/client (8).png", category: "Consumer & Services", description: "Route optimization, tyre lifecycle management, and field PJP." },
-  { id: 9, name: "Energy & Utilities", logo: "/client (9).png", category: "Technology & Infrastructure", description: "Grid IS-U integration and zero-trust OT cybersecurity architecture." },
-  { id: 10, name: "Commercial Systems", logo: "/client (10).png", category: "Consumer & Services", description: "Supplier Portal for 2.4M active inventory SKUs." },
-  { id: 11, name: "Capital Goods Group", logo: "/client (11).png", category: "Manufacturing & Engineering", description: "Engineer-to-Order SAP project system transformation." },
-  { id: 12, name: "Industrial Automation", logo: "/client (12).png", category: "Technology & Infrastructure", description: "Real-time edge IoT gateways and predictive maintenance." },
-  { id: 13, name: "Mining Logistics", logo: "/client (13).png", category: "Mining & Heavy Equipment", description: "Contractor workforce management system (CWMS) rollout." },
-  { id: 14, name: "Global Heavy Equipment", logo: "/client (14).png", category: "Mining & Heavy Equipment", description: "Digital parts logistics and AI warranty triage." },
-  { id: 15, name: "Advanced Engineering", logo: "/client (15).png", category: "Manufacturing & Engineering", description: "Unified data warehouse on Snowflake with executive Power BI." },
-  { id: 16, name: "Infrastructure Services", logo: "/client (16).png", category: "Technology & Infrastructure", description: "Hybrid cloud orchestration and 24/7 AMS infrastructure." },
-  { id: 17, name: "Industrial Operations", logo: "/client (17).png", category: "Manufacturing & Engineering", description: "Shop-floor job card and technician dispatch automation." },
-  { id: 18, name: "Resource Corporation", logo: "/client (18).png", category: "Mining & Heavy Equipment", description: "Geofenced safety compliance and PPE detection." },
-  { id: 19, name: "Enterprise Systems", logo: "/client (19).png", category: "Technology & Infrastructure", description: "Custom Node.js & React enterprise digital platform." },
-  { id: 20, name: "Commercial Operations", logo: "/client (20).png", category: "Consumer & Services", description: "Zoho CRM, HRMS, and Finance end-to-end integration." },
-  { id: 21, name: "Trimble", logo: "/TRIMBLE.png", category: "Technology & Infrastructure", description: "Advanced positioning and telemetry data integration for heavy industry." },
-  { id: 22, name: "Tulip Compression", logo: "/TulipCompression.png", category: "Manufacturing & Engineering", description: "Industrial compression technology management and ERP support." },
-  { id: 23, name: "Sitech", logo: "/SITECH.png", category: "Technology & Infrastructure", description: "Construction technology systems and connected site solutions." },
-  { id: 24, name: "SEM", logo: "/SEM.png", category: "Mining & Heavy Equipment", description: "Heavy earthmoving equipment support and dealer management platform." },
-  { id: 25, name: "RPM Global", logo: "/rpmglobal.png", category: "Mining & Heavy Equipment", description: "Mining software solutions and asset management integration." },
-  { id: 26, name: "Ontrak", logo: "/ontrak.png", category: "Technology & Infrastructure", description: "Fleet tracking and mobile telematics systems." },
-  { id: 27, name: "Lintec & Linnhoff", logo: "/lintec&linhoff.png", category: "Manufacturing & Engineering", description: "Asphalt & concrete batching plant software integration." },
-  { id: 28, name: "Paus", logo: "/PAUS.png", category: "Mining & Heavy Equipment", description: "Underground mining vehicles and specialized engineering systems." },
-  { id: 29, name: "TIPL CAT", logo: "/TIPL.jpg", category: "Mining & Heavy Equipment", description: "Cat dealership ERP modernization and equipment lifecycle services." },
-  { id: 30, name: "TIL Tractors India", logo: "/TractorsIndia.jpg", category: "Manufacturing & Engineering", description: "Material handling solutions and custom engineering systems." },
-  { id: 31, name: "Gainwell CAT", logo: "/GainwellCAT.jpg", category: "Mining & Heavy Equipment", description: "Heavy equipment operations, field service, and digital parts portal." },
-  { id: 32, name: "Gainwell Engineering", logo: "/GainwellEngineering.jpg", category: "Manufacturing & Engineering", description: "Global manufacturing and underground mining equipment R&D systems." },
-  { id: 33, name: "PCM", logo: "/PCM.png", category: "Technology & Infrastructure", description: "Power and control system analytics." },
-  { id: 34, name: "Livpure", logo: "/Livpure_LOGO_Purple_2048x2048_8465dc4a-1c7e-472e-ab6c-b78e8af8446f.png", category: "Consumer & Services", description: "Customer experience, service management, and IoT water systems." },
-  { id: 35, name: "Equipcare", logo: "/equipcare.png", category: "Technology & Infrastructure", description: "Connected fleet diagnostics and predictive health platform." },
-  { id: 36, name: "Ambey Mining", logo: "/Ampl.png", category: "Mining & Heavy Equipment", description: "Opencast mining operations and fleet dispatch intelligence." },
-];
 
 function ClientsPage() {
   return (

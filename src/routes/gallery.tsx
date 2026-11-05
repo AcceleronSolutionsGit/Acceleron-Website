@@ -219,52 +219,60 @@ function GalleryPage() {
           </div>
         </Reveal>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {/* Gallery Grid - 2 columns on mobile for iOS and Android */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-5 md:gap-6">
           {filteredItems.map((item, idx) => (
-            <Reveal key={item.id} delay={(idx % 6) * 0.05}>
+            <Reveal key={item.id} delay={(idx % 6) * 0.05} className="h-full">
               <motion.div
                 whileHover={{ y: -6, scale: 1.01 }}
                 onClick={() => setLightboxIndex(idx)}
-                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-border/80 bg-card p-4 shadow-card hover:border-brand/50 transition-all duration-300 flex flex-col justify-between"
+                className="group relative cursor-pointer overflow-hidden rounded-2xl sm:rounded-3xl border border-border/80 bg-card p-2.5 sm:p-4 shadow-card hover:border-brand/50 transition-all duration-300 flex flex-col justify-between h-full"
               >
                 <div>
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-muted/40">
+                  <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden mb-2.5 sm:mb-3 bg-muted/40 flex items-center justify-center">
+                    {/* Ambient blurred backdrop prevents blank space while avoiding crop */}
+                    <img
+                      src={getAssetUrl(item.src)}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-md opacity-25 scale-110 pointer-events-none select-none"
+                    />
+                    {/* Uncropped foreground image */}
                     <img
                       src={getAssetUrl(item.src)}
                       alt={item.alt}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="relative z-10 max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3 sm:p-4">
+                    <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-2 sm:p-3">
                       <div className="flex items-center justify-between w-full text-white">
-                        <span className="text-[11px] font-semibold bg-brand px-2.5 py-1 rounded-full">
-                          Click to Enlarge
+                        <span className="text-[9px] sm:text-[11px] font-semibold bg-brand px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
+                          Enlarge
                         </span>
-                        <Maximize2 className="h-4 w-4" />
+                        <Maximize2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-2">
-                    <span className="text-brand-red truncate pr-2">{item.category}</span>
+                  <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1 sm:mb-1.5">
+                    <span className="text-primary dark:text-cyan-400 truncate pr-1">{item.category}</span>
                   </div>
 
-                  <h3 className="font-bold text-base text-foreground group-hover:text-brand transition-colors mb-1">
+                  <h3 className="font-bold text-xs sm:text-base text-foreground group-hover:text-brand transition-colors mb-1 line-clamp-1 sm:line-clamp-none">
                     {item.title}
                   </h3>
 
                   {item.caption && (
-                    <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                    <p className="text-[10px] sm:text-xs text-muted-foreground line-clamp-2 leading-relaxed">
                       {item.caption}
                     </p>
                   )}
                 </div>
 
                 {item.location && (
-                  <div className="pt-3 mt-3 border-t border-border/40 flex items-center gap-1.5 text-[11px] text-muted-foreground font-medium">
-                    <MapPin className="h-3.5 w-3.5 text-brand shrink-0" />
+                  <div className="pt-2 sm:pt-3 mt-2 sm:mt-3 border-t border-border/40 flex items-center gap-1 text-[10px] sm:text-[11px] text-muted-foreground font-medium">
+                    <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-brand shrink-0" />
                     <span className="truncate">{item.location}</span>
                   </div>
                 )}
