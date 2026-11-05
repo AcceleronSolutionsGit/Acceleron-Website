@@ -117,7 +117,7 @@ export function AboutImageSlider({
       onTouchEnd={handleTouchEnd}
     >
       {/* Decorative corner accents */}
-      <div className="absolute -top-1 -right-1 w-16 h-16 border-t-2 border-r-2 border-brand-red/40 rounded-tr-3xl pointer-events-none z-20" />
+      <div className="absolute -top-1 -right-1 w-16 h-16 border-t-2 border-r-2 border-primary/40 dark:border-cyan-400/40 rounded-tr-3xl pointer-events-none z-20" />
       <div className="absolute -bottom-1 -left-1 w-16 h-16 border-b-2 border-l-2 border-brand/30 rounded-bl-3xl pointer-events-none z-20" />
 
       {/* Main Image Frame */}
@@ -148,7 +148,7 @@ export function AboutImageSlider({
               type="button"
               onClick={handlePrev}
               aria-label="Previous image"
-              className="h-8 w-8 rounded-full bg-black/60 hover:bg-brand-red text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
+              className="h-8 w-8 rounded-full bg-black/60 hover:bg-primary dark:hover:bg-cyan-600 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -156,7 +156,7 @@ export function AboutImageSlider({
               type="button"
               onClick={handleNext}
               aria-label="Next image"
-              className="h-8 w-8 rounded-full bg-black/60 hover:bg-brand-red text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
+              className="h-8 w-8 rounded-full bg-black/60 hover:bg-primary dark:hover:bg-cyan-600 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-md"
             >
               <ChevronRight className="h-4 w-4" />
             </button>
@@ -174,7 +174,7 @@ export function AboutImageSlider({
                 aria-label={`Go to slide ${idx + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
                   idx === currentIndex
-                    ? "w-5 sm:w-6 bg-brand-red shadow-glow"
+                    ? "w-5 sm:w-6 bg-primary dark:bg-cyan-400 shadow-sm"
                     : "w-1.5 bg-white/40 hover:bg-white/80"
                 }`}
               />
@@ -195,7 +195,7 @@ export function AboutImageSlider({
               transition={{ duration: 0.3 }}
             >
               {currentSlide.title && (
-                <div className="text-xs uppercase tracking-widest text-brand-red font-bold">
+                <div className="text-xs uppercase tracking-widest text-primary dark:text-cyan-400 font-bold">
                   {currentSlide.title}
                 </div>
               )}

@@ -187,23 +187,26 @@ function KeyMetricsBar() {
   return (
     <section id="at-a-glance" aria-label="Acceleron at a Glance" className="relative overflow-hidden bg-background py-14 sm:py-20 border-b border-border/50">
       <div className="absolute inset-0 grid-lines opacity-[0.04]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-3/4 max-w-4xl rounded-full bg-brand/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-3/4 max-w-4xl rounded-full bg-primary/5 dark:bg-cyan-500/5 blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
           <div>
             <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-3.5 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3.5 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-primary dark:text-cyan-400 mb-3">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-red" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-primary dark:bg-cyan-400" />
                 </span>
                 Acceleron at a Glance
               </div>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-                Key Metrics Driving <span className="text-gradient">Enterprise Impact</span>
+                Key Metrics Driving{" "}
+                <span className="bg-gradient-to-r from-primary via-indigo-600 to-cyan-600 dark:from-white dark:via-cyan-200 dark:to-cyan-400 bg-clip-text text-transparent">
+                  Enterprise Impact
+                </span>
               </h2>
             </Reveal>
           </div>
@@ -214,44 +217,54 @@ function KeyMetricsBar() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {KEY_METRICS.map((item, idx) => (
-            <Reveal key={item.metric} delay={0.1 + idx * 0.08} className="h-full">
-              <div className="relative group h-full rounded-2xl sm:rounded-3xl border border-border/70 bg-muted/20 hover:bg-muted/30 p-6 backdrop-blur-xl shadow-soft hover:shadow-elevated hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden">
-                <div className="absolute -top-12 -right-12 h-24 w-24 rounded-full bg-brand-red/10 blur-xl group-hover:bg-brand-red/20 transition-all duration-500 pointer-events-none" />
+        {/* ONE VIEW STAT DECK: Compact 2x2 on mobile, 4 columns on desktop */}
+        <Reveal delay={0.15}>
+          <div className="relative rounded-2xl sm:rounded-3xl border border-border/80 bg-border/60 shadow-card overflow-hidden">
+            {/* Ambient top light line */}
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 dark:via-cyan-400/30 to-transparent z-10" />
 
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-muted-foreground group-hover:text-foreground transition-colors">
-                      {item.metric}
-                    </span>
-                    <div className="h-9 w-9 rounded-xl bg-background/80 border border-border/80 flex items-center justify-center text-foreground group-hover:border-brand-red/40 group-hover:text-brand-red transition-all duration-300 shadow-sm">
-                      <item.icon className="h-4 w-4" />
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-px">
+              {KEY_METRICS.map((item) => (
+                <div
+                  key={item.metric}
+                  className="group relative bg-card/95 dark:bg-card/70 p-4 sm:p-6 lg:p-7 flex flex-col justify-between hover:bg-card/100 dark:hover:bg-card/90 transition-colors duration-300"
+                >
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 dark:bg-cyan-400/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+                      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-foreground transition-colors">
+                        {item.metric}
+                      </span>
+                      <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-primary/10 dark:bg-cyan-500/10 border border-primary/20 dark:border-cyan-500/20 flex items-center justify-center text-primary dark:text-cyan-400 shadow-sm shrink-0">
+                        <item.icon className="h-4 w-4" />
+                      </div>
+                    </div>
+
+                    <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-foreground">
+                      {item.isSupport ? (
+                        <span className="tabular-nums flex items-baseline">
+                          <Counter to={24} duration={1.6} />
+                          <span className="text-primary dark:text-cyan-400 mx-1 font-bold">/</span>
+                          <Counter to={7} duration={1.6} />
+                        </span>
+                      ) : (
+                        <span className="tabular-nums flex items-baseline">
+                          <Counter to={item.value ?? 0} duration={1.8} />
+                          <span className="text-primary dark:text-cyan-400 ml-0.5 font-bold">{item.suffix}</span>
+                        </span>
+                      )}
                     </div>
                   </div>
 
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-foreground group-hover:text-gradient transition-all duration-300">
-                    {item.isSupport ? (
-                      <span className="tabular-nums">
-                        <Counter to={24} duration={1.6} />
-                        <span className="text-brand-red mx-1.5">/</span>
-                        <Counter to={7} duration={1.6} />
-                      </span>
-                    ) : (
-                      <span className="tabular-nums">
-                        <Counter to={item.value ?? 0} suffix={item.suffix} duration={1.8} />
-                      </span>
-                    )}
-                  </div>
+                  <p className="mt-3 text-[11px] sm:text-xs text-muted-foreground/85 leading-relaxed border-t border-border/50 pt-2.5 sm:pt-3">
+                    {item.desc}
+                  </p>
                 </div>
-
-                <p className="mt-4 text-xs sm:text-sm text-muted-foreground leading-relaxed border-t border-border/50 pt-3.5">
-                  {item.desc}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -264,48 +277,78 @@ function AboutTeaser() {
     <section className="relative overflow-hidden bg-background py-16 sm:py-24 border-b border-border/50">
       <div className="absolute inset-0 grid-lines opacity-[0.04]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <div className="lg:col-span-7 space-y-6">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          
+          {/* Narrative & Story (Left Column on Desktop, Top on Mobile) */}
+          <div className="lg:col-span-7 space-y-5">
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">About Acceleron Solutions</div>
+              <div className="text-xs uppercase tracking-[0.35em] text-primary dark:text-cyan-400 font-bold">
+                About Acceleron Solutions
+              </div>
             </Reveal>
+
             <Reveal delay={0.1}>
-              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.15]">
-                Empowering Enterprises with <span className="text-gradient">Grounded Digital Innovation</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-[1.15]">
+                Empowering Enterprises with{" "}
+                <span className="bg-gradient-to-r from-primary via-indigo-600 to-cyan-600 dark:from-white dark:via-cyan-200 dark:to-cyan-400 bg-clip-text text-transparent">
+                  Grounded Digital Innovation
+                </span>
               </h2>
             </Reveal>
-            <Reveal delay={0.2}>
-              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
-                As the technology arm of the Gainwell Group, Acceleron Solutions delivers bespoke SAP consulting, full-stack Zoho business automation, predictive AI systems, and enterprise software built for scale.
-              </p>
-              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
-                We bridge deep industrial domain knowledge with modern technology to solve complex operational challenges and unlock measurable P&L value.
-              </p>
-              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
-                "Our Vision: Be a trusted solution partner to our clients, delivering industry-leading digital transformation and long-term business impact."
-              </p>
+
+            <Reveal delay={0.15}>
+              <div className="space-y-3 text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed">
+                <p>
+                  As the technology arm of the Gainwell Group, Acceleron Solutions delivers bespoke SAP consulting, full-stack Zoho business automation, predictive AI systems, and enterprise software built for scale.
+                </p>
+                <p>
+                  We bridge deep industrial domain knowledge with modern technology to solve complex operational challenges and unlock measurable P&L value.
+                </p>
+              </div>
             </Reveal>
-            <Reveal delay={0.3}>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-2 pb-2">
-                <div className="rounded-2xl border border-border/60 bg-muted/20 p-4 border-l-2 border-l-brand-red/60 hover:-translate-y-0.5 hover:shadow-soft transition-all duration-300">
-                  <div className="text-lg sm:text-2xl font-black text-brand-red">Kolkata & Delhi</div>
-                  <div className="text-xs text-muted-foreground mt-1 font-medium">Delivery Hubs</div>
+
+            <Reveal delay={0.2}>
+              <div className="rounded-xl border border-border/70 bg-muted/20 dark:bg-card/40 p-3.5 sm:p-4 border-l-4 border-l-primary dark:border-l-cyan-400">
+                <p className="text-xs sm:text-sm text-foreground/90 italic font-medium leading-relaxed">
+                  "Our Vision: Be a trusted solution partner to our clients, delivering industry-leading digital transformation and long-term business impact."
+                </p>
+              </div>
+            </Reveal>
+
+            {/* Mini Stats Ribbon - ONE VIEW (3 columns side-by-side) with ZERO RED */}
+            <Reveal delay={0.25}>
+              <div className="grid grid-cols-3 gap-2 sm:gap-3.5 pt-1">
+                <div className="rounded-2xl border border-border/70 bg-card/60 p-3 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all">
+                  <div className="text-xs sm:text-base md:text-lg font-black text-foreground">Kolkata & Delhi</div>
+                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium">Delivery Hubs</div>
                 </div>
-                <div className="rounded-2xl border border-border/60 bg-muted/20 p-4 border-l-2 border-l-brand-red/60 hover:-translate-y-0.5 hover:shadow-soft transition-all duration-300">
-                  <div className="text-lg sm:text-2xl font-black text-brand-red">Full-Stack</div>
-                  <div className="text-xs text-muted-foreground mt-1 font-medium">Enterprise Tech</div>
+                <div className="rounded-2xl border border-border/70 bg-card/60 p-3 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all">
+                  <div className="text-xs sm:text-base md:text-lg font-black text-foreground">Full-Stack</div>
+                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium">Enterprise Tech</div>
                 </div>
-                <div className="rounded-2xl border border-border/60 bg-muted/20 p-4 border-l-2 border-l-brand-red/60 hover:-translate-y-0.5 hover:shadow-soft transition-all duration-300">
-                  <div className="text-lg sm:text-2xl font-black text-brand-red">100%</div>
-                  <div className="text-xs text-muted-foreground mt-1 font-medium">Outcome Driven</div>
+                <div className="rounded-2xl border border-border/70 bg-card/60 p-3 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all">
+                  <div className="text-xs sm:text-base md:text-lg font-black text-foreground">100%</div>
+                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium">Outcome Driven</div>
                 </div>
               </div>
             </Reveal>
-            <Reveal delay={0.4}>
-              <div className="pt-2">
+          </div>
+
+          {/* Visual Showcase (Image ABOVE CTA) */}
+          <div className="lg:col-span-5 flex flex-col">
+            <Reveal delay={0.2}>
+              {/* Image Slider: Renders ABOVE the CTA button */}
+              <AboutImageSlider />
+
+              {/* Smooth CTA Card: Docked directly below the image */}
+              <div className="mt-4 sm:mt-5 p-4 sm:p-5 rounded-2xl border border-border/70 bg-card/70 backdrop-blur-xl shadow-soft flex flex-col sm:flex-row items-center justify-between gap-3.5">
+                <div className="text-center sm:text-left">
+                  <div className="text-xs sm:text-sm font-bold text-foreground">Discover Our Story & Heritage</div>
+                  <div className="text-[11px] text-muted-foreground mt-0.5">80+ years industrial excellence & leadership</div>
+                </div>
                 <Link
                   to="/about"
-                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-gradient px-8 py-3.5 sm:py-4 text-sm font-semibold text-white shadow-glow transition-all hover:scale-105 hover:shadow-red-glow w-full sm:w-auto"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold shadow-soft hover:shadow-elevated hover:-translate-y-0.5 transition-all w-full sm:w-auto shrink-0"
                 >
                   Know More
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -314,17 +357,11 @@ function AboutTeaser() {
             </Reveal>
           </div>
 
-          <div className="lg:col-span-5">
-            <Reveal delay={0.2}>
-              <AboutImageSlider />
-            </Reveal>
-          </div>
         </div>
       </div>
     </section>
   );
 }
-
 
 /* ═══════════════════ SERVICES ═══════════════════ */
 
@@ -522,7 +559,7 @@ function TechStack() {
                     onClick={() => setHoveredIdx(i)}
                     className={`flex items-center gap-2 p-2.5 rounded-xl border text-left transition-all ${
                       isSelected
-                        ? "border-brand-red bg-muted/40 shadow-sm"
+                        ? "border-primary dark:border-cyan-400 bg-muted/40 shadow-sm"
                         : "border-border/60 bg-card/60 hover:border-brand/40 hover:bg-muted/30"
                     }`}
                     style={isSelected ? { borderColor: tech.color } : {}}
@@ -542,7 +579,7 @@ function TechStack() {
 
           <div className="relative z-20 lg:pl-12">
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Technology</div>
+              <div className="text-xs uppercase tracking-[0.4em] text-primary dark:text-cyan-400 font-bold">Technology</div>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight">
