@@ -284,13 +284,13 @@ function KeyMetricsBar() {
 
 function AboutTeaser() {
   return (
-    <section className="relative overflow-hidden bg-background py-16 sm:py-24 border-b border-border/50">
+    <section className="relative overflow-hidden bg-background py-16 sm:py-24 border-b border-border/50 w-full">
       <div className="absolute inset-0 grid-lines opacity-[0.04]" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10 w-full min-w-0">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full min-w-0">
 
           {/* Narrative & Story (Left Column on Desktop, Top on Mobile) */}
-          <div className="lg:col-span-5 space-y-5">
+          <div className="lg:col-span-5 space-y-5 w-full min-w-0">
             <Reveal>
               <div className="text-xs uppercase tracking-[0.35em] text-primary dark:text-cyan-400 font-bold">
                 About Acceleron Solutions
@@ -318,7 +318,7 @@ function AboutTeaser() {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <div className="rounded-xl border border-border/70 bg-muted/20 dark:bg-card/40 p-3.5 sm:p-4 border-l-4 border-l-primary dark:border-l-cyan-400">
+              <div className="rounded-xl border border-border/70 bg-muted/20 dark:bg-card/40 p-3.5 sm:p-4 border-l-4 border-l-primary dark:border-l-cyan-400 w-full min-w-0">
                 <p className="text-xs sm:text-sm text-foreground/90 italic font-medium leading-relaxed">
                   "Our Vision: Be a trusted solution partner to our clients, delivering industry-leading digital transformation and long-term business impact."
                 </p>
@@ -327,31 +327,31 @@ function AboutTeaser() {
 
             {/* Mini Stats Ribbon - ONE VIEW (3 columns side-by-side) with ZERO RED */}
             <Reveal delay={0.25}>
-              <div className="grid grid-cols-3 gap-2 sm:gap-3.5 pt-1">
-                <div className="rounded-2xl border border-border/70 bg-card/60 p-3 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all">
-                  <div className="text-xs sm:text-base md:text-lg font-black text-foreground">Kolkata & Delhi</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium">Delivery Hubs</div>
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-3.5 pt-1 w-full min-w-0">
+                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0 overflow-hidden">
+                  <div className="text-[11px] sm:text-base md:text-lg font-black text-foreground truncate">Kolkata & Delhi</div>
+                  <div className="text-[9px] sm:text-xs text-muted-foreground mt-0.5 font-medium truncate">Delivery Hubs</div>
                 </div>
-                <div className="rounded-2xl border border-border/70 bg-card/60 p-3 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all">
-                  <div className="text-xs sm:text-base md:text-lg font-black text-foreground">Full-Stack</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium">Enterprise Tech</div>
+                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0 overflow-hidden">
+                  <div className="text-[11px] sm:text-base md:text-lg font-black text-foreground truncate">Full-Stack</div>
+                  <div className="text-[9px] sm:text-xs text-muted-foreground mt-0.5 font-medium truncate">Enterprise Tech</div>
                 </div>
-                <div className="rounded-2xl border border-border/70 bg-card/60 p-3 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all">
-                  <div className="text-xs sm:text-base md:text-lg font-black text-foreground">100%</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium">Outcome Driven</div>
+                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0 overflow-hidden">
+                  <div className="text-[11px] sm:text-base md:text-lg font-black text-foreground truncate">100%</div>
+                  <div className="text-[9px] sm:text-xs text-muted-foreground mt-0.5 font-medium truncate">Outcome Driven</div>
                 </div>
               </div>
             </Reveal>
           </div>
 
           {/* Visual Showcase (Image ABOVE CTA) */}
-          <div className="lg:col-span-7 flex flex-col">
+          <div className="lg:col-span-7 flex flex-col w-full min-w-0">
             <Reveal delay={0.2}>
               {/* Image Slider: Renders ABOVE the CTA button */}
               <AboutImageSlider />
 
               {/* Smooth CTA Card: Docked directly below the image */}
-              <div className="mt-4 sm:mt-5 p-4 sm:p-5 rounded-2xl border border-border/70 bg-card/70 backdrop-blur-xl shadow-soft flex flex-col sm:flex-row items-center justify-between gap-3.5">
+              <div className="mt-4 sm:mt-5 p-4 sm:p-5 rounded-2xl border border-border/70 bg-card/70 backdrop-blur-xl shadow-soft flex flex-col sm:flex-row items-center justify-between gap-3.5 w-full min-w-0">
                 <div className="text-center sm:text-left">
                   <div className="text-xs sm:text-sm font-bold text-foreground">Discover Our Story & Heritage</div>
                   <div className="text-[11px] text-muted-foreground mt-0.5">80+ years industrial excellence & leadership</div>

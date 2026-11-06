@@ -60,7 +60,7 @@ interface AboutImageSliderProps {
 export function AboutImageSlider({
   images = ABOUT_SLIDER_IMAGES,
   showCaption = false,
-  imageHeightClassName = "aspect-[16/10] min-h-[280px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-[440px] w-full",
+  imageHeightClassName = "aspect-[16/10] w-full max-w-full min-h-[180px] sm:min-h-[300px] md:min-h-[380px] lg:min-h-[420px]",
   className = "",
   autoPlayInterval = 4500,
 }: AboutImageSliderProps) {
@@ -123,7 +123,7 @@ export function AboutImageSlider({
   return (
     <>
       <div
-        className={`relative rounded-2xl sm:rounded-3xl overflow-hidden border border-border/60 bg-muted/20 shadow-elevated p-2 sm:p-2.5 group w-full ${className}`}
+        className={`relative rounded-2xl sm:rounded-3xl overflow-hidden border border-border/60 bg-muted/20 shadow-elevated p-2 sm:p-2.5 group w-full max-w-full min-w-0 ${className}`}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={handleTouchStart}

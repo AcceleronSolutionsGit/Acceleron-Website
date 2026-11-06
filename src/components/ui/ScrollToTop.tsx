@@ -115,8 +115,8 @@ export function ScrollToTop() {
           onKeyDown={handleKeyDown}
           aria-label="Scroll to top. Click to jump to top, click and hold to smoothly scroll up."
           title={isHolding ? "Scrolling up..." : "Click to go to top • Hold to scroll up"}
-          className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-40 group flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-brand/90 dark:bg-card/90 text-foreground backdrop-blur-md border border-border/80 shadow-elevated transition-transform duration-200 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red ${
-            isHolding ? "scale-95 shadow-red-glow border-brand-red/60" : "hover:scale-105"
+          className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 group flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gradient-to-tr from-red-600 via-red-500 to-rose-500 text-white shadow-xl shadow-red-600/35 hover:shadow-red-600/55 border border-white/25 transition-all duration-300 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500 ${
+            isHolding ? "scale-95 shadow-red-600/60" : "hover:scale-110 hover:-translate-y-0.5"
           }`}
           style={{ touchAction: "none" }}
         >
@@ -127,7 +127,7 @@ export function ScrollToTop() {
               cx="24"
               cy="24"
               r={radius}
-              className="stroke-muted-foreground/15 fill-none"
+              className="stroke-white/30 fill-none"
               strokeWidth="2.5"
             />
             {/* Active progress track */}
@@ -135,7 +135,7 @@ export function ScrollToTop() {
               cx="24"
               cy="24"
               r={radius}
-              className="stroke-brand-red fill-none transition-[stroke-dashoffset] duration-150 ease-out"
+              className="stroke-white fill-none transition-[stroke-dashoffset] duration-150 ease-out"
               strokeWidth="2.5"
               strokeDasharray={circumference}
               strokeDashoffset={strokeDashoffset}
@@ -157,12 +157,12 @@ export function ScrollToTop() {
             }
             className="relative z-10 flex items-center justify-center"
           >
-            <ArrowUp className="h-5 w-5 sm:h-6 sm:w-6 text-foreground group-hover:text-brand-red transition-colors" />
+            <ArrowUp className="h-5 w-5 sm:h-6 sm:w-6 text-white transition-transform group-hover:-translate-y-0.5 drop-shadow-sm" />
           </motion.div>
 
           {/* Holding Ripple / Glow feedback */}
           {isHolding && (
-            <span className="absolute inset-0 rounded-full animate-ping bg-brand-red/20 pointer-events-none" />
+            <span className="absolute inset-0 rounded-full animate-ping bg-white/25 pointer-events-none" />
           )}
         </motion.button>
       )}
