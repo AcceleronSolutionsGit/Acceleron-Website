@@ -106,7 +106,7 @@ export function CsrCollageCard({
         <div className="mt-3">
           <div className="flex items-center justify-between mb-2 px-1">
             <span className="text-[11px] uppercase tracking-wider font-bold text-muted-foreground">
-              Drive Highlights ({thumbnails.length + 1} Photos)
+              Photo Gallery ({thumbnails.length + 1} Photos)
             </span>
             {activeImage !== initiative.coverImage && (
               <button

@@ -253,26 +253,6 @@ function CsrPage() {
                       )}
                     </div>
 
-                    {/* Highlights Bullet List */}
-                    {item.highlights && item.highlights.length > 0 && (
-                      <div className="pt-3 space-y-2.5">
-                        <div className="text-xs uppercase tracking-wider font-bold text-foreground">
-                          Drive Highlights:
-                        </div>
-                        <div className="grid sm:grid-cols-1 gap-2">
-                          {item.highlights.map((h, i) => (
-                            <div
-                              key={i}
-                              className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/80 leading-relaxed"
-                            >
-                              <CheckCircle2 className="h-4 w-4 text-brand-red shrink-0 mt-0.5" />
-                              <span>{h}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
                     {/* Quick Stats & Action Buttons */}
                     <div className="pt-4 flex flex-wrap items-center gap-4">
                       {item.stats?.map((s) => (
