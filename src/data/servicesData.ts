@@ -677,7 +677,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Talk to Our Zoho Experts",
       actionHref: "/contact"
     },
-    image: "/ZOHO_CRM_Banner.png",
+    image: "/zoho/Zoho CRM Dashboard Office Workspace -  Acceleron Solutions.png",
     customLogo: "/Zoho_CRM_application.svg_.png"
   },
   {
@@ -741,7 +741,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Consult Accounting Leads",
       actionHref: "/contact"
     },
-    image: "/ZOHO_CRM_Banner.png",
+    image: "/zoho/Zoho Books Dashboard Workspace -  Acceleron Solutions.png",
     customLogo: "/zoho-books_logo.png"
   },
   {
@@ -805,7 +805,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Schedule HRMS Consultation",
       actionHref: "/contact"
     },
-    image: "/Zoho_HRMS_Banner.png",
+    image: "/zoho/Zoho People and Payroll Dashboard -  Acceleron Solutions.png",
     customLogo: "/zoho_people-trasparentbg.png"
   },
   {
@@ -869,7 +869,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Talk to Our Zoho Experts",
       actionHref: "/contact"
     },
-    image: "/ZOHO_CRM_Banner.png",
+    image: "/zoho/Zoho ERP Office Workspace -  Acceleron Solutions.png",
     customLogo: "/ZohoERP-colored.png"
   },
   {
@@ -933,7 +933,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       actionText: "Consult Workplace Leads",
       actionHref: "/contact"
     },
-    image: "/ZOHO_CRM_Banner.png",
+    image: "/zoho/Zoho Mail in Laptop -  -  Acceleron Solutions.png",
     customLogo: "/ZOHO_logo_2023.svg_.png"
   },
   {
@@ -983,7 +983,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Integration & Asset Discovery", desc: "Connect with Active Directory, Office 365, and deploy network scan agents for CMDB mapping." },
       { step: "04", title: "Self-Service Portal & AMS Rollout", desc: "Publish end-user service catalogs, train technicians, and transition to 24/7 managed support." }
     ],
-    image: "/Manage_Engine_Banner.png"
+    image: "/ManageEngine/ManageEngine - Acceleron Solutions.png"
   },
   {
     slug: "manageengine-op-manager",
@@ -1032,7 +1032,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "NOC Dashboards & Topology Maps", desc: "Generate dynamic physical/logical network topologies and executive views." },
       { step: "04", title: "24/7 NOC Handover & Governance", desc: "Establish automated alert escalations and routine monthly health reporting." }
     ],
-    image: "/Manage_Engine_Banner.png"
+    image: "/ManageEngine/ManageEngine - Acceleron Solutions.png"
   },
   {
     slug: "manageengine-endpoint-control",
@@ -1081,7 +1081,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Silent Agent Rollout", desc: "Automate agent distribution via Active Directory GPO and cloud enrollment." },
       { step: "04", title: "Policy Enforcement & Zero Trust", desc: "Activate USB peripheral blocking, browser security policies, and EDR integrations." }
     ],
-    image: "/Manage_Engine_Banner.png"
+    image: "/ManageEngine/ManageEngine - Acceleron Solutions.png"
   },
   {
     slug: "manageengine-mdm-plus",
@@ -1130,7 +1130,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "App Catalog & Container Policies", desc: "Package enterprise mobile apps, configure per-app VPNs, and containerize data." },
       { step: "04", title: "Fleet Enrollment & Maintenance", desc: "Over-the-air rollout to mobile users with automated updates and continuous support." }
     ],
-    image: "/Manage_Engine_Banner.png"
+    image: "/ManageEngine/ManageEngine - Acceleron Solutions.png"
   },
   {
     slug: "it-infrastructure-services",
@@ -1158,7 +1158,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Migration & Hardening", desc: "Execute zero-downtime cutovers, establish security policies, and deploy redundant gateways." },
       { step: "04", title: "24/7 Managed NOC Support", desc: "Continuous proactive telemetry, hardware lifecycle AMC, and SLA-driven incident response." }
     ],
-    image: "/Threatcorp_Banner.png",
+    image: "/IT & Custom Solutions/IT & Custom Solutions - Acceleron Solutions.png",
     customLogo: "/Acceleron_Short_Logo.png"
   },
   {
@@ -1187,7 +1187,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Automated QA & Security Testing", desc: "Comprehensive unit testing, load testing, and security code reviews." },
       { step: "04", title: "Deployment & Lifecycle AMS", desc: "Containerized CI/CD rollout, user training, and continuous feature enhancement." }
     ],
-    image: "/capital_goods.jpg",
+    image: "/IT & Custom Solutions/IT & Custom Solutions - Acceleron Solutions.png",
     customLogo: "/Acceleron_Short_Logo.png"
   },
   {
@@ -1216,7 +1216,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Model Training & Guardrail Engineering", desc: "Develop custom ML models, agent coordination swarms, and hallucination guardrails." },
       { step: "04", title: "Production Deployment & Observability", desc: "Deploy edge/cloud inferencing endpoints with real-time drift monitoring and feedback loops." }
     ],
-    image: "/outcome_driven.jpg",
+    image: "/IT & Custom Solutions/IT & Custom Solutions - Acceleron Solutions.png",
     customLogo: "/Acceleron_Short_Logo.png"
   },
   {
@@ -1245,7 +1245,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Appliance & Agent Deployment", desc: "Implement NGFW hardware/virtual appliances, Zscaler ZTNA, and CrowdStrike/Sophos agents." },
       { step: "04", title: "24/7 Threat Hunting & SOC", desc: "Continuous SIEM/SOC event correlation, threat containment, and automated incident response." }
     ],
-    image: "/Checkpoint_Harmony_Banner.png",
+    image: "/IT & Custom Solutions/IT & Custom Solutions - Acceleron Solutions.png",
     customLogo: "/Acceleron_Short_Logo.png"
   },
   {
@@ -1274,7 +1274,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "Executive & Technical Risk Reporting", desc: "Deliver prioritized CVSS remediation scorecards, evidence logs, and executive risk summaries." },
       { step: "04", title: "Remediation Verification & Re-Testing", desc: "Validate that all identified vulnerabilities have been securely patched and issue compliance certificates." }
     ],
-    image: "/DPDP_ACT_Banner.png",
+    image: "/IT & Custom Solutions/IT & Custom Solutions - Acceleron Solutions.png",
     customLogo: "/Acceleron_Short_Logo.png"
   },
   {
@@ -1303,7 +1303,7 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
       { step: "03", title: "FinOps & Disaster Simulation", desc: "Execute cloud spend telemetry audits and simulate failover scenarios to measure RTO/RPO." },
       { step: "04", title: "Audit Findings & Optimization Roadmap", desc: "Deliver formal audit reports, cost-saving recommendations, and governance remediation steps." }
     ],
-    image: "/header-2x.png",
+    image: "/IT & Custom Solutions/IT & Custom Solutions - Acceleron Solutions.png",
     customLogo: "/Acceleron_Short_Logo.png"
   }
 ];

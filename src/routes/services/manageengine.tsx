@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowUpRight,
   ArrowRight,
-  MonitorSmartphone,
   Monitor,
   Activity,
   Headphones,
@@ -156,24 +155,11 @@ function ManageEnginePage() {
           { label: "Services", href: "/services" },
           { label: "ManageEngine" },
         ]}
-        image="/Manage_Engine_Banner.png"
+        image="/ManageEngine/ManageEngine - Acceleron Solutions.png"
         ctaText="Consult with Our ITOM Experts"
         ctaHref="/contact"
         secondaryCtaText="Explore Product Suite"
         secondaryCtaHref="#suite"
-        icon={
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 shadow-xl">
-            <MonitorSmartphone className="h-8 w-8 text-brand drop-shadow-lg" />
-            <div className="border-l border-white/30 pl-3">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-brand-red">
-                ITOM & ITSM Practice
-              </div>
-              <div className="text-xs font-bold text-white tracking-wide">
-                Unified Endpoint & Operations
-              </div>
-            </div>
-          </div>
-        }
       />
 
       {/* SECTION 2: WHY ACCELERON FOR MANAGEENGINE (VALUE PILLARS) */}

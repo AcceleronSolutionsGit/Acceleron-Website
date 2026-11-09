@@ -84,7 +84,7 @@ const ZOHO_ECOSYSTEM_TABS = [
       title: "Zoho CRM",
       slug: "zoho-crm",
       desc: "Unified customer relationship management to accelerate sales cycles and pipeline tracking.",
-      logo: "/Zoho_CRM_application.svg_.png",
+      logo: "/icons/zoho/Zoho_CRM_Icon_-_Acceleron_Solution-removebg-preview.png",
     },
   },
   {
@@ -105,7 +105,7 @@ const ZOHO_ECOSYSTEM_TABS = [
       title: "Zoho Books",
       slug: "zoho-books",
       desc: "Smart, automated online accounting software for real-time compliance and cash flow control.",
-      logo: "/zoho-books_logo.png",
+      logo: "/icons/zoho/Zoho_Books_Icon_-_Acceleron_Solution-removebg-preview.png",
     },
   },
   {
@@ -126,7 +126,7 @@ const ZOHO_ECOSYSTEM_TABS = [
       title: "Zoho HRMS (People & Payroll)",
       slug: "zoho-hrms-people-and-payroll",
       desc: "Comprehensive HR management and automated payroll for a modern workforce.",
-      logo: "/zoho_people-trasparentbg.png",
+      logo: "/icons/zoho/Zoho_People_and_Payroll_-_Zoho_HRMS_-_Acceleron_Solutions-removebg-preview.png",
     },
   },
   {
@@ -147,7 +147,7 @@ const ZOHO_ECOSYSTEM_TABS = [
       title: "Zoho ERP",
       slug: "zoho-erp",
       desc: "Unified cloud ERP ecosystem connecting finance, HR, sales, and operations under one platform.",
-      logo: "/ZohoERP-colored.png",
+      logo: "/icons/zoho/Zoho_ERP_Icon_-_Acceleron_Solution-removebg-preview.png",
     },
   },
   {
@@ -171,7 +171,7 @@ const ZOHO_ECOSYSTEM_TABS = [
       title: "Zoho Mail",
       slug: "zoho-mail",
       desc: "Secure business email hosting with zero-ad privacy and collaborative workspace tools.",
-      logo: "/workdrive.png",
+      logo: "/icons/zoho/Zoho_Mail_Icon_-_Acceleron_Solution-removebg-preview.png",
     },
   },
 ];
@@ -264,7 +264,7 @@ function ZohoPage() {
           { label: "Services", href: "/services" },
           { label: "Zoho" },
         ]}
-        image="/capital_goods.jpg"
+        image="/zoho/Zoho Experts - Acceleron Solutions.jpeg"
         ctaText="Talk to Our Zoho Experts"
         ctaHref="/contact"
         secondaryCtaText="Explore Application Ecosystem"
@@ -441,7 +441,7 @@ function ZohoPage() {
 
                   <Link
                     to={`/services/zoho/${currentTab.featured.slug}` as any}
-                    className="btn btn-primary w-full justify-center text-sm font-bold shadow-md shadow-brand-red/20"
+                    className="btn btn-primary btn-lg w-full justify-center text-sm sm:text-base font-bold shadow-md shadow-brand-red/25 min-h-[48px] sm:min-h-[52px] py-3.5 sm:py-4"
                   >
                     Explore Detail & Pricing <ArrowRight className="h-4 w-4 ml-1.5" />
                   </Link>

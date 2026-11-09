@@ -36,7 +36,7 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <>
-      <section className="relative min-h-[58vh] flex items-end overflow-hidden bg-black">
+      <section className="relative min-h-[58vh] flex items-end overflow-hidden bg-black mt-[68px] sm:mt-[76px]">
         {/* Full-Bleed Background Image */}
         {image && (
           <div className="absolute inset-0">
@@ -52,7 +52,7 @@ export function PageHero({
         )}
 
         {/* Top Navbar Vignette */}
-        <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-black/70 via-black/30 to-transparent z-[5] pointer-events-none" />
+        <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-black/30 to-transparent z-[5] pointer-events-none" />
 
         {/* Light Mode Overlay */}
         <div className="dark:hidden absolute inset-0 bg-gradient-to-t from-[#0b132b]/90 via-[#0b132b]/50 to-transparent" />
@@ -64,7 +64,7 @@ export function PageHero({
         <div className={`hidden dark:block absolute inset-0 bg-gradient-to-br ${gradient} opacity-20 mix-blend-multiply`} />
 
         {/* Banner Content Container */}
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 max-w-7xl pt-28 sm:pt-36 pb-12 sm:pb-20">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 max-w-7xl pt-14 sm:pt-20 pb-12 sm:pb-20">
           <Reveal>
             <div className="flex flex-col items-start max-w-4xl">
               {badge && (
