@@ -18,7 +18,6 @@ import { getAssetUrl } from '../lib/assets';
 import { AboutImageSlider } from '../components/ui/AboutImageSlider';
 import { WhyChooseUs, CSRSection, GlobalPresence, InsightsSection } from '../components/home/HomeSections';
 import { OurValuesSection } from '../components/ui/OurValuesGrid';
-import { ScrollToTop } from '../components/ui/ScrollToTop';
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -99,20 +98,10 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="mt-3.5 sm:mt-5 max-w-2xl text-base sm:text-xl md:text-2xl font-semibold text-white/95 leading-snug tracking-tight"
-            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}
+            className="mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg md:text-xl font-normal text-white/90 leading-relaxed tracking-tight"
+            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}
           >
-            We don’t just enable technology. We understand the business behind it.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.8 }}
-            className="mt-3 sm:mt-4 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/75"
-            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.2)' }}
-          >
-            As part of the Gainwell Group, Acceleron Solutions drives digital transformation across industrial, supply chain, and commercial enterprises through SAP, Zoho, Applied AI, and custom software solutions.
+            Acceleron Solutions combines SAP and Zoho consulting, predictive AI and scalable custom software to solve complex operational challenges and deliver measurable business value.
           </motion.p>
 
           <motion.div
@@ -870,7 +859,7 @@ function OurSelectedClientele() {
             {[...CLIENTELE_ROW_1, ...CLIENTELE_ROW_1].map((client, idx) => (
               <div
                 key={`${client.name}-r1-${idx}`}
-                className="group shrink-0 relative flex items-center justify-center p-3 sm:p-4 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-white shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-40 sm:w-48 md:w-54 h-20 sm:h-22 md:h-24 text-center overflow-hidden"
+                className="group shrink-0 relative flex items-center justify-center p-2.5 sm:p-3 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-white shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-44 sm:w-52 md:w-56 h-20 sm:h-22 md:h-24 text-center overflow-hidden"
               >
                 <img
                   src={getAssetUrl(client.src)}
@@ -878,7 +867,7 @@ function OurSelectedClientele() {
                   title={client.name}
                   loading="lazy"
                   decoding="async"
-                  className="w-auto h-auto max-h-10 sm:max-h-11 md:max-h-12 max-w-[80%] sm:max-w-[82%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full max-h-12 sm:max-h-14 object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             ))}
@@ -889,7 +878,7 @@ function OurSelectedClientele() {
             {[...CLIENTELE_ROW_2, ...CLIENTELE_ROW_2].map((client, idx) => (
               <div
                 key={`${client.name}-r2-${idx}`}
-                className="group shrink-0 relative flex items-center justify-center p-3 sm:p-4 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-white shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-40 sm:w-48 md:w-54 h-20 sm:h-22 md:h-24 text-center overflow-hidden"
+                className="group shrink-0 relative flex items-center justify-center p-2.5 sm:p-3 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-white shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-44 sm:w-52 md:w-56 h-20 sm:h-22 md:h-24 text-center overflow-hidden"
               >
                 <img
                   src={getAssetUrl(client.src)}
@@ -897,7 +886,7 @@ function OurSelectedClientele() {
                   title={client.name}
                   loading="lazy"
                   decoding="async"
-                  className="w-auto h-auto max-h-10 sm:max-h-11 md:max-h-12 max-w-[80%] sm:max-w-[82%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full max-h-12 sm:max-h-14 object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             ))}
@@ -1015,7 +1004,6 @@ function Home() {
         <WaveDivider from="light" to="dark" />
         <Contact />
       </main>
-      <ScrollToTop />
     </div>
   );
 }

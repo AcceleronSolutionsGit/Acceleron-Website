@@ -106,7 +106,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                   <div className="pt-4 border-t border-border">
                     <a
                       href="#consultation"
-                      className="w-full rounded-xl bg-brand-gradient py-3.5 text-center text-sm font-bold text-white shadow-glow block hover:scale-[1.01] transition-transform"
+                      className="btn btn-primary btn-md w-full"
                     >
                       Talk to a {data.category} Specialist
                     </a>

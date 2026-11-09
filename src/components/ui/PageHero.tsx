@@ -89,12 +89,21 @@ export function PageHero({
                 {subtitle}
               </p>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
-                <Link
-                  to={ctaHref as any}
-                  className="btn btn-primary btn-lg w-full sm:w-auto justify-center"
-                >
-                  {ctaText} <ArrowUpRight className="h-5 w-5" />
-                </Link>
+                {ctaHref?.startsWith("#") ? (
+                  <a
+                    href={ctaHref}
+                    className="btn btn-primary btn-lg w-full sm:w-auto justify-center"
+                  >
+                    {ctaText} <ArrowUpRight className="h-5 w-5" />
+                  </a>
+                ) : (
+                  <Link
+                    to={(ctaHref === "/contact" ? "/contact#form" : (ctaHref || "/contact#form")) as any}
+                    className="btn btn-primary btn-lg w-full sm:w-auto justify-center"
+                  >
+                    {ctaText} <ArrowUpRight className="h-5 w-5" />
+                  </Link>
+                )}
                 {secondaryCtaText && (
                   secondaryCtaHref?.startsWith("#") ? (
                     <a
@@ -105,7 +114,7 @@ export function PageHero({
                     </a>
                   ) : (
                     <Link
-                      to={(secondaryCtaHref || "/services") as any}
+                      to={(secondaryCtaHref === "/contact" ? "/contact#form" : (secondaryCtaHref || "/services")) as any}
                       className="btn btn-secondary btn-lg bg-white/10 hover:bg-white/20 text-white border-white/25 backdrop-blur-md w-full sm:w-auto justify-center"
                     >
                       {secondaryCtaText}

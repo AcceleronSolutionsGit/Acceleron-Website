@@ -36,7 +36,7 @@ export const Route = createFileRoute("/products/cx-solutions")({
 const CX_SOLUTIONS_DATA: ProductCategoryData = {
   slug: "cx-solutions",
   categoryTitle: "CX Solutions",
-  pageTitle: "CX Solutions – Elevating Customer Experience & Lifecycle Engagement",
+  pageTitle: "CX Solutions",
   subtitle:
     "An integrated ecosystem combining CRM capabilities, warranty management, loyalty programmes, and automated field support to deliver connected customer journeys.",
   badge: "CUSTOMER EXPERIENCE & LIFECYCLE ENGAGEMENT",

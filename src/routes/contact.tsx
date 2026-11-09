@@ -160,6 +160,27 @@ function ContactPage() {
   const [contactMethod, setContactMethod] = useState("Email");
   const formRef = useRef<HTMLFormElement>(null);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleHash = () => {
+        const hash = window.location.hash;
+        if (hash === "#form" || hash === "#contact-form") {
+          setTimeout(() => {
+            const el = document.getElementById("form") || document.getElementById("contact-form");
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "start" });
+              const input = el.querySelector<HTMLInputElement>("input[name='Full_Name']");
+              if (input) input.focus({ preventScroll: true });
+            }
+          }, 200);
+        }
+      };
+      handleHash();
+      window.addEventListener("hashchange", handleHash);
+      return () => window.removeEventListener("hashchange", handleHash);
+    }
+  }, []);
+
   const validateForm = (formData: FormData) => {
     const newErrors: { [key: string]: string } = {};
 
@@ -271,6 +292,7 @@ function ContactPage() {
 
                 <form
                   ref={formRef}
+                  id="contact-form"
                   action="https://crm.zoho.in/crm/WebToLeadForm"
                   method="POST"
                   target="zoho_contact_iframe"
@@ -527,15 +549,15 @@ function ContactPage() {
                   <div className="flex items-start gap-3">
                     <Phone className="h-5 w-5 text-brand shrink-0 mt-0.5" />
                     <div>
-                      <div className="text-xs font-semibold text-muted-foreground">Central Switchboard</div>
+                      <div className="text-xs font-semibold text-muted-foreground">Call our Landlines</div>
                       <div className="space-y-1 mt-1 font-bold text-foreground">
                         <div>
-                          <a href="tel:+913335346200" className="hover:text-brand transition-colors">
+                          <a href="tel:+913335346200" className="hover:text-brand-red transition-colors">
                             +91 33 3534 6200
                           </a>
                         </div>
                         <div>
-                          <a href="tel:+913335346222" className="hover:text-brand transition-colors">
+                          <a href="tel:+913335346222" className="hover:text-brand-red transition-colors">
                             +91 33 3534 6222
                           </a>
                         </div>

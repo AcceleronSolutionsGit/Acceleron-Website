@@ -181,7 +181,7 @@ function ITCustomSolutionsPage() {
     <main className="relative min-h-screen overflow-hidden bg-background">
       {/* SECTION 1: HERO BANNER */}
       <PageHero
-        title="IT & Custom Solutions Engineered for Enterprise Scale"
+        title="Custom Technology for Enterprise Needs"
         subtitle="From bespoke enterprise applications and applied AI to resilient IT infrastructure and zero-trust cybersecurity, Acceleron delivers solutions built for complex operational requirements."
         breadcrumbs={[
           { label: "Services", href: "/services" },
@@ -189,7 +189,7 @@ function ITCustomSolutionsPage() {
         ]}
         image="/capital_goods.jpg"
         ctaText="Consult with Our Architects"
-        ctaHref="/contact"
+        ctaHref="/contact#form"
         secondaryCtaText="Explore Offerings"
         secondaryCtaHref="#offerings"
         icon={
@@ -462,7 +462,7 @@ function ITCustomSolutionsPage() {
 
               <div className="pt-2">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="btn btn-primary btn-lg inline-flex items-center gap-2 shadow-lg shadow-brand-red/20"
                 >
                   Consult with Our Architects <ArrowUpRight className="h-5 w-5" />

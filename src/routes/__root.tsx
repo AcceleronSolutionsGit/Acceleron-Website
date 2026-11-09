@@ -116,6 +116,8 @@ function RootShell({ children }: { children: ReactNode }) {
 
 import { Toaster } from "sonner";
 import { useLocation } from "@tanstack/react-router";
+import { ScrollToTop } from "../components/ui/ScrollToTop";
+import { StickyContactCTA } from "../components/ui/StickyContactCTA";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -127,6 +129,8 @@ function RootComponent() {
       {!isAuthOrAdmin && <Nav />}
       <Outlet />
       {!isAuthOrAdmin && <Footer />}
+      {!isAuthOrAdmin && <StickyContactCTA />}
+      {!isAuthOrAdmin && <ScrollToTop />}
       <Toaster position="bottom-right" theme="system" />
     </QueryClientProvider>
   );

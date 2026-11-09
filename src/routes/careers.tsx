@@ -219,7 +219,7 @@ function CareersPage() {
       <PageHero
         badge="JOIN OUR TEAM"
         title="Careers at Acceleron"
-        subtitle="The best technology is built by people who care deeply about the problems they solve. What defines Acceleron is a culture of curiosity, collaboration and shared ambition, where people come together to create meaningful solutions and make a difference."
+        subtitle="Driven by people who care deeply about solving problems, our culture thrives on curiosity and collaboration. Fostering shared ambition, we bring people together to create meaningful solutions that make a difference."
         breadcrumbs={[{ label: "Careers" }]}
         image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=75&w=1200&auto=format&fit=crop"
         ctaText="View Current Openings"

@@ -35,10 +35,9 @@ export const Route = createFileRoute("/products/industrial-solutions")({
 const INDUSTRIAL_SOLUTIONS_DATA: ProductCategoryData = {
   slug: "industrial-solutions",
   categoryTitle: "Industrial Solutions",
-  pageTitle:
-    "Industrial Solutions – An Integrated Engineering & Technology Ecosystem",
+  pageTitle: "Industrial Solutions",
   subtitle:
-    "Combining intelligent software platforms, enterprise technology, and process automation to improve productivity, eliminate unplanned downtime, and optimize TCO.",
+    "Integrated engineering and digital solutions for heavy industries, manufacturing and infrastructure enterprises, designed to optimize operations and asset performance.",
   badge: "INTEGRATED ENGINEERING & TECHNOLOGY ECOSYSTEM",
   overview:
     "Acceleron develops and delivers integrated engineering and digital solutions that help heavy industries, manufacturing plants, and infrastructure enterprises optimize operations and asset performance. By combining intelligent software platforms, enterprise technology, and process automation, we help organizations improve productivity, minimize unplanned downtime, and optimize total cost of ownership (TCO).",

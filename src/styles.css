@@ -85,7 +85,7 @@
                    radial-gradient(ellipse 60% 50% at 80% 40%, rgb(76 90 138 / 0.05), transparent 60%),
                    radial-gradient(ellipse 50% 40% at 20% 60%, rgb(222 30 36 / 0.05), transparent 60%),
                    linear-gradient(180deg, #F5F7FB 0%, #FFFFFF 100%);
-  --gradient-brand: linear-gradient(135deg, #212f60, #3a497f);
+  --gradient-brand: linear-gradient(135deg, #de1e24 0%, #b60f14 100%);
   --gradient-cyan: linear-gradient(135deg, #4c5a8a, #252F61);
   --gradient-mesh: conic-gradient(from 180deg at 50% 50%, rgb(37 47 97 / 0.05), rgb(58 73 127 / 0.05), rgb(76 90 138 / 0.05), rgb(222 30 36 / 0.05), rgb(37 47 97 / 0.05));
 
@@ -186,25 +186,35 @@
 }
 
 @layer components {
-  /* Standardized Button Typography & Layout */
+  /* Standardized Button Typography & Layout - Taller, Prominent & High-Impact */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full font-bold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-bold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer;
   }
   .btn-primary {
-    @apply bg-brand-gradient text-white shadow-glow hover:scale-105 hover:shadow-lg;
+    @apply bg-gradient-to-r from-red-600 via-red-600 to-rose-600 text-white shadow-lg shadow-red-600/30 hover:from-red-500 hover:to-rose-500 hover:shadow-red-600/50 hover:scale-[1.02] active:scale-[0.98] border border-red-500/20;
   }
   .btn-secondary {
-    @apply bg-background text-foreground border border-border hover:bg-muted/50 hover:border-brand/30 hover:text-brand;
+    @apply bg-background text-foreground border border-border hover:bg-muted/50 hover:border-brand-red/40 hover:text-brand-red transition-colors;
   }
   .btn-lg {
-    @apply px-5 sm:px-8 py-3 sm:py-4 text-sm sm:text-base;
+    @apply px-7 sm:px-9 py-4 sm:py-4.5 min-h-[52px] text-sm sm:text-base font-bold;
   }
   .btn-md {
-    @apply px-6 py-3 text-sm;
+    @apply px-6 sm:px-8 py-3.5 sm:py-4 min-h-[48px] text-sm sm:text-base font-bold;
   }
   .btn-sm {
-    @apply px-4 py-2 text-xs;
+    @apply px-4 sm:px-5 py-2.5 sm:py-3 min-h-[40px] text-xs sm:text-sm font-semibold;
   }
+
+  /* Interactive link style uniform red accent */
+  .link-interactive {
+    @apply text-foreground transition-colors hover:text-brand-red;
+  }
+}
+
+/* Ensure all clickable links uniformly highlight with Acceleron Red */
+a:not([class*="btn"]):not([class*="text-white"]):not([class*="bg-"]):hover {
+  color: var(--brand-red);
 }
 
 @utility bg-hero {

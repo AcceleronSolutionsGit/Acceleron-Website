@@ -34,7 +34,7 @@ export const Route = createFileRoute("/products/people-solutions")({
 const PEOPLE_SOLUTIONS_DATA: ProductCategoryData = {
   slug: "people-solutions",
   categoryTitle: "People Solutions",
-  pageTitle: "People Solutions – Empowering Workforce Excellence & Human Capital",
+  pageTitle: "People Solutions",
   subtitle:
     "Intelligent digital workflows, statutory compliance tracking, workplace safety management, and employee engagement platforms to build a secure, connected, and high-performing workforce.",
   badge: "WORKFORCE EXCELLENCE & HUMAN CAPITAL",

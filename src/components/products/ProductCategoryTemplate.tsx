@@ -104,7 +104,7 @@ export function ProductCategoryTemplate({ data }: ProductCategoryTemplateProps) 
         ctaText="Explore Sub-Solutions"
         ctaHref="#sub-solutions"
         secondaryCtaText="Consult Practice Architects"
-        secondaryCtaHref="/contact"
+        secondaryCtaHref="/contact#form"
         icon={
           <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow">
             <IconComp className="h-8 w-8" />
@@ -396,8 +396,8 @@ export function ProductCategoryTemplate({ data }: ProductCategoryTemplateProps) 
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               <Link
-                to="/contact"
-                className="rounded-2xl bg-brand-gradient px-8 py-4 text-sm font-bold text-white shadow-glow hover:opacity-95 transition-opacity"
+                to="/contact#form"
+                className="btn btn-primary btn-lg shadow-lg shadow-red-600/30"
               >
                 Schedule Architecture Discovery
               </Link>

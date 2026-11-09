@@ -35,8 +35,7 @@ export const Route = createFileRoute("/products/office-digitization")({
 const OFFICE_DIGITIZATION_DATA: ProductCategoryData = {
   slug: "office-digitization",
   categoryTitle: "Office Digitization",
-  pageTitle:
-    "Office Digitization – Intelligent Enterprise Automation & Paperless Workflows",
+  pageTitle: "Office Digitization",
   subtitle:
     "Connecting digital approval systems, treasury management, AI-powered cognitive assistance, secure document repositories, and supplier collaboration portals.",
   badge: "INTELLIGENT ENTERPRISE AUTOMATION & PAPERLESS WORKFLOWS",

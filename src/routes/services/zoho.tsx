@@ -258,15 +258,15 @@ function ZohoPage() {
     <main className="relative min-h-screen overflow-hidden bg-background">
       {/* SECTION 1: HERO BANNER (With Partner Badge) */}
       <PageHero
-        title="Full-Suite Zoho Solutions for the Connected Enterprise"
-        subtitle="One Platform. Every Business Function. Endless Possibilities. From single-app deployments to enterprise-wide Zoho One and Zoho ERP rollouts, Acceleron delivers end-to-end automation, custom ERP integrations (SAP, legacy systems), and rapid time-to-value for growing and established enterprises."
+        title="Zoho Solutions for Connected Businesses"
+        subtitle="From individual Zoho applications to enterprise-wide Zoho One and ERP deployments, we deliver seamless automation, custom integrations with SAP and legacy systems, and faster business value."
         breadcrumbs={[
           { label: "Services", href: "/services" },
           { label: "Zoho" },
         ]}
         image="/capital_goods.jpg"
         ctaText="Talk to Our Zoho Experts"
-        ctaHref="/contact"
+        ctaHref="/contact#form"
         secondaryCtaText="Explore Application Ecosystem"
         secondaryCtaHref="#ecosystem"
         icon={
@@ -576,7 +576,7 @@ function ZohoPage() {
 
               <div className="pt-2">
                 <Link
-                  to="/contact"
+                  to="/contact#form"
                   className="btn btn-primary btn-lg inline-flex items-center gap-2 shadow-lg shadow-brand-red/20"
                 >
                   Schedule a Zoho Architecture Session <ArrowUpRight className="h-5 w-5" />
