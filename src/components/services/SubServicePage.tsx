@@ -352,7 +352,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">Kolkata HQ</div>
+                    <div className="font-bold text-foreground">Kolkata Global HQ &amp; CoE</div>
                     <div>3rd Floor, STPI IT Park, Sector V, Salt Lake, Kolkata 700091</div>
                   </div>
                 </div>
@@ -362,8 +362,18 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">Delhi NCR Office</div>
+                    <div className="font-bold text-foreground">Delhi NCR Executive Hub</div>
                     <div>801-802 Kailash Building, 26 KG Marg, Janpath, Central Delhi 110001</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 text-muted-foreground text-sm">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand/10 text-brand shrink-0 mt-0.5">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-foreground">Global Delivery Network</div>
+                    <div>Active client engagements across North America (USA), APAC (Singapore, Australia), and Middle East</div>
                   </div>
                 </div>
               </div>

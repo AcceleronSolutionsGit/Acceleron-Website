@@ -318,8 +318,8 @@ function AboutTeaser() {
             <Reveal delay={0.25}>
               <div className="grid grid-cols-3 gap-1.5 sm:gap-3.5 pt-1 w-full min-w-0">
                 <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0 overflow-hidden">
-                  <div className="text-[11px] sm:text-base md:text-lg font-black text-foreground truncate">Kolkata & Delhi</div>
-                  <div className="text-[9px] sm:text-xs text-muted-foreground mt-0.5 font-medium truncate">Delivery Hubs</div>
+                  <div className="text-[11px] sm:text-base md:text-lg font-black text-foreground truncate">Global Delivery</div>
+                  <div className="text-[9px] sm:text-xs text-muted-foreground mt-0.5 font-medium truncate">Hubs & Network</div>
                 </div>
                 <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0 overflow-hidden">
                   <div className="text-[11px] sm:text-base md:text-lg font-black text-foreground truncate">Full-Stack</div>
@@ -368,7 +368,6 @@ const SERVICES = [
   { icon: Database, t: "SAP Modernization & Consulting", d: "S/4HANA, BTP, RISE — end-to-end cloud ERP transformation and legacy system modernization for agile enterprise management.", url: "/services/sap", img: "/SAP_Homepage.jpg" },
   { icon: Blocks, t: "Zoho Suite Enterprise Automation", d: "Rapid business applications across finance, operations, and customer experience — deployed in weeks, not quarters.", url: "/services/zoho", img: "/ZOHO_LOGO.png" },
   { icon: Server, t: "ManageEngine ITSM & Infrastructure", d: "ITIL-aligned service desk software, endpoint control, and 24/7 network observability for seamless IT operations.", url: "/services/manageengine", img: "/ManageEngine-logo.png" },
-  { icon: Code2, t: "IT & Custom Solutions", d: "Enterprise software development, cloud infrastructure, AI models, and cybersecurity purpose-built for heavy industry.", url: "/services/it-custom-solutions", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop" },
   { icon: Layers, t: "Custom Software Engineering", d: "Scalable, enterprise-grade platforms built in React, Node, and Flutter with product-grade craftsmanship and cloud architecture.", url: "/services/it-custom-solutions/custom-software-application-development", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop" },
   { icon: LineChart, t: "Analytics & Applied AI", d: "From operational executive dashboards to generative AI agents. Turn fragmented operational data into strategic direction.", url: "/services/it-custom-solutions/custom-ai-application-development", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=600&auto=format&fit=crop" },
   { icon: Cpu, t: "IT & Cloud Infrastructure", d: "Resilient cloud, hybrid, and on-premises environments built on AWS, Azure, and Kubernetes — designed for 99.99% uptime.", url: "/services/it-custom-solutions/it-infrastructure-services", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=600&auto=format&fit=crop" },
@@ -955,11 +954,13 @@ function Contact() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">Delivery Centers</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">Global Delivery Hubs</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-xs sm:text-sm">
                     {[
-                      "Kolkata, India",
-                      "Delhi NCR, India",
+                      "Kolkata Global HQ & CoE",
+                      "Delhi NCR Executive Hub",
+                      "North America (USA Hub)",
+                      "APAC & International Network",
                     ].map((loc, i) => (
                       <div key={i} className="flex items-center gap-2 text-muted-foreground group/loc hover:text-foreground transition-colors cursor-default">
                         <div className="h-6 w-6 rounded-md bg-brand-red/10 flex items-center justify-center shrink-0 group-hover/loc:bg-brand-red/20 transition-colors">

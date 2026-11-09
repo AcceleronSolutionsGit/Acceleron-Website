@@ -28,6 +28,7 @@ import {
   FileCheck2,
   Lock,
   Headphones,
+  Globe,
 } from "lucide-react";
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { PageHero } from "../../components/ui/PageHero";
@@ -415,13 +416,13 @@ const LOCATIONS = [
   {
     name: "Acceleron Solutions Pvt. Ltd.",
     badge: "GLOBAL DELIVERY HEADQUARTERS",
-    city: "Kolkata HQ",
+    city: "Kolkata Global HQ",
     address: "3rd Floor, STPI IT Park, Sector V, Salt Lake, Kolkata 700091",
     role: "Global Delivery Headquarters & Centers of Excellence",
     features: [
-      "24/7 Network Operations Center (NOC)",
-      "SAP Competency & Innovation Lab",
-      "Zoho Suite Solution Demonstration Center",
+      "24/7 Global Network Operations Center (NOC) & SOC",
+      "SAP Competency & Enterprise Innovation Lab",
+      "Zoho Suite Unified Demonstration Center",
     ],
     icon: Building2,
     gradient: "from-blue-600 to-indigo-700",
@@ -429,7 +430,7 @@ const LOCATIONS = [
   {
     name: "Acceleron Solutions Pvt. Ltd.",
     badge: "STRATEGIC ADVISORY & CONSULTING",
-    city: "Delhi NCR Office",
+    city: "Delhi NCR Executive Hub",
     address: "801-802 Kailash Building, 26 KG Marg, Janpath, Central Delhi 110001",
     role: "Strategic Client Advisory & Executive Office",
     features: [
@@ -439,6 +440,34 @@ const LOCATIONS = [
     ],
     icon: Compass,
     gradient: "from-teal-600 to-emerald-700",
+  },
+  {
+    name: "Acceleron Global Network",
+    badge: "NORTH AMERICA ENGAGEMENTS",
+    city: "USA Engagement Hub",
+    address: "West Virginia & North American Enterprise Delivery Network",
+    role: "North America Client Engagements & Mining Operations",
+    features: [
+      "Heavy Equipment & Mining ERP Modernization",
+      "Cloud Infrastructure Architecture & 24/7 Support",
+      "Real-Time Telemetry & Field Mobility Systems",
+    ],
+    icon: Globe,
+    gradient: "from-purple-600 to-indigo-800",
+  },
+  {
+    name: "Acceleron Global Network",
+    badge: "INTERNATIONAL FOOTPRINT",
+    city: "APAC & Global Delivery Hub",
+    address: "Active Engagements across Singapore, Australia (NSW) & Middle East",
+    role: "International Client Delivery & Follow-the-Sun SLA Services",
+    features: [
+      "Follow-the-Sun SLA Governance & Support",
+      "Multi-Regional Cloud Compliance & Security",
+      "Cross-Border Digital Engineering & Integration",
+    ],
+    icon: Server,
+    gradient: "from-emerald-600 to-teal-800",
   },
 ];
 
@@ -758,50 +787,50 @@ function ServicesHub() {
         <Reveal>
           <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand mb-3">
-              National Presence &amp; Delivery Centers
+              Global Delivery Infrastructure
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-              Contact &amp; <span className="text-gradient">Delivery Locations</span>
+              Global Delivery Hubs &amp; <span className="text-gradient">Strategic Network</span>
             </h2>
-            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
-              Acceleron Solutions Pvt. Ltd. operates strategic delivery centers and Centers of Excellence to support enterprise clients across India and globally.
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Serving enterprise clients worldwide with 24/7 follow-the-sun governance from our Global Delivery Headquarters, executive advisory centers, and cross-border international delivery network.
             </p>
           </div>
         </Reveal>
 
-        {/* 2 MAIN OFFICE CARDS + DIRECT COMMUNICATIONS */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        {/* 4 GLOBAL DELIVERY HUBS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-8">
           {LOCATIONS.map((loc, idx) => (
-            <Reveal key={loc.city} delay={idx * 0.1} className="h-full">
-              <div className="rounded-3xl border border-border/80 bg-card p-8 h-full shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <Reveal key={loc.city} delay={idx * 0.08} className="h-full">
+              <div className="rounded-2xl sm:rounded-3xl border border-border/80 bg-card p-6 h-full shadow-card hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center justify-between mb-4">
                     <div
-                      className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${loc.gradient} text-white flex items-center justify-center shadow-sm`}
+                      className={`h-11 w-11 rounded-2xl bg-gradient-to-br ${loc.gradient} text-white flex items-center justify-center shadow-sm`}
                     >
-                      <loc.icon className="h-6 w-6" />
+                      <loc.icon className="h-5 w-5" />
                     </div>
-                    <span className="text-[10px] font-bold tracking-wider uppercase bg-brand/10 text-brand px-3 py-1 rounded-full border border-brand/20">
+                    <span className="text-[9px] font-bold tracking-wider uppercase bg-brand/10 text-brand px-2.5 py-0.5 rounded-full border border-brand/20">
                       {loc.badge}
                     </span>
                   </div>
 
-                  <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1">
+                  <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider mb-1">
                     {loc.name}
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-3">{loc.city}</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2.5">{loc.city}</h3>
 
-                  <div className="flex items-start gap-3 text-sm text-foreground/85 bg-muted/40 p-4 rounded-2xl border border-border/60 mb-6">
-                    <MapPin className="h-5 w-5 text-brand shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5 text-xs text-foreground/85 bg-muted/40 p-3 rounded-xl border border-border/60 mb-5">
+                    <MapPin className="h-4 w-4 text-brand shrink-0 mt-0.5" />
                     <span className="leading-relaxed">{loc.address}</span>
                   </div>
 
-                  <div className="space-y-2.5 pt-2">
-                    <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
-                      Key Office Capabilities
+                  <div className="space-y-2 pt-1">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
+                      Key Capabilities
                     </div>
                     {loc.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-center gap-2.5 text-xs text-foreground/80">
+                      <div key={fIdx} className="flex items-center gap-2 text-xs text-foreground/80">
                         <Check className="h-3.5 w-3.5 text-brand-red shrink-0" />
                         <span>{feat}</span>
                       </div>
@@ -809,87 +838,65 @@ function ServicesHub() {
                   </div>
                 </div>
 
-                <div className="pt-5 mt-5 border-t border-border/60">
+                <div className="pt-4 mt-4 border-t border-border/60">
                   <Link
                     to="/contact"
                     hash="form"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-foreground hover:text-brand-red transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground hover:text-brand-red transition-colors"
                   >
-                    <span>Schedule Visit or Meeting</span>
+                    <span>Connect With Hub</span>
                     <ArrowRight className="h-3.5 w-3.5 text-brand-red" />
                   </Link>
                 </div>
               </div>
             </Reveal>
           ))}
+        </div>
 
-          {/* DIRECT COMMUNICATIONS CARD */}
-          <Reveal delay={0.2} className="h-full">
-            <div className="rounded-2xl sm:rounded-3xl border border-brand-red/30 bg-gradient-to-br from-card via-card to-brand-red/5 p-6 sm:p-7 md:p-8 h-full shadow-card hover:border-brand-red/50 transition-all flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <div className="h-12 w-12 rounded-2xl bg-gradient-to-r from-red-600 to-rose-600 text-white flex items-center justify-center shadow-lg shadow-red-600/30">
-                    <Headphones className="h-6 w-6" />
-                  </div>
-                  <span className="text-[10px] font-bold tracking-wider uppercase bg-brand-red/10 text-brand-red px-3 py-1 rounded-full border border-brand-red/20">
-                    24/7 Enterprise Desk
-                  </span>
-                </div>
-
-                <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1">
-                  Connect Directly
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Reach Our Specialists</h3>
-                <p className="text-muted-foreground text-xs sm:text-sm mb-6 leading-relaxed">
-                  Have an urgent requirement or want to discuss enterprise architecture? Our practice specialists respond within 2 business hours.
-                </p>
-
-                <div className="space-y-3 sm:space-y-4 mb-6">
-                  <a
-                    href="mailto:enquiry@acceleronsolutions.io"
-                    className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl border border-border/70 bg-muted/30 hover:border-brand-red/40 hover:bg-brand-red/5 transition-all text-sm group"
-                  >
-                    <div className="h-9 w-9 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                      <Mail className="h-4 w-4" />
-                    </div>
-                    <div className="truncate">
-                      <div className="text-[11px] font-medium text-muted-foreground">General Enquiries</div>
-                      <div className="font-semibold text-foreground group-hover:text-brand-red transition-colors truncate text-xs sm:text-sm">
-                        enquiry@acceleronsolutions.io
-                      </div>
-                    </div>
-                  </a>
-
-                  <a
-                    href="tel:+913335346222"
-                    className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl border border-border/70 bg-muted/30 hover:border-brand-red/40 hover:bg-brand-red/5 transition-all text-sm group"
-                  >
-                    <div className="h-9 w-9 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                      <Phone className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <div className="text-[11px] font-medium text-muted-foreground">Phone Support Desk</div>
-                      <div className="font-semibold text-foreground group-hover:text-brand-red transition-colors text-xs sm:text-sm">
-                        033 3534 6222
-                      </div>
-                    </div>
-                  </a>
-                </div>
+        {/* DIRECT COMMUNICATIONS BANNER */}
+        <Reveal delay={0.3}>
+          <div className="rounded-2xl sm:rounded-3xl border border-brand-red/30 bg-gradient-to-r from-card via-card to-brand-red/5 p-6 sm:p-8 shadow-card flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-2xl bg-gradient-to-r from-red-600 to-rose-600 text-white flex items-center justify-center shadow-lg shadow-red-600/30 shrink-0">
+                <Headphones className="h-6 w-6 sm:h-7 sm:w-7" />
               </div>
-
-              <div className="pt-4 border-t border-border/60">
-                <Link
-                  to="/contact"
-                  hash="form"
-                  className="btn btn-primary btn-md w-full justify-center"
-                >
-                  <span>Request Practice Consultation</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+              <div>
+                <div className="inline-flex items-center gap-2 text-[10px] font-bold tracking-wider uppercase bg-brand-red/10 text-brand-red px-2.5 py-0.5 rounded-full border border-brand-red/20 mb-1">
+                  24/7 Global Enterprise Support Desk
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground">Reach Our Global Delivery Specialists</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                  Direct escalation lines backed by defined enterprise SLAs and 24/7 NOC/SOC coverage.
+                </p>
               </div>
             </div>
-          </Reveal>
-        </div>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto shrink-0">
+              <a
+                href="mailto:enquiry@acceleronsolutions.io"
+                className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-border/80 bg-muted/40 hover:border-brand-red/40 hover:bg-brand-red/5 text-xs sm:text-sm font-bold text-foreground transition-all"
+              >
+                <Mail className="h-4 w-4 text-brand-red" />
+                <span>enquiry@acceleronsolutions.io</span>
+              </a>
+              <a
+                href="tel:+913335346222"
+                className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-border/80 bg-muted/40 hover:border-brand-red/40 hover:bg-brand-red/5 text-xs sm:text-sm font-bold text-foreground transition-all"
+              >
+                <Phone className="h-4 w-4 text-brand-red" />
+                <span>033 3534 6222</span>
+              </a>
+              <Link
+                to="/contact"
+                hash="form"
+                className="btn btn-primary text-xs sm:text-sm px-5 py-2.5 justify-center"
+              >
+                <span>Consult Global Specialists</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       {/* SECTION 5: ENTERPRISE DIFFERENTIATORS */}

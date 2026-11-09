@@ -640,7 +640,7 @@ function ContactPage() {
                 Global Hubs & <span className="text-gradient">Corporate Offices</span>
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Headquartered in Kolkata with enterprise delivery hubs across Delhi NCR and strategic client engagements worldwide.
+                Global delivery headquarters in Kolkata, enterprise executive hubs in Delhi NCR, and strategic international delivery networks across North America, APAC, and the Middle East.
               </p>
             </div>
           </Reveal>
