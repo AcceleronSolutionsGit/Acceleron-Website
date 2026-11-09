@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
 import {
   CheckCircle2, ArrowRight, ArrowLeft,
-  Award, Phone, Mail, MapPin, ChevronRight, ShieldCheck
+  Award, Phone, Mail, MapPin, ChevronRight, ChevronDown, ShieldCheck
 } from "lucide-react";
 import { SubServiceData } from "../../data/servicesData";
 import { Reveal, WaveDivider } from "../ui/Animations";
@@ -17,6 +17,9 @@ interface SubServicePageProps {
 
 export function SubServicePageView({ data }: SubServicePageProps) {
   const [activeTab, setActiveTab] = useState<"overview" | "features" | "process">("overview");
+  const [isOverviewExpanded, setIsOverviewExpanded] = useState(false);
+  const [showAllFeatures, setShowAllFeatures] = useState(false);
+  const [showAllProcess, setShowAllProcess] = useState(false);
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
@@ -54,24 +57,50 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                 </h2>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                <p className={`text-base md:text-lg text-muted-foreground leading-relaxed ${isOverviewExpanded ? "" : "line-clamp-3 sm:line-clamp-none"}`}>
                   {data.overview}
                 </p>
+                {data.overview && data.overview.length > 160 && (
+                  <button
+                    type="button"
+                    onClick={() => setIsOverviewExpanded(!isOverviewExpanded)}
+                    className="sm:hidden inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 mt-2 py-1 transition-colors cursor-pointer"
+                    aria-expanded={isOverviewExpanded}
+                  >
+                    <span>{isOverviewExpanded ? "Show less" : "Read more"}</span>
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isOverviewExpanded ? "rotate-180" : ""}`} />
+                  </button>
+                )}
               </Reveal>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-6">
                 {data.features.map((feat, idx) => (
-                  <Reveal key={idx} delay={idx * 0.1}>
-                    <div className="p-5 rounded-2xl border border-border bg-muted/20 hover:bg-muted/40 transition-colors">
-                      <div className="h-8 w-8 rounded-lg bg-brand-gradient flex items-center justify-center text-white mb-3 shadow-sm">
-                        <CheckCircle2 className="h-4 w-4" />
+                  <div key={idx} className={idx >= 3 && !showAllFeatures ? "hidden sm:block" : "block"}>
+                    <Reveal delay={idx * 0.1}>
+                      <div className="p-5 rounded-2xl border border-border bg-muted/20 hover:bg-muted/40 transition-colors h-full">
+                        <div className="h-8 w-8 rounded-lg bg-brand-gradient flex items-center justify-center text-white mb-3 shadow-sm">
+                          <CheckCircle2 className="h-4 w-4" />
+                        </div>
+                        <h3 className="font-bold text-foreground text-base mb-1">{feat.title}</h3>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{feat.desc}</p>
                       </div>
-                      <h3 className="font-bold text-foreground text-base mb-1">{feat.title}</h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{feat.desc}</p>
-                    </div>
-                  </Reveal>
+                    </Reveal>
+                  </div>
                 ))}
               </div>
+              {data.features.length > 3 && (
+                <div className="sm:hidden pt-3 text-center">
+                  <button
+                    type="button"
+                    onClick={() => setShowAllFeatures(!showAllFeatures)}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 py-1.5 px-3 rounded-lg border border-brand-red/30 bg-brand-red/5 cursor-pointer"
+                    aria-expanded={showAllFeatures}
+                  >
+                    <span>{showAllFeatures ? "Show fewer capabilities" : `+ View ${data.features.length - 3} more capabilities`}</span>
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllFeatures ? "rotate-180" : ""}`} />
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Right Quick Navigation Card */}
@@ -99,7 +128,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                   <div className="pt-4 border-t border-border">
                     <a
                       href="#consultation"
-                      className="w-full rounded-xl bg-brand-gradient py-3.5 text-center text-sm font-bold text-white shadow-glow block hover:scale-[1.01] transition-transform"
+                      className="btn btn-primary btn-md w-full"
                     >
                       Talk to a {data.category} Specialist
                     </a>
@@ -191,26 +220,42 @@ export function SubServicePageView({ data }: SubServicePageProps) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {data.process.map((step, idx) => (
-                <Reveal key={idx} delay={idx * 0.1}>
-                  <motion.div
-                    whileHover={{ y: -6 }}
-                    className="relative rounded-2xl border border-border bg-background p-8 flex flex-col justify-between h-full shadow-card group"
-                  >
-                    <div>
-                      <div className="text-3xl font-black text-brand-red/30 group-hover:text-brand-red transition-colors mb-6 tabular-nums">
-                        {step.step}
+                <div key={idx} className={idx >= 3 && !showAllProcess ? "hidden sm:block h-full" : "block h-full"}>
+                  <Reveal delay={idx * 0.1} className="h-full">
+                    <motion.div
+                      whileHover={{ y: -6 }}
+                      className="relative rounded-2xl border border-border bg-background p-6 sm:p-8 flex flex-col justify-between h-full shadow-card group"
+                    >
+                      <div>
+                        <div className="text-3xl font-black text-brand-red/30 group-hover:text-brand-red transition-colors mb-6 tabular-nums">
+                          {step.step}
+                        </div>
+                        <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
                       </div>
-                      <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
-                    </div>
-                    <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs font-semibold text-brand">
-                      <span>Phase {idx + 1}</span>
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </motion.div>
-                </Reveal>
+                      <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs font-semibold text-brand">
+                        <span>Phase {idx + 1}</span>
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </motion.div>
+                  </Reveal>
+                </div>
               ))}
             </div>
+
+            {data.process.length > 3 && (
+              <div className="sm:hidden pt-4 text-center">
+                <button
+                  type="button"
+                  onClick={() => setShowAllProcess(!showAllProcess)}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 py-1.5 px-3 rounded-lg border border-brand-red/30 bg-brand-red/5 cursor-pointer"
+                  aria-expanded={showAllProcess}
+                >
+                  <span>{showAllProcess ? "Show fewer steps" : `+ View ${data.process.length - 3} more step`}</span>
+                  <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllProcess ? "rotate-180" : ""}`} />
+                </button>
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -317,7 +362,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">Kolkata HQ</div>
+                    <div className="font-bold text-foreground">Kolkata Global HQ &amp; CoE</div>
                     <div>3rd Floor, STPI IT Park, Sector V, Salt Lake, Kolkata 700091</div>
                   </div>
                 </div>
@@ -327,8 +372,18 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">Delhi NCR Office</div>
+                    <div className="font-bold text-foreground">Delhi NCR Executive Hub</div>
                     <div>801-802 Kailash Building, 26 KG Marg, Janpath, Central Delhi 110001</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 text-muted-foreground text-sm">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand/10 text-brand shrink-0 mt-0.5">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-foreground">Global Delivery Network</div>
+                    <div>Active client engagements across North America (USA), APAC (Singapore, Australia), and Middle East</div>
                   </div>
                 </div>
               </div>

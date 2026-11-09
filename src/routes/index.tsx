@@ -6,7 +6,7 @@ import {
   Blocks, Rocket, Compass, Layers, Code2, Wrench, HeartPulse, ShoppingBag, Truck,
   GraduationCap, Landmark, Banknote, HardHat, Factory, Flame, MapPin, Mail, Phone,
   ChevronDown, ChevronLeft, ChevronRight, Calendar, Menu, X, Play, Zap, Globe, Users, Award, Briefcase, Database, Palette, Clock,
-  ArrowDown, Star, TrendingUp, Building2, Lightbulb, Target, Sun, Moon, Pickaxe, Activity,
+  ArrowDown, Star, TrendingUp, Building2, Lightbulb, Target, Sun, Moon, Pickaxe, Activity, Server,
 } from "lucide-react";
 
 import { LinkedInIcon, XTwitterIcon, GitHubIcon, InstagramIcon, SAPLogo, ZohoLogo, AWSLogo, MicrosoftLogo, DockerLogo, KubernetesLogo, PythonLogo, NodejsLogo, ReactLogo, NextjsLogo, OpenAILogo, SnowflakeLogo, FlutterLogo, PowerBILogo, DatabricksLogo } from '../components/ui/Icons';
@@ -18,7 +18,6 @@ import { getAssetUrl } from '../lib/assets';
 import { AboutImageSlider } from '../components/ui/AboutImageSlider';
 import { WhyChooseUs, CSRSection, GlobalPresence, InsightsSection } from '../components/home/HomeSections';
 import { OurValuesSection } from '../components/ui/OurValuesGrid';
-import { ScrollToTop } from '../components/ui/ScrollToTop';
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -99,20 +98,10 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="mt-3.5 sm:mt-5 max-w-2xl text-base sm:text-xl md:text-2xl font-semibold text-white/95 leading-snug tracking-tight"
-            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}
+            className="mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg md:text-xl font-normal text-white/90 leading-relaxed tracking-tight"
+            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}
           >
-            We don’t just enable technology. We understand the business behind it.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.8 }}
-            className="mt-3 sm:mt-4 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/75"
-            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.2)' }}
-          >
-            As part of the Gainwell Group, Acceleron Solutions drives digital transformation across industrial, supply chain, and commercial enterprises through SAP, Zoho, Applied AI, and custom software solutions.
+            Acceleron Solutions combines SAP and Zoho consulting, predictive AI and scalable custom software to solve complex operational challenges and deliver measurable business value.
           </motion.p>
 
           <motion.div
@@ -328,17 +317,17 @@ function AboutTeaser() {
             {/* Mini Stats Ribbon - ONE VIEW (3 columns side-by-side) with ZERO RED */}
             <Reveal delay={0.25}>
               <div className="grid grid-cols-3 gap-1.5 sm:gap-3.5 pt-1 w-full min-w-0">
-                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0 overflow-hidden">
-                  <div className="text-[11px] sm:text-base md:text-lg font-black text-foreground truncate">Kolkata & Delhi</div>
-                  <div className="text-[9px] sm:text-xs text-muted-foreground mt-0.5 font-medium truncate">Delivery Hubs</div>
+                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2.5 sm:p-3.5 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0">
+                  <div className="text-xs sm:text-sm md:text-base font-black text-foreground whitespace-nowrap tracking-tight">Global Hubs</div>
+                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium whitespace-nowrap">Delivery Network</div>
                 </div>
-                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0 overflow-hidden">
-                  <div className="text-[11px] sm:text-base md:text-lg font-black text-foreground truncate">Full-Stack</div>
-                  <div className="text-[9px] sm:text-xs text-muted-foreground mt-0.5 font-medium truncate">Enterprise Tech</div>
+                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2.5 sm:p-3.5 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0">
+                  <div className="text-xs sm:text-sm md:text-base font-black text-foreground whitespace-nowrap tracking-tight">Full-Stack</div>
+                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium whitespace-nowrap">Enterprise Tech</div>
                 </div>
-                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2 sm:p-4 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0 overflow-hidden">
-                  <div className="text-[11px] sm:text-base md:text-lg font-black text-foreground truncate">100%</div>
-                  <div className="text-[9px] sm:text-xs text-muted-foreground mt-0.5 font-medium truncate">Outcome Driven</div>
+                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2.5 sm:p-3.5 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0">
+                  <div className="text-xs sm:text-sm md:text-base font-black text-foreground whitespace-nowrap tracking-tight">100%</div>
+                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium whitespace-nowrap">Outcome Driven</div>
                 </div>
               </div>
             </Reveal>
@@ -377,15 +366,17 @@ function AboutTeaser() {
 
 const SERVICES = [
   { icon: Database, t: "SAP Modernization & Consulting", d: "S/4HANA, BTP, RISE — end-to-end cloud ERP transformation and legacy system modernization for agile enterprise management.", url: "/services/sap", img: "/SAP_Homepage.jpg" },
-  { icon: LineChart, t: "Analytics & Applied AI", d: "From operational executive dashboards to generative AI agents. Turn fragmented operational data into strategic direction.", url: "/services/analytics", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=600&auto=format&fit=crop" },
   { icon: Blocks, t: "Zoho Suite Enterprise Automation", d: "Rapid business applications across finance, operations, and customer experience — deployed in weeks, not quarters.", url: "/services/zoho", img: "/ZOHO_LOGO.png" },
-  { icon: Code2, t: "Custom Software Engineering", d: "Scalable, enterprise-grade platforms built in React, Node, and Flutter with product-grade craftsmanship and cloud architecture.", url: "/services/software-development", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop" },
-  { icon: Cpu, t: "IT & Cloud Infrastructure", d: "Resilient cloud, hybrid, and on-premises environments built on AWS, Azure, and Kubernetes — designed for 99.99% uptime.", url: "/services/it-infrastructure", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=600&auto=format&fit=crop" },
-  { icon: Briefcase, t: "CXO Digital Advisory", d: "Board-level guidance on technology strategy, M&A digital integration, enterprise architecture, and operating model evolution.", url: "/services/cxo-advisory", img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=75&w=600&auto=format&fit=crop" },
-  { icon: ShieldCheck, t: "Cyber Security & OT Systems", d: "Zero-trust security architectures, SOC modernization, and automated compliance built for industrial OT and corporate networks.", url: "/services/cyber-security", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=600&auto=format&fit=crop" },
+  { icon: Server, t: "ManageEngine ITSM & Infrastructure", d: "ITIL-aligned service desk software, endpoint control, and 24/7 network observability for seamless IT operations.", url: "/services/manageengine", img: "/ManageEngine-logo.png" },
+  { icon: Layers, t: "Custom Software Engineering", d: "Scalable, enterprise-grade platforms built in React, Node, and Flutter with product-grade craftsmanship and cloud architecture.", url: "/services/it-custom-solutions/custom-software-application-development", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop" },
+  { icon: LineChart, t: "Analytics & Applied AI", d: "From operational executive dashboards to generative AI agents. Turn fragmented operational data into strategic direction.", url: "/services/it-custom-solutions/custom-ai-application-development", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=600&auto=format&fit=crop" },
+  { icon: Cpu, t: "IT & Cloud Infrastructure", d: "Resilient cloud, hybrid, and on-premises environments built on AWS, Azure, and Kubernetes — designed for 99.99% uptime.", url: "/services/it-custom-solutions/it-infrastructure-services", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=600&auto=format&fit=crop" },
+  { icon: ShieldCheck, t: "Cyber Security & OT Systems", d: "Zero-trust security architectures, SOC modernization, and automated compliance built for industrial OT and corporate networks.", url: "/services/it-custom-solutions/network-security-implementation", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=600&auto=format&fit=crop" },
 ];
 
 function Services() {
+  const [showAllServices, setShowAllServices] = useState(false);
+
   return (
     <section id="services" className="relative overflow-hidden bg-background py-20 sm:py-28 md:py-32">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgb(58_73_127/0.06),transparent_70%)]" />
@@ -408,48 +399,64 @@ function Services() {
 
         <div className="mt-12 sm:mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s, i) => (
-            <Reveal key={s.t} delay={i * 0.06} className={i === 0 ? "lg:col-span-2" : ""}>
-              <Link to={s.url as any} className="group relative overflow-hidden rounded-3xl h-[300px] sm:h-[380px] block cursor-pointer border border-transparent hover:border-white/10 transition-colors duration-500">
-                {s.img.endsWith(".png") || s.img.includes("LOGO") ? (
-                  <div className="absolute inset-0 flex items-center justify-center p-8 z-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950">
-                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,29,72,0.15),transparent_70%)]" />
-                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(33,47,96,0.2),transparent_60%)]" />
-                    <div className="relative bg-white/95 backdrop-blur-md px-7 py-5 rounded-2xl shadow-2xl border border-white/20 transition-all duration-700 group-hover:scale-105 group-hover:bg-white group-hover:shadow-red-500/20 mb-12">
-                      <img src={getAssetUrl(s.img)} alt={s.t} className="h-12 sm:h-16 w-auto max-w-[200px] sm:max-w-[240px] object-contain" />
+            <div key={s.t} className={`${i === 0 ? "lg:col-span-2" : ""} ${i >= 3 && !showAllServices ? "hidden sm:block" : "block"}`}>
+              <Reveal delay={i * 0.06} className="h-full">
+                <Link to={s.url as any} className="group relative overflow-hidden rounded-3xl h-[300px] sm:h-[380px] block cursor-pointer border border-transparent hover:border-white/10 transition-colors duration-500">
+                  {s.img.endsWith(".png") || s.img.includes("LOGO") ? (
+                    <div className="absolute inset-0 flex items-center justify-center p-8 z-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950">
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,29,72,0.15),transparent_70%)]" />
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(33,47,96,0.2),transparent_60%)]" />
+                      <div className="relative bg-white/95 backdrop-blur-md px-7 py-5 rounded-2xl shadow-2xl border border-white/20 transition-all duration-700 group-hover:scale-105 group-hover:bg-white group-hover:shadow-red-500/20 mb-12">
+                        <img src={getAssetUrl(s.img)} alt={s.t} className="h-12 sm:h-16 w-auto max-w-[200px] sm:max-w-[240px] object-contain" />
+                      </div>
+                    </div>
+                  ) : (
+                    <img src={getAssetUrl(s.img)} alt={s.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  )}
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/5 transition-opacity duration-500 group-hover:opacity-100 opacity-75" />
+
+                  <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-10">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="h-10 w-10 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-white/20 group-hover:shadow-[0_0_20px_-4px_rgba(255,255,255,0.3)] transition-all duration-300 shrink-0">
+                        <s.icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white leading-snug">{s.t}</h3>
+                    </div>
+
+                    {/* Description - always readable on mobile, animated hover on desktop */}
+                    <div className="grid grid-rows-[1fr] sm:grid-rows-[0fr] sm:group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
+                      <div className="overflow-hidden">
+                        <p className="text-white/85 text-xs sm:text-sm mb-3 leading-relaxed opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                          {s.d}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Learn more CTA initially visible */}
+                    <div className="flex items-center gap-2 font-semibold text-xs sm:text-sm text-red-300 group-hover:text-red-200 transition-colors">
+                      Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </div>
                   </div>
-                ) : (
-                  <img src={getAssetUrl(s.img)} alt={s.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                )}
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/5 transition-opacity duration-500 group-hover:opacity-100 opacity-75" />
-
-                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-10">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="h-10 w-10 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-white/20 group-hover:shadow-[0_0_20px_-4px_rgba(255,255,255,0.3)] transition-all duration-300 shrink-0">
-                      <s.icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white leading-snug">{s.t}</h3>
-                  </div>
-
-                  {/* Description - always readable on mobile, animated hover on desktop */}
-                  <div className="grid grid-rows-[1fr] sm:grid-rows-[0fr] sm:group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
-                    <div className="overflow-hidden">
-                      <p className="text-white/85 text-xs sm:text-sm mb-3 leading-relaxed opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
-                        {s.d}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Learn more CTA initially visible */}
-                  <div className="flex items-center gap-2 font-semibold text-xs sm:text-sm text-red-300 group-hover:text-red-200 transition-colors">
-                    Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </div>
-                </div>
-              </Link>
-            </Reveal>
+                </Link>
+              </Reveal>
+            </div>
           ))}
         </div>
+
+        {SERVICES.length > 3 && (
+          <div className="sm:hidden mt-8 text-center">
+            <button
+              type="button"
+              onClick={() => setShowAllServices(!showAllServices)}
+              className="inline-flex items-center gap-2 text-xs font-bold text-brand-red hover:text-red-700 py-2.5 px-6 rounded-full border border-brand-red/30 bg-brand-red/5 hover:bg-brand-red/10 shadow-sm transition-all cursor-pointer"
+              aria-expanded={showAllServices}
+            >
+              <span>{showAllServices ? "Show fewer services" : `+ View all ${SERVICES.length} services`}</span>
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllServices ? "rotate-180" : ""}`} />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -790,39 +797,40 @@ function Industries() {
 interface ClienteleItem {
   name: string;
   src: string;
+  scale?: number;
 }
 
 const CLIENTELE_ROW_1: ClienteleItem[] = [
-  { name: "Caterpillar", src: "/clientele/uniform/caterpillar.png" },
-  { name: "Gainwell CAT", src: "/clientele/uniform/gainwell-cat.png" },
-  { name: "SEM (A Caterpillar Brand)", src: "/clientele/uniform/sem.png" },
-  { name: "Trimble", src: "/clientele/uniform/trimble.png" },
-  { name: "SITECH", src: "/clientele/uniform/sitech.png" },
-  { name: "TIL - Tractors India Limited", src: "/clientele/uniform/til.png" },
-  { name: "TMC", src: "/clientele/uniform/tmc.png" },
-  { name: "PCM - Parasea Coal Mining", src: "/clientele/uniform/pcm.png" },
-  { name: "Resurgent Mining Solutions", src: "/clientele/uniform/resurgent-mining.png" },
-  { name: "Knowteq Equipcare", src: "/clientele/uniform/knowteq-equipcare.png" },
-  { name: "Tulip Compression", src: "/clientele/uniform/tulip-compression.png" },
-  { name: "BMW Industries Limited", src: "/clientele/uniform/bmw-industries.png" },
-  { name: "Shyam Steel", src: "/clientele/uniform/shyam-steel.png" },
-  { name: "Amit Metaliks", src: "/clientele/uniform/amit-metaliks.png" },
+  { name: "Caterpillar", src: "/clientele/uniform/caterpillar.png", scale: 1 },
+  { name: "Gainwell CAT", src: "/clientele/uniform/gainwell-cat.png", scale: 1.05 },
+  { name: "SEM (A Caterpillar Brand)", src: "/clientele/uniform/sem.png", scale: 1.05 },
+  { name: "Trimble", src: "/clientele/uniform/trimble.png", scale: 1 },
+  { name: "SITECH", src: "/clientele/uniform/sitech.png", scale: 1 },
+  { name: "TIL - Tractors India Limited", src: "/clientele/uniform/til.png", scale: 1.05 },
+  { name: "TMC", src: "/clientele/uniform/tmc.png", scale: 1.05 },
+  { name: "PCM - Parasea Coal Mining", src: "/clientele/uniform/pcm.png", scale: 1 },
+  { name: "Resurgent Mining Solutions", src: "/clientele/uniform/resurgent-mining.png", scale: 1 },
+  { name: "Knowteq Equipcare", src: "/clientele/uniform/knowteq-equipcare.png", scale: 1.1 },
+  { name: "Tulip Compression", src: "/clientele/uniform/tulip-compression.png", scale: 1.4 },
+  { name: "BMW Industries Limited", src: "/clientele/uniform/bmw-industries.png", scale: 1 },
+  { name: "Shyam Steel", src: "/clientele/uniform/shyam-steel.png", scale: 1.05 },
+  { name: "Amit Metaliks", src: "/clientele/uniform/amit-metaliks.png", scale: 1.05 },
 ];
 
 const CLIENTELE_ROW_2: ClienteleItem[] = [
-  { name: "PCBL Chemical", src: "/clientele/uniform/pcbl.png" },
-  { name: "M P Birla Group", src: "/clientele/uniform/mp-birla.png" },
-  { name: "Star Cement", src: "/clientele/uniform/star-cement.png" },
-  { name: "MAX Cement", src: "/clientele/uniform/max-cement.png" },
-  { name: "Century Plyboards", src: "/clientele/uniform/century-plyboards.png" },
-  { name: "Skipper Pipes", src: "/clientele/uniform/skipper-pipes.png" },
-  { name: "Neoceram", src: "/clientele/uniform/neoceram.png" },
-  { name: "Ameya Technologies", src: "/clientele/uniform/ameya-tech.png" },
-  { name: "mjunction", src: "/clientele/uniform/mjunction.png" },
-  { name: "Livpure", src: "/clientele/uniform/livpure.png" },
-  { name: "Linc", src: "/clientele/uniform/linc.png" },
-  { name: "MDH", src: "/clientele/uniform/mdh.png" },
-  { name: "Viacom 18", src: "/clientele/uniform/viacom-18.png" },
+  { name: "PCBL Chemical", src: "/clientele/uniform/pcbl.png", scale: 1.15 },
+  { name: "M P Birla Group", src: "/clientele/uniform/mp-birla.png", scale: 1 },
+  { name: "Star Cement", src: "/clientele/uniform/star-cement.png", scale: 1.25 },
+  { name: "MAX Cement", src: "/clientele/uniform/max-cement.png", scale: 1 },
+  { name: "Century Plyboards", src: "/clientele/uniform/century-plyboards.png", scale: 2.15 },
+  { name: "Skipper Pipes", src: "/clientele/uniform/skipper-pipes.png", scale: 1.35 },
+  { name: "Neoceram", src: "/clientele/uniform/neoceram.png", scale: 1.05 },
+  { name: "Ameya Technologies", src: "/clientele/uniform/ameya-tech.png", scale: 1.6 },
+  { name: "mjunction", src: "/clientele/uniform/mjunction.png", scale: 1.05 },
+  { name: "Livpure", src: "/clientele/uniform/livpure.png", scale: 1.6 },
+  { name: "Linc", src: "/clientele/uniform/linc.png", scale: 1.15 },
+  { name: "MDH", src: "/clientele/uniform/mdh.png", scale: 1 },
+  { name: "Viacom 18", src: "/clientele/uniform/viacom-18.png", scale: 1.35 },
 ];
 
 function OurSelectedClientele() {
@@ -870,7 +878,7 @@ function OurSelectedClientele() {
             {[...CLIENTELE_ROW_1, ...CLIENTELE_ROW_1].map((client, idx) => (
               <div
                 key={`${client.name}-r1-${idx}`}
-                className="group shrink-0 relative flex items-center justify-center p-3 sm:p-4 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-white shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-40 sm:w-48 md:w-54 h-20 sm:h-22 md:h-24 text-center overflow-hidden"
+                className="group shrink-0 relative flex items-center justify-center p-2.5 sm:p-3 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-white shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-44 sm:w-52 md:w-56 h-20 sm:h-22 md:h-24 text-center overflow-hidden"
               >
                 <img
                   src={getAssetUrl(client.src)}
@@ -878,7 +886,8 @@ function OurSelectedClientele() {
                   title={client.name}
                   loading="lazy"
                   decoding="async"
-                  className="w-auto h-auto max-h-10 sm:max-h-11 md:max-h-12 max-w-[80%] sm:max-w-[82%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  style={{ transform: client.scale ? `scale(${client.scale})` : undefined }}
+                  className="w-full h-full max-h-12 sm:max-h-14 object-contain transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
             ))}
@@ -889,7 +898,7 @@ function OurSelectedClientele() {
             {[...CLIENTELE_ROW_2, ...CLIENTELE_ROW_2].map((client, idx) => (
               <div
                 key={`${client.name}-r2-${idx}`}
-                className="group shrink-0 relative flex items-center justify-center p-3 sm:p-4 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-white shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-40 sm:w-48 md:w-54 h-20 sm:h-22 md:h-24 text-center overflow-hidden"
+                className="group shrink-0 relative flex items-center justify-center p-2.5 sm:p-3 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-white shadow-soft hover:shadow-glow hover:border-brand-red/50 transition-all duration-300 w-44 sm:w-52 md:w-56 h-20 sm:h-22 md:h-24 text-center overflow-hidden"
               >
                 <img
                   src={getAssetUrl(client.src)}
@@ -897,7 +906,8 @@ function OurSelectedClientele() {
                   title={client.name}
                   loading="lazy"
                   decoding="async"
-                  className="w-auto h-auto max-h-10 sm:max-h-11 md:max-h-12 max-w-[80%] sm:max-w-[82%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  style={{ transform: client.scale ? `scale(${client.scale})` : undefined }}
+                  className="w-full h-full max-h-12 sm:max-h-14 object-contain transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
             ))}
@@ -962,11 +972,13 @@ function Contact() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">Delivery Centers</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">Global Delivery Hubs</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-xs sm:text-sm">
                     {[
-                      "Kolkata, India",
-                      "Delhi NCR, India",
+                      "Kolkata Global HQ & CoE",
+                      "Delhi NCR Executive Hub",
+                      "North America (USA Hub)",
+                      "APAC & International Network",
                     ].map((loc, i) => (
                       <div key={i} className="flex items-center gap-2 text-muted-foreground group/loc hover:text-foreground transition-colors cursor-default">
                         <div className="h-6 w-6 rounded-md bg-brand-red/10 flex items-center justify-center shrink-0 group-hover/loc:bg-brand-red/20 transition-colors">
@@ -990,12 +1002,12 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="relative">
+    <div className="relative w-full max-w-full overflow-x-hidden">
       <AnimatePresence>
         {loading && <InitialLoader onComplete={() => setLoading(false)} />}
       </AnimatePresence>
       <Nav />
-      <main>
+      <main className="w-full max-w-full overflow-x-hidden">
         <Hero />
         <KeyMetricsBar />
         <AboutTeaser />
@@ -1015,7 +1027,6 @@ function Home() {
         <WaveDivider from="light" to="dark" />
         <Contact />
       </main>
-      <ScrollToTop />
     </div>
   );
 }

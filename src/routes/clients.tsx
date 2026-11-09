@@ -115,6 +115,7 @@ function ClientsPage() {
               </p>
               <Link
                 to="/contact"
+                hash="form"
                 className="inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 px-8 py-4 text-sm font-bold text-white shadow-lg shadow-red-600/40 hover:shadow-red-600/60 hover:scale-105 transition-all w-full sm:w-auto border border-red-400/30"
               >
                 Start a Conversation <ArrowRight className="h-4 w-4" />

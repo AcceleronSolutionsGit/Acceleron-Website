@@ -17,6 +17,7 @@ import {
   Briefcase,
   Check,
   CheckCircle2,
+  ChevronDown,
 } from "lucide-react";
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { PageHero } from "../../components/ui/PageHero";
@@ -251,6 +252,7 @@ const FAQS = [
 
 function ZohoPage() {
   const [activeTab, setActiveTab] = useState(0);
+  const [showAllIntegrations, setShowAllIntegrations] = useState(false);
 
   const currentTab = ZOHO_ECOSYSTEM_TABS[activeTab];
 
@@ -258,15 +260,15 @@ function ZohoPage() {
     <main className="relative min-h-screen overflow-hidden bg-background">
       {/* SECTION 1: HERO BANNER (With Partner Badge) */}
       <PageHero
-        title="Full-Suite Zoho Solutions for the Connected Enterprise"
-        subtitle="One Platform. Every Business Function. Endless Possibilities. From single-app deployments to enterprise-wide Zoho One and Zoho ERP rollouts, Acceleron delivers end-to-end automation, custom ERP integrations (SAP, legacy systems), and rapid time-to-value for growing and established enterprises."
+        title="Zoho Solutions for Connected Businesses"
+        subtitle="From individual Zoho applications to enterprise-wide Zoho One and ERP deployments, we deliver seamless automation, custom integrations with SAP and legacy systems, and faster business value."
         breadcrumbs={[
           { label: "Services", href: "/services" },
           { label: "Zoho" },
         ]}
         image="/zoho/Zoho Experts - Acceleron Solutions.jpeg"
         ctaText="Talk to Our Zoho Experts"
-        ctaHref="/contact"
+        ctaHref="/contact#form"
         secondaryCtaText="Explore Application Ecosystem"
         secondaryCtaHref="#ecosystem"
         icon={
@@ -472,32 +474,48 @@ function ZohoPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {INTEGRATION_MATRIX.map((item, idx) => (
-              <Reveal key={item.category} delay={idx * 0.08} className="h-full">
-                <div className="group rounded-3xl border border-border/70 bg-card p-6 sm:p-7 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                  <div>
-                    <div className="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <item.icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-brand transition-colors">
-                      {item.category}
-                    </h3>
-                    <p className="text-xs text-muted-foreground mb-4">
-                      {item.desc}
-                    </p>
+              <div key={item.category} className={idx >= 3 && !showAllIntegrations ? "hidden md:block h-full" : "block h-full"}>
+                <Reveal delay={idx * 0.08} className="h-full">
+                  <div className="group rounded-3xl border border-border/70 bg-card p-6 sm:p-7 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                      <div className="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <item.icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-brand transition-colors">
+                        {item.category}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mb-4">
+                        {item.desc}
+                      </p>
 
-                    <div className="space-y-2 border-t border-border/50 pt-3">
-                      {item.systems.map((sys) => (
-                        <div key={sys} className="flex items-center gap-2 text-xs text-foreground/80 font-medium">
-                          <Check className="h-3.5 w-3.5 text-brand shrink-0" />
-                          <span>{sys}</span>
-                        </div>
-                      ))}
+                      <div className="space-y-2 border-t border-border/50 pt-3">
+                        {item.systems.map((sys) => (
+                          <div key={sys} className="flex items-center gap-2 text-xs text-foreground/80 font-medium">
+                            <Check className="h-3.5 w-3.5 text-brand shrink-0" />
+                            <span>{sys}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Reveal>
+                </Reveal>
+              </div>
             ))}
           </div>
+
+          {INTEGRATION_MATRIX.length > 3 && (
+            <div className="md:hidden pt-5 text-center">
+              <button
+                type="button"
+                onClick={() => setShowAllIntegrations(!showAllIntegrations)}
+                className="inline-flex items-center gap-2 text-xs font-bold text-brand-red hover:text-red-700 py-2.5 px-5 rounded-full border border-brand-red/30 bg-brand-red/5 hover:bg-brand-red/10 shadow-sm transition-all cursor-pointer"
+                aria-expanded={showAllIntegrations}
+              >
+                <span>{showAllIntegrations ? "Show fewer integrations" : `+ View ${INTEGRATION_MATRIX.length - 3} more integration`}</span>
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllIntegrations ? "rotate-180" : ""}`} />
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -577,6 +595,7 @@ function ZohoPage() {
               <div className="pt-2">
                 <Link
                   to="/contact"
+                  hash="form"
                   className="btn btn-primary btn-lg inline-flex items-center gap-2 shadow-lg shadow-brand-red/20"
                 >
                   Schedule a Zoho Architecture Session <ArrowUpRight className="h-5 w-5" />

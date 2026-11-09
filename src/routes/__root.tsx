@@ -6,6 +6,7 @@ import {
   HeadContent,
   Scripts,
   Link,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -33,7 +34,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -116,6 +117,8 @@ function RootShell({ children }: { children: ReactNode }) {
 
 import { Toaster } from "sonner";
 import { useLocation } from "@tanstack/react-router";
+import { ScrollToTop } from "../components/ui/ScrollToTop";
+import { StickyContactCTA } from "../components/ui/StickyContactCTA";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -127,6 +130,8 @@ function RootComponent() {
       {!isAuthOrAdmin && <Nav />}
       <Outlet />
       {!isAuthOrAdmin && <Footer />}
+      {!isAuthOrAdmin && <StickyContactCTA />}
+      {!isAuthOrAdmin && <ScrollToTop />}
       <Toaster position="bottom-right" theme="system" />
     </QueryClientProvider>
   );

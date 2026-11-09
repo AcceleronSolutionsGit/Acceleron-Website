@@ -20,10 +20,23 @@ export function CsrVideoCard({
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+  const [aspectRatio, setAspectRatio] = useState<number>(1); // Default to 1 (square) for 1080x1080 CSR video
+
+  const handleLoadedMetadata = () => {
+    const video = videoRef.current;
+    if (video && video.videoWidth && video.videoHeight) {
+      setAspectRatio(video.videoWidth / video.videoHeight);
+    }
+  };
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    // Check if metadata already loaded
+    if (video.videoWidth && video.videoHeight) {
+      setAspectRatio(video.videoWidth / video.videoHeight);
+    }
 
     // Ensure video attempts autoplay
     const playPromise = video.play();
@@ -76,11 +89,26 @@ export function CsrVideoCard({
       className={`relative rounded-3xl border border-border/70 bg-card/60 backdrop-blur-md p-3.5 sm:p-4 shadow-elevated group ${className}`}
     >
       {/* Decorative corner accents matching Culture cards */}
-      <div className="absolute -top-1 -right-1 w-14 h-14 border-t-2 border-r-2 border-brand-red/40 rounded-tr-3xl pointer-events-none z-20" />
-      <div className="absolute -bottom-1 -left-1 w-14 h-14 border-b-2 border-l-2 border-brand/30 rounded-bl-3xl pointer-events-none z-20" />
+      <div className="absolute top-0 right-0 w-14 h-14 border-t-2 border-r-2 border-brand-red/40 rounded-tr-3xl pointer-events-none z-20" />
+      <div className="absolute bottom-0 left-0 w-14 h-14 border-b-2 border-l-2 border-brand/30 rounded-bl-3xl pointer-events-none z-20" />
 
-      {/* Main Video Box */}
-      <div className="relative w-full aspect-[16/10] sm:aspect-video rounded-2xl overflow-hidden bg-black border border-border/50 shadow-soft">
+      {/* Main Video Box with Dynamic Aspect Ratio and Zero Cropping */}
+      <div
+        style={{ aspectRatio: `${aspectRatio}` }}
+        className="relative w-full max-h-[520px] rounded-2xl overflow-hidden bg-black border border-border/50 shadow-soft flex items-center justify-center mx-auto"
+      >
+        {/* Ambient blurred backdrop video to prevent stark black letterboxing */}
+        <video
+          src={getAssetUrl(videoUrl)}
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-105 pointer-events-none select-none"
+        />
+
+        {/* Crisp foreground video displayed fully uncropped with object-contain */}
         <video
           ref={videoRef}
           src={getAssetUrl(videoUrl)}
@@ -89,7 +117,8 @@ export function CsrVideoCard({
           muted={isMuted}
           playsInline
           preload="metadata"
-          className="w-full h-full object-cover"
+          onLoadedMetadata={handleLoadedMetadata}
+          className="relative z-10 w-full h-full object-contain cursor-pointer"
           onClick={togglePlay}
         />
 

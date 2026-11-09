@@ -57,7 +57,20 @@ function SingaporeMapSvg({ className }: { className?: string }) {
   );
 }
 
-const LOCATION_CARDS = [
+interface LocationCard {
+  city: string;
+  country: string;
+  label: string;
+  address: string;
+  email: string;
+  phone?: string;
+  phones?: string[];
+  directionsUrl?: string;
+  MapComponent: ({ className }: { className?: string }) => React.JSX.Element;
+  isHq?: boolean;
+}
+
+const LOCATION_CARDS: LocationCard[] = [
   {
     city: "Kolkata Headquarters",
     country: "India",
@@ -96,13 +109,8 @@ const LOCATION_CARDS = [
 
 const PERFORMANCE_METRICS = [
   {
-    metric: "250+",
-    label: "Skilled Employees & Enterprise Specialists",
-    icon: Users,
-  },
-  {
     metric: "120+",
-    label: "Enterprise Projects Completed On-Time & On-Budget",
+    label: "Enterprise Projects Completed",
     icon: CheckCircle2,
   },
   {
@@ -111,13 +119,13 @@ const PERFORMANCE_METRICS = [
     icon: Building2,
   },
   {
-    metric: "20+",
-    label: "Core Technological Skills & Practice Competencies",
-    icon: Sparkles,
+    metric: "250+",
+    label: "Skilled Employees & Specialists",
+    icon: Users,
   },
   {
     metric: "4",
-    label: "Strategic Delivery Locations & Hubs",
+    label: "Global Delivery Locations & Hubs",
     icon: MapPin,
   },
 ];
@@ -129,14 +137,14 @@ function AboutPage() {
     <main className="relative min-h-screen overflow-hidden bg-background">
       {/* 1. CLEAR VALUE PROPOSITION */}
       <PageHero
-        title="Grounded Digital Engineering Built for Complex Operating Realities"
-        subtitle="Acceleron Solutions bridges decades of industrial lineage with modern enterprise engineering to optimize core operations, modernize technology architectures, and deliver measurable bottom-line P&L impact."
+        title="Digital Engineering for Complex Operations"
+        subtitle="Combining decades of industrial heritage with modern enterprise engineering to optimize operations, modernize technology and deliver measurable business impact."
         breadcrumbs={[{ label: "About Us" }]}
         image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=75&w=1200&auto=format&fit=crop"
         ctaText="Explore Our Capabilities"
         ctaHref="/services"
         secondaryCtaText="Consult with Our Architects"
-        secondaryCtaHref="/contact"
+        secondaryCtaHref="/contact#form"
       />
 
       {/* 2. THE ORIGIN STORY & PROBLEM SOLVED */}
@@ -164,7 +172,7 @@ function AboutPage() {
                   <span>The Problem We Solve</span>
                 </div>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  Enterprise digital transformation frequently falters when software implementations are disconnected from ground-level operating realities. Heavy industrial sectors, plant operations, and complex supply chains require technology that respects shop-floor mechanics, asset lifecycles, and commercial compliance.
+                  Digital transformation often falls short when technology is disconnected from operational realities. Heavy industries and complex supply chains need solutions that account for shop-floor processes, asset lifecycles and business compliance.
                 </p>
               </div>
             </Reveal>
@@ -177,7 +185,7 @@ function AboutPage() {
                   <span>Our Lineage</span>
                 </div>
                 <p className="text-foreground/90 text-sm sm:text-base leading-relaxed">
-                  Established as the specialized technology and consulting company of the Gainwell Group, Acceleron was born out of <strong>80+ years of industrial leadership</strong> across heavy engineering, mining, and capital goods. Our engineering teams inherit an intrinsic understanding of business operations, positioning us as a <strong>'Solutions &gt; Services'</strong> partner.
+                  Born from 80+ years of industrial leadership in engineering, mining and capital goods, Acceleron combines deep operational knowledge with technology and consulting expertise to deliver integrated solutions and services.
                 </p>
               </div>
             </Reveal>
@@ -190,7 +198,7 @@ function AboutPage() {
                   <span>Our Approach</span>
                 </div>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  We combine domain-aware Subject Matter Experts (SMEs) with full-stack technical execution—ensuring every SAP migration, Zoho automation, custom software deployment, and AI model solves concrete business bottlenecks rather than adding technical debt.
+                  We bring together domain experts and technical specialists to deliver SAP, Zoho, custom software and AI solutions that address real business challenges and improve operational efficiency.
                 </p>
               </div>
             </Reveal>
@@ -270,8 +278,8 @@ function AboutPage() {
       <OurValuesSection
         bg="dark"
         kicker="Company Culture & Core Values"
-        headline="The People and Principles Behind Every Client Partnership"
-        introCopy="At Acceleron Solutions, great work starts with great people. We build teams that are curious, collaborative, and accountable, and we give them room to learn, speak up, and take ownership of the outcomes they deliver. That human-centric approach is what lets us pair technical ambition with sound operational ethics, and it shows in how our global teams work together and in how we show up for every client."
+        headline="Engineering Digital Solutions for Industry"
+        introCopy="Great work starts with great people. We nurture curious, collaborative and accountable teams, empowering them to learn, grow and take ownership. This people-first culture shapes how we work together and deliver for our clients."
       />
 
       <WaveDivider from="dark" to="white" />
@@ -292,15 +300,16 @@ function AboutPage() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-5">
+        {/* 4-GRID PERFORMANCE METRICS (2x2 on Mobile, 4-col on Desktop) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {PERFORMANCE_METRICS.map((item, idx) => (
-            <Reveal key={item.label} delay={idx * 0.08} className="h-full">
-              <div className="group rounded-3xl border border-border/70 bg-card p-6 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <Reveal key={item.label} delay={idx * 0.06} className="h-full">
+              <div className="group rounded-2xl sm:rounded-3xl border border-border/70 bg-card p-4 sm:p-6 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                 <div>
-                  <div className="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <item.icon className="h-5 w-5" />
+                  <div className="h-8 w-8 sm:h-11 sm:w-11 rounded-lg sm:rounded-xl bg-brand/10 text-brand flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+                    <item.icon className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
-                  <div className="text-3xl sm:text-4xl font-extrabold text-foreground group-hover:text-brand transition-colors tracking-tight mb-2">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground group-hover:text-brand transition-colors tracking-tight mb-1 sm:mb-2">
                     {item.metric}
                   </div>
                   <p className="text-xs sm:text-sm font-semibold text-foreground/80 leading-snug">
@@ -419,13 +428,13 @@ function AboutPage() {
                               loc.phones.map((p, pIdx) => (
                                 <span key={pIdx} className="inline-flex items-center gap-1">
                                   {pIdx > 0 && <span className="text-muted-foreground">/</span>}
-                                  <a href={`tel:${p.replace(/[^0-9+]/g, '')}`} className="hover:text-brand transition-colors">
+                                  <a href={`tel:${p.replace(/[^0-9+]/g, '')}`} className="hover:text-brand-red transition-colors">
                                     {p}
                                   </a>
                                 </span>
                               ))
                             ) : (
-                              <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-brand transition-colors">
+                              <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-brand-red transition-colors">
                                 {loc.phone}
                               </a>
                             )}
@@ -477,7 +486,7 @@ function AboutPage() {
                 Schedule a consultation with our technology architects and domain experts.
               </p>
               <div className="pt-4">
-                <Link to="/contact" className="btn btn-primary btn-lg inline-flex items-center gap-2">
+                <Link to="/contact" hash="form" className="btn btn-primary btn-lg inline-flex items-center gap-2">
                   Connect with our Experts <ArrowRight className="h-5 w-5" />
                 </Link>
               </div>

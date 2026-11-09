@@ -136,8 +136,8 @@ export function AboutImageSlider({
         onTouchEnd={handleTouchEnd}
       >
         {/* Decorative corner accents */}
-        <div className="absolute -top-1 -right-1 w-16 h-16 border-t-2 border-r-2 border-primary/40 dark:border-cyan-400/40 rounded-tr-3xl pointer-events-none z-20" />
-        <div className="absolute -bottom-1 -left-1 w-16 h-16 border-b-2 border-l-2 border-brand/30 rounded-bl-3xl pointer-events-none z-20" />
+        <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary/40 dark:border-cyan-400/40 rounded-tr-2xl sm:rounded-tr-3xl pointer-events-none z-20" />
+        <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-brand/30 rounded-bl-2xl sm:rounded-bl-3xl pointer-events-none z-20" />
 
         {/* Main Image Frame */}
         <div

@@ -14,7 +14,9 @@ import {
   Check,
   Layers,
   ArrowRight,
+  ChevronDown,
 } from "lucide-react";
+import { useState } from "react";
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { PageHero } from "../../components/ui/PageHero";
 import { ProcessFlow } from "../../components/ui/ProductShowcase";
@@ -158,15 +160,15 @@ const CUSTOM_IP_PLATFORMS = [
 ];
 
 const CLIENT_SHOWCASE = [
-  { name: "Caterpillar", logo: "/clientele/Caterpillar Logo.jpg" },
+  { name: "Caterpillar", logo: "/clientele/uniform/caterpillar.png" },
   { name: "Exide", isText: true },
-  { name: "MP Birla Group", logo: "/clientele/M P Birla Group.jpeg" },
-  { name: "PCBL", logo: "/clientele/PCBL Chemical.png" },
-  { name: "Resurgent Mining Solutions", logo: "/clientele/Resurgent Mining Solutions.png" },
-  { name: "mJunction", logo: "/clientele/mjuncion - Metal Junction.webp" },
-  { name: "Shyam Steel", logo: "/clientele/Shyam Steel.avif" },
-  { name: "Skipper Pipes", logo: "/clientele/Skipper Pipes.png" },
-  { name: "Viacom18", logo: "/clientele/Viacom 18.jpg" },
+  { name: "MP Birla Group", logo: "/clientele/uniform/mp-birla.png" },
+  { name: "PCBL", logo: "/clientele/uniform/pcbl.png" },
+  { name: "Resurgent Mining Solutions", logo: "/clientele/uniform/resurgent-mining.png" },
+  { name: "mJunction", logo: "/clientele/uniform/mjunction.png" },
+  { name: "Shyam Steel", logo: "/clientele/uniform/shyam-steel.png" },
+  { name: "Skipper Pipes", logo: "/clientele/uniform/skipper-pipes.png" },
+  { name: "Viacom18", logo: "/clientele/uniform/viacom-18.png" },
 ];
 
 const DELIVERY_PHASES = [
@@ -177,11 +179,13 @@ const DELIVERY_PHASES = [
 ];
 
 function ITCustomSolutionsPage() {
+  const [showAllPractices, setShowAllPractices] = useState(false);
+  const [showAllPlatforms, setShowAllPlatforms] = useState(false);
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
       {/* SECTION 1: HERO BANNER */}
       <PageHero
-        title="IT & Custom Solutions Engineered for Enterprise Scale"
+        title="Custom Technology for Enterprise Needs"
         subtitle="From bespoke enterprise applications and applied AI to resilient IT infrastructure and zero-trust cybersecurity, Acceleron delivers solutions built for complex operational requirements."
         breadcrumbs={[
           { label: "Services", href: "/services" },
@@ -189,7 +193,7 @@ function ITCustomSolutionsPage() {
         ]}
         image="/IT & Custom Solutions/IT & Custom Solutions - Acceleron Solutions.png"
         ctaText="Consult with Our Architects"
-        ctaHref="/contact"
+        ctaHref="/contact#form"
         secondaryCtaText="Explore Offerings"
         secondaryCtaHref="#offerings"
       />
@@ -212,52 +216,68 @@ function ITCustomSolutionsPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {CORE_PRACTICES.map((p, i) => (
-            <Reveal key={p.slug} delay={i * 0.08} className="h-full">
-              <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-8 h-full transition-all duration-300 hover:border-brand/40 hover:shadow-elevated hover:-translate-y-1 flex flex-col justify-between group">
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="h-12 w-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <p.icon className="h-6 w-6" />
-                    </div>
-                    <span className="text-xs font-mono font-bold text-muted-foreground/60 group-hover:text-brand transition-colors">
-                      0{i + 1}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-brand transition-colors">
-                    {p.title}
-                  </h3>
-
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                    {p.desc}
-                  </p>
-
-                  <div className="space-y-2.5 pt-4 border-t border-border/50 mb-6">
-                    <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground/80 mb-2">
-                      Key Features
-                    </div>
-                    {p.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/80">
-                        <Check className="h-4 w-4 text-brand shrink-0 mt-0.5" />
-                        <span>{feat}</span>
+            <div key={p.slug} className={i >= 3 && !showAllPractices ? "hidden md:block h-full" : "block h-full"}>
+              <Reveal delay={i * 0.08} className="h-full">
+                <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-8 h-full transition-all duration-300 hover:border-brand/40 hover:shadow-elevated hover:-translate-y-1 flex flex-col justify-between group">
+                  <div>
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="h-12 w-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <p.icon className="h-6 w-6" />
                       </div>
-                    ))}
+                      <span className="text-xs font-mono font-bold text-muted-foreground/60 group-hover:text-brand transition-colors">
+                        0{i + 1}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-brand transition-colors">
+                      {p.title}
+                    </h3>
+
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                      {p.desc}
+                    </p>
+
+                    <div className="space-y-2.5 pt-4 border-t border-border/50 mb-6">
+                      <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground/80 mb-2">
+                        Key Features
+                      </div>
+                      {p.features.map((feat, fIdx) => (
+                        <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/80">
+                          <Check className="h-4 w-4 text-brand shrink-0 mt-0.5" />
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-border/50">
+                    <Link
+                      to={`/services/it-custom-solutions/${p.slug}` as any}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-md shadow-red-600/30 hover:shadow-lg hover:shadow-red-600/50 hover:from-red-500 hover:to-rose-500 transition-all w-full sm:w-auto"
+                    >
+                      <span>Learn More & Solutions</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
                   </div>
                 </div>
-
-                <div className="pt-4 border-t border-border/50">
-                  <Link
-                    to={`/services/it-custom-solutions/${p.slug}` as any}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-brand hover:text-brand-red transition-colors group/link"
-                  >
-                    <span>Learn More</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
           ))}
         </div>
+
+        {CORE_PRACTICES.length > 3 && (
+          <div className="md:hidden pt-5 text-center">
+            <button
+              type="button"
+              onClick={() => setShowAllPractices(!showAllPractices)}
+              className="inline-flex items-center gap-2 text-xs font-bold text-brand-red hover:text-red-700 py-2.5 px-5 rounded-full border border-brand-red/30 bg-brand-red/5 hover:bg-brand-red/10 shadow-sm transition-all cursor-pointer"
+              aria-expanded={showAllPractices}
+            >
+              <span>{showAllPractices ? "Show fewer practices" : `+ View all ${CORE_PRACTICES.length} practice areas`}</span>
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllPractices ? "rotate-180" : ""}`} />
+            </button>
+          </div>
+        )}
       </section>
 
       {/* SECTION 3: TECHNOLOGY & SECURITY PARTNER ECOSYSTEM */}
@@ -328,49 +348,68 @@ function ITCustomSolutionsPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {CUSTOM_IP_PLATFORMS.map((ip, i) => (
-            <Reveal key={ip.name} delay={i * 0.08} className="h-full">
-              <Link to={ip.href as any} className="block h-full group">
-                <div className="rounded-3xl border border-border/70 bg-card p-6 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="h-12 w-28 rounded-xl bg-slate-900 dark:bg-slate-950 px-3 py-2 border border-slate-700/60 dark:border-slate-800 shadow-md flex items-center justify-center group-hover:border-brand/40 transition-colors">
-                        <img
-                          src={getAssetUrl(ip.logo)}
-                          alt={ip.name}
-                          loading="lazy"
-                          decoding="async"
-                          className="h-full w-full object-contain"
-                        />
+            <div key={ip.name} className={i >= 3 && !showAllPlatforms ? "hidden sm:block h-full" : "block h-full"}>
+              <Reveal delay={i * 0.08} className="h-full">
+                <Link to={ip.href as any} className="block h-full group">
+                  <div className="rounded-3xl border border-border/70 bg-card p-6 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="h-12 w-28 rounded-xl bg-slate-900 dark:bg-slate-950 px-3 py-2 border border-slate-700/60 dark:border-slate-800 shadow-md flex items-center justify-center group-hover:border-brand/40 transition-colors">
+                          <img
+                            src={getAssetUrl(ip.logo)}
+                            alt={ip.name}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-full object-contain"
+                          />
+                        </div>
+                        <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-brand group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </div>
-                      <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-brand group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </div>
 
-                    <div className="mb-2">
-                      <div className="text-xs font-bold uppercase tracking-wider text-brand-red">
-                        {ip.name}
+                      <div className="mb-2">
+                        <div className="text-xs font-bold uppercase tracking-wider text-brand-red">
+                          {ip.name}
+                        </div>
+                        <h3 className="text-lg font-bold text-foreground group-hover:text-brand transition-colors">
+                          {ip.fullName}
+                        </h3>
                       </div>
-                      <h3 className="text-lg font-bold text-foreground group-hover:text-brand transition-colors">
-                        {ip.fullName}
-                      </h3>
+
+                      <div className="inline-block px-2.5 py-1 rounded-md bg-brand/10 text-brand text-[11px] font-bold mb-3">
+                        {ip.stat}
+                      </div>
+
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                        {ip.desc}
+                      </p>
                     </div>
 
-                    <div className="inline-block px-2.5 py-1 rounded-md bg-brand/10 text-brand text-[11px] font-bold mb-3">
-                      {ip.stat}
+                    <div className="mt-5 pt-3.5 border-t border-border/50 flex items-center justify-between">
+                      <span className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-4 py-2 text-xs font-bold shadow-md shadow-red-600/25 group-hover:shadow-red-600/40 group-hover:from-red-500 group-hover:to-rose-500 transition-all w-full sm:w-auto">
+                        <span>Explore Solution</span>
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                      </span>
                     </div>
-
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      {ip.desc}
-                    </p>
                   </div>
-
-                  <div className="mt-5 pt-3.5 border-t border-border/50 text-xs font-bold text-brand group-hover:text-brand-red transition-colors">
-                    Explore Solution →
-                  </div>
-                </div>
-              </Link>
-            </Reveal>
+                </Link>
+              </Reveal>
+            </div>
           ))}
         </div>
+
+        {CUSTOM_IP_PLATFORMS.length > 3 && (
+          <div className="sm:hidden pt-5 text-center">
+            <button
+              type="button"
+              onClick={() => setShowAllPlatforms(!showAllPlatforms)}
+              className="inline-flex items-center gap-2 text-xs font-bold text-brand-red hover:text-red-700 py-2.5 px-5 rounded-full border border-brand-red/30 bg-brand-red/5 hover:bg-brand-red/10 shadow-sm transition-all cursor-pointer"
+              aria-expanded={showAllPlatforms}
+            >
+              <span>{showAllPlatforms ? "Show fewer platforms" : `+ View ${CUSTOM_IP_PLATFORMS.length - 3} more platform`}</span>
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllPlatforms ? "rotate-180" : ""}`} />
+            </button>
+          </div>
+        )}
       </section>
 
       {/* SECTION 5: TRUSTED BY INDUSTRY LEADERS */}
@@ -454,6 +493,7 @@ function ITCustomSolutionsPage() {
               <div className="pt-2">
                 <Link
                   to="/contact"
+                  hash="form"
                   className="btn btn-primary btn-lg inline-flex items-center gap-2 shadow-lg shadow-brand-red/20"
                 >
                   Consult with Our Architects <ArrowUpRight className="h-5 w-5" />

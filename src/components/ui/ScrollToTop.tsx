@@ -115,8 +115,8 @@ export function ScrollToTop() {
           onKeyDown={handleKeyDown}
           aria-label="Scroll to top. Click to jump to top, click and hold to smoothly scroll up."
           title={isHolding ? "Scrolling up..." : "Click to go to top • Hold to scroll up"}
-          className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 group flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gradient-to-tr from-red-600 via-red-500 to-rose-500 text-white shadow-xl shadow-red-600/35 hover:shadow-red-600/55 border border-white/25 transition-all duration-300 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500 ${
-            isHolding ? "scale-95 shadow-red-600/60" : "hover:scale-110 hover:-translate-y-0.5"
+          className={`fixed bottom-6 right-4 sm:bottom-8 sm:right-8 z-50 group flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gradient-to-tr from-red-600 via-red-500 to-rose-600 text-white shadow-2xl shadow-red-600/45 hover:shadow-red-600/65 border-2 border-white/50 transition-all duration-300 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500 ${
+            isHolding ? "scale-95 shadow-red-600/70" : "hover:scale-110 hover:-translate-y-0.5"
           }`}
           style={{ touchAction: "none" }}
         >

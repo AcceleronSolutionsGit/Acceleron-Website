@@ -12,7 +12,9 @@ import {
   Check,
   Mail,
   Phone,
+  ChevronDown,
 } from "lucide-react";
+import { useState } from "react";
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { PageHero } from "../../components/ui/PageHero";
 import { ProcessFlow } from "../../components/ui/ProductShowcase";
@@ -145,6 +147,7 @@ const FAQS = [
 ];
 
 function ManageEnginePage() {
+  const [showAllProducts, setShowAllProducts] = useState(false);
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
       {/* SECTION 1: HERO BANNER */}
@@ -223,61 +226,77 @@ function ManageEnginePage() {
 
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           {CORE_PRODUCTS.map((prod, i) => (
-            <Reveal key={prod.title} delay={i * 0.08} className="h-full">
-              <div className="group rounded-3xl border border-border/70 bg-card p-7 sm:p-9 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="h-12 w-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <prod.icon className="h-6 w-6" />
-                    </div>
-                    <span className="text-xs font-mono font-bold text-muted-foreground/60 group-hover:text-brand transition-colors">
-                      0{i + 1}
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-brand transition-colors">
-                    {prod.title}
-                  </h3>
-
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                    {prod.desc}
-                  </p>
-
-                  <div className="space-y-2.5 pt-4 border-t border-border/50 mb-6">
-                    <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground/80 mb-2">
-                      Key Highlights
-                    </div>
-                    {prod.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/85">
-                        <Check className="h-4 w-4 text-brand shrink-0 mt-0.5" />
-                        <span>{feat}</span>
+            <div key={prod.title} className={i >= 3 && !showAllProducts ? "hidden md:block h-full" : "block h-full"}>
+              <Reveal delay={i * 0.08} className="h-full">
+                <div className="group rounded-3xl border border-border/70 bg-card p-7 sm:p-9 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="h-12 w-12 rounded-2xl bg-brand/10 text-brand flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <prod.icon className="h-6 w-6" />
                       </div>
-                    ))}
+                      <span className="text-xs font-mono font-bold text-muted-foreground/60 group-hover:text-brand transition-colors">
+                        0{i + 1}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-brand transition-colors">
+                      {prod.title}
+                    </h3>
+
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                      {prod.desc}
+                    </p>
+
+                    <div className="space-y-2.5 pt-4 border-t border-border/50 mb-6">
+                      <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground/80 mb-2">
+                        Key Highlights
+                      </div>
+                      {prod.features.map((feat, fIdx) => (
+                        <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/85">
+                          <Check className="h-4 w-4 text-brand shrink-0 mt-0.5" />
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-border/50 flex flex-wrap items-center justify-between gap-3">
+                    <Link
+                      to={prod.href as any}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-md shadow-red-600/30 hover:shadow-lg hover:shadow-red-600/50 hover:from-red-500 hover:to-rose-500 transition-all w-full sm:w-auto"
+                    >
+                      <span>Explore Detail & Integration</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                    {(prod as any).secondaryHref && (
+                      <Link
+                        to={(prod as any).secondaryHref}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-brand transition-colors"
+                      >
+                        <span>{(prod as any).secondaryLabel}</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    )}
                   </div>
                 </div>
-
-                <div className="pt-4 border-t border-border/50 flex flex-wrap items-center justify-between gap-3">
-                  <Link
-                    to={prod.href as any}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-brand hover:text-brand-red transition-colors group/link"
-                  >
-                    <span>Explore Detail & Integration</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                  </Link>
-                  {(prod as any).secondaryHref && (
-                    <Link
-                      to={(prod as any).secondaryHref}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-brand transition-colors"
-                    >
-                      <span>{(prod as any).secondaryLabel}</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  )}
-                </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
           ))}
         </div>
+
+        {CORE_PRODUCTS.length > 3 && (
+          <div className="md:hidden pt-5 text-center">
+            <button
+              type="button"
+              onClick={() => setShowAllProducts(!showAllProducts)}
+              className="inline-flex items-center gap-2 text-xs font-bold text-brand-red hover:text-red-700 py-2.5 px-5 rounded-full border border-brand-red/30 bg-brand-red/5 hover:bg-brand-red/10 shadow-sm transition-all cursor-pointer"
+              aria-expanded={showAllProducts}
+            >
+              <span>{showAllProducts ? "Show fewer products" : `+ View ${CORE_PRODUCTS.length - 3} more product`}</span>
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllProducts ? "rotate-180" : ""}`} />
+            </button>
+          </div>
+        )}
       </section>
 
       {/* IMPLEMENTATION METHODOLOGY */}

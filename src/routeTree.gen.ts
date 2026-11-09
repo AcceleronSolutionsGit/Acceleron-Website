@@ -66,10 +66,15 @@ import { Route as ProductsWomsRouteImport } from './routes/products/woms'
 import { Route as ProductsWorkforceManagementRouteImport } from './routes/products/workforce-management'
 import { Route as ProductsYogdaanRouteImport } from './routes/products/yogdaan'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesAnalyticsRouteImport } from './routes/services/analytics'
+import { Route as ServicesCxoAdvisoryRouteImport } from './routes/services/cxo-advisory'
+import { Route as ServicesCyberSecurityRouteImport } from './routes/services/cyber-security'
 import { Route as ServicesItCustomSolutionsRouteImport } from './routes/services/it-custom-solutions'
+import { Route as ServicesItInfrastructureRouteImport } from './routes/services/it-infrastructure'
 import { Route as ServicesManageEngineRouteImport } from './routes/services/manage-engine'
 import { Route as ServicesManageengineRouteImport } from './routes/services/manageengine'
 import { Route as ServicesSapRouteImport } from './routes/services/sap'
+import { Route as ServicesSoftwareDevelopmentRouteImport } from './routes/services/software-development'
 import { Route as ServicesZohoRouteImport } from './routes/services/zoho'
 import { Route as ServicesCategoryServiceRouteImport } from './routes/services/$category.$service'
 import { Route as ServicesDetailSlugRouteImport } from './routes/services/detail.$slug'
@@ -371,10 +376,31 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
+  id: '/services/analytics',
+  path: '/services/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCxoAdvisoryRoute = ServicesCxoAdvisoryRouteImport.update({
+  id: '/services/cxo-advisory',
+  path: '/services/cxo-advisory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCyberSecurityRoute = ServicesCyberSecurityRouteImport.update({
+  id: '/services/cyber-security',
+  path: '/services/cyber-security',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesItCustomSolutionsRoute =
   ServicesItCustomSolutionsRouteImport.update({
     id: '/services/it-custom-solutions',
     path: '/services/it-custom-solutions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesItInfrastructureRoute =
+  ServicesItInfrastructureRouteImport.update({
+    id: '/services/it-infrastructure',
+    path: '/services/it-infrastructure',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesManageEngineRoute = ServicesManageEngineRouteImport.update({
@@ -392,6 +418,12 @@ const ServicesSapRoute = ServicesSapRouteImport.update({
   path: '/services/sap',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesSoftwareDevelopmentRoute =
+  ServicesSoftwareDevelopmentRouteImport.update({
+    id: '/services/software-development',
+    path: '/services/software-development',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ServicesZohoRoute = ServicesZohoRouteImport.update({
   id: '/services/zoho',
   path: '/services/zoho',
@@ -462,10 +494,15 @@ export interface FileRoutesByFullPath {
   '/products/woms': typeof ProductsWomsRoute
   '/products/workforce-management': typeof ProductsWorkforceManagementRoute
   '/products/yogdaan': typeof ProductsYogdaanRoute
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
+  '/services/cyber-security': typeof ServicesCyberSecurityRoute
   '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
   '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
+  '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
   '/admin/': typeof AdminIndexRoute
   '/industries/': typeof IndustriesIndexRoute
@@ -527,10 +564,15 @@ export interface FileRoutesByTo {
   '/products/woms': typeof ProductsWomsRoute
   '/products/workforce-management': typeof ProductsWorkforceManagementRoute
   '/products/yogdaan': typeof ProductsYogdaanRoute
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
+  '/services/cyber-security': typeof ServicesCyberSecurityRoute
   '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
   '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
+  '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
   '/admin': typeof AdminIndexRoute
   '/industries': typeof IndustriesIndexRoute
@@ -594,10 +636,15 @@ export interface FileRoutesById {
   '/products/woms': typeof ProductsWomsRoute
   '/products/workforce-management': typeof ProductsWorkforceManagementRoute
   '/products/yogdaan': typeof ProductsYogdaanRoute
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/cxo-advisory': typeof ServicesCxoAdvisoryRoute
+  '/services/cyber-security': typeof ServicesCyberSecurityRoute
   '/services/it-custom-solutions': typeof ServicesItCustomSolutionsRoute
+  '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
   '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
   '/services/sap': typeof ServicesSapRoute
+  '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
   '/admin/': typeof AdminIndexRoute
   '/industries/': typeof IndustriesIndexRoute
@@ -662,10 +709,15 @@ export interface FileRouteTypes {
     | '/products/woms'
     | '/products/workforce-management'
     | '/products/yogdaan'
+    | '/services/analytics'
+    | '/services/cxo-advisory'
+    | '/services/cyber-security'
     | '/services/it-custom-solutions'
+    | '/services/it-infrastructure'
     | '/services/manage-engine'
     | '/services/manageengine'
     | '/services/sap'
+    | '/services/software-development'
     | '/services/zoho'
     | '/admin/'
     | '/industries/'
@@ -727,10 +779,15 @@ export interface FileRouteTypes {
     | '/products/woms'
     | '/products/workforce-management'
     | '/products/yogdaan'
+    | '/services/analytics'
+    | '/services/cxo-advisory'
+    | '/services/cyber-security'
     | '/services/it-custom-solutions'
+    | '/services/it-infrastructure'
     | '/services/manage-engine'
     | '/services/manageengine'
     | '/services/sap'
+    | '/services/software-development'
     | '/services/zoho'
     | '/admin'
     | '/industries'
@@ -793,10 +850,15 @@ export interface FileRouteTypes {
     | '/products/woms'
     | '/products/workforce-management'
     | '/products/yogdaan'
+    | '/services/analytics'
+    | '/services/cxo-advisory'
+    | '/services/cyber-security'
     | '/services/it-custom-solutions'
+    | '/services/it-infrastructure'
     | '/services/manage-engine'
     | '/services/manageengine'
     | '/services/sap'
+    | '/services/software-development'
     | '/services/zoho'
     | '/admin/'
     | '/industries/'
@@ -855,10 +917,15 @@ export interface RootRouteChildren {
   ProductsWomsRoute: typeof ProductsWomsRoute
   ProductsWorkforceManagementRoute: typeof ProductsWorkforceManagementRoute
   ProductsYogdaanRoute: typeof ProductsYogdaanRoute
+  ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
+  ServicesCxoAdvisoryRoute: typeof ServicesCxoAdvisoryRoute
+  ServicesCyberSecurityRoute: typeof ServicesCyberSecurityRoute
   ServicesItCustomSolutionsRoute: typeof ServicesItCustomSolutionsRoute
+  ServicesItInfrastructureRoute: typeof ServicesItInfrastructureRoute
   ServicesManageEngineRoute: typeof ServicesManageEngineRoute
   ServicesManageengineRoute: typeof ServicesManageengineRoute
   ServicesSapRoute: typeof ServicesSapRoute
+  ServicesSoftwareDevelopmentRoute: typeof ServicesSoftwareDevelopmentRoute
   ServicesZohoRoute: typeof ServicesZohoRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
@@ -1268,11 +1335,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/analytics': {
+      id: '/services/analytics'
+      path: '/services/analytics'
+      fullPath: '/services/analytics'
+      preLoaderRoute: typeof ServicesAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/cxo-advisory': {
+      id: '/services/cxo-advisory'
+      path: '/services/cxo-advisory'
+      fullPath: '/services/cxo-advisory'
+      preLoaderRoute: typeof ServicesCxoAdvisoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/cyber-security': {
+      id: '/services/cyber-security'
+      path: '/services/cyber-security'
+      fullPath: '/services/cyber-security'
+      preLoaderRoute: typeof ServicesCyberSecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/it-custom-solutions': {
       id: '/services/it-custom-solutions'
       path: '/services/it-custom-solutions'
       fullPath: '/services/it-custom-solutions'
       preLoaderRoute: typeof ServicesItCustomSolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/it-infrastructure': {
+      id: '/services/it-infrastructure'
+      path: '/services/it-infrastructure'
+      fullPath: '/services/it-infrastructure'
+      preLoaderRoute: typeof ServicesItInfrastructureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/manage-engine': {
@@ -1294,6 +1389,13 @@ declare module '@tanstack/react-router' {
       path: '/services/sap'
       fullPath: '/services/sap'
       preLoaderRoute: typeof ServicesSapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/software-development': {
+      id: '/services/software-development'
+      path: '/services/software-development'
+      fullPath: '/services/software-development'
+      preLoaderRoute: typeof ServicesSoftwareDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/zoho': {
@@ -1391,10 +1493,15 @@ const rootRouteChildren: RootRouteChildren = {
   ProductsWomsRoute: ProductsWomsRoute,
   ProductsWorkforceManagementRoute: ProductsWorkforceManagementRoute,
   ProductsYogdaanRoute: ProductsYogdaanRoute,
+  ServicesAnalyticsRoute: ServicesAnalyticsRoute,
+  ServicesCxoAdvisoryRoute: ServicesCxoAdvisoryRoute,
+  ServicesCyberSecurityRoute: ServicesCyberSecurityRoute,
   ServicesItCustomSolutionsRoute: ServicesItCustomSolutionsRoute,
+  ServicesItInfrastructureRoute: ServicesItInfrastructureRoute,
   ServicesManageEngineRoute: ServicesManageEngineRoute,
   ServicesManageengineRoute: ServicesManageengineRoute,
   ServicesSapRoute: ServicesSapRoute,
+  ServicesSoftwareDevelopmentRoute: ServicesSoftwareDevelopmentRoute,
   ServicesZohoRoute: ServicesZohoRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,

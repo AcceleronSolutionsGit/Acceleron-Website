@@ -194,8 +194,8 @@ function Nav() {
                               onMouseEnter={() => setHoveredItem(cat.name)}
                               className={`group flex items-center justify-between w-full rounded-lg px-3 py-2.5 transition-all text-left ${hoveredItem === cat.name ? 'bg-muted/60 dark:bg-muted/20' : 'hover:bg-muted/40 dark:hover:bg-muted/10'}`}
                             >
-                              <span className={`text-sm font-semibold transition-colors ${hoveredItem === cat.name ? 'text-brand' : 'text-foreground group-hover:text-brand'}`}>{cat.name}</span>
-                              <ChevronDown className={`h-3.5 w-3.5 -rotate-90 transition-all ${hoveredItem === cat.name ? 'opacity-100 text-brand' : 'opacity-0 group-hover:opacity-50'}`} />
+                              <span className={`text-sm font-semibold transition-colors ${hoveredItem === cat.name ? 'text-brand-red' : 'text-foreground group-hover:text-brand-red'}`}>{cat.name}</span>
+                              <ChevronDown className={`h-3.5 w-3.5 -rotate-90 transition-all ${hoveredItem === cat.name ? 'opacity-100 text-brand-red' : 'opacity-0 group-hover:opacity-50'}`} />
                             </Link>
                           ))}
                           <div className="my-2 border-t border-border/60" />
@@ -205,8 +205,8 @@ function Nav() {
                             onMouseEnter={() => setHoveredItem("products")}
                             className={`group flex items-center justify-between w-full rounded-lg px-3 py-2.5 transition-all text-left ${hoveredItem === 'products' ? 'bg-muted/60 dark:bg-muted/20' : 'hover:bg-muted/40 dark:hover:bg-muted/10'}`}
                           >
-                            <span className={`text-sm font-semibold transition-colors ${hoveredItem === 'products' ? 'text-brand' : 'text-foreground group-hover:text-brand'}`}>Products</span>
-                            <ChevronDown className={`h-3.5 w-3.5 -rotate-90 transition-all ${hoveredItem === 'products' ? 'opacity-100 text-brand' : 'opacity-0 group-hover:opacity-50'}`} />
+                            <span className={`text-sm font-semibold transition-colors ${hoveredItem === 'products' ? 'text-brand-red' : 'text-foreground group-hover:text-brand-red'}`}>Products</span>
+                            <ChevronDown className={`h-3.5 w-3.5 -rotate-90 transition-all ${hoveredItem === 'products' ? 'opacity-100 text-brand-red' : 'opacity-0 group-hover:opacity-50'}`} />
                           </Link>
                         </div>
                       </div>
@@ -270,10 +270,10 @@ function Nav() {
                                     className="group flex items-center justify-between rounded-lg px-2 py-1 transition-all hover:bg-muted/40 dark:hover:bg-muted/10"
                                   >
                                     <div className="truncate pr-1">
-                                      <div className="text-xs font-medium text-foreground group-hover:text-brand transition-colors truncate">{p.name}</div>
+                                      <div className="text-xs font-medium text-foreground group-hover:text-brand-red transition-colors truncate">{p.name}</div>
                                       <div className="text-[10px] text-muted-foreground truncate">{p.desc}</div>
                                     </div>
-                                    <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand shrink-0" />
+                                    <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand-red shrink-0" />
                                   </Link>
                                 ))}
                               </div>
@@ -296,8 +296,8 @@ function Nav() {
                                         onClick={() => setActiveDropdown(null)}
                                         className="group flex items-center justify-between rounded-lg px-3 py-2 transition-all hover:bg-muted/40 dark:hover:bg-muted/10"
                                       >
-                                        <div className="text-sm font-medium text-foreground group-hover:text-brand transition-colors">{sub.title}</div>
-                                        <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand" />
+                                        <div className="text-sm font-medium text-foreground group-hover:text-brand-red transition-colors">{sub.title}</div>
+                                        <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand-red" />
                                       </Link>
                                     );
                                   })}
@@ -330,12 +330,12 @@ function Nav() {
                             onClick={() => setActiveDropdown(null)}
                             className="group flex flex-col justify-center rounded-xl transition-all p-3 border border-border/40 bg-muted/10 hover:border-brand/30 hover:bg-muted/30 shadow-sm"
                           >
-                            <div className="flex items-center justify-between text-sm font-semibold text-foreground group-hover:text-brand transition-colors w-full">
+                            <div className="flex items-center justify-between text-sm font-semibold text-foreground group-hover:text-brand-red transition-colors w-full">
                               <div className="flex items-center gap-1.5">
-                                <item.icon className="h-4 w-4 text-brand-red group-hover:text-brand transition-colors" />
+                                <item.icon className="h-4 w-4 text-brand-red group-hover:text-brand-red transition-colors" />
                                 {item.name}
                               </div>
-                              <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand" />
+                              <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand-red" />
                             </div>
                           </Link>
                         ))}
@@ -363,12 +363,12 @@ function Nav() {
                             onClick={() => setActiveDropdown(null)}
                             className="group flex flex-col justify-center rounded-xl transition-all p-3 border border-border/40 bg-muted/10 hover:border-brand/30 hover:bg-muted/30 shadow-sm"
                           >
-                            <div className="flex items-center justify-between text-sm font-semibold text-foreground group-hover:text-brand transition-colors w-full">
+                            <div className="flex items-center justify-between text-sm font-semibold text-foreground group-hover:text-brand-red transition-colors w-full">
                               <div className="flex items-center gap-1.5">
-                                <item.icon className="h-4 w-4 text-brand-red group-hover:text-brand transition-colors" />
+                                <item.icon className="h-4 w-4 text-brand-red group-hover:text-brand-red transition-colors" />
                                 {item.name}
                               </div>
-                              <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand" />
+                              <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-brand-red" />
                             </div>
                           </Link>
                         ))}
@@ -382,7 +382,7 @@ function Nav() {
         </nav>
         <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
-          <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-6 py-2.5 text-sm font-bold text-white shadow-glow transition-all hover:scale-105 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+          <Link to="/contact" hash="form" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-red-600 via-red-600 to-rose-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-red-600/30 transition-all hover:scale-105 hover:shadow-red-600/50 hover:from-red-500 hover:to-rose-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500">
             Get in touch <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -595,7 +595,7 @@ function Nav() {
                   <span className="text-xs font-semibold text-foreground/80">Appearance Mode</span>
                   <ThemeToggle />
                 </div>
-                <Link to="/contact" onClick={() => setOpen(false)} className="btn btn-primary btn-md w-full justify-center">
+                <Link to="/contact" hash="form" onClick={() => setOpen(false)} className="btn btn-primary btn-md w-full justify-center">
                   Get in touch <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

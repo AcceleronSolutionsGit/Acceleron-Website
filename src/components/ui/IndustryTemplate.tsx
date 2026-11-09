@@ -333,7 +333,8 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
               </ul>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3.5 text-sm font-bold text-white shadow-glow hover:scale-105 transition-all"
+                hash="form"
+                className="btn btn-primary btn-lg"
               >
                 Schedule Executive Briefing <ArrowUpRight className="h-4 w-4" />
               </Link>
@@ -355,7 +356,8 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 to="/contact"
-                className="rounded-2xl bg-brand-gradient px-8 py-4 text-sm font-bold text-white shadow-glow hover:opacity-95 transition-opacity"
+                hash="form"
+                className="btn btn-primary btn-lg"
               >
                 Schedule Executive Discovery
               </Link>

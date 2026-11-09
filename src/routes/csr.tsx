@@ -132,20 +132,22 @@ function CsrPage() {
         }
       />
 
-      {/* METRICS STRIP */}
-      <section className="border-y border-border/60 bg-muted/30 py-8 relative z-20">
+      {/* METRICS STRIP (4-Grid on Mobile & Desktop) */}
+      <section className="border-y border-border/60 bg-muted/30 py-8 sm:py-10 relative z-20">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
             {CSR_METRICS.map((metric, idx) => (
-              <Reveal key={metric.label} delay={idx * 0.08}>
-                <div className="text-center sm:text-left border-l-2 border-brand/60 pl-4">
-                  <div className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
-                    <span className="text-gradient">{metric.value}</span>
+              <Reveal key={metric.label} delay={idx * 0.08} className="h-full">
+                <div className="h-full rounded-2xl border border-border/70 bg-card/70 p-4 sm:p-5 shadow-soft hover:shadow-elevated hover:border-brand/40 transition-all text-center sm:text-left flex flex-col justify-between">
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+                      <span className="text-gradient">{metric.value}</span>
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold text-foreground mt-1 leading-snug">
+                      {metric.label}
+                    </div>
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-foreground mt-0.5">
-                    {metric.label}
-                  </div>
-                  <div className="text-[11px] text-muted-foreground mt-0.5 hidden sm:block">
+                  <div className="text-[11px] text-muted-foreground mt-2 hidden sm:block leading-relaxed">
                     {metric.desc}
                   </div>
                 </div>
@@ -252,26 +254,6 @@ function CsrPage() {
                         <p>{item.extendedDescription}</p>
                       )}
                     </div>
-
-                    {/* Highlights Bullet List */}
-                    {item.highlights && item.highlights.length > 0 && (
-                      <div className="pt-3 space-y-2.5">
-                        <div className="text-xs uppercase tracking-wider font-bold text-foreground">
-                          Drive Highlights:
-                        </div>
-                        <div className="grid sm:grid-cols-1 gap-2">
-                          {item.highlights.map((h, i) => (
-                            <div
-                              key={i}
-                              className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/80 leading-relaxed"
-                            >
-                              <CheckCircle2 className="h-4 w-4 text-brand-red shrink-0 mt-0.5" />
-                              <span>{h}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
 
                     {/* Quick Stats & Action Buttons */}
                     <div className="pt-4 flex flex-wrap items-center gap-4">
@@ -401,6 +383,7 @@ function CsrPage() {
               </Link>
               <Link
                 to="/contact"
+                hash="form"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-8 py-3.5 text-xs font-bold text-foreground hover:bg-muted/40 transition-colors"
               >
                 <span>Partner with Acceleron Cares</span>

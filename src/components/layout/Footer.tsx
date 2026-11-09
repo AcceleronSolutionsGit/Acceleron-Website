@@ -59,8 +59,8 @@ export function Footer() {
                   </div>
                 </li> */}
                 <li className="flex items-center gap-3">
-                  <Mail className="h-4 w-4 text-brand shrink-0" />
-                  <a href={`mailto:${OFFICIAL_HQ.email}`} className="hover:text-brand transition-colors font-medium">
+                  <Mail className="h-4 w-4 text-brand-red shrink-0" />
+                  <a href={`mailto:${OFFICIAL_HQ.email}`} className="hover:text-brand-red transition-colors font-medium">
                     {OFFICIAL_HQ.email}
                   </a>
                 </li>
@@ -94,8 +94,8 @@ export function Footer() {
             © {new Date().getFullYear()} Acceleron Solutions Pvt. Ltd. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <Link to="/contact" className="hover:text-foreground transition-colors">Contact Us</Link>
-            <a href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</a>
+            <Link to="/contact" hash="form" className="hover:text-brand-red transition-colors font-medium">Contact Us</Link>
+            <a href="/privacy-policy" className="hover:text-brand-red transition-colors font-medium">Privacy Policy</a>
           </div>
         </div>
       </div>
