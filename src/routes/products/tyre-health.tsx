@@ -122,7 +122,7 @@ function TyreHealthProductPage() {
           { label: "Industrial Solutions", href: "/products" },
           { label: "Tyre Health" },
         ]}
-        image="/Transportation_Industry.jpg"
+        image="/products/featured-applications/Tyre Managemnt System  - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Modules"

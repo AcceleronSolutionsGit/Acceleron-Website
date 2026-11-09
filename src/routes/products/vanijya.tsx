@@ -157,7 +157,7 @@ function VanijyaProductPage() {
           { label: "CX Solutions", href: "/products" },
           { label: "Vanijya" },
         ]}
-        image="/utilities.jpg"
+        image="/products/featured-applications/Vanijya Heavy Machinery Marketplace- Ecommerce - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Capabilities"

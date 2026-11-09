@@ -128,7 +128,7 @@ function CWMSProductPage() {
           { label: "Industrial Solutions", href: "/products" },
           { label: "CWMS" },
         ]}
-        image="/CWMS_Banner.png"
+        image="/products/featured-applications/Contractor Workforce Management System - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Functionalities"

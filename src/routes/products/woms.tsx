@@ -127,7 +127,7 @@ function WOMSProductPage() {
           { label: "Industrial Solutions", href: "/products" },
           { label: "WOMS" },
         ]}
-        image="/capital_goods.jpg"
+        image="/products/featured-applications/Work Order Management System  - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Functionalities"

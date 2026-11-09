@@ -16,7 +16,7 @@ function ProductPage() {
         title="Automated Route Optimization and Real-Time Field Execution"
         subtitle="Empower sales and field engineering teams with GPS-backed journey plans, automated check-ins, and live visit reports."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "PJP / IFSM" }]}
-        image="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=75&w=1200&auto=format&fit=crop"
+        image="/products/featured-applications/Intelligent Feild Service Management.png"
         icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={getAssetUrl("/IFSM.png")} alt="PJP IFSM" loading="lazy" decoding="async" className="h-10 w-10 object-contain" /></div>}
       />
 

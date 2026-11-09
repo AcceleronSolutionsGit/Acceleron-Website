@@ -40,7 +40,7 @@ const PEOPLE_SOLUTIONS_DATA: ProductCategoryData = {
   badge: "WORKFORCE EXCELLENCE & HUMAN CAPITAL",
   overview:
     "We develop and deliver integrated digital People Solutions designed to streamline human capital management, strengthen workforce governance, and improve organizational productivity. By bringing together intelligent digital workflows, statutory compliance tracking, workplace safety management, and employee engagement platforms, our solutions help enterprises build a secure, connected, and high-performing workforce.",
-  heroImage: "/construction-img.jpg",
+  heroImage: "/products/People Solutions - Acceleron Solutions.png",
   icon: Users,
   gradient: "from-teal-600 via-emerald-600 to-cyan-600",
   products: [

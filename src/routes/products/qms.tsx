@@ -116,7 +116,7 @@ function QMSProductPage() {
           { label: "Industrial Solutions", href: "/products" },
           { label: "QMS" },
         ]}
-        image="/capital_goods.jpg"
+        image="/products/featured-applications/Quality Management System  - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Capabilities"

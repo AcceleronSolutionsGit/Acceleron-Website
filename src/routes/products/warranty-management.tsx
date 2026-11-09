@@ -128,7 +128,7 @@ function WarrantyManagementProductPage() {
           { label: "CX Solutions", href: "/products" },
           { label: "Customer Warranty Management" },
         ]}
-        image="/capital_goods.jpg"
+        image="/products/featured-applications/Customer Warranty Management Software - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Functionalities"

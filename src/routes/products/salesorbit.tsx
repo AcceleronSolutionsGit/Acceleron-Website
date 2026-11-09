@@ -128,7 +128,7 @@ function SalesOrbitProductPage() {
           { label: "CX Solutions", href: "/products" },
           { label: "SalesOrbit" },
         ]}
-        image="/Transportation_Industry.jpg"
+        image="/products/featured-applications/SalesOrbit - AI Powered Sales Journey Plan - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Features"

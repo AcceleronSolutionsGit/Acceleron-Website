@@ -42,7 +42,7 @@ const CX_SOLUTIONS_DATA: ProductCategoryData = {
   badge: "CUSTOMER EXPERIENCE & LIFECYCLE ENGAGEMENT",
   overview:
     "Acceleron's CX Solutions bring together a suite of digital platforms designed to enhance customer experience, streamline field service management, simplify commercial transactions and strengthen long-term customer relationships. Combining CRM capabilities, warranty management, loyalty programmes and automated field support, this integrated ecosystem helps enterprises deliver more connected customer experiences and build lasting relationships.",
-  heroImage: "/capital_goods.jpg",
+  heroImage: "/products/CX Solutions - Acceleron Solutions.png",
   icon: ShoppingBag,
   gradient: "from-amber-600 via-orange-600 to-red-600",
   products: [

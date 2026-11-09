@@ -128,7 +128,7 @@ function AccelEdgeAIProductPage() {
           { label: "Office Digitization", href: "/products" },
           { label: "AccelEdge.ai" },
         ]}
-        image="/capital_goods.jpg"
+        image="/products/featured-applications/AccelEdge AI - AI Governance - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Capabilities"

@@ -127,7 +127,7 @@ function YogdaanProductPage() {
           { label: "People Solutions", href: "/products" },
           { label: "Yogdaan" },
         ]}
-        image="/Office_View_1.jpg"
+        image="/products/featured-applications/Yogdaan - Employee Feedback and survey - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Modules"
