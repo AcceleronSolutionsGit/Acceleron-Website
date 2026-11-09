@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -20,6 +21,7 @@ import {
   Clock,
   Sparkles,
   ChevronRight,
+  ChevronDown,
   Award,
   Users,
   Compass,
@@ -459,6 +461,100 @@ const FAQS = [
   },
 ];
 
+function CapabilityCardItem({
+  cap,
+  practiceGradient,
+}: {
+  cap: CapabilityCard;
+  practiceGradient: string;
+}) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div className="group rounded-2xl sm:rounded-3xl border border-border/70 bg-card p-5 sm:p-6 md:p-7 h-full shadow-card hover:shadow-elevated hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+      <div>
+        <div className="flex items-center justify-between mb-4 sm:mb-5">
+          <div
+            className={`h-11 w-11 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl bg-gradient-to-br ${practiceGradient} text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform`}
+          >
+            <cap.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+          </div>
+          <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-muted-foreground bg-muted/60 px-2.5 sm:px-3 py-1 rounded-full border border-border/50">
+            {cap.badge}
+          </span>
+        </div>
+
+        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1 group-hover:text-brand-red transition-colors">
+          {cap.title}
+        </h3>
+        <div className="text-xs font-semibold text-brand-red mb-3 sm:mb-4">
+          {cap.subtitle}
+        </div>
+
+        {/* Clamped description on mobile with toggle */}
+        <p
+          className={`text-muted-foreground text-xs sm:text-sm leading-relaxed mb-3 sm:mb-5 ${
+            isExpanded ? "" : "line-clamp-2 sm:line-clamp-none"
+          }`}
+        >
+          {cap.desc}
+        </p>
+
+        {/* Mobile toggle button */}
+        <div className="sm:hidden mb-4">
+          <button
+            type="button"
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 transition-colors py-1 cursor-pointer"
+            aria-expanded={isExpanded}
+          >
+            <span>{isExpanded ? "Show less" : "Read more & key deliverables"}</span>
+            <ChevronDown
+              className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                isExpanded ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+        </div>
+
+        {/* Key Deliverables - collapsed by default on mobile, always visible on sm+ */}
+        <div
+          className={`${
+            isExpanded ? "block" : "hidden sm:block"
+          } space-y-2 sm:space-y-2.5 pt-3 sm:pt-4 border-t border-border/50 mb-5 sm:mb-6 animate-in fade-in duration-200`}
+        >
+          <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-muted-foreground/80 mb-2">
+            Key Deliverables
+          </div>
+          {cap.features.map((feat: string, fIdx: number) => (
+            <div
+              key={fIdx}
+              className="flex items-start gap-2 text-xs text-foreground/85"
+            >
+              <Check className="h-3.5 w-3.5 text-brand-red shrink-0 mt-0.5" />
+              <span>{feat}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Prominent Red CTA Button */}
+      <div className="pt-3.5 sm:pt-4 border-t border-border/50 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <Link
+          to={cap.href as any}
+          className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-md shadow-red-600/30 hover:shadow-lg hover:shadow-red-600/50 hover:from-red-500 hover:to-rose-500 hover:scale-[1.02] active:scale-[0.98] transition-all w-full sm:w-auto"
+        >
+          <span>Explore Capability</span>
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+        <span className="text-[10px] sm:text-[11px] font-medium text-muted-foreground/60 text-center sm:text-right">
+          Practice Service
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function ServicesHub() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
@@ -587,7 +683,7 @@ function ServicesHub() {
                 <div className="pt-4 mt-4 border-t border-border/60">
                   <a
                     href={`#${practice.anchorId}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 transition-colors w-full justify-between"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-4 py-2.5 text-xs sm:text-sm font-bold shadow-md shadow-red-600/25 hover:shadow-lg hover:shadow-red-600/40 hover:from-red-500 hover:to-rose-500 hover:scale-[1.02] active:scale-[0.98] transition-all w-full"
                   >
                     <span>Explore {practice.title}</span>
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -644,59 +740,10 @@ function ServicesHub() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-7">
             {practice.capabilities.map((cap, cIdx) => (
               <Reveal key={cap.title} delay={cIdx * 0.08} className="h-full">
-                <div className="group rounded-2xl sm:rounded-3xl border border-border/70 bg-card p-5 sm:p-6 md:p-7 h-full shadow-card hover:shadow-elevated hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-4 sm:mb-5">
-                      <div
-                        className={`h-11 w-11 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl bg-gradient-to-br ${practice.gradient} text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform`}
-                      >
-                        <cap.icon className="h-5 w-5 sm:h-6 sm:w-6" />
-                      </div>
-                      <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-muted-foreground bg-muted/60 px-2.5 sm:px-3 py-1 rounded-full border border-border/50">
-                        {cap.badge}
-                      </span>
-                    </div>
-
-                    <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1 group-hover:text-brand-red transition-colors">
-                      {cap.title}
-                    </h3>
-                    <div className="text-xs font-semibold text-brand-red mb-3 sm:mb-4">
-                      {cap.subtitle}
-                    </div>
-
-                    <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
-                      {cap.desc}
-                    </p>
-
-                    <div className="space-y-2 sm:space-y-2.5 pt-3 sm:pt-4 border-t border-border/50 mb-5 sm:mb-6">
-                      <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-muted-foreground/80 mb-2">
-                        Key Deliverables
-                      </div>
-                      {cap.features.map((feat, fIdx) => (
-                        <div
-                          key={fIdx}
-                          className="flex items-start gap-2 text-xs text-foreground/85"
-                        >
-                          <Check className="h-3.5 w-3.5 text-brand-red shrink-0 mt-0.5" />
-                          <span>{feat}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="pt-3.5 sm:pt-4 border-t border-border/50 flex items-center justify-between">
-                    <Link
-                      to={cap.href as any}
-                      className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold text-foreground hover:text-brand-red transition-colors group/link"
-                    >
-                      <span>Explore Capability</span>
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-1 text-brand-red" />
-                    </Link>
-                    <span className="text-[10px] sm:text-[11px] font-medium text-muted-foreground/60">
-                      Practice Service
-                    </span>
-                  </div>
-                </div>
+                <CapabilityCardItem
+                  cap={cap}
+                  practiceGradient={practice.gradient}
+                />
               </Reveal>
             ))}
           </div>

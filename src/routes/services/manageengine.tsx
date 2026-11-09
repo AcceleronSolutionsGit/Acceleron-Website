@@ -273,10 +273,10 @@ function ManageEnginePage() {
                 <div className="pt-4 border-t border-border/50 flex flex-wrap items-center justify-between gap-3">
                   <Link
                     to={prod.href as any}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-brand hover:text-brand-red transition-colors group/link"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-md shadow-red-600/30 hover:shadow-lg hover:shadow-red-600/50 hover:from-red-500 hover:to-rose-500 transition-all w-full sm:w-auto"
                   >
                     <span>Explore Detail & Integration</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
                   {(prod as any).secondaryHref && (
                     <Link

@@ -158,15 +158,15 @@ const CUSTOM_IP_PLATFORMS = [
 ];
 
 const CLIENT_SHOWCASE = [
-  { name: "Caterpillar", logo: "/clientele/Caterpillar Logo.jpg" },
+  { name: "Caterpillar", logo: "/clientele/uniform/caterpillar.png" },
   { name: "Exide", isText: true },
-  { name: "MP Birla Group", logo: "/clientele/M P Birla Group.jpeg" },
-  { name: "PCBL", logo: "/clientele/PCBL Chemical.png" },
-  { name: "Resurgent Mining Solutions", logo: "/clientele/Resurgent Mining Solutions.png" },
-  { name: "mJunction", logo: "/clientele/mjuncion - Metal Junction.webp" },
-  { name: "Shyam Steel", logo: "/clientele/Shyam Steel.avif" },
-  { name: "Skipper Pipes", logo: "/clientele/Skipper Pipes.png" },
-  { name: "Viacom18", logo: "/clientele/Viacom 18.jpg" },
+  { name: "MP Birla Group", logo: "/clientele/uniform/mp-birla.png" },
+  { name: "PCBL", logo: "/clientele/uniform/pcbl.png" },
+  { name: "Resurgent Mining Solutions", logo: "/clientele/uniform/resurgent-mining.png" },
+  { name: "mJunction", logo: "/clientele/uniform/mjunction.png" },
+  { name: "Shyam Steel", logo: "/clientele/uniform/shyam-steel.png" },
+  { name: "Skipper Pipes", logo: "/clientele/uniform/skipper-pipes.png" },
+  { name: "Viacom18", logo: "/clientele/uniform/viacom-18.png" },
 ];
 
 const DELIVERY_PHASES = [
@@ -257,10 +257,10 @@ function ITCustomSolutionsPage() {
                 <div className="pt-4 border-t border-border/50">
                   <Link
                     to={`/services/it-custom-solutions/${p.slug}` as any}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-brand hover:text-brand-red transition-colors group/link"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-md shadow-red-600/30 hover:shadow-lg hover:shadow-red-600/50 hover:from-red-500 hover:to-rose-500 transition-all w-full sm:w-auto"
                   >
-                    <span>Learn More</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                    <span>Learn More & Solutions</span>
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </div>
@@ -372,8 +372,11 @@ function ITCustomSolutionsPage() {
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3.5 border-t border-border/50 text-xs font-bold text-brand group-hover:text-brand-red transition-colors">
-                    Explore Solution →
+                  <div className="mt-5 pt-3.5 border-t border-border/50 flex items-center justify-between">
+                    <span className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-4 py-2 text-xs font-bold shadow-md shadow-red-600/25 group-hover:shadow-red-600/40 group-hover:from-red-500 group-hover:to-rose-500 transition-all w-full sm:w-auto">
+                      <span>Explore Solution</span>
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </span>
                   </div>
                 </div>
               </Link>

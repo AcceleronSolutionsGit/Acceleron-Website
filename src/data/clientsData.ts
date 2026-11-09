@@ -52,7 +52,7 @@ export const ALL_CLIENTS: ClientItem[] = [
   {
     id: "til",
     name: "TIL - Tractors India Limited",
-    logo: "/clientele/TIL- Tractors India Limited 1.webp",
+    logo: "/clientele/uniform/til.png",
     category: "Manufacturing & Engineering",
     description: "Material handling solutions, heavy mobile cranes, and custom engineering systems.",
   },

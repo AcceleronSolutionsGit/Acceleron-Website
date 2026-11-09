@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
 import {
   CheckCircle2, ArrowRight, ArrowLeft,
-  Award, Phone, Mail, MapPin, ChevronRight, ShieldCheck
+  Award, Phone, Mail, MapPin, ChevronRight, ChevronDown, ShieldCheck
 } from "lucide-react";
 import { SubServiceData } from "../../data/servicesData";
 import { Reveal, WaveDivider } from "../ui/Animations";
@@ -17,6 +17,8 @@ interface SubServicePageProps {
 
 export function SubServicePageView({ data }: SubServicePageProps) {
   const [activeTab, setActiveTab] = useState<"overview" | "features" | "process">("overview");
+  const [isOverviewExpanded, setIsOverviewExpanded] = useState(false);
+  const [showAllFeatures, setShowAllFeatures] = useState(false);
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
@@ -61,24 +63,50 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                 </h2>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                <p className={`text-base md:text-lg text-muted-foreground leading-relaxed ${isOverviewExpanded ? "" : "line-clamp-3 sm:line-clamp-none"}`}>
                   {data.overview}
                 </p>
+                {data.overview && data.overview.length > 160 && (
+                  <button
+                    type="button"
+                    onClick={() => setIsOverviewExpanded(!isOverviewExpanded)}
+                    className="sm:hidden inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 mt-2 py-1 transition-colors cursor-pointer"
+                    aria-expanded={isOverviewExpanded}
+                  >
+                    <span>{isOverviewExpanded ? "Show less" : "Read more"}</span>
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isOverviewExpanded ? "rotate-180" : ""}`} />
+                  </button>
+                )}
               </Reveal>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-6">
                 {data.features.map((feat, idx) => (
-                  <Reveal key={idx} delay={idx * 0.1}>
-                    <div className="p-5 rounded-2xl border border-border bg-muted/20 hover:bg-muted/40 transition-colors">
-                      <div className="h-8 w-8 rounded-lg bg-brand-gradient flex items-center justify-center text-white mb-3 shadow-sm">
-                        <CheckCircle2 className="h-4 w-4" />
+                  <div key={idx} className={idx >= 2 && !showAllFeatures ? "hidden sm:block" : "block"}>
+                    <Reveal delay={idx * 0.1}>
+                      <div className="p-5 rounded-2xl border border-border bg-muted/20 hover:bg-muted/40 transition-colors h-full">
+                        <div className="h-8 w-8 rounded-lg bg-brand-gradient flex items-center justify-center text-white mb-3 shadow-sm">
+                          <CheckCircle2 className="h-4 w-4" />
+                        </div>
+                        <h3 className="font-bold text-foreground text-base mb-1">{feat.title}</h3>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{feat.desc}</p>
                       </div>
-                      <h3 className="font-bold text-foreground text-base mb-1">{feat.title}</h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{feat.desc}</p>
-                    </div>
-                  </Reveal>
+                    </Reveal>
+                  </div>
                 ))}
               </div>
+              {data.features.length > 2 && (
+                <div className="sm:hidden pt-3 text-center">
+                  <button
+                    type="button"
+                    onClick={() => setShowAllFeatures(!showAllFeatures)}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 py-1.5 px-3 rounded-lg border border-brand-red/30 bg-brand-red/5 cursor-pointer"
+                    aria-expanded={showAllFeatures}
+                  >
+                    <span>{showAllFeatures ? "Show fewer capabilities" : `+ View ${data.features.length - 2} more capabilities`}</span>
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllFeatures ? "rotate-180" : ""}`} />
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Right Quick Navigation Card */}

@@ -6,7 +6,7 @@ import {
   Blocks, Rocket, Compass, Layers, Code2, Wrench, HeartPulse, ShoppingBag, Truck,
   GraduationCap, Landmark, Banknote, HardHat, Factory, Flame, MapPin, Mail, Phone,
   ChevronDown, ChevronLeft, ChevronRight, Calendar, Menu, X, Play, Zap, Globe, Users, Award, Briefcase, Database, Palette, Clock,
-  ArrowDown, Star, TrendingUp, Building2, Lightbulb, Target, Sun, Moon, Pickaxe, Activity,
+  ArrowDown, Star, TrendingUp, Building2, Lightbulb, Target, Sun, Moon, Pickaxe, Activity, Server,
 } from "lucide-react";
 
 import { LinkedInIcon, XTwitterIcon, GitHubIcon, InstagramIcon, SAPLogo, ZohoLogo, AWSLogo, MicrosoftLogo, DockerLogo, KubernetesLogo, PythonLogo, NodejsLogo, ReactLogo, NextjsLogo, OpenAILogo, SnowflakeLogo, FlutterLogo, PowerBILogo, DatabricksLogo } from '../components/ui/Icons';
@@ -366,12 +366,13 @@ function AboutTeaser() {
 
 const SERVICES = [
   { icon: Database, t: "SAP Modernization & Consulting", d: "S/4HANA, BTP, RISE — end-to-end cloud ERP transformation and legacy system modernization for agile enterprise management.", url: "/services/sap", img: "/SAP_Homepage.jpg" },
-  { icon: LineChart, t: "Analytics & Applied AI", d: "From operational executive dashboards to generative AI agents. Turn fragmented operational data into strategic direction.", url: "/services/analytics", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=600&auto=format&fit=crop" },
   { icon: Blocks, t: "Zoho Suite Enterprise Automation", d: "Rapid business applications across finance, operations, and customer experience — deployed in weeks, not quarters.", url: "/services/zoho", img: "/ZOHO_LOGO.png" },
-  { icon: Code2, t: "Custom Software Engineering", d: "Scalable, enterprise-grade platforms built in React, Node, and Flutter with product-grade craftsmanship and cloud architecture.", url: "/services/software-development", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop" },
-  { icon: Cpu, t: "IT & Cloud Infrastructure", d: "Resilient cloud, hybrid, and on-premises environments built on AWS, Azure, and Kubernetes — designed for 99.99% uptime.", url: "/services/it-infrastructure", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=600&auto=format&fit=crop" },
-  { icon: Briefcase, t: "CXO Digital Advisory", d: "Board-level guidance on technology strategy, M&A digital integration, enterprise architecture, and operating model evolution.", url: "/services/cxo-advisory", img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=75&w=600&auto=format&fit=crop" },
-  { icon: ShieldCheck, t: "Cyber Security & OT Systems", d: "Zero-trust security architectures, SOC modernization, and automated compliance built for industrial OT and corporate networks.", url: "/services/cyber-security", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=600&auto=format&fit=crop" },
+  { icon: Server, t: "ManageEngine ITSM & Infrastructure", d: "ITIL-aligned service desk software, endpoint control, and 24/7 network observability for seamless IT operations.", url: "/services/manageengine", img: "/ManageEngine-logo.png" },
+  { icon: Code2, t: "IT & Custom Solutions", d: "Enterprise software development, cloud infrastructure, AI models, and cybersecurity purpose-built for heavy industry.", url: "/services/it-custom-solutions", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop" },
+  { icon: Layers, t: "Custom Software Engineering", d: "Scalable, enterprise-grade platforms built in React, Node, and Flutter with product-grade craftsmanship and cloud architecture.", url: "/services/it-custom-solutions/custom-software-application-development", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop" },
+  { icon: LineChart, t: "Analytics & Applied AI", d: "From operational executive dashboards to generative AI agents. Turn fragmented operational data into strategic direction.", url: "/services/it-custom-solutions/custom-ai-application-development", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=600&auto=format&fit=crop" },
+  { icon: Cpu, t: "IT & Cloud Infrastructure", d: "Resilient cloud, hybrid, and on-premises environments built on AWS, Azure, and Kubernetes — designed for 99.99% uptime.", url: "/services/it-custom-solutions/it-infrastructure-services", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=600&auto=format&fit=crop" },
+  { icon: ShieldCheck, t: "Cyber Security & OT Systems", d: "Zero-trust security architectures, SOC modernization, and automated compliance built for industrial OT and corporate networks.", url: "/services/it-custom-solutions/network-security-implementation", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=600&auto=format&fit=crop" },
 ];
 
 function Services() {
@@ -788,7 +789,7 @@ const CLIENTELE_ROW_1: ClienteleItem[] = [
   { name: "SEM (A Caterpillar Brand)", src: "/clientele/uniform/sem.png", scale: 1.05 },
   { name: "Trimble", src: "/clientele/uniform/trimble.png", scale: 1 },
   { name: "SITECH", src: "/clientele/uniform/sitech.png", scale: 1 },
-  { name: "TIL - Tractors India Limited", src: "/clientele/TIL- Tractors India Limited 1.webp", scale: 1.3 },
+  { name: "TIL - Tractors India Limited", src: "/clientele/uniform/til.png", scale: 1.05 },
   { name: "TMC", src: "/clientele/uniform/tmc.png", scale: 1.05 },
   { name: "PCM - Parasea Coal Mining", src: "/clientele/uniform/pcm.png", scale: 1 },
   { name: "Resurgent Mining Solutions", src: "/clientele/uniform/resurgent-mining.png", scale: 1 },
