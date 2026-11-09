@@ -49,8 +49,8 @@ export function StickyContactCTA() {
             href="/contact#form"
             onClick={handleClick}
             className="group relative flex items-center gap-2 sm:gap-2.5 rounded-full bg-gradient-to-r from-red-600 via-rose-600 to-red-700 pl-3.5 pr-4 py-2.5 sm:pl-4 sm:pr-5 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-[0_1px_0_0_rgba(255,255,255,0.35)_inset,0_12px_32px_-4px_rgba(222,30,36,0.5)] hover:shadow-[0_1px_0_0_rgba(255,255,255,0.45)_inset,0_16px_36px_-2px_rgba(222,30,36,0.65)] hover:scale-105 active:scale-95 border border-white/30 backdrop-blur-md transition-all duration-300 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500 overflow-hidden"
-            aria-label="Let's Talk — Connect directly with our enterprise consultants"
-            title="Let's Talk — Connect with Acceleron specialists"
+            aria-label="Let's Connect — Connect directly with our enterprise consultants"
+            title="Let's Connect — Connect with Acceleron specialists"
           >
             {/* Shimmer sweep effect on hover */}
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full pointer-events-none" />
@@ -68,7 +68,7 @@ export function StickyContactCTA() {
 
             {/* Action Label */}
             <span className="font-display font-bold tracking-wide text-white text-xs sm:text-sm drop-shadow-sm whitespace-nowrap">
-              Let's Talk
+              Let's Connect
             </span>
 
             {/* Arrow chip */}
