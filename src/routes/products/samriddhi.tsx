@@ -128,7 +128,7 @@ function SamriddhiProductPage() {
           { label: "CX Solutions", href: "/products" },
           { label: "Samriddhi" },
         ]}
-        image="/Mining_Industry.jpg"
+        image="/products/featured-applications/Samriddhi - Customer Loyalty Mangement Software - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Modules"

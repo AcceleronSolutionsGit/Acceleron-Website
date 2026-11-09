@@ -128,7 +128,7 @@ function SupplierPortalProductPage() {
           { label: "Office Digitization", href: "/products" },
           { label: "Supplier Portal" },
         ]}
-        image="/logistics-img.jpg"
+        image="/products/featured-applications/Supplier Managemnt Portal - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Features"

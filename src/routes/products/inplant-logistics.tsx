@@ -127,7 +127,7 @@ function InplantLogisticsProductPage() {
           { label: "Industrial Solutions", href: "/products" },
           { label: "Inplant Logistics" },
         ]}
-        image="/logistics-img.jpg"
+        image="/products/featured-applications/Inplant Logistics Application  - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Features"

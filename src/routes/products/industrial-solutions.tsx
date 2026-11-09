@@ -41,7 +41,7 @@ const INDUSTRIAL_SOLUTIONS_DATA: ProductCategoryData = {
   badge: "INTEGRATED ENGINEERING & TECHNOLOGY ECOSYSTEM",
   overview:
     "Acceleron develops and delivers integrated engineering and digital solutions that help heavy industries, manufacturing plants, and infrastructure enterprises optimize operations and asset performance. By combining intelligent software platforms, enterprise technology, and process automation, we help organizations improve productivity, minimize unplanned downtime, and optimize total cost of ownership (TCO).",
-  heroImage: "/Mining_Industry.jpeg",
+  heroImage: "/products/Industrial Solutions - Acceleron Solutions.png",
   icon: Factory,
   gradient: "from-blue-600 via-indigo-600 to-purple-600",
   products: [

@@ -126,7 +126,7 @@ function SurakshaProductPage() {
           { label: "People Solutions", href: "/products" },
           { label: "Suraksha" },
         ]}
-        image="/utilities.jpg"
+        image="/products/featured-applications/Suraksha - Safety Application - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Functionalities"

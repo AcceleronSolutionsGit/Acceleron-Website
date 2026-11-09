@@ -127,7 +127,7 @@ function ApprovalManagementProductPage() {
           { label: "Office Digitization", href: "/products" },
           { label: "Approval Management" },
         ]}
-        image="/Office_View_1.jpg"
+        image="/products/featured-applications/Approval Management Syetem - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Functionalities"

@@ -128,7 +128,7 @@ function TreasuryManagementProductPage() {
           { label: "Office Digitization", href: "/products" },
           { label: "Treasury Management" },
         ]}
-        image="/Office_View_2.jpg"
+        image="/products/featured-applications/Treasury Management Portal - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Modules"

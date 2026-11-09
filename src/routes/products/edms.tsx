@@ -128,7 +128,7 @@ function EDMSProductPage() {
           { label: "Office Digitization", href: "/products" },
           { label: "EDMS" },
         ]}
-        image="/Office_View_1.jpg"
+        image="/products/featured-applications/E-Document Managemnt - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Functionalities"

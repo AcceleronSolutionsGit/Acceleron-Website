@@ -507,7 +507,7 @@ function ProductsHub() {
         title="Purpose-Built Software Applications Designed for Operational Scale"
         subtitle="Explore Acceleron's comprehensive portfolio of 20 digital enterprise solutions organized across Industrial Solutions, People Solutions, Customer Experience, and Office Digitization. Engineered to solve concrete operational bottlenecks and deliver immediate bottom-line P&L value."
         breadcrumbs={[{ label: "Products" }]}
-        image="/capital_goods.jpg"
+        image="/products/Industrial Solutions - Acceleron Solutions.png"
         ctaText="Explore Product Directory"
         ctaHref="#directory"
         secondaryCtaText="Request Solution Demo"

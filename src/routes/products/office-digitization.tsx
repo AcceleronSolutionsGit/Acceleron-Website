@@ -41,7 +41,7 @@ const OFFICE_DIGITIZATION_DATA: ProductCategoryData = {
   badge: "INTELLIGENT ENTERPRISE AUTOMATION & PAPERLESS WORKFLOWS",
   overview:
     "Office Digitization brings together a suite of enterprise automation solutions designed to reduce paperwork, streamline internal decision-making, strengthen information management and modernize administrative workflows. By connecting digital approval systems, treasury management, AI-powered assistance, secure document repositories and supplier collaboration portals, this integrated ecosystem helps organizations improve operational efficiency, enhance transparency and simplify everyday business processes.",
-  heroImage: "/it-solutions.jpg",
+  heroImage: "/products/Office Digitization - Acceleron Solutions.png",
   icon: Building2,
   gradient: "from-purple-600 via-violet-600 to-indigo-600",
   products: [

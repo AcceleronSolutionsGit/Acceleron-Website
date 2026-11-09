@@ -128,7 +128,7 @@ function IFMSProductPage() {
           { label: "CX Solutions", href: "/products" },
           { label: "iFMS" },
         ]}
-        image="/Transportation_Industry.jpg"
+        image="/products/featured-applications/Intelligent Feild Service Management.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Capabilities"

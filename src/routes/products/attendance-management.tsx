@@ -126,7 +126,7 @@ function AttendanceManagementProductPage() {
           { label: "People Solutions", href: "/products" },
           { label: "Attendance Management" },
         ]}
-        image="/Transportation_Industry.jpg"
+        image="/products/People Solutions - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Features"

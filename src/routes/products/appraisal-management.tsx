@@ -128,7 +128,7 @@ function AppraisalManagementProductPage() {
           { label: "People Solutions", href: "/products" },
           { label: "Appraisal Management" },
         ]}
-        image="/Office_View_2.jpg"
+        image="/products/featured-applications/Employee Appraisal Managemnt System - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Functionalities"

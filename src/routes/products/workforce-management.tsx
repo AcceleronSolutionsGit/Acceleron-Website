@@ -127,7 +127,7 @@ function WorkforceManagementProductPage() {
           { label: "People Solutions", href: "/products" },
           { label: "Workforce Management" },
         ]}
-        image="/Mining_Industry.jpg"
+        image="/products/featured-applications/Performace Based Incentive Management Software - Acceleron Solutions.png"
         ctaText="Schedule a Live Demo"
         ctaHref="/contact"
         secondaryCtaText="Explore Capabilities"
