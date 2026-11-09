@@ -486,7 +486,7 @@ function AboutPage() {
                 Schedule a consultation with our technology architects and domain experts.
               </p>
               <div className="pt-4">
-                <Link to="/contact" className="btn btn-primary btn-lg inline-flex items-center gap-2">
+                <Link to="/contact" hash="form" className="btn btn-primary btn-lg inline-flex items-center gap-2">
                   Connect with our Experts <ArrowRight className="h-5 w-5" />
                 </Link>
               </div>

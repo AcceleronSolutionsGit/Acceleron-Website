@@ -66,13 +66,22 @@ export function WhyChooseUs() {
         {/* Separate CTA button below the cards */}
         <Reveal delay={0.3}>
           <div className="mt-12 sm:mt-16 text-center">
-            <Link
-              to="/contact"
-              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-gradient px-8 sm:px-10 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-glow hover:shadow-red-glow hover:scale-105 transition-all duration-300"
+            <a
+              href="#contact"
+              onClick={(e) => {
+                const el = document.getElementById("contact") || document.getElementById("form");
+                if (el) {
+                  e.preventDefault();
+                  el.scrollIntoView({ behavior: "smooth" });
+                } else {
+                  window.location.href = "/contact#form";
+                }
+              }}
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-gradient px-8 sm:px-10 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-glow hover:shadow-red-glow hover:scale-105 transition-all duration-300 cursor-pointer"
             >
               Partner with us
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </a>
           </div>
         </Reveal>
       </div>
