@@ -109,13 +109,8 @@ const LOCATION_CARDS: LocationCard[] = [
 
 const PERFORMANCE_METRICS = [
   {
-    metric: "250+",
-    label: "Skilled Employees & Enterprise Specialists",
-    icon: Users,
-  },
-  {
     metric: "120+",
-    label: "Enterprise Projects Completed On-Time & On-Budget",
+    label: "Enterprise Projects Completed",
     icon: CheckCircle2,
   },
   {
@@ -124,13 +119,13 @@ const PERFORMANCE_METRICS = [
     icon: Building2,
   },
   {
-    metric: "20+",
-    label: "Core Technological Skills & Practice Competencies",
-    icon: Sparkles,
+    metric: "250+",
+    label: "Skilled Employees & Specialists",
+    icon: Users,
   },
   {
     metric: "4",
-    label: "Strategic Delivery Locations & Hubs",
+    label: "Global Delivery Locations & Hubs",
     icon: MapPin,
   },
 ];
@@ -305,15 +300,16 @@ function AboutPage() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-5">
+        {/* 4-GRID PERFORMANCE METRICS (2x2 on Mobile, 4-col on Desktop) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {PERFORMANCE_METRICS.map((item, idx) => (
-            <Reveal key={item.label} delay={idx * 0.08} className="h-full">
-              <div className="group rounded-3xl border border-border/70 bg-card p-6 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <Reveal key={item.label} delay={idx * 0.06} className="h-full">
+              <div className="group rounded-2xl sm:rounded-3xl border border-border/70 bg-card p-4 sm:p-6 h-full shadow-soft hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                 <div>
-                  <div className="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <item.icon className="h-5 w-5" />
+                  <div className="h-8 w-8 sm:h-11 sm:w-11 rounded-lg sm:rounded-xl bg-brand/10 text-brand flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+                    <item.icon className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
-                  <div className="text-3xl sm:text-4xl font-extrabold text-foreground group-hover:text-brand transition-colors tracking-tight mb-2">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground group-hover:text-brand transition-colors tracking-tight mb-1 sm:mb-2">
                     {item.metric}
                   </div>
                   <p className="text-xs sm:text-sm font-semibold text-foreground/80 leading-snug">

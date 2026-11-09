@@ -16,6 +16,7 @@ import {
   CheckCircle2,
   MapPin,
   ChevronRight,
+  ChevronDown,
 } from "lucide-react";
 import { PageHero } from "../components/ui/PageHero";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
@@ -153,6 +154,7 @@ const NEWS_ARTICLES: NewsItem[] = [
 function NewsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All News");
   const [activeArticle, setActiveArticle] = useState<NewsItem | null>(null);
+  const [showAllNews, setShowAllNews] = useState(false);
 
   const filteredArticles = useMemo(() => {
     return selectedCategory === "All News"
@@ -286,51 +288,67 @@ function NewsPage() {
         {/* 3-COLUMN CARD GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredArticles.map((article, idx) => (
-            <Reveal key={article.id} delay={(idx % 6) * 0.08} className="h-full">
-              <div className="rounded-3xl border border-border/80 bg-card p-6 h-full flex flex-col justify-between shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300">
-                <div>
-                  <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-5 bg-muted">
-                    <img
-                      src={getAssetUrl(article.image)}
-                      alt={article.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                    />
-                    <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                      {article.category}
+            <div key={article.id} className={idx >= 3 && !showAllNews ? "hidden md:block h-full" : "block h-full"}>
+              <Reveal delay={(idx % 6) * 0.08} className="h-full">
+                <div className="rounded-3xl border border-border/80 bg-card p-6 h-full flex flex-col justify-between shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300">
+                  <div>
+                    <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-5 bg-muted">
+                      <img
+                        src={getAssetUrl(article.image)}
+                        alt={article.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      />
+                      <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                        {article.category}
+                      </div>
                     </div>
+
+                    <div className="flex items-center gap-2 text-[11px] text-muted-foreground mb-2 font-medium">
+                      <Calendar className="h-3 w-3 text-brand" />
+                      <span>{article.date}</span>
+                    </div>
+
+                    <h3 className="text-lg font-bold text-foreground mb-2 leading-snug line-clamp-2">
+                      {article.title}
+                    </h3>
+
+                    <p className="text-xs text-muted-foreground line-clamp-3 leading-relaxed mb-4">
+                      {article.summary}
+                    </p>
                   </div>
 
-                  <div className="flex items-center gap-2 text-[11px] text-muted-foreground mb-2 font-medium">
-                    <Calendar className="h-3 w-3 text-brand" />
-                    <span>{article.date}</span>
+                  <div className="pt-4 border-t border-border/50 flex items-center justify-between text-xs">
+                    <span className="text-[11px] text-muted-foreground font-semibold">
+                      Official Release
+                    </span>
+                    <button
+                      onClick={() => setActiveArticle(article)}
+                      className="font-bold text-brand hover:text-brand-red transition-colors inline-flex items-center gap-1 cursor-pointer"
+                    >
+                      <span>Read Full Release</span>
+                      <ChevronRight className="h-4 w-4" />
+                    </button>
                   </div>
-
-                  <h3 className="text-lg font-bold text-foreground mb-2 leading-snug line-clamp-2">
-                    {article.title}
-                  </h3>
-
-                  <p className="text-xs text-muted-foreground line-clamp-3 leading-relaxed mb-4">
-                    {article.summary}
-                  </p>
                 </div>
-
-                <div className="pt-4 border-t border-border/50 flex items-center justify-between text-xs">
-                  <span className="text-[11px] text-muted-foreground font-semibold">
-                    Official Release
-                  </span>
-                  <button
-                    onClick={() => setActiveArticle(article)}
-                    className="font-bold text-brand hover:text-brand-red transition-colors inline-flex items-center gap-1"
-                  >
-                    <span>Read Full Release</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
           ))}
         </div>
+
+        {filteredArticles.length > 3 && (
+          <div className="md:hidden mt-8 text-center">
+            <button
+              type="button"
+              onClick={() => setShowAllNews(!showAllNews)}
+              className="inline-flex items-center gap-2 text-xs font-bold text-brand-red hover:text-red-700 py-2.5 px-6 rounded-full border border-brand-red/30 bg-brand-red/5 hover:bg-brand-red/10 shadow-sm transition-all cursor-pointer"
+              aria-expanded={showAllNews}
+            >
+              <span>{showAllNews ? "Show fewer articles" : `+ View all ${filteredArticles.length} releases`}</span>
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllNews ? "rotate-180" : ""}`} />
+            </button>
+          </div>
+        )}
       </section>
 
       {/* MEDIA & PRESS CONTACT SECTION */}

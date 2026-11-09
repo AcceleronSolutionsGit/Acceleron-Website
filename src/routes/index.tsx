@@ -375,6 +375,8 @@ const SERVICES = [
 ];
 
 function Services() {
+  const [showAllServices, setShowAllServices] = useState(false);
+
   return (
     <section id="services" className="relative overflow-hidden bg-background py-20 sm:py-28 md:py-32">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgb(58_73_127/0.06),transparent_70%)]" />
@@ -397,48 +399,64 @@ function Services() {
 
         <div className="mt-12 sm:mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s, i) => (
-            <Reveal key={s.t} delay={i * 0.06} className={i === 0 ? "lg:col-span-2" : ""}>
-              <Link to={s.url as any} className="group relative overflow-hidden rounded-3xl h-[300px] sm:h-[380px] block cursor-pointer border border-transparent hover:border-white/10 transition-colors duration-500">
-                {s.img.endsWith(".png") || s.img.includes("LOGO") ? (
-                  <div className="absolute inset-0 flex items-center justify-center p-8 z-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950">
-                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,29,72,0.15),transparent_70%)]" />
-                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(33,47,96,0.2),transparent_60%)]" />
-                    <div className="relative bg-white/95 backdrop-blur-md px-7 py-5 rounded-2xl shadow-2xl border border-white/20 transition-all duration-700 group-hover:scale-105 group-hover:bg-white group-hover:shadow-red-500/20 mb-12">
-                      <img src={getAssetUrl(s.img)} alt={s.t} className="h-12 sm:h-16 w-auto max-w-[200px] sm:max-w-[240px] object-contain" />
+            <div key={s.t} className={`${i === 0 ? "lg:col-span-2" : ""} ${i >= 3 && !showAllServices ? "hidden sm:block" : "block"}`}>
+              <Reveal delay={i * 0.06} className="h-full">
+                <Link to={s.url as any} className="group relative overflow-hidden rounded-3xl h-[300px] sm:h-[380px] block cursor-pointer border border-transparent hover:border-white/10 transition-colors duration-500">
+                  {s.img.endsWith(".png") || s.img.includes("LOGO") ? (
+                    <div className="absolute inset-0 flex items-center justify-center p-8 z-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950">
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,29,72,0.15),transparent_70%)]" />
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(33,47,96,0.2),transparent_60%)]" />
+                      <div className="relative bg-white/95 backdrop-blur-md px-7 py-5 rounded-2xl shadow-2xl border border-white/20 transition-all duration-700 group-hover:scale-105 group-hover:bg-white group-hover:shadow-red-500/20 mb-12">
+                        <img src={getAssetUrl(s.img)} alt={s.t} className="h-12 sm:h-16 w-auto max-w-[200px] sm:max-w-[240px] object-contain" />
+                      </div>
+                    </div>
+                  ) : (
+                    <img src={getAssetUrl(s.img)} alt={s.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  )}
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/5 transition-opacity duration-500 group-hover:opacity-100 opacity-75" />
+
+                  <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-10">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="h-10 w-10 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-white/20 group-hover:shadow-[0_0_20px_-4px_rgba(255,255,255,0.3)] transition-all duration-300 shrink-0">
+                        <s.icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white leading-snug">{s.t}</h3>
+                    </div>
+
+                    {/* Description - always readable on mobile, animated hover on desktop */}
+                    <div className="grid grid-rows-[1fr] sm:grid-rows-[0fr] sm:group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
+                      <div className="overflow-hidden">
+                        <p className="text-white/85 text-xs sm:text-sm mb-3 leading-relaxed opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                          {s.d}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Learn more CTA initially visible */}
+                    <div className="flex items-center gap-2 font-semibold text-xs sm:text-sm text-red-300 group-hover:text-red-200 transition-colors">
+                      Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </div>
                   </div>
-                ) : (
-                  <img src={getAssetUrl(s.img)} alt={s.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                )}
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/5 transition-opacity duration-500 group-hover:opacity-100 opacity-75" />
-
-                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-10">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="h-10 w-10 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center text-white border border-white/20 group-hover:bg-white/20 group-hover:shadow-[0_0_20px_-4px_rgba(255,255,255,0.3)] transition-all duration-300 shrink-0">
-                      <s.icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white leading-snug">{s.t}</h3>
-                  </div>
-
-                  {/* Description - always readable on mobile, animated hover on desktop */}
-                  <div className="grid grid-rows-[1fr] sm:grid-rows-[0fr] sm:group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
-                    <div className="overflow-hidden">
-                      <p className="text-white/85 text-xs sm:text-sm mb-3 leading-relaxed opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
-                        {s.d}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Learn more CTA initially visible */}
-                  <div className="flex items-center gap-2 font-semibold text-xs sm:text-sm text-red-300 group-hover:text-red-200 transition-colors">
-                    Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </div>
-                </div>
-              </Link>
-            </Reveal>
+                </Link>
+              </Reveal>
+            </div>
           ))}
         </div>
+
+        {SERVICES.length > 3 && (
+          <div className="sm:hidden mt-8 text-center">
+            <button
+              type="button"
+              onClick={() => setShowAllServices(!showAllServices)}
+              className="inline-flex items-center gap-2 text-xs font-bold text-brand-red hover:text-red-700 py-2.5 px-6 rounded-full border border-brand-red/30 bg-brand-red/5 hover:bg-brand-red/10 shadow-sm transition-all cursor-pointer"
+              aria-expanded={showAllServices}
+            >
+              <span>{showAllServices ? "Show fewer services" : `+ View all ${SERVICES.length} services`}</span>
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllServices ? "rotate-180" : ""}`} />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

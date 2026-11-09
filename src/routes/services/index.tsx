@@ -585,6 +585,9 @@ function CapabilityCardItem({
 }
 
 function ServicesHub() {
+  const [showAllPractices, setShowAllPractices] = useState(false);
+  const [showAllLocations, setShowAllLocations] = useState(false);
+  const [showAllReasons, setShowAllReasons] = useState(false);
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
       {/* SECTION 1: HERO BANNER */}
@@ -671,57 +674,73 @@ function ServicesHub() {
         {/* 4 PRACTICE SUMMARY CARDS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {PRACTICES.map((practice, idx) => (
-            <Reveal key={practice.id} delay={idx * 0.08} className="h-full">
-              <div className="rounded-2xl sm:rounded-3xl border border-border/80 bg-card p-5 sm:p-6 h-full shadow-card hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-brand-red/10 text-brand-red">
-                      {practice.capabilities.length} Capabilities
-                    </span>
-                    <div className="h-9 w-9 rounded-xl bg-muted/60 flex items-center justify-center text-foreground">
-                      {practice.useZohoLogo ? (
-                        <ZohoLogo className="h-4 w-4" />
-                      ) : (
-                        <practice.icon className="h-4 w-4 text-brand-red" />
-                      )}
+            <div key={practice.id} className={idx >= 3 && !showAllPractices ? "hidden sm:block h-full" : "block h-full"}>
+              <Reveal delay={idx * 0.08} className="h-full">
+                <div className="rounded-2xl sm:rounded-3xl border border-border/80 bg-card p-5 sm:p-6 h-full shadow-card hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-brand-red/10 text-brand-red">
+                        {practice.capabilities.length} Capabilities
+                      </span>
+                      <div className="h-9 w-9 rounded-xl bg-muted/60 flex items-center justify-center text-foreground">
+                        {practice.useZohoLogo ? (
+                          <ZohoLogo className="h-4 w-4" />
+                        ) : (
+                          <practice.icon className="h-4 w-4 text-brand-red" />
+                        )}
+                      </div>
+                    </div>
+
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1">{practice.title}</h3>
+                    <p className="text-xs text-muted-foreground mb-4 line-clamp-2">
+                      {practice.overview}
+                    </p>
+
+                    <div className="space-y-1 pt-3 border-t border-border/60">
+                      {practice.capabilities.map((c) => (
+                        <Link
+                          key={c.title}
+                          to={c.href as any}
+                          className="group flex items-center justify-between rounded-lg px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-foreground/85 hover:text-brand-red hover:bg-muted/40 transition-all"
+                        >
+                          <span className="flex items-center gap-2 truncate">
+                            <span className="h-1.5 w-1.5 rounded-full bg-brand-red/60 group-hover:bg-brand-red transition-colors shrink-0" />
+                            <span className="truncate">{c.title}</span>
+                          </span>
+                          <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/60 group-hover:text-brand-red group-hover:translate-x-0.5 transition-all shrink-0" />
+                        </Link>
+                      ))}
                     </div>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1">{practice.title}</h3>
-                  <p className="text-xs text-muted-foreground mb-4 line-clamp-2">
-                    {practice.overview}
-                  </p>
-
-                  <div className="space-y-1 pt-3 border-t border-border/60">
-                    {practice.capabilities.map((c) => (
-                      <Link
-                        key={c.title}
-                        to={c.href as any}
-                        className="group flex items-center justify-between rounded-lg px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-foreground/85 hover:text-brand-red hover:bg-muted/40 transition-all"
-                      >
-                        <span className="flex items-center gap-2 truncate">
-                          <span className="h-1.5 w-1.5 rounded-full bg-brand-red/60 group-hover:bg-brand-red transition-colors shrink-0" />
-                          <span className="truncate">{c.title}</span>
-                        </span>
-                        <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/60 group-hover:text-brand-red group-hover:translate-x-0.5 transition-all shrink-0" />
-                      </Link>
-                    ))}
+                  <div className="pt-4 mt-4 border-t border-border/60">
+                    <a
+                      href={`#${practice.anchorId}`}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-4 py-2.5 text-xs sm:text-sm font-bold shadow-md shadow-red-600/25 hover:shadow-lg hover:shadow-red-600/40 hover:from-red-500 hover:to-rose-500 hover:scale-[1.02] active:scale-[0.98] transition-all w-full"
+                    >
+                      <span>Explore {practice.title}</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </a>
                   </div>
                 </div>
-
-                <div className="pt-4 mt-4 border-t border-border/60">
-                  <a
-                    href={`#${practice.anchorId}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-4 py-2.5 text-xs sm:text-sm font-bold shadow-md shadow-red-600/25 hover:shadow-lg hover:shadow-red-600/40 hover:from-red-500 hover:to-rose-500 hover:scale-[1.02] active:scale-[0.98] transition-all w-full"
-                  >
-                    <span>Explore {practice.title}</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
-                </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
           ))}
         </div>
+
+        {PRACTICES.length > 3 && (
+          <div className="sm:hidden pt-5 text-center">
+            <button
+              type="button"
+              onClick={() => setShowAllPractices(!showAllPractices)}
+              className="inline-flex items-center gap-2 text-xs font-bold text-brand-red hover:text-red-700 py-2.5 px-5 rounded-full border border-brand-red/30 bg-brand-red/5 hover:bg-brand-red/10 shadow-sm transition-all cursor-pointer"
+              aria-expanded={showAllPractices}
+            >
+              <span>{showAllPractices ? "Show fewer practices" : `+ View ${PRACTICES.length - 3} more practice`}</span>
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllPractices ? "rotate-180" : ""}`} />
+            </button>
+          </div>
+        )}
       </section>
 
       {/* SECTION 3: 4 DEEP-DIVE PRACTICE SECTIONS WITH CAPABILITY CARDS */}
@@ -801,57 +820,73 @@ function ServicesHub() {
         {/* 4 GLOBAL DELIVERY HUBS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-8">
           {LOCATIONS.map((loc, idx) => (
-            <Reveal key={loc.city} delay={idx * 0.08} className="h-full">
-              <div className="rounded-2xl sm:rounded-3xl border border-border/80 bg-card p-6 h-full shadow-card hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div
-                      className={`h-11 w-11 rounded-2xl bg-gradient-to-br ${loc.gradient} text-white flex items-center justify-center shadow-sm`}
-                    >
-                      <loc.icon className="h-5 w-5" />
-                    </div>
-                    <span className="text-[9px] font-bold tracking-wider uppercase bg-brand/10 text-brand px-2.5 py-0.5 rounded-full border border-brand/20">
-                      {loc.badge}
-                    </span>
-                  </div>
-
-                  <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider mb-1">
-                    {loc.name}
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2.5">{loc.city}</h3>
-
-                  <div className="flex items-start gap-2.5 text-xs text-foreground/85 bg-muted/40 p-3 rounded-xl border border-border/60 mb-5">
-                    <MapPin className="h-4 w-4 text-brand shrink-0 mt-0.5" />
-                    <span className="leading-relaxed">{loc.address}</span>
-                  </div>
-
-                  <div className="space-y-2 pt-1">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
-                      Key Capabilities
-                    </div>
-                    {loc.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-center gap-2 text-xs text-foreground/80">
-                        <Check className="h-3.5 w-3.5 text-brand-red shrink-0" />
-                        <span>{feat}</span>
+            <div key={loc.city} className={idx >= 3 && !showAllLocations ? "hidden sm:block h-full" : "block h-full"}>
+              <Reveal delay={idx * 0.08} className="h-full">
+                <div className="rounded-2xl sm:rounded-3xl border border-border/80 bg-card p-6 h-full shadow-card hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div
+                        className={`h-11 w-11 rounded-2xl bg-gradient-to-br ${loc.gradient} text-white flex items-center justify-center shadow-sm`}
+                      >
+                        <loc.icon className="h-5 w-5" />
                       </div>
-                    ))}
+                      <span className="text-[9px] font-bold tracking-wider uppercase bg-brand/10 text-brand px-2.5 py-0.5 rounded-full border border-brand/20">
+                        {loc.badge}
+                      </span>
+                    </div>
+
+                    <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider mb-1">
+                      {loc.name}
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2.5">{loc.city}</h3>
+
+                    <div className="flex items-start gap-2.5 text-xs text-foreground/85 bg-muted/40 p-3 rounded-xl border border-border/60 mb-5">
+                      <MapPin className="h-4 w-4 text-brand shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{loc.address}</span>
+                    </div>
+
+                    <div className="space-y-2 pt-1">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
+                        Key Capabilities
+                      </div>
+                      {loc.features.map((feat, fIdx) => (
+                        <div key={fIdx} className="flex items-center gap-2 text-xs text-foreground/80">
+                          <Check className="h-3.5 w-3.5 text-brand-red shrink-0" />
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-border/60">
+                    <Link
+                      to="/contact"
+                      hash="form"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground hover:text-brand-red transition-colors"
+                    >
+                      <span>Connect With Hub</span>
+                      <ArrowRight className="h-3.5 w-3.5 text-brand-red" />
+                    </Link>
                   </div>
                 </div>
-
-                <div className="pt-4 mt-4 border-t border-border/60">
-                  <Link
-                    to="/contact"
-                    hash="form"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground hover:text-brand-red transition-colors"
-                  >
-                    <span>Connect With Hub</span>
-                    <ArrowRight className="h-3.5 w-3.5 text-brand-red" />
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
           ))}
         </div>
+
+        {LOCATIONS.length > 3 && (
+          <div className="sm:hidden -mt-4 mb-8 text-center">
+            <button
+              type="button"
+              onClick={() => setShowAllLocations(!showAllLocations)}
+              className="inline-flex items-center gap-2 text-xs font-bold text-brand-red hover:text-red-700 py-2.5 px-5 rounded-full border border-brand-red/30 bg-brand-red/5 hover:bg-brand-red/10 shadow-sm transition-all cursor-pointer"
+              aria-expanded={showAllLocations}
+            >
+              <span>{showAllLocations ? "Show fewer hubs" : `+ View ${LOCATIONS.length - 3} more delivery hub`}</span>
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllLocations ? "rotate-180" : ""}`} />
+            </button>
+          </div>
+        )}
 
         {/* DIRECT COMMUNICATIONS BANNER */}
         <Reveal delay={0.3}>
@@ -936,16 +971,30 @@ function ServicesHub() {
                 icon: Zap,
               },
             ].map((d, dIdx) => (
-              <Reveal key={d.title} delay={dIdx * 0.08}>
-                <div className="rounded-2xl border border-border/60 bg-card p-5 sm:p-6 shadow-sm hover:border-brand-red/40 transition-colors h-full">
-                  <div className="h-10 w-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center mb-4">
-                    <d.icon className="h-5 w-5" />
+              <div key={d.title} className={dIdx >= 3 && !showAllReasons ? "hidden sm:block h-full" : "block h-full"}>
+                <Reveal delay={dIdx * 0.08} className="h-full">
+                  <div className="rounded-2xl border border-border/60 bg-card p-5 sm:p-6 shadow-sm hover:border-brand-red/40 transition-colors h-full">
+                    <div className="h-10 w-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center mb-4">
+                      <d.icon className="h-5 w-5" />
+                    </div>
+                    <h4 className="text-sm sm:text-base font-bold text-foreground mb-1.5">{d.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{d.desc}</p>
                   </div>
-                  <h4 className="text-sm sm:text-base font-bold text-foreground mb-1.5">{d.title}</h4>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{d.desc}</p>
-                </div>
-              </Reveal>
+                </Reveal>
+              </div>
             ))}
+          </div>
+
+          <div className="sm:hidden pt-5 text-center">
+            <button
+              type="button"
+              onClick={() => setShowAllReasons(!showAllReasons)}
+              className="inline-flex items-center gap-2 text-xs font-bold text-brand-red hover:text-red-700 py-2.5 px-5 rounded-full border border-brand-red/30 bg-brand-red/5 hover:bg-brand-red/10 shadow-sm transition-all cursor-pointer"
+              aria-expanded={showAllReasons}
+            >
+              <span>{showAllReasons ? "Show fewer reasons" : "+ View more differentiators"}</span>
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllReasons ? "rotate-180" : ""}`} />
+            </button>
           </div>
         </div>
       </section>

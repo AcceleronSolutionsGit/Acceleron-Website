@@ -19,6 +19,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
   const [activeTab, setActiveTab] = useState<"overview" | "features" | "process">("overview");
   const [isOverviewExpanded, setIsOverviewExpanded] = useState(false);
   const [showAllFeatures, setShowAllFeatures] = useState(false);
+  const [showAllProcess, setShowAllProcess] = useState(false);
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
@@ -81,7 +82,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
 
               <div className="grid sm:grid-cols-2 gap-4 pt-6">
                 {data.features.map((feat, idx) => (
-                  <div key={idx} className={idx >= 2 && !showAllFeatures ? "hidden sm:block" : "block"}>
+                  <div key={idx} className={idx >= 3 && !showAllFeatures ? "hidden sm:block" : "block"}>
                     <Reveal delay={idx * 0.1}>
                       <div className="p-5 rounded-2xl border border-border bg-muted/20 hover:bg-muted/40 transition-colors h-full">
                         <div className="h-8 w-8 rounded-lg bg-brand-gradient flex items-center justify-center text-white mb-3 shadow-sm">
@@ -94,7 +95,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                   </div>
                 ))}
               </div>
-              {data.features.length > 2 && (
+              {data.features.length > 3 && (
                 <div className="sm:hidden pt-3 text-center">
                   <button
                     type="button"
@@ -102,7 +103,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 py-1.5 px-3 rounded-lg border border-brand-red/30 bg-brand-red/5 cursor-pointer"
                     aria-expanded={showAllFeatures}
                   >
-                    <span>{showAllFeatures ? "Show fewer capabilities" : `+ View ${data.features.length - 2} more capabilities`}</span>
+                    <span>{showAllFeatures ? "Show fewer capabilities" : `+ View ${data.features.length - 3} more capabilities`}</span>
                     <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllFeatures ? "rotate-180" : ""}`} />
                   </button>
                 </div>
@@ -226,26 +227,42 @@ export function SubServicePageView({ data }: SubServicePageProps) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {data.process.map((step, idx) => (
-                <Reveal key={idx} delay={idx * 0.1}>
-                  <motion.div
-                    whileHover={{ y: -6 }}
-                    className="relative rounded-2xl border border-border bg-background p-8 flex flex-col justify-between h-full shadow-card group"
-                  >
-                    <div>
-                      <div className="text-3xl font-black text-brand-red/30 group-hover:text-brand-red transition-colors mb-6 tabular-nums">
-                        {step.step}
+                <div key={idx} className={idx >= 3 && !showAllProcess ? "hidden sm:block h-full" : "block h-full"}>
+                  <Reveal delay={idx * 0.1} className="h-full">
+                    <motion.div
+                      whileHover={{ y: -6 }}
+                      className="relative rounded-2xl border border-border bg-background p-6 sm:p-8 flex flex-col justify-between h-full shadow-card group"
+                    >
+                      <div>
+                        <div className="text-3xl font-black text-brand-red/30 group-hover:text-brand-red transition-colors mb-6 tabular-nums">
+                          {step.step}
+                        </div>
+                        <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
                       </div>
-                      <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
-                    </div>
-                    <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs font-semibold text-brand">
-                      <span>Phase {idx + 1}</span>
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </motion.div>
-                </Reveal>
+                      <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs font-semibold text-brand">
+                        <span>Phase {idx + 1}</span>
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </motion.div>
+                  </Reveal>
+                </div>
               ))}
             </div>
+
+            {data.process.length > 3 && (
+              <div className="sm:hidden pt-4 text-center">
+                <button
+                  type="button"
+                  onClick={() => setShowAllProcess(!showAllProcess)}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 py-1.5 px-3 rounded-lg border border-brand-red/30 bg-brand-red/5 cursor-pointer"
+                  aria-expanded={showAllProcess}
+                >
+                  <span>{showAllProcess ? "Show fewer steps" : `+ View ${data.process.length - 3} more step`}</span>
+                  <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllProcess ? "rotate-180" : ""}`} />
+                </button>
+              </div>
+            )}
           </div>
         </section>
       )}

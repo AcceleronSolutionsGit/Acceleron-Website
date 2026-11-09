@@ -21,6 +21,7 @@ import {
   Building2,
   ChevronRight,
   CheckCircle2,
+  ChevronDown,
 } from "lucide-react";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
 import { PageHero } from "../components/ui/PageHero";
@@ -182,6 +183,7 @@ const CURRENT_OPENINGS: JobOpening[] = [
 ];
 
 function CareersPage() {
+  const [showAllJobs, setShowAllJobs] = useState(false);
   const [selectedJob, setSelectedJob] = useState<string>(
     "Senior SAP S/4HANA Functional Consultant"
   );
@@ -400,7 +402,8 @@ function CareersPage() {
           {CURRENT_OPENINGS.map((job, idx) => {
             const isExpanded = expandedJobId === job.id;
             return (
-              <Reveal key={job.id} delay={idx * 0.06}>
+              <div key={job.id} className={idx >= 3 && !showAllJobs ? "hidden sm:block" : "block"}>
+                <Reveal delay={idx * 0.06}>
                 <div className="rounded-3xl border border-border/80 bg-card p-6 sm:p-8 backdrop-blur-xl hover:border-brand/40 transition-all shadow-card">
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                     <div className="space-y-2 max-w-3xl">
@@ -500,9 +503,24 @@ function CareersPage() {
                   </AnimatePresence>
                 </div>
               </Reveal>
-            );
-          })}
+            </div>
+          );
+        })}
+      </div>
+
+      {CURRENT_OPENINGS.length > 3 && (
+        <div className="sm:hidden pt-6 text-center">
+          <button
+            type="button"
+            onClick={() => setShowAllJobs(!showAllJobs)}
+            className="inline-flex items-center gap-2 text-xs font-bold text-brand-red hover:text-red-700 py-2.5 px-6 rounded-full border border-brand-red/30 bg-brand-red/5 hover:bg-brand-red/10 shadow-sm transition-all cursor-pointer"
+            aria-expanded={showAllJobs}
+          >
+            <span>{showAllJobs ? "Show fewer positions" : `+ View all ${CURRENT_OPENINGS.length} positions`}</span>
+            <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${showAllJobs ? "rotate-180" : ""}`} />
+          </button>
         </div>
+      )}
       </section>
 
       {/* SECTION 5: HOW TO APPLY & GENERAL TALENT POOL */}

@@ -132,20 +132,22 @@ function CsrPage() {
         }
       />
 
-      {/* METRICS STRIP */}
-      <section className="border-y border-border/60 bg-muted/30 py-8 relative z-20">
+      {/* METRICS STRIP (4-Grid on Mobile & Desktop) */}
+      <section className="border-y border-border/60 bg-muted/30 py-8 sm:py-10 relative z-20">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
             {CSR_METRICS.map((metric, idx) => (
-              <Reveal key={metric.label} delay={idx * 0.08}>
-                <div className="text-center sm:text-left border-l-2 border-brand/60 pl-4">
-                  <div className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
-                    <span className="text-gradient">{metric.value}</span>
+              <Reveal key={metric.label} delay={idx * 0.08} className="h-full">
+                <div className="h-full rounded-2xl border border-border/70 bg-card/70 p-4 sm:p-5 shadow-soft hover:shadow-elevated hover:border-brand/40 transition-all text-center sm:text-left flex flex-col justify-between">
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+                      <span className="text-gradient">{metric.value}</span>
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold text-foreground mt-1 leading-snug">
+                      {metric.label}
+                    </div>
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-foreground mt-0.5">
-                    {metric.label}
-                  </div>
-                  <div className="text-[11px] text-muted-foreground mt-0.5 hidden sm:block">
+                  <div className="text-[11px] text-muted-foreground mt-2 hidden sm:block leading-relaxed">
                     {metric.desc}
                   </div>
                 </div>
