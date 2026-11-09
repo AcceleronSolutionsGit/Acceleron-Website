@@ -332,7 +332,8 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
                 ))}
               </ul>
               <Link
-                to="/contact#form"
+                to="/contact"
+                hash="form"
                 className="btn btn-primary btn-lg"
               >
                 Schedule Executive Briefing <ArrowUpRight className="h-4 w-4" />
@@ -354,7 +355,8 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
-                to="/contact#form"
+                to="/contact"
+                hash="form"
                 className="btn btn-primary btn-lg"
               >
                 Schedule Executive Discovery

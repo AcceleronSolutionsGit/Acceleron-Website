@@ -382,7 +382,7 @@ function Nav() {
         </nav>
         <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
-          <Link to="/contact#form" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-red-600 via-red-600 to-rose-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-red-600/30 transition-all hover:scale-105 hover:shadow-red-600/50 hover:from-red-500 hover:to-rose-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500">
+          <Link to="/contact" hash="form" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-red-600 via-red-600 to-rose-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-red-600/30 transition-all hover:scale-105 hover:shadow-red-600/50 hover:from-red-500 hover:to-rose-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500">
             Get in touch <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -595,7 +595,7 @@ function Nav() {
                   <span className="text-xs font-semibold text-foreground/80">Appearance Mode</span>
                   <ThemeToggle />
                 </div>
-                <Link to="/contact#form" onClick={() => setOpen(false)} className="btn btn-primary btn-md w-full justify-center">
+                <Link to="/contact" hash="form" onClick={() => setOpen(false)} className="btn btn-primary btn-md w-full justify-center">
                   Get in touch <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

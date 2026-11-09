@@ -94,7 +94,7 @@ export function Footer() {
             © {new Date().getFullYear()} Acceleron Solutions Pvt. Ltd. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <Link to="/contact#form" className="hover:text-brand-red transition-colors font-medium">Contact Us</Link>
+            <Link to="/contact" hash="form" className="hover:text-brand-red transition-colors font-medium">Contact Us</Link>
             <a href="/privacy-policy" className="hover:text-brand-red transition-colors font-medium">Privacy Policy</a>
           </div>
         </div>

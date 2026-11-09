@@ -57,7 +57,20 @@ function SingaporeMapSvg({ className }: { className?: string }) {
   );
 }
 
-const LOCATION_CARDS = [
+interface LocationCard {
+  city: string;
+  country: string;
+  label: string;
+  address: string;
+  email: string;
+  phone?: string;
+  phones?: string[];
+  directionsUrl?: string;
+  MapComponent: ({ className }: { className?: string }) => React.JSX.Element;
+  isHq?: boolean;
+}
+
+const LOCATION_CARDS: LocationCard[] = [
   {
     city: "Kolkata Headquarters",
     country: "India",
@@ -419,13 +432,13 @@ function AboutPage() {
                               loc.phones.map((p, pIdx) => (
                                 <span key={pIdx} className="inline-flex items-center gap-1">
                                   {pIdx > 0 && <span className="text-muted-foreground">/</span>}
-                                  <a href={`tel:${p.replace(/[^0-9+]/g, '')}`} className="hover:text-brand transition-colors">
+                                  <a href={`tel:${p.replace(/[^0-9+]/g, '')}`} className="hover:text-brand-red transition-colors">
                                     {p}
                                   </a>
                                 </span>
                               ))
                             ) : (
-                              <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-brand transition-colors">
+                              <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-brand-red transition-colors">
                                 {loc.phone}
                               </a>
                             )}

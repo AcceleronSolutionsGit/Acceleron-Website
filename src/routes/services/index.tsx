@@ -489,33 +489,34 @@ function ServicesHub() {
       />
 
       {/* QUICK JUMP / PRACTICE ANCHOR BAR */}
-      <div className="sticky top-20 z-30 border-y border-border/60 bg-background/90 backdrop-blur-md py-3 shadow-sm">
-        <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
-          <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground shrink-0 hidden md:block">
+      <div className="sticky top-14 sm:top-16 lg:top-20 z-30 border-y border-border/60 bg-background/95 backdrop-blur-md py-2.5 sm:py-3 shadow-sm">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between gap-3 sm:gap-4 overflow-x-auto no-scrollbar scroll-smooth">
+          <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground shrink-0 hidden md:block">
             Jump to Practice:
           </div>
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {PRACTICES.map((p) => (
               <a
                 key={p.id}
                 href={`#${p.anchorId}`}
-                className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-muted/40 hover:bg-brand/10 hover:border-brand/40 px-3.5 py-1.5 text-xs font-semibold text-foreground transition-all duration-200"
+                className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-border/80 bg-muted/40 hover:bg-brand-red/10 hover:border-brand-red/40 hover:text-brand-red px-3 sm:px-3.5 py-1.5 text-xs font-semibold text-foreground transition-all duration-200"
               >
-                <p.icon className="h-3.5 w-3.5 text-brand" />
+                <p.icon className="h-3.5 w-3.5 text-brand-red" />
                 <span>{p.title}</span>
               </a>
             ))}
             <a
               href="#delivery-locations"
-              className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-muted/40 hover:bg-brand/10 hover:border-brand/40 px-3.5 py-1.5 text-xs font-semibold text-foreground transition-all duration-200"
+              className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-border/80 bg-muted/40 hover:bg-brand-red/10 hover:border-brand-red/40 hover:text-brand-red px-3 sm:px-3.5 py-1.5 text-xs font-semibold text-foreground transition-all duration-200"
             >
-              <MapPin className="h-3.5 w-3.5 text-brand" />
-              <span>Contact & Locations</span>
+              <MapPin className="h-3.5 w-3.5 text-brand-red" />
+              <span>Locations</span>
             </a>
           </div>
           <Link
             to="/contact"
-            className="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:text-brand-red transition-colors shrink-0"
+            hash="form"
+            className="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 transition-colors shrink-0"
           >
             <span>Talk to Solution Architects</span>
             <ArrowRight className="h-3.5 w-3.5" />
@@ -526,17 +527,17 @@ function ServicesHub() {
       {/* SECTION 2: EXECUTIVE PRACTICE DIRECTORY */}
       <section
         id="practices"
-        className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-16 sm:py-20 border-b border-border/60"
+        className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-12 sm:py-16 md:py-20 border-b border-border/60"
       >
         <Reveal>
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 lg:mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-3">
               Enterprise Practice Portfolio
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4 leading-tight">
               One Technology Partner. <span className="text-gradient">Every Layer of Your Stack.</span>
             </h2>
-            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
               From enterprise SAP ERP consulting to custom AI development, modern Zoho deployment, and ManageEngine infrastructure monitoring, our practices provide integrated end-to-end execution.
             </p>
           </div>
@@ -546,22 +547,22 @@ function ServicesHub() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {PRACTICES.map((practice, idx) => (
             <Reveal key={practice.id} delay={idx * 0.08} className="h-full">
-              <div className="rounded-3xl border border-border/80 bg-card p-6 h-full shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+              <div className="rounded-2xl sm:rounded-3xl border border-border/80 bg-card p-5 sm:p-6 h-full shadow-card hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-brand/10 text-brand">
+                    <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-brand-red/10 text-brand-red">
                       {practice.capabilities.length} Capabilities
                     </span>
                     <div className="h-9 w-9 rounded-xl bg-muted/60 flex items-center justify-center text-foreground">
                       {practice.useZohoLogo ? (
                         <ZohoLogo className="h-4 w-4" />
                       ) : (
-                        <practice.icon className="h-4 w-4" />
+                        <practice.icon className="h-4 w-4 text-brand-red" />
                       )}
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-foreground mb-1">{practice.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1">{practice.title}</h3>
                   <p className="text-xs text-muted-foreground mb-4 line-clamp-2">
                     {practice.overview}
                   </p>
@@ -571,13 +572,13 @@ function ServicesHub() {
                       <Link
                         key={c.title}
                         to={c.href as any}
-                        className="group flex items-center justify-between rounded-lg px-2.5 py-2 text-xs font-semibold text-foreground/85 hover:text-brand hover:bg-muted/40 transition-all"
+                        className="group flex items-center justify-between rounded-lg px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-foreground/85 hover:text-brand-red hover:bg-muted/40 transition-all"
                       >
                         <span className="flex items-center gap-2 truncate">
-                          <span className="h-1.5 w-1.5 rounded-full bg-brand/60 group-hover:bg-brand transition-colors shrink-0" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-brand-red/60 group-hover:bg-brand-red transition-colors shrink-0" />
                           <span className="truncate">{c.title}</span>
                         </span>
-                        <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/60 group-hover:text-brand group-hover:translate-x-0.5 transition-all shrink-0" />
+                        <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/60 group-hover:text-brand-red group-hover:translate-x-0.5 transition-all shrink-0" />
                       </Link>
                     ))}
                   </div>
@@ -586,7 +587,7 @@ function ServicesHub() {
                 <div className="pt-4 mt-4 border-t border-border/60">
                   <a
                     href={`#${practice.anchorId}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:text-brand-red transition-colors w-full justify-between"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 transition-colors w-full justify-between"
                   >
                     <span>Explore {practice.title}</span>
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -607,30 +608,31 @@ function ServicesHub() {
             }`}
         >
           <Reveal>
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 lg:mb-16 gap-6">
               <div className="max-w-3xl space-y-3">
-                <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand">
+                <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red">
                   {practice.badge}
                 </div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight">
+                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight">
                   {practice.title}
                 </h2>
-                <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
                   {practice.overview}
                 </p>
               </div>
 
-              <div className="shrink-0 flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-3">
+              <div className="shrink-0 flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
                 <Link
                   to={practice.hubUrl as any}
-                  className="rounded-xl border border-brand/40 bg-brand/5 hover:bg-brand/10 text-brand px-4 py-2 text-xs font-bold transition-colors inline-flex items-center gap-1.5"
+                  className="btn btn-secondary btn-sm flex-1 sm:flex-initial"
                 >
                   <span>Practice Hub</span>
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
                 <Link
                   to="/contact"
-                  className="rounded-xl bg-brand-gradient px-4 py-2 text-xs font-bold text-white shadow-glow hover:scale-[1.02] transition-transform"
+                  hash="form"
+                  className="btn btn-primary btn-sm flex-1 sm:flex-initial"
                 >
                   Consult Specialists
                 </Link>
@@ -639,58 +641,58 @@ function ServicesHub() {
           </Reveal>
 
           {/* CAPABILITY CARDS */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-7">
             {practice.capabilities.map((cap, cIdx) => (
               <Reveal key={cap.title} delay={cIdx * 0.08} className="h-full">
-                <div className="group rounded-3xl border border-border/70 bg-card p-7 sm:p-8 h-full shadow-card hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                <div className="group rounded-2xl sm:rounded-3xl border border-border/70 bg-card p-5 sm:p-6 md:p-7 h-full shadow-card hover:shadow-elevated hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between mb-5">
+                    <div className="flex items-center justify-between mb-4 sm:mb-5">
                       <div
-                        className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${practice.gradient} text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform`}
+                        className={`h-11 w-11 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl bg-gradient-to-br ${practice.gradient} text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform`}
                       >
-                        <cap.icon className="h-6 w-6" />
+                        <cap.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                       </div>
-                      <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground bg-muted/60 px-3 py-1 rounded-full border border-border/50">
+                      <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-muted-foreground bg-muted/60 px-2.5 sm:px-3 py-1 rounded-full border border-border/50">
                         {cap.badge}
                       </span>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 group-hover:text-brand transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1 group-hover:text-brand-red transition-colors">
                       {cap.title}
                     </h3>
-                    <div className="text-xs font-semibold text-brand mb-4">
+                    <div className="text-xs font-semibold text-brand-red mb-3 sm:mb-4">
                       {cap.subtitle}
                     </div>
 
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
                       {cap.desc}
                     </p>
 
-                    <div className="space-y-2.5 pt-4 border-t border-border/50 mb-6">
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground/80 mb-2">
+                    <div className="space-y-2 sm:space-y-2.5 pt-3 sm:pt-4 border-t border-border/50 mb-5 sm:mb-6">
+                      <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-muted-foreground/80 mb-2">
                         Key Deliverables
                       </div>
                       {cap.features.map((feat, fIdx) => (
                         <div
                           key={fIdx}
-                          className="flex items-start gap-2.5 text-xs text-foreground/85"
+                          className="flex items-start gap-2 text-xs text-foreground/85"
                         >
-                          <Check className="h-4 w-4 text-brand shrink-0 mt-0.5" />
+                          <Check className="h-3.5 w-3.5 text-brand-red shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-border/50 flex items-center justify-between">
+                  <div className="pt-3.5 sm:pt-4 border-t border-border/50 flex items-center justify-between">
                     <Link
                       to={cap.href as any}
-                      className="inline-flex items-center gap-2 text-sm font-bold text-brand hover:text-brand-red transition-colors group/link"
+                      className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold text-foreground hover:text-brand-red transition-colors group/link"
                     >
                       <span>Explore Capability</span>
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-1 text-brand-red" />
                     </Link>
-                    <span className="text-[11px] font-semibold text-muted-foreground/60">
+                    <span className="text-[10px] sm:text-[11px] font-medium text-muted-foreground/60">
                       Practice Service
                     </span>
                   </div>
@@ -753,20 +755,21 @@ function ServicesHub() {
                     </div>
                     {loc.features.map((feat, fIdx) => (
                       <div key={fIdx} className="flex items-center gap-2.5 text-xs text-foreground/80">
-                        <Check className="h-3.5 w-3.5 text-brand shrink-0" />
+                        <Check className="h-3.5 w-3.5 text-brand-red shrink-0" />
                         <span>{feat}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-border/60">
+                <div className="pt-5 mt-5 border-t border-border/60">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-brand hover:text-brand-red transition-colors"
+                    hash="form"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-foreground hover:text-brand-red transition-colors"
                   >
                     <span>Schedule Visit or Meeting</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <ArrowRight className="h-3.5 w-3.5 text-brand-red" />
                   </Link>
                 </div>
               </div>
@@ -775,10 +778,10 @@ function ServicesHub() {
 
           {/* DIRECT COMMUNICATIONS CARD */}
           <Reveal delay={0.2} className="h-full">
-            <div className="rounded-3xl border border-brand/30 bg-gradient-to-br from-card via-card to-brand/5 p-8 h-full shadow-card hover:border-brand/50 transition-all flex flex-col justify-between">
+            <div className="rounded-2xl sm:rounded-3xl border border-brand-red/30 bg-gradient-to-br from-card via-card to-brand-red/5 p-6 sm:p-7 md:p-8 h-full shadow-card hover:border-brand-red/50 transition-all flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="h-12 w-12 rounded-2xl bg-brand-gradient text-white flex items-center justify-center shadow-glow">
+                  <div className="h-12 w-12 rounded-2xl bg-gradient-to-r from-red-600 to-rose-600 text-white flex items-center justify-center shadow-lg shadow-red-600/30">
                     <Headphones className="h-6 w-6" />
                   </div>
                   <span className="text-[10px] font-bold tracking-wider uppercase bg-brand-red/10 text-brand-red px-3 py-1 rounded-full border border-brand-red/20">
@@ -789,37 +792,37 @@ function ServicesHub() {
                 <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1">
                   Connect Directly
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-3">Reach Our Specialists</h3>
-                <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Reach Our Specialists</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm mb-6 leading-relaxed">
                   Have an urgent requirement or want to discuss enterprise architecture? Our practice specialists respond within 2 business hours.
                 </p>
 
-                <div className="space-y-4 mb-6">
+                <div className="space-y-3 sm:space-y-4 mb-6">
                   <a
                     href="mailto:enquiry@acceleronsolutions.io"
-                    className="flex items-center gap-3 p-3.5 rounded-2xl border border-border/70 bg-muted/30 hover:border-brand/40 hover:bg-brand/5 transition-all text-sm group"
+                    className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl border border-border/70 bg-muted/30 hover:border-brand-red/40 hover:bg-brand-red/5 transition-all text-sm group"
                   >
-                    <div className="h-9 w-9 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                    <div className="h-9 w-9 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                       <Mail className="h-4 w-4" />
                     </div>
                     <div className="truncate">
                       <div className="text-[11px] font-medium text-muted-foreground">General Enquiries</div>
-                      <div className="font-semibold text-foreground group-hover:text-brand transition-colors truncate">
+                      <div className="font-semibold text-foreground group-hover:text-brand-red transition-colors truncate text-xs sm:text-sm">
                         enquiry@acceleronsolutions.io
                       </div>
                     </div>
                   </a>
 
                   <a
-                    href="tel:03335346222"
-                    className="flex items-center gap-3 p-3.5 rounded-2xl border border-border/70 bg-muted/30 hover:border-brand/40 hover:bg-brand/5 transition-all text-sm group"
+                    href="tel:+913335346222"
+                    className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl border border-border/70 bg-muted/30 hover:border-brand-red/40 hover:bg-brand-red/5 transition-all text-sm group"
                   >
-                    <div className="h-9 w-9 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                    <div className="h-9 w-9 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                       <Phone className="h-4 w-4" />
                     </div>
                     <div>
                       <div className="text-[11px] font-medium text-muted-foreground">Phone Support Desk</div>
-                      <div className="font-semibold text-foreground group-hover:text-brand transition-colors">
+                      <div className="font-semibold text-foreground group-hover:text-brand-red transition-colors text-xs sm:text-sm">
                         033 3534 6222
                       </div>
                     </div>
@@ -830,7 +833,8 @@ function ServicesHub() {
               <div className="pt-4 border-t border-border/60">
                 <Link
                   to="/contact"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-gradient py-3.5 text-xs font-bold text-white shadow-glow hover:opacity-95 transition-opacity"
+                  hash="form"
+                  className="btn btn-primary btn-md w-full justify-center"
                 >
                   <span>Request Practice Consultation</span>
                   <ArrowRight className="h-4 w-4" />
@@ -842,20 +846,20 @@ function ServicesHub() {
       </section>
 
       {/* SECTION 5: ENTERPRISE DIFFERENTIATORS */}
-      <section className="bg-muted/30 border-y border-border/60 py-16 sm:py-20 relative z-10">
+      <section className="bg-muted/30 border-y border-border/60 py-12 sm:py-16 md:py-20 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
           <Reveal>
-            <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
                 Why Enterprises Partner With Acceleron
               </h2>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-muted-foreground text-xs sm:text-sm">
                 Combining industrial engineering heritage with agile digital expertise to deliver measurable P&amp;L impact.
               </p>
             </div>
           </Reveal>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 title: "80+ Years Industrial Pedigree",
@@ -879,11 +883,11 @@ function ServicesHub() {
               },
             ].map((d, dIdx) => (
               <Reveal key={d.title} delay={dIdx * 0.08}>
-                <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm hover:border-brand/40 transition-colors h-full">
-                  <div className="h-10 w-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center mb-4">
+                <div className="rounded-2xl border border-border/60 bg-card p-5 sm:p-6 shadow-sm hover:border-brand-red/40 transition-colors h-full">
+                  <div className="h-10 w-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center mb-4">
                     <d.icon className="h-5 w-5" />
                   </div>
-                  <h4 className="text-base font-bold text-foreground mb-2">{d.title}</h4>
+                  <h4 className="text-sm sm:text-base font-bold text-foreground mb-1.5">{d.title}</h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">{d.desc}</p>
                 </div>
               </Reveal>
@@ -893,30 +897,30 @@ function ServicesHub() {
       </section>
 
       {/* SECTION 6: FAQS */}
-      <section className="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10 py-16 sm:py-24">
+      <section className="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10 py-14 sm:py-20 md:py-24">
         <Reveal>
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand mb-3">
+          <div className="text-center mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-brand-red mb-3">
               Frequently Asked Questions
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
               Enterprise Practice Inquiries
             </h2>
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <Accordion type="single" collapsible className="w-full space-y-4">
+          <Accordion type="single" collapsible className="w-full space-y-3 sm:space-y-4">
             {FAQS.map((faq, idx) => (
               <AccordionItem
                 key={idx}
                 value={`item-${idx}`}
-                className="rounded-2xl border border-border/70 bg-card px-6 py-1 shadow-sm data-[state=open]:border-brand/40 transition-colors"
+                className="rounded-2xl border border-border/70 bg-card px-5 sm:px-6 py-1 shadow-sm data-[state=open]:border-brand-red/40 transition-colors"
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-brand hover:no-underline py-4 text-base">
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-brand-red hover:no-underline py-3.5 sm:py-4 text-sm sm:text-base">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-4 pt-1">
+                <AccordionContent className="text-muted-foreground text-xs sm:text-sm leading-relaxed pb-4 pt-1">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
@@ -926,27 +930,28 @@ function ServicesHub() {
       </section>
 
       {/* BOTTOM CTA BANNER */}
-      <section className="border-t border-border/60 bg-gradient-to-br from-card via-card to-brand/5 py-16">
+      <section className="border-t border-border/60 bg-gradient-to-br from-card via-card to-brand-red/5 py-14 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl text-center">
           <Reveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
               Ready to Accelerate Your Enterprise Transformation?
             </h2>
-            <p className="text-muted-foreground text-base max-w-2xl mx-auto mb-8">
+            <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto mb-6 sm:mb-8">
               Discuss your architectural roadmap, ERP upgrades, or custom software requirements with our practice directors today.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               <Link
                 to="/contact"
-                className="rounded-2xl bg-brand-gradient px-8 py-4 text-sm font-bold text-white shadow-glow hover:opacity-95 transition-opacity"
+                hash="form"
+                className="btn btn-primary btn-lg shadow-lg shadow-red-600/30"
               >
                 Schedule Consultation
               </Link>
               <a
-                href="tel:03335346222"
-                className="rounded-2xl border border-border bg-card px-8 py-4 text-sm font-bold text-foreground hover:bg-muted/50 transition-colors inline-flex items-center gap-2"
+                href="tel:+913335346222"
+                className="btn btn-secondary btn-lg inline-flex items-center justify-center gap-2"
               >
-                <Phone className="h-4 w-4 text-brand" />
+                <Phone className="h-4 w-4 text-brand-red" />
                 <span>Call 033 3534 6222</span>
               </a>
             </div>

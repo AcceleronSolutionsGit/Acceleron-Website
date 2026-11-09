@@ -779,39 +779,40 @@ function Industries() {
 interface ClienteleItem {
   name: string;
   src: string;
+  scale?: number;
 }
 
 const CLIENTELE_ROW_1: ClienteleItem[] = [
-  { name: "Caterpillar", src: "/clientele/uniform/caterpillar.png" },
-  { name: "Gainwell CAT", src: "/clientele/uniform/gainwell-cat.png" },
-  { name: "SEM (A Caterpillar Brand)", src: "/clientele/uniform/sem.png" },
-  { name: "Trimble", src: "/clientele/uniform/trimble.png" },
-  { name: "SITECH", src: "/clientele/uniform/sitech.png" },
-  { name: "TIL - Tractors India Limited", src: "/clientele/uniform/til.png" },
-  { name: "TMC", src: "/clientele/uniform/tmc.png" },
-  { name: "PCM - Parasea Coal Mining", src: "/clientele/uniform/pcm.png" },
-  { name: "Resurgent Mining Solutions", src: "/clientele/uniform/resurgent-mining.png" },
-  { name: "Knowteq Equipcare", src: "/clientele/uniform/knowteq-equipcare.png" },
-  { name: "Tulip Compression", src: "/clientele/uniform/tulip-compression.png" },
-  { name: "BMW Industries Limited", src: "/clientele/uniform/bmw-industries.png" },
-  { name: "Shyam Steel", src: "/clientele/uniform/shyam-steel.png" },
-  { name: "Amit Metaliks", src: "/clientele/uniform/amit-metaliks.png" },
+  { name: "Caterpillar", src: "/clientele/uniform/caterpillar.png", scale: 1 },
+  { name: "Gainwell CAT", src: "/clientele/uniform/gainwell-cat.png", scale: 1.05 },
+  { name: "SEM (A Caterpillar Brand)", src: "/clientele/uniform/sem.png", scale: 1.05 },
+  { name: "Trimble", src: "/clientele/uniform/trimble.png", scale: 1 },
+  { name: "SITECH", src: "/clientele/uniform/sitech.png", scale: 1 },
+  { name: "TIL - Tractors India Limited", src: "/clientele/TIL- Tractors India Limited 1.webp", scale: 1.3 },
+  { name: "TMC", src: "/clientele/uniform/tmc.png", scale: 1.05 },
+  { name: "PCM - Parasea Coal Mining", src: "/clientele/uniform/pcm.png", scale: 1 },
+  { name: "Resurgent Mining Solutions", src: "/clientele/uniform/resurgent-mining.png", scale: 1 },
+  { name: "Knowteq Equipcare", src: "/clientele/uniform/knowteq-equipcare.png", scale: 1.1 },
+  { name: "Tulip Compression", src: "/clientele/uniform/tulip-compression.png", scale: 1.4 },
+  { name: "BMW Industries Limited", src: "/clientele/uniform/bmw-industries.png", scale: 1 },
+  { name: "Shyam Steel", src: "/clientele/uniform/shyam-steel.png", scale: 1.05 },
+  { name: "Amit Metaliks", src: "/clientele/uniform/amit-metaliks.png", scale: 1.05 },
 ];
 
 const CLIENTELE_ROW_2: ClienteleItem[] = [
-  { name: "PCBL Chemical", src: "/clientele/uniform/pcbl.png" },
-  { name: "M P Birla Group", src: "/clientele/uniform/mp-birla.png" },
-  { name: "Star Cement", src: "/clientele/uniform/star-cement.png" },
-  { name: "MAX Cement", src: "/clientele/uniform/max-cement.png" },
-  { name: "Century Plyboards", src: "/clientele/uniform/century-plyboards.png" },
-  { name: "Skipper Pipes", src: "/clientele/uniform/skipper-pipes.png" },
-  { name: "Neoceram", src: "/clientele/uniform/neoceram.png" },
-  { name: "Ameya Technologies", src: "/clientele/uniform/ameya-tech.png" },
-  { name: "mjunction", src: "/clientele/uniform/mjunction.png" },
-  { name: "Livpure", src: "/clientele/uniform/livpure.png" },
-  { name: "Linc", src: "/clientele/uniform/linc.png" },
-  { name: "MDH", src: "/clientele/uniform/mdh.png" },
-  { name: "Viacom 18", src: "/clientele/uniform/viacom-18.png" },
+  { name: "PCBL Chemical", src: "/clientele/uniform/pcbl.png", scale: 1.15 },
+  { name: "M P Birla Group", src: "/clientele/uniform/mp-birla.png", scale: 1 },
+  { name: "Star Cement", src: "/clientele/uniform/star-cement.png", scale: 1.25 },
+  { name: "MAX Cement", src: "/clientele/uniform/max-cement.png", scale: 1 },
+  { name: "Century Plyboards", src: "/clientele/uniform/century-plyboards.png", scale: 2.15 },
+  { name: "Skipper Pipes", src: "/clientele/uniform/skipper-pipes.png", scale: 1.35 },
+  { name: "Neoceram", src: "/clientele/uniform/neoceram.png", scale: 1.05 },
+  { name: "Ameya Technologies", src: "/clientele/uniform/ameya-tech.png", scale: 1.6 },
+  { name: "mjunction", src: "/clientele/uniform/mjunction.png", scale: 1.05 },
+  { name: "Livpure", src: "/clientele/uniform/livpure.png", scale: 1.6 },
+  { name: "Linc", src: "/clientele/uniform/linc.png", scale: 1.15 },
+  { name: "MDH", src: "/clientele/uniform/mdh.png", scale: 1 },
+  { name: "Viacom 18", src: "/clientele/uniform/viacom-18.png", scale: 1.35 },
 ];
 
 function OurSelectedClientele() {
@@ -867,7 +868,8 @@ function OurSelectedClientele() {
                   title={client.name}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full max-h-12 sm:max-h-14 object-contain transition-transform duration-300 group-hover:scale-105"
+                  style={{ transform: client.scale ? `scale(${client.scale})` : undefined }}
+                  className="w-full h-full max-h-12 sm:max-h-14 object-contain transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
             ))}
@@ -886,7 +888,8 @@ function OurSelectedClientele() {
                   title={client.name}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full max-h-12 sm:max-h-14 object-contain transition-transform duration-300 group-hover:scale-105"
+                  style={{ transform: client.scale ? `scale(${client.scale})` : undefined }}
+                  className="w-full h-full max-h-12 sm:max-h-14 object-contain transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
             ))}
@@ -979,12 +982,12 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="relative">
+    <div className="relative w-full max-w-full overflow-x-hidden">
       <AnimatePresence>
         {loading && <InitialLoader onComplete={() => setLoading(false)} />}
       </AnimatePresence>
       <Nav />
-      <main>
+      <main className="w-full max-w-full overflow-x-hidden">
         <Hero />
         <KeyMetricsBar />
         <AboutTeaser />

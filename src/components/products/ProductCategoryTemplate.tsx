@@ -396,7 +396,8 @@ export function ProductCategoryTemplate({ data }: ProductCategoryTemplateProps) 
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               <Link
-                to="/contact#form"
+                to="/contact"
+                hash="form"
                 className="btn btn-primary btn-lg shadow-lg shadow-red-600/30"
               >
                 Schedule Architecture Discovery

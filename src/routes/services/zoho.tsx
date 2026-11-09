@@ -576,7 +576,8 @@ function ZohoPage() {
 
               <div className="pt-2">
                 <Link
-                  to="/contact#form"
+                  to="/contact"
+                  hash="form"
                   className="btn btn-primary btn-lg inline-flex items-center gap-2 shadow-lg shadow-brand-red/20"
                 >
                   Schedule a Zoho Architecture Session <ArrowUpRight className="h-5 w-5" />
