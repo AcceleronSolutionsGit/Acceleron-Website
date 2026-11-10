@@ -109,6 +109,34 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function (w, d, s, u) {
+            w.gbwawc = {
+                url: u,
+                options: {
+                    waId: "913335346222",
+                    siteName: "Acceleron Solutions ",
+                    siteTag: "Usually reply in 4 minutes",
+                    siteLogo: "https://files.gallabox.com/6a420577277f34d25cb5826a/7f4f43d9-9d3a-4a97-8c6b-277a2bf68097-AcceleronDigitalfaviconRGBbluebackground.jpg",
+                    widgetPosition: "RIGHT",
+                    welcomeMessage: "Welcome to Acceleron Solutions !",
+                    brandColor: "#25D366",
+                    messageText: "How can we assist you today?",
+                    replyOptions: ['Talk to an Expert','Request a Consultation','Request a Callback'],
+                    version: "v1",
+                    widgetPositionMarginX: 12,
+                    widgetPositionMarginY: 12,
+                },
+            };
+            var h = d.getElementsByTagName(s)[0],
+                j = d.createElement(s);
+            j.async = true;
+            j.src = u + "/whatsapp-widget.min.js?_=" + "2026-08-13 15";
+            h.parentNode.insertBefore(j, h);
+        })(window, document, "script", "https://waw.gallabox.com");`,
+          }}
+        />
       </body>
     </html>
   );
@@ -127,12 +155,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      {isAuthOrAdmin && (
+        <style>{`#gbwawc, #gbwawc-container, [id*="gbwawc"], [class*="gbwawc"], div[style*="waw.gallabox.com"], iframe[src*="gallabox"] { display: none !important; }`}</style>
+      )}
       {!isAuthOrAdmin && <Nav />}
       <Outlet />
       {!isAuthOrAdmin && <Footer />}
       {!isAuthOrAdmin && <StickyContactCTA />}
       {!isAuthOrAdmin && <ScrollToTop />}
-      <Toaster position="bottom-right" theme="system" />
+      <Toaster position="top-right" theme="system" />
     </QueryClientProvider>
   );
 }

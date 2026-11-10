@@ -42,7 +42,7 @@ export function StickyContactCTA() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.82, y: 22 }}
           transition={{ type: "spring", stiffness: 380, damping: 26 }}
-          className="fixed bottom-6 left-4 sm:left-auto sm:right-24 sm:bottom-8 z-40"
+          className="fixed bottom-3.5 left-3.5 sm:left-auto sm:right-28 sm:bottom-3.5 z-40"
           style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}
         >
           <a
