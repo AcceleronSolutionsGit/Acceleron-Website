@@ -25,7 +25,7 @@ export const Route = createFileRoute("/products/industrial-solutions")({
       {
         name: "description",
         content:
-          "Acceleron develops and delivers integrated engineering and digital solutions that help heavy industries, manufacturing plants, and infrastructure enterprises optimize operations and asset performance.",
+          "Acceleron delivers integrated engineering and digital solutions that help industries optimize operations, improve productivity, and enhance asset performance.",
       },
     ],
   }),
@@ -37,10 +37,10 @@ const INDUSTRIAL_SOLUTIONS_DATA: ProductCategoryData = {
   categoryTitle: "Industrial Solutions",
   pageTitle: "Industrial Solutions",
   subtitle:
-    "Integrated engineering and digital solutions for heavy industries, manufacturing and infrastructure enterprises, designed to optimize operations and asset performance.",
+    "Acceleron delivers integrated engineering and digital solutions that help industries optimize operations, improve productivity, and enhance asset performance.",
   badge: "INTEGRATED ENGINEERING & TECHNOLOGY ECOSYSTEM",
   overview:
-    "Acceleron develops and delivers integrated engineering and digital solutions that help heavy industries, manufacturing plants, and infrastructure enterprises optimize operations and asset performance. By combining intelligent software platforms, enterprise technology, and process automation, we help organizations improve productivity, minimize unplanned downtime, and optimize total cost of ownership (TCO).",
+    "Acceleron delivers integrated engineering and digital solutions that help industries optimize operations, improve productivity, and enhance asset performance. By combining intelligent software platforms, enterprise technology, and process automation, we help organizations improve productivity, minimize unplanned downtime, and optimize total cost of ownership (TCO).",
   heroImage: "/products/Industrial Solutions - Acceleron Solutions.png",
   icon: Factory,
   gradient: "from-blue-600 via-indigo-600 to-purple-600",

@@ -30,11 +30,11 @@ import { getAssetUrl } from "../lib/assets";
 export const Route = createFileRoute("/csr")({
   head: () => ({
     meta: [
-      { title: "Acceleron Cares — CSR & Community Outreach" },
+      { title: "Transformation Through Collective Action — Acceleron Cares CSR" },
       {
         name: "description",
         content:
-          "Acceleron Cares is our commitment to responsibility, empathy, and collective social action. Explore our blood donation drives, pre-loved clothes drives with Goonj, food relief, and elder care warmth initiatives.",
+          "Through 'Acceleron Cares', we bring people together to create meaningful change. Guided by empathy and responsibility, our initiatives aim to make a positive difference in the communities around us.",
       },
     ],
   }),
@@ -109,8 +109,8 @@ function CsrPage() {
       {/* SECTION 1: HERO BANNER */}
       <PageHero
         badge="ACCELERON CARES: CSR"
-        title="Transformation Driven by Responsibility, Empathy &amp; Collective Action"
-        subtitle="We believe that true transformation goes far beyond technology—it is driven by responsibility, empathy, and collective action. Through our 'Acceleron Cares' initiative, we remain deeply committed to creating a positive ripple effect across our communities. Because when people come together with purpose, meaningful change becomes inevitable."
+        title="Transformation Through Collective Action"
+        subtitle="Through 'Acceleron Cares', we bring people together to create meaningful change. Guided by empathy and responsibility, our initiatives aim to make a positive difference in the communities around us."
         breadcrumbs={[{ label: "CSR" }]}
         image="/DSC03626.JPG"
         ctaText="Explore Initiatives"
