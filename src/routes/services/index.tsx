@@ -603,8 +603,8 @@ function ServicesHub() {
         secondaryCtaHref="/contact"
       />
 
-      {/* QUICK JUMP / PRACTICE ANCHOR BAR */}
-      <div className="sticky top-14 lg:top-16 z-30 border-y border-border/60 bg-background/95 backdrop-blur-md py-2.5 sm:py-3 shadow-sm">
+      {/* QUICK JUMP / PRACTICE ANCHOR BAR (Hidden on mobile) */}
+      <div className="hidden md:block sticky top-14 lg:top-16 z-30 border-y border-border/60 bg-background/95 backdrop-blur-md py-2.5 sm:py-3 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between gap-3 sm:gap-4 overflow-x-auto no-scrollbar scroll-smooth">
           <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground shrink-0 hidden md:block">
             Jump to Practice:

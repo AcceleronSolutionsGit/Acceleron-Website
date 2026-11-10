@@ -192,10 +192,10 @@ function ITCustomSolutionsPage() {
           { label: "IT & Custom Solutions" }
         ]}
         image="/IT & Custom Solutions/IT & Custom Solutions - Acceleron Solutions.png"
-        ctaText="Consult with Our Architects"
+        ctaText="Build Your Custom Solution"
         ctaHref="/contact#form"
-        secondaryCtaText="Explore Offerings"
-        secondaryCtaHref="#offerings"
+        secondaryCtaText="Discuss Your Custom AI Requirement"
+        secondaryCtaHref="/services/it-custom-solutions/custom-ai-application-development"
       />
 
       {/* SECTION 2: CORE PRACTICE CARDS (6 SERVICE TILES) */}

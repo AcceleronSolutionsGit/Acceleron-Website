@@ -2,7 +2,7 @@
  * Global toggle for secondary CTA button on sub-service pages.
  * Set to true when you want to make the secondary CTA button visible again.
  */
-export const SHOW_SECONDARY_CTA = false;
+export const SHOW_SECONDARY_CTA = true;
 
 export interface SubServiceData {
   slug: string;
@@ -1139,6 +1139,10 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     categorySlug: "it-custom-solutions",
     desc: "Robust, high-availability hybrid cloud and network management engineered for 99.99% uptime.",
     overview: " Robust, high-availability hybrid cloud and network management engineered for 99.99% uptime We engineer resilient physical and cloud architectures that maximize business continuity, high-speed collaboration, and reliable day-to-day operations.",
+    primaryCtaText: "Secure Your Infrastructure",
+    primaryCtaHref: "#consultation",
+    secondaryCtaText: "Schedule an IT Assessment",
+    secondaryCtaHref: "/contact#form",
     featuresTitle: "Service Scope & Capabilities",
     features: [
       { title: "Cloud Infrastructure Management", desc: "Provisioning, hosting, and optimizing cloud workloads across AWS, Microsoft Azure, and GCP." },
@@ -1168,6 +1172,10 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     categorySlug: "it-custom-solutions",
     desc: "Tailor-made web, mobile, and cloud software built for unique enterprise workflows.",
     overview: "Tailor-made software solutions designed to solve your unique business challenges. Our full-stack engineering practices build scalable, intuitive, and high-performance digital products engineered to match your operational reality.",
+    primaryCtaText: "Build Your Custom Solution",
+    primaryCtaHref: "#consultation",
+    secondaryCtaText: "Discuss Your Custom AI Requirement",
+    secondaryCtaHref: "/services/it-custom-solutions/custom-ai-application-development",
     featuresTitle: "Service Scope & Capabilities",
     features: [
       { title: "Full-Stack Web Development", desc: "High-performance web apps built with modern JavaScript frameworks (React, Angular, Node.js), Python, and Java." },
@@ -1250,11 +1258,15 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
   },
   {
     slug: "security-audits",
-    title: "Security Audits & Vulnerability Assessments",
+    title: "Enterprise IT Security Audit & Vulnerability Assessment",
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
     desc: "Proactive VAPT and risk evaluations to fortify digital perimeters.",
     overview: "Comprehensive vulnerability assessments and penetration testing to identify risks. Our certified cybersecurity specialists rigorously evaluate your networks, cloud estates, web applications, and source code to eliminate vulnerabilities before adversaries can exploit them.",
+    primaryCtaText: "Request a Security Audit",
+    primaryCtaHref: "#consultation",
+    secondaryCtaText: "Speak with a Security Expert",
+    secondaryCtaHref: "/contact#form",
     featuresTitle: "Service Scope & Capabilities",
     features: [
       { title: "Vulnerability Assessment & Penetration Testing (VAPT)", desc: "Black-box, grey-box, and white-box penetration testing for web apps, mobile apps, and networks." },
@@ -1328,6 +1340,18 @@ export function getSubServiceUrlByTitle(catSlug: string, subTitle: string): stri
 
 export function getSubServiceBySlug(slug: string): SubServiceData | undefined {
   if (!slug) return undefined;
+
+  if (
+    slug === "security-audit-vulnerability-assessment" ||
+    slug === "security-audits-vulnerability-assessments" ||
+    slug === "security-audit"
+  ) {
+    const auditMatch = SUB_SERVICES_DATA.find((s) => s.slug === "security-audits");
+    if (auditMatch) {
+      return SHOW_SECONDARY_CTA ? auditMatch : { ...auditMatch, secondaryCtaText: undefined };
+    }
+  }
+
   const directMatch = SUB_SERVICES_DATA.find((s) => s.slug === slug);
   const found =
     directMatch ||
