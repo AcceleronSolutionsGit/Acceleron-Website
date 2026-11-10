@@ -24,22 +24,28 @@ export const ABOUT_SLIDER_IMAGES: AboutSlideImage[] = [
     subtitle: "State-of-the-art infrastructure powering digital transformation.",
   },
   {
+    src: "/aboutus/Acceleron Solutions Greater Noida office 2.jpg",
+    alt: "Acceleron Solutions Greater Noida Office & Team",
+    title: "Greater Noida Regional Center & Delivery Team",
+    subtitle: "Expanding digital engineering and enterprise consulting across Delhi-NCR.",
+  },
+  {
     src: "/aboutus/acceleron-team-4.webp",
     alt: "Acceleron Team Collaboration & Innovation",
     title: "Engineering & Consulting Teams",
     subtitle: "Fostering collective innovation across enterprise ecosystems.",
   },
   {
+    src: "/aboutus/CIO500 - CEO Arindam Hari.jpg",
+    alt: "Acceleron CEO Arindam Hari Keynote Address at CIO500 Awards",
+    title: "Keynote Address & Thought Leadership",
+    subtitle: "CEO Arindam Hari addressing industry leaders on autonomous enterprise & applied AI.",
+  },
+  {
     src: "/aboutus/acceleron-cio500-awards-delhi.webp",
     alt: "Acceleron CIO500 Awards Recognition",
     title: "Industry Recognition & Thought Leadership",
     subtitle: "Celebrated among top enterprise digital transformation leaders.",
-  },
-  {
-    src: "/aboutus/acceleron-event-photo-2.webp",
-    alt: "Acceleron Corporate Event & Townhall",
-    title: "Culture of Excellence & Collaboration",
-    subtitle: "Empowering talent to solve high-impact industrial challenges.",
   },
   {
     src: "/aboutus/acceleron-collaboration-4.webp",

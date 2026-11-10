@@ -37,13 +37,6 @@ export function SubServicePageView({ data }: SubServicePageProps) {
           { label: data.title }
         ]}
         image={data.image || "/SAP_Implementation_Banner.png"}
-        icon={
-          data.customLogo ? (
-            <div className="h-20 w-auto bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-xl flex items-center justify-center">
-              <img src={getAssetUrl(data.customLogo)} alt={data.title} className="h-12 w-auto object-contain drop-shadow-lg" />
-            </div>
-          ) : undefined
-        }
       />
 
       <WaveDivider from="dark" to="light" />

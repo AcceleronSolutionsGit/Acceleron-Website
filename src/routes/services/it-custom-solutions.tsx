@@ -191,20 +191,11 @@ function ITCustomSolutionsPage() {
           { label: "Services", href: "/services" },
           { label: "IT & Custom Solutions" }
         ]}
-        image="/capital_goods.jpg"
+        image="/IT & Custom Solutions/IT & Custom Solutions - Acceleron Solutions.png"
         ctaText="Consult with Our Architects"
         ctaHref="/contact#form"
         secondaryCtaText="Explore Offerings"
         secondaryCtaHref="#offerings"
-        icon={
-          <div className="h-20 w-auto bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-xl flex items-center justify-center">
-            <img
-              src={getAssetUrl("/Acceleron_Short_Logo.png")}
-              alt="Acceleron Solutions"
-              className="h-12 w-auto object-contain drop-shadow-lg"
-            />
-          </div>
-        }
       />
 
       {/* SECTION 2: CORE PRACTICE CARDS (6 SERVICE TILES) */}
