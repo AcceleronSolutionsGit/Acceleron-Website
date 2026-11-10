@@ -11,9 +11,9 @@ const LeafletMap = lazy(() => import('./LeafletMap'));
 
 export function WhyChooseUs() {
   const reasons = [
-    { title: "Deep Domain Expertise", desc: "Backed by Gainwell Group's industrial heritage, we speak the real operational language of mining, manufacturing, and heavy engineering.", icon: ShieldCheck, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=600&auto=format&fit=crop" },
-    { title: "End-to-End Execution", desc: "From board-level digital strategy through custom development to 24×7 steady-state managed operations, we take single-point accountability. ", icon: Zap, img: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=600&auto=format&fit=crop" },
-    { title: "Measurable P&L Impact", desc: "We don't just ship software code; we focus strictly on business outcomes—reducing downtime, improving safety, and optimizing operational costs.", icon: ArrowUpRight, img: "/outcome_driven.jpg" },
+    { title: "Deep Domain Expertise", desc: "Backed by Gainwell Group's industrial heritage, we speak the real operational language of mining, manufacturing, and heavy engineering.", icon: ShieldCheck, img: "/why/deep-domain-expertise-acceleron-solutions.webp" },
+    { title: "End-to-End Execution", desc: "From board-level digital strategy through custom development to 24×7 steady-state managed operations, we take single-point accountability. ", icon: Zap, img: "/why/end-to-end-execution-acceleron-solutions.webp" },
+    { title: "Measurable P&L Impact", desc: "We don't just ship software code; we focus strictly on business outcomes—reducing downtime, improving safety, and optimizing operational costs.", icon: ArrowUpRight, img: "/why/measurable-p-l-impact-acceleron-solutions.webp" },
   ];
   return (
     <section className="relative overflow-hidden bg-background py-8 sm:py-12 md:py-16">
