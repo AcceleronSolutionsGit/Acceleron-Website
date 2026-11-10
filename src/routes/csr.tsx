@@ -113,6 +113,8 @@ function CsrPage() {
         subtitle="Through 'Acceleron Cares', we bring people together to create meaningful change. Guided by empathy and responsibility, our initiatives aim to make a positive difference in the communities around us."
         breadcrumbs={[{ label: "CSR" }]}
         image="/DSC03626.JPG"
+        split={true}
+        imagePosition="object-[center_20%]"
         ctaText="Explore Initiatives"
         ctaHref="#initiatives"
         secondaryCtaText="Blood Donation Drive"
