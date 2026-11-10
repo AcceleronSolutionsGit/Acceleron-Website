@@ -292,29 +292,29 @@ export function SubServicePageView({ data }: SubServicePageProps) {
       <WaveDivider from="white" to="dark" />
 
       {/* ═══════════════════ CONSULTATION / CONTACT FORM ═══════════════════ */}
-      <section id="consultation" className="section-dark relative py-16 sm:py-24 lg:py-32 bg-muted text-foreground overflow-hidden">
+      <section id="consultation" className="section-dark relative py-14 sm:py-20 bg-muted text-foreground overflow-hidden">
         <div className="absolute inset-0 diagonal-stripes opacity-15" />
         <div className="absolute top-10 left-10 h-72 w-72 rounded-full bg-brand/15 blur-[120px]" />
         <div className="absolute bottom-10 right-10 h-72 w-72 rounded-full bg-brand-red/15 blur-[120px]" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start md:items-center">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start lg:items-center">
+            <div className="lg:col-span-6">
               <Reveal>
                 <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Initiate Project</div>
               </Reveal>
               <Reveal delay={0.1}>
-                <h2 className="mt-4 text-3xl md:text-5xl font-bold leading-tight">
+                <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
                   Ready to accelerate your <span className="text-gradient">{data.title}</span> journey?
                 </h2>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="mt-6 text-muted-foreground text-sm md:text-base leading-relaxed">
+                <p className="mt-4 text-muted-foreground text-sm md:text-base leading-relaxed">
                   Connect directly with our senior solution architects for a tailored technical roadmap, pricing estimate, and readiness evaluation.
                 </p>
               </Reveal>
 
-              <div className="mt-10 space-y-6">
+              <div className="mt-8 space-y-4">
                 <div className="text-base font-bold text-foreground flex flex-wrap items-center gap-2">
                   <ShieldCheck className="h-5 w-5 text-brand shrink-0" />
                   <span>Acceleron Solutions Pvt. Ltd.</span>
@@ -390,11 +390,13 @@ export function SubServicePageView({ data }: SubServicePageProps) {
             </div>
 
             {/* Form Card */}
-            <div>
-              <Reveal delay={0.2}>
-                <div className="rounded-3xl border border-border/60 bg-background/60 p-8 md:p-10 backdrop-blur-xl shadow-glow">
-                  <h3 className="text-xl font-bold text-foreground mb-2">Request Technical Consultation</h3>
-                  <p className="text-xs text-muted-foreground mb-6">Fill out the details below and our team will get in touch shortly.</p>
+            <div className="lg:col-span-6 flex lg:justify-end">
+              <Reveal delay={0.2} className="w-full max-w-[490px]">
+                <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-6 shadow-md shadow-slate-900/5 dark:shadow-black/30">
+                  <div className="pb-3 mb-4 border-b border-slate-100 dark:border-slate-800">
+                    <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground">Request Technical Consultation</h3>
+                    <p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5">Fill out the details below and our team will get in touch shortly.</p>
+                  </div>
                   <HomeContactForm defaultInterest={data.title} />
                 </div>
               </Reveal>
