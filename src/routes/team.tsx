@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Linkedin,
-  Mail,
   ArrowUpRight,
   ShieldCheck,
   Award,
@@ -190,18 +189,6 @@ function TeamPage() {
                       </p>
                     )}
                   </div>
-
-                  {member.email && (
-                    <div className="pt-3 mt-3 border-t border-border/50">
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="text-[11px] font-semibold text-muted-foreground hover:text-brand transition-colors flex items-center gap-1.5"
-                      >
-                        <Mail className="h-3 w-3 text-brand" />
-                        <span className="truncate">{member.email}</span>
-                      </a>
-                    </div>
-                  )}
                 </div>
               </div>
             </Reveal>

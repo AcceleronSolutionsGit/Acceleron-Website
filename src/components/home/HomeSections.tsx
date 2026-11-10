@@ -142,26 +142,41 @@ export function CSRSection() {
             </Reveal>
 
             <Reveal delay={0.4}>
-              <div className="mt-6">
+              <div className="mt-8 flex flex-wrap items-center gap-3.5">
                 <Link
                   to="/csr"
-                  className="group inline-flex items-center gap-2 text-sm font-semibold text-brand-red hover:text-brand-red-dark transition-colors"
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-7 sm:px-8 py-3.5 text-xs sm:text-sm font-bold shadow-md shadow-red-600/30 hover:shadow-lg hover:shadow-red-600/50 hover:from-red-500 hover:to-rose-500 hover:scale-105 active:scale-95 transition-all duration-300"
                 >
-                  Explore CSR Initiatives
+                  <span>Explore CSR Initiatives</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link
+                  to="/csr"
+                  hash="initiatives"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-border/80 bg-background/60 hover:bg-muted/60 text-foreground px-6 py-3.5 text-xs sm:text-sm font-semibold shadow-soft hover:border-brand-red/40 hover:scale-105 transition-all duration-300"
+                >
+                  <span>View Impact &amp; Gallery</span>
                 </Link>
               </div>
             </Reveal>
           </div>
           <div className="relative">
             <Reveal delay={0.2}>
-              <div className="aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden shadow-elevated border border-border group relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=75&w=800" alt="Sustainability" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20">
-                  <p className="text-white font-bold text-base sm:text-lg" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}>Acceleron Cares Initiative</p>
+              <Link to="/csr" className="block group">
+                <div className="aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden shadow-elevated border border-border group relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10 transition-opacity group-hover:opacity-90" />
+                  <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=75&w=800" alt="Sustainability" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 z-20 flex items-center justify-between">
+                    <div>
+                      <p className="text-white font-bold text-base sm:text-lg" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}>Acceleron Cares Initiative</p>
+                      <p className="text-white/80 text-xs sm:text-sm mt-0.5">Empowering communities &amp; sustainable development</p>
+                    </div>
+                    <span className="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shrink-0 group-hover:bg-brand-red group-hover:border-brand-red transition-all duration-300">
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </Reveal>
           </div>
         </div>
