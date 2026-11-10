@@ -5,7 +5,7 @@ import {
   CheckCircle2, ArrowRight, ArrowLeft,
   Award, Phone, Mail, MapPin, ChevronRight, ChevronDown, ShieldCheck
 } from "lucide-react";
-import { SubServiceData } from "../../data/servicesData";
+import { SubServiceData, SHOW_SECONDARY_CTA } from "../../data/servicesData";
 import { Reveal, WaveDivider } from "../ui/Animations";
 import { PageHero } from "../ui/PageHero";
 import { getAssetUrl } from "../../lib/assets";
@@ -29,7 +29,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
         subtitle={data.desc}
         ctaText={data.primaryCtaText || "Talk to Our Experts"}
         ctaHref={data.primaryCtaHref || "#consultation"}
-        secondaryCtaText={data.secondaryCtaText}
+        secondaryCtaText={SHOW_SECONDARY_CTA ? data.secondaryCtaText : undefined}
         secondaryCtaHref={data.secondaryCtaHref}
         breadcrumbs={[
           { label: "Services", href: "/services" },

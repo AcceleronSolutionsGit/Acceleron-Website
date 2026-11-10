@@ -52,13 +52,26 @@ function getSubUrl(catHref: string, subTitle: string): string {
   return `/services/${catSlug}/${fallbackSlug}`;
 }
 
-const NAV_LINKS = [
+// Toggle to show/hide the Insights menu link and its dropdown; set to true when ready to show again
+export const SHOW_INSIGHTS_MENU = false;
+
+type NavLinkItem = {
+  label: string;
+  href: string;
+  dropdown?: "what-we-do" | "perspectives" | "who-we-are";
+};
+
+const ALL_NAV_LINKS: NavLinkItem[] = [
   { label: "Services", href: "/services", dropdown: "what-we-do" },
   { label: "Insights", href: "/blog", dropdown: "perspectives" },
   { label: "Who We Are", href: "/about", dropdown: "who-we-are" },
   { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
 ];
+
+const NAV_LINKS = ALL_NAV_LINKS.filter(
+  (link) => SHOW_INSIGHTS_MENU || link.dropdown !== "perspectives"
+);
 
 type ProductItem = { name: string; desc: string; href: string; img?: string; icon: any; gradient: string };
 

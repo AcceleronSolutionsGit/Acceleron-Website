@@ -1,3 +1,9 @@
+/**
+ * Global toggle for secondary CTA button on sub-service pages.
+ * Set to true when you want to make the secondary CTA button visible again.
+ */
+export const SHOW_SECONDARY_CTA = false;
+
 export interface SubServiceData {
   slug: string;
   title: string;
@@ -1303,7 +1309,11 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
 ];
 
 export function getSubServicesByCategory(categorySlug: string): SubServiceData[] {
-  return SUB_SERVICES_DATA.filter((s) => s.categorySlug === categorySlug);
+  const items = SUB_SERVICES_DATA.filter((s) => s.categorySlug === categorySlug);
+  if (!SHOW_SECONDARY_CTA) {
+    return items.map((s) => ({ ...s, secondaryCtaText: undefined }));
+  }
+  return items;
 }
 
 export function getSubServiceUrlByTitle(catSlug: string, subTitle: string): string {
@@ -1319,14 +1329,17 @@ export function getSubServiceUrlByTitle(catSlug: string, subTitle: string): stri
 export function getSubServiceBySlug(slug: string): SubServiceData | undefined {
   if (!slug) return undefined;
   const directMatch = SUB_SERVICES_DATA.find((s) => s.slug === slug);
-  if (directMatch) return directMatch;
+  const found =
+    directMatch ||
+    (slug === "sap-others" || slug === "sapothers"
+      ? SUB_SERVICES_DATA.find((s) => s.slug === "audit-comply")
+      : SUB_SERVICES_DATA.find(
+          (s) => s.slug.toLowerCase().replace(/[^a-z0-9]/g, "") === slug.toLowerCase().replace(/[^a-z0-9]/g, "")
+        ));
 
-  if (slug === "sap-others" || slug === "sapothers") {
-    return SUB_SERVICES_DATA.find((s) => s.slug === "audit-comply");
+  if (!found) return undefined;
+  if (!SHOW_SECONDARY_CTA) {
+    return { ...found, secondaryCtaText: undefined };
   }
-
-  const normalized = slug.toLowerCase().replace(/[^a-z0-9]/g, "");
-  return SUB_SERVICES_DATA.find(
-    (s) => s.slug.toLowerCase().replace(/[^a-z0-9]/g, "") === normalized
-  );
+  return found;
 }

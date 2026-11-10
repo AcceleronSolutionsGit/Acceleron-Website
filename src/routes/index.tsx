@@ -124,7 +124,7 @@ function Hero() {
               <span className="grid h-6 w-6 place-items-center rounded-full border border-white/25 transition-transform group-hover:scale-110">
                 <Layers className="h-3 w-3 text-white/80" />
               </span>
-              Explore our Services
+              Explore Our Services
             </Link>
           </motion.div>
         </div>
