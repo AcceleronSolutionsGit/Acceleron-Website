@@ -1,15 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Linkedin,
   ArrowUpRight,
   ShieldCheck,
-  Award,
   Sparkles,
   Users,
   Compass,
   CheckCircle2,
   ArrowRight,
-  Building2,
 } from "lucide-react";
 import { PageHero } from "../components/ui/PageHero";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
@@ -151,7 +148,7 @@ function TeamPage() {
             <Reveal key={member.id} delay={0.08 * idx}>
               <div className="group relative flex flex-col h-full rounded-3xl border border-border/80 bg-card/70 backdrop-blur-xl p-5 shadow-card hover:border-brand/40 hover:-translate-y-1 transition-all duration-300">
                 {/* Image Container */}
-                <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden mb-5 relative bg-muted/40 shadow-inner">
+                <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden mb-4 relative bg-muted/40 shadow-inner">
                   <img
                     src={getAssetUrl(member.image)}
                     alt={member.name}
@@ -159,35 +156,17 @@ function TeamPage() {
                     decoding="async"
                     className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3 sm:p-4">
-                    {member.linkedin && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`${member.name} LinkedIn Profile`}
-                        className="h-8 w-8 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-brand transition-colors"
-                      >
-                        <Linkedin className="h-4 w-4" />
-                      </a>
-                    )}
-                  </div>
                 </div>
 
                 {/* Typography */}
                 <div className="flex flex-col justify-between flex-grow">
                   <div>
-                    <h3 className="text-base md:text-lg font-bold text-foreground group-hover:text-brand transition-colors">
+                    <h3 className="text-base md:text-lg font-bold text-foreground group-hover:text-brand transition-colors leading-snug">
                       {member.name}
                     </h3>
-                    <p className="text-brand-red font-bold text-[11px] mt-1 uppercase tracking-wider line-clamp-2">
+                    <p className="text-brand-red font-bold text-[11px] mt-1.5 uppercase tracking-wider leading-relaxed">
                       {member.role}
                     </p>
-                    {member.bio && (
-                      <p className="text-xs text-muted-foreground mt-2 line-clamp-3 leading-relaxed">
-                        {member.bio}
-                      </p>
-                    )}
                   </div>
                 </div>
               </div>
