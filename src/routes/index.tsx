@@ -317,17 +317,17 @@ function AboutTeaser() {
             {/* Mini Stats Ribbon - ONE VIEW (3 columns side-by-side) with ZERO RED */}
             <Reveal delay={0.25}>
               <div className="grid grid-cols-3 gap-1.5 sm:gap-3.5 pt-1 w-full min-w-0">
-                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2.5 sm:p-3.5 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0">
-                  <div className="text-xs sm:text-sm md:text-base font-black text-foreground whitespace-nowrap tracking-tight">Global Hubs</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium whitespace-nowrap">Delivery Network</div>
+                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2 sm:p-3.5 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0">
+                  <div className="text-[11px] sm:text-xs md:text-sm lg:text-base font-black text-foreground tracking-tight leading-snug">Global Delivery</div>
+                  <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground mt-0.5 font-medium leading-snug">Hubs & Network</div>
                 </div>
-                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2.5 sm:p-3.5 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0">
-                  <div className="text-xs sm:text-sm md:text-base font-black text-foreground whitespace-nowrap tracking-tight">Full-Stack</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium whitespace-nowrap">Enterprise Tech</div>
+                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2 sm:p-3.5 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0">
+                  <div className="text-[11px] sm:text-xs md:text-sm lg:text-base font-black text-foreground tracking-tight leading-snug">Full-Stack</div>
+                  <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground mt-0.5 font-medium leading-snug">Enterprise Tech</div>
                 </div>
-                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2.5 sm:p-3.5 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0">
-                  <div className="text-xs sm:text-sm md:text-base font-black text-foreground whitespace-nowrap tracking-tight">100%</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 font-medium whitespace-nowrap">Outcome Driven</div>
+                <div className="rounded-xl sm:rounded-2xl border border-border/70 bg-card/60 p-2 sm:p-3.5 border-l-2 border-l-primary dark:border-l-cyan-400 shadow-soft hover:-translate-y-0.5 transition-all min-w-0">
+                  <div className="text-[11px] sm:text-xs md:text-sm lg:text-base font-black text-foreground tracking-tight leading-snug">100%</div>
+                  <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground mt-0.5 font-medium leading-snug">Outcome Driven</div>
                 </div>
               </div>
             </Reveal>

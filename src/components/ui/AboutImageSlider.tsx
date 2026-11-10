@@ -36,12 +36,6 @@ export const ABOUT_SLIDER_IMAGES: AboutSlideImage[] = [
     subtitle: "Fostering collective innovation across enterprise ecosystems.",
   },
   {
-    src: "/aboutus/CIO500 - CEO Arindam Hari.jpg",
-    alt: "Acceleron CEO Arindam Hari Keynote Address at CIO500 Awards",
-    title: "Keynote Address & Thought Leadership",
-    subtitle: "CEO Arindam Hari addressing industry leaders on autonomous enterprise & applied AI.",
-  },
-  {
     src: "/aboutus/acceleron-cio500-awards-delhi.webp",
     alt: "Acceleron CIO500 Awards Recognition",
     title: "Industry Recognition & Thought Leadership",
@@ -52,6 +46,12 @@ export const ABOUT_SLIDER_IMAGES: AboutSlideImage[] = [
     alt: "Strategic Workshop & Solution Architecture",
     title: "Customer-Centric Solutioning",
     subtitle: "Collaborating with clients to drive measurable business ROI.",
+  },
+  {
+    src: "/aboutus/CIO500 - CEO Arindam Hari.jpg",
+    alt: "Acceleron CEO Arindam Hari Keynote Address at CIO500 Awards",
+    title: "Keynote Address & Thought Leadership",
+    subtitle: "CEO Arindam Hari addressing industry leaders on autonomous enterprise & applied AI.",
   },
 ];
 
