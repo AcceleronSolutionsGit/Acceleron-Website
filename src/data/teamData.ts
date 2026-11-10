@@ -18,7 +18,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: "/sunil_kumar_chaturvedi_teams.webp",
     department: "Executive Leadership",
     linkedin: "https://www.linkedin.com/",
-    email: "enquiry@acceleronsolutions.io"
   },
   {
     id: "2",
@@ -28,27 +27,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: "/meena_chaturvedi_teams.webp",
     department: "Executive Leadership",
     linkedin: "https://www.linkedin.com/",
-    email: "enquiry@acceleronsolutions.io"
-  },
-  {
-    id: "3",
-    name: "Arindam Hari",
-    role: "Director & CEO",
-    bio: "Veteran technologist leading enterprise application strategy, global delivery centers, and complex SAP S/4HANA transformations.",
-    image: "/Arindam-Hari_teams.webp",
-    department: "Executive Leadership",
-    linkedin: "https://www.linkedin.com/",
-    email: "arindam.hari@acceleronsolutions.io"
-  },
-  {
-    id: "4",
-    name: "Rishabh P Nair",
-    role: "Director",
-    bio: "Architecting cloud-native solutions, Applied AI agents, predictive systems, and high-performance enterprise platforms.",
-    image: "/rishabh-p-nair_teamst.webp",
-    department: "Technology & AI Leads",
-    linkedin: "https://www.linkedin.com/",
-    email: "rishabh.nair@acceleronsolutions.io"
   },
   {
     id: "4.5",
@@ -58,6 +36,23 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: "/Tanay_Khandelwal.webp",
     department: "Executive Leadership",
     linkedin: "https://www.linkedin.com/",
-    email: "tanay@acceleronsolutions.io"
-  }
+  },
+  {
+    id: "4",
+    name: "Rishabh P Nair",
+    role: "Director",
+    bio: "Architecting cloud-native solutions, Applied AI agents, predictive systems, and high-performance enterprise platforms.",
+    image: "/rishabh-p-nair_teamst.webp",
+    department: "Technology & AI Leads",
+    linkedin: "https://www.linkedin.com/",
+  },
+  {
+    id: "3",
+    name: "Arindam Hari",
+    role: "Director & CEO",
+    bio: "Veteran technologist leading enterprise application strategy, global delivery centers, and complex SAP S/4HANA transformations.",
+    image: "/Arindam-Hari_teams.webp",
+    department: "Executive Leadership",
+    linkedin: "https://www.linkedin.com/",
+  },
 ];
