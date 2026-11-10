@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ShieldCheck, Zap, Heart, Leaf, MapPin, ArrowRight, ArrowUpRight, Globe, Phone, Mail } from "lucide-react";
-import { Reveal } from "../ui/Animations";
-import { useEffect, useState, lazy, Suspense } from "react";
+import { ShieldCheck, Zap, Heart, Leaf, MapPin, ArrowRight, ArrowUpRight, Globe, Phone, Mail, ChevronLeft, ChevronRight } from "lucide-react";
+import { Reveal, WaveDivider } from "../ui/Animations";
+import { useEffect, useState, useCallback, lazy, Suspense } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { getAssetUrl } from "../../lib/assets";
 
 // Dynamically import LeafletMap to prevent SSR window crashes
@@ -15,7 +16,7 @@ export function WhyChooseUs() {
     { title: "Measurable P&L Impact", desc: "We don't just ship software code; we focus strictly on business outcomes—reducing downtime, improving safety, and optimizing operational costs.", icon: ArrowUpRight, img: "/outcome_driven.jpg" },
   ];
   return (
-    <section className="relative overflow-hidden bg-background py-20 sm:py-28 md:py-32">
+    <section className="relative overflow-hidden bg-background py-8 sm:py-12 md:py-16">
       <div className="absolute inset-0 grid-lines opacity-[0.03]" />
       <div className="absolute top-20 right-10 h-64 w-64 rounded-full bg-brand-red/5 blur-[100px] animate-float-gentle" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
@@ -89,9 +90,189 @@ export function WhyChooseUs() {
   );
 }
 
-export function CSRSection() {
+export interface CsrCarouselImage {
+  src: string;
+  alt: string;
+  title?: string;
+  subtitle?: string;
+}
+
+/**
+ * Four (4) CSR showcase images for the auto-scrolling infinite carousel.
+ * You can easily update, replace, or customize these 4 images and their titles.
+ */
+export const CSR_CAROUSEL_IMAGES: CsrCarouselImage[] = [
+  // {
+  //   src: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=75&w=800",
+  //   alt: "Sustainability & Green Future",
+  //   title: "Acceleron Cares Initiative",
+  //   subtitle: "Environmental stewardship & sustainability",
+  // },
+  {
+    src: "/csr/blood donation/Blood-donation-Acceleron-Solutions-3.png.webp",
+    alt: "Blood Donation Drive",
+    title: "Blood Donation Drive",
+    subtitle: "Leadership in action with Philanthropic Technical Association",
+  },
+  {
+    src: "/csr/winter clothes/Winter-Cloths-to-Elderly-People-CSR-Acceleron-Solutions-5.png.webp",
+    alt: "Winter Warmth Initiative for Elderly",
+    title: "Winter Warmth Campaign",
+    subtitle: "Delivering blankets, warmth & care to senior citizens",
+  },
+  {
+    src: "/csr/food donation/Food Donation - Acceleron Solution.webp",
+    alt: "Community Food Relief & Nutrition",
+    title: "Nourishing Communities",
+    subtitle: "Nutritional staple kits for daily-wage households",
+  },
+];
+
+export function CsrImageCarousel({
+  images = CSR_CAROUSEL_IMAGES,
+  autoScrollInterval = 3500,
+}: {
+  images?: CsrCarouselImage[];
+  autoScrollInterval?: number;
+}) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    duration: 30,
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const scrollPrev = useCallback(() => {
+    emblaApi?.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    emblaApi?.scrollNext();
+  }, [emblaApi]);
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      emblaApi?.scrollTo(index);
+    },
+    [emblaApi]
+  );
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
+  // Automatically scroll one after another in infinite loop (pauses on hover)
+  useEffect(() => {
+    if (!emblaApi || isPaused) return;
+
+    const timer = setInterval(() => {
+      emblaApi.scrollNext();
+    }, autoScrollInterval);
+
+    return () => clearInterval(timer);
+  }, [emblaApi, isPaused, autoScrollInterval]);
+
   return (
-    <section className="relative overflow-hidden bg-muted py-20 sm:py-28 md:py-32">
+    <div
+      className="aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden shadow-elevated border border-border group relative select-none"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      aria-label="CSR Highlights Image Carousel"
+    >
+      {/* Embla Viewport */}
+      <div className="overflow-hidden h-full w-full" ref={emblaRef}>
+        <div className="flex h-full -ml-0">
+          {images.map((img, idx) => (
+            <div
+              key={idx}
+              className="relative min-w-0 flex-[0_0_100%] h-full overflow-hidden"
+            >
+              {/* Gradient overlay for text legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent z-10 pointer-events-none" />
+
+              <img
+                src={img.src}
+                alt={img.alt || img.title || "CSR Image"}
+                loading={idx === 0 ? "eager" : "lazy"}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+
+              {/* Title & subtitle badge */}
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 pointer-events-none max-w-[70%] sm:max-w-[75%]">
+                <p
+                  className="text-white font-bold text-base sm:text-lg leading-tight"
+                  style={{ textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}
+                >
+                  {img.title || "Acceleron Cares Initiative"}
+                </p>
+                {img.subtitle && (
+                  <p
+                    className="text-white/80 text-xs sm:text-sm mt-1 line-clamp-1"
+                    style={{ textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}
+                  >
+                    {img.subtitle}
+                  </p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation Arrows (visible on hover / focus) */}
+      <button
+        type="button"
+        onClick={scrollPrev}
+        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-black/40 hover:bg-black/70 backdrop-blur-md text-white border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:opacity-100 shadow-md hover:scale-105 active:scale-95 cursor-pointer"
+        aria-label="Previous image"
+      >
+        <ChevronLeft className="h-4 w-4" />
+      </button>
+
+      <button
+        type="button"
+        onClick={scrollNext}
+        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-black/40 hover:bg-black/70 backdrop-blur-md text-white border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:opacity-100 shadow-md hover:scale-105 active:scale-95 cursor-pointer"
+        aria-label="Next image"
+      >
+        <ChevronRight className="h-4 w-4" />
+      </button>
+
+      {/* Pagination Dot Indicators */}
+      <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 z-20 flex items-center gap-1.5 bg-black/35 backdrop-blur-sm px-2.5 py-1.5 rounded-full border border-white/10">
+        {images.map((_, idx) => (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => scrollTo(idx)}
+            className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+              selectedIndex === idx
+                ? "w-5 bg-brand-red shadow-[0_0_8px_rgba(222,30,36,0.6)]"
+                : "w-1.5 bg-white/40 hover:bg-white/80"
+            }`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function CSRSection({ images }: { images?: CsrCarouselImage[] }) {
+  return (
+    <section className="relative overflow-hidden bg-muted py-16 sm:py-12 md:py-16">
       <div className="absolute inset-0 starfield opacity-30" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 items-center">
@@ -162,21 +343,7 @@ export function CSRSection() {
           </div>
           <div className="relative">
             <Reveal delay={0.2}>
-              <Link to="/csr" className="block group">
-                <div className="aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden shadow-elevated border border-border group relative">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10 transition-opacity group-hover:opacity-90" />
-                  <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=75&w=800" alt="Sustainability" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 z-20 flex items-center justify-between">
-                    <div>
-                      <p className="text-white font-bold text-base sm:text-lg" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}>Acceleron Cares Initiative</p>
-                      <p className="text-white/80 text-xs sm:text-sm mt-0.5">Empowering communities &amp; sustainable development</p>
-                    </div>
-                    <span className="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shrink-0 group-hover:bg-brand-red group-hover:border-brand-red transition-all duration-300">
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                    </span>
-                  </div>
-                </div>
-              </Link>
+              <CsrImageCarousel images={images} />
             </Reveal>
           </div>
         </div>
@@ -251,7 +418,7 @@ export function GlobalPresence() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-background py-20 sm:py-28 md:py-32">
+    <section className="relative overflow-hidden bg-background pt-20 sm:pt-12 md:pt-16 pb-12 sm:pb-12 md:pb-16">
       <div className="absolute inset-0 grid-lines opacity-[0.03]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         <Reveal>
@@ -388,52 +555,62 @@ export function GlobalPresence() {
   );
 }
 
+// Set to true when you want to make the Insights section visible again
+const SHOW_INSIGHTS_SECTION = false;
+
 export function InsightsSection() {
+  // Hidden for now; change SHOW_INSIGHTS_SECTION to true to display later
+  if (!SHOW_INSIGHTS_SECTION) return null;
+
   const posts = [
     { title: "The Future of SAP S/4HANA", tag: "Tech Pulse", image: "/SAP_Homepage.jpg" },
     { title: "Zero-Trust Architecture in 2026", tag: "Security", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=600&auto=format&fit=crop" },
     { title: "Acceleron Wins Excellence Award", tag: "Company News", image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=75&w=600&auto=format&fit=crop" },
   ];
   return (
-    <section className="relative overflow-hidden bg-muted py-16 sm:py-24 lg:py-32">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgb(58_73_127/0.06),transparent_70%)] pointer-events-none" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
-        <Reveal>
-          <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
-            <div>
-              <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Insights</div>
-              <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground">
-                Perspectives & <span className="text-gradient">Tech Pulse</span>
-              </h2>
-            </div>
-            <Link to="/blog" className="flex items-center gap-2 text-brand hover:text-brand-red font-semibold transition-colors">
-              Read all perspectives <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </Reveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
-          {posts.map((post, i) => (
-            <Reveal key={post.title} delay={i * 0.1}>
-              <Link to="/blog" className="group block h-full">
-                <div className="rounded-3xl border border-border bg-background overflow-hidden hover:shadow-glow transition-all h-full">
-                  <div className="h-48 overflow-hidden relative">
-                    <img src={getAssetUrl(post.image)} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute top-4 left-4 bg-gradient-to-r from-[#212f60] to-[#3a497f] backdrop-blur-sm text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-white/10 text-white shadow-sm">
-                      {post.tag}
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-foreground group-hover:text-brand transition-colors line-clamp-2">{post.title}</h3>
-                    <div className="mt-4 text-xs font-semibold text-muted-foreground flex items-center gap-1 group-hover:text-brand transition-colors">
-                      Read article <ArrowUpRight className="h-3 w-3" />
-                    </div>
-                  </div>
-                </div>
+    <>
+      <WaveDivider from="dark" to="light" />
+      <section className="relative overflow-hidden bg-muted py-16 sm:py-24 lg:py-32">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgb(58_73_127/0.06),transparent_70%)] pointer-events-none" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
+          <Reveal>
+            <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+              <div>
+                <div className="text-xs uppercase tracking-[0.4em] text-brand-red font-bold">Insights</div>
+                <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground">
+                  Perspectives & <span className="text-gradient">Tech Pulse</span>
+                </h2>
+              </div>
+              <Link to="/blog" className="flex items-center gap-2 text-brand hover:text-brand-red font-semibold transition-colors">
+                Read all perspectives <ArrowRight className="h-4 w-4" />
               </Link>
-            </Reveal>
-          ))}
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
+            {posts.map((post, i) => (
+              <Reveal key={post.title} delay={i * 0.1}>
+                <Link to="/blog" className="group block h-full">
+                  <div className="rounded-3xl border border-border bg-background overflow-hidden hover:shadow-glow transition-all h-full">
+                    <div className="h-48 overflow-hidden relative">
+                      <img src={getAssetUrl(post.image)} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      <div className="absolute top-4 left-4 bg-gradient-to-r from-[#212f60] to-[#3a497f] backdrop-blur-sm text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-white/10 text-white shadow-sm">
+                        {post.tag}
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-lg font-bold text-foreground group-hover:text-brand transition-colors line-clamp-2">{post.title}</h3>
+                      <div className="mt-4 text-xs font-semibold text-muted-foreground flex items-center gap-1 group-hover:text-brand transition-colors">
+                        Read article <ArrowUpRight className="h-3 w-3" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <WaveDivider from="light" to="dark" />
+    </>
   );
 }
