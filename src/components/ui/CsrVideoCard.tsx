@@ -1,11 +1,20 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Volume2, VolumeX, Play, Pause, Maximize2, Sparkles } from "lucide-react";
+import {
+  Volume2,
+  VolumeX,
+  Play,
+  Pause,
+  Maximize2,
+  Sparkles,
+  RotateCcw,
+} from "lucide-react";
 import { getAssetUrl } from "../../lib/assets";
 
 interface CsrVideoCardProps {
   videoUrl: string;
   title: string;
   partner?: string;
+  poster?: string;
   className?: string;
 }
 
@@ -13,41 +22,52 @@ export function CsrVideoCard({
   videoUrl,
   title,
   partner = "In Partnership with Goonj",
+  poster,
   className = "",
 }: CsrVideoCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [aspectRatio, setAspectRatio] = useState<number>(1); // Default to 1 (square) for 1080x1080 CSR video
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+  const [aspectRatio, setAspectRatio] = useState<number>(1); // 1080x1080 square format
 
   const handleLoadedMetadata = () => {
     const video = videoRef.current;
     if (video && video.videoWidth && video.videoHeight) {
       setAspectRatio(video.videoWidth / video.videoHeight);
     }
+    setIsLoading(false);
   };
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Check if metadata already loaded
+    // Set muted to ensure browsers permit autoplay
+    video.muted = isMuted;
+
+    // Check if metadata already available
     if (video.videoWidth && video.videoHeight) {
       setAspectRatio(video.videoWidth / video.videoHeight);
     }
 
-    // Ensure video attempts autoplay
+    // Try autoplay once mounted
     const playPromise = video.play();
     if (playPromise !== undefined) {
       playPromise
-        .then(() => setIsPlaying(true))
+        .then(() => {
+          setIsPlaying(true);
+          setIsLoading(false);
+        })
         .catch(() => {
-          // Autoplay was prevented; keep muted and retry
+          // Autoplay was blocked by browser policy; wait for user interaction
           video.muted = true;
           setIsMuted(true);
-          video.play().catch(() => setIsPlaying(false));
+          setIsPlaying(false);
+          setIsLoading(false);
         });
     }
   }, [videoUrl]);
@@ -56,8 +76,7 @@ export function CsrVideoCard({
     const video = videoRef.current;
     if (!video) return;
     if (video.paused) {
-      video.play();
-      setIsPlaying(true);
+      video.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
     } else {
       video.pause();
       setIsPlaying(false);
@@ -67,8 +86,22 @@ export function CsrVideoCard({
   const toggleMute = () => {
     const video = videoRef.current;
     if (!video) return;
-    video.muted = !video.muted;
-    setIsMuted(video.muted);
+    const nextMuted = !isMuted;
+    video.muted = nextMuted;
+    setIsMuted(nextMuted);
+  };
+
+  const handleRetry = () => {
+    setHasError(false);
+    setIsLoading(true);
+    const video = videoRef.current;
+    if (video) {
+      video.load();
+      video
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => setIsPlaying(false));
+    }
   };
 
   const toggleFullscreen = () => {
@@ -97,27 +130,32 @@ export function CsrVideoCard({
         style={{ aspectRatio: `${aspectRatio}` }}
         className="relative w-full max-h-[520px] rounded-2xl overflow-hidden bg-black border border-border/50 shadow-soft flex items-center justify-center mx-auto"
       >
-        {/* Ambient blurred backdrop video to prevent stark black letterboxing */}
-        <video
-          src={getAssetUrl(videoUrl)}
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-105 pointer-events-none select-none"
-        />
+        {/* Ambient subtle glow background */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-brand-red/20 via-black to-brand/20 pointer-events-none" />
 
-        {/* Crisp foreground video displayed fully uncropped with object-contain */}
+        {/* Primary Video Element (Fast-start optimized with moov-at-front) */}
         <video
           ref={videoRef}
           src={getAssetUrl(videoUrl)}
+          poster={poster ? getAssetUrl(poster) : undefined}
           autoPlay
           loop
           muted={isMuted}
           playsInline
-          preload="metadata"
+          preload="auto"
           onLoadedMetadata={handleLoadedMetadata}
+          onCanPlay={() => setIsLoading(false)}
+          onWaiting={() => setIsLoading(true)}
+          onPlaying={() => {
+            setIsPlaying(true);
+            setIsLoading(false);
+            setHasError(false);
+          }}
+          onPause={() => setIsPlaying(false)}
+          onError={() => {
+            setIsLoading(false);
+            setHasError(true);
+          }}
           className="relative z-10 w-full h-full object-contain cursor-pointer"
           onClick={togglePlay}
         />
@@ -131,8 +169,32 @@ export function CsrVideoCard({
           </div>
         )}
 
+        {/* Loading Spinner */}
+        {isLoading && !hasError && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 backdrop-blur-[2px] pointer-events-none">
+            <div className="h-10 w-10 border-3 border-white/20 border-t-brand-red rounded-full animate-spin" />
+          </div>
+        )}
+
+        {/* Error Overlay with Retry */}
+        {hasError && (
+          <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/85 p-6 text-center text-white">
+            <p className="text-sm font-medium mb-3 text-white/85">
+              Unable to stream video. Please tap to retry.
+            </p>
+            <button
+              type="button"
+              onClick={handleRetry}
+              className="inline-flex items-center gap-2 rounded-full bg-brand-red hover:bg-brand-red/90 text-white px-4 py-2 text-xs font-semibold shadow-lg transition-transform active:scale-95"
+            >
+              <RotateCcw className="h-3.5 w-3.5" />
+              Reload Video
+            </button>
+          </div>
+        )}
+
         {/* Center Play/Pause button on hover or when paused */}
-        {(!isPlaying || isHovered) && (
+        {!hasError && (!isPlaying || isHovered) && (
           <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
             <button
               type="button"
@@ -153,7 +215,7 @@ export function CsrVideoCard({
         )}
 
         {/* Gradient shadow for bottom bar */}
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none z-15" />
 
         {/* Bottom Interactive Bar */}
         <div className="absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between text-white">
@@ -198,9 +260,6 @@ export function CsrVideoCard({
           </div>
         </div>
       </div>
-
-
     </div>
   );
 }
-

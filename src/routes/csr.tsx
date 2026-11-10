@@ -187,6 +187,7 @@ function CsrPage() {
                         videoUrl={item.videoUrl}
                         title={item.title}
                         partner={item.partner}
+                        poster={item.coverImage}
                       />
                     ) : (
                       <CsrCollageCard

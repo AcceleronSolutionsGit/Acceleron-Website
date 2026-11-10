@@ -45,7 +45,8 @@ export const CSR_INITIATIVES: CsrInitiative[] = [
       { label: "Drive Frequency", value: "Year-Round" },
     ],
     mediaType: "video",
-    videoUrl: "/csr/Donating Preloved Cloths - Goonj/Small Acts, Big Change.mp4",
+    videoUrl: "/csr/preloved-clothes-donation.mp4",
+    coverImage: "/csr/preloved-clothes-poster.webp",
   },
   {
     id: "blood-donation",
