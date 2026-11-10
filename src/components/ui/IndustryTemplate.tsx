@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { type ReactNode, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Award, ArrowRight, FileText, Check, ChevronDown } from "lucide-react";
 import { Reveal, WaveDivider } from "./Animations";
@@ -8,10 +8,9 @@ import { type IndustryDetail } from "../../data/industriesData";
 
 type IndustryTemplateProps = {
   data: IndustryDetail;
-  icon: ReactNode;
 };
 
-export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
+export function IndustryTemplate({ data }: IndustryTemplateProps) {
   const hasCaseStudies = Boolean(data.caseStudies && data.caseStudies.length > 0);
 
   // Default to having the first case study expanded so users immediately see the content depth
@@ -41,11 +40,6 @@ export function IndustryTemplate({ data, icon }: IndustryTemplateProps) {
           { label: data.slug.replace(/-/g, " ") }
         ]}
         image={data.image}
-        icon={
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow">
-            {icon}
-          </div>
-        }
         ctaText="Speak with Industry Practice Lead"
         ctaHref="/contact"
         secondaryCtaText={hasCaseStudies ? "View Case Studies" : undefined}

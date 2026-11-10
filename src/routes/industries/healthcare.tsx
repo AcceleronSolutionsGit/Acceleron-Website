@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Activity } from "lucide-react";
 import { IndustryTemplate } from "../../components/ui/IndustryTemplate";
 import { INDUSTRIES_DATA } from "../../data/industriesData";
 
@@ -17,7 +16,6 @@ export const Route = createFileRoute("/industries/healthcare")({
   component: () => (
     <IndustryTemplate
       data={INDUSTRIES_DATA["healthcare"]}
-      icon={<Activity className="h-8 w-8" />}
     />
   ),
 });

@@ -98,25 +98,25 @@ const SAP_CAPABILITIES = [
     title: "SAP S/4HANA Implementation",
     text: "Greenfield, Bluefield, and Brownfield migrations to S/4HANA with minimal business disruption.",
     href: "/services/sap/sap-s-4hana-implementation",
-    logo: "/sap_s4hana-transparentbg.png",
+    logo: "/icons/sap/SAP_S4HNA-removebg-preview.png",
   },
   {
     title: "SAP Application Management Services (AMS)",
     text: "Proactive 24/7 monitoring, incident management, ITSM ticketing, and continuous process optimization.",
     href: "/services/sap/sap-ams",
-    logo: "/sap_s4hana-transparentbg.png",
+    logo: "/icons/sap/SAP_AMS__1_-removebg-preview.png",
   },
   {
     title: "RISE with S/4HANA",
     text: "End-to-end business transformation as a service — infrastructure, platform, and enterprise applications.",
     href: "/services/sap/rise-with-s-4hana-implementation",
-    logo: "/vital-wires-Rise-with-SAP-3.png",
+    logo: "/icons/sap/RISE_with_SAP_s4_HANA-removebg-preview.png",
   },
   {
     title: "SAP Cloud Integration (CPI & BTP)",
     text: "Seamless connectivity across SAP, non-SAP systems, IoT sensors, and dealer portals.",
     href: "/services/sap/sap-integration",
-    logo: "/sap-cx-logo.jpg",
+    logo: "/icons/sap/SAP_Integration_to_Cloud-removebg-preview.png",
   },
   {
     title: "SAP Extended Warehouse Management (EWM)",
@@ -181,11 +181,6 @@ function SAPPage() {
           { label: "SAP" }
         ]}
         image="/sap/SAP Hub - SAP Home Cover page Acceleron Solutions.jpg"
-        icon={
-          <div className="h-20 w-auto bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-xl flex items-center justify-center">
-            <img src={getAssetUrl("/sap_s4hana-transparentbg.png")} alt="SAP" className="h-12 w-auto object-contain drop-shadow-lg" />
-          </div>
-        }
       />
 
       {/* SECTION 2: SAP AT A GLANCE (Key Metrics) */}
@@ -321,33 +316,21 @@ function SAPPage() {
                 <Link to={cap.href as any} className="block h-full group">
                   <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 h-full transition-all hover:border-brand/40 hover:shadow-glow flex flex-col justify-between">
                     <div>
-                      <div className="flex items-start justify-between gap-3 mb-4">
-                        <div className="flex items-start gap-3">
-                          {cap.logo ? (
-                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm border border-border/40">
-                              <img
-                                src={getAssetUrl(cap.logo)}
-                                alt={cap.title}
-                                loading="lazy"
-                                decoding="async"
-                                className="h-full w-full object-contain"
-                              />
-                            </div>
-                          ) : (
-                            <img
-                              src={getAssetUrl("/sap_s4hana-transparentbg.png")}
-                              alt="SAP"
-                              loading="lazy"
-                              decoding="async"
-                              className="h-7 w-7 object-contain shrink-0 mt-0.5"
-                            />
-                          )}
-                          <h3 className="text-base sm:text-lg font-bold text-foreground group-hover:text-brand transition-colors">
-                            {cap.title}
-                          </h3>
+                      <div className="flex items-center justify-between gap-3 mb-4">
+                        <div className="flex h-14 w-auto max-w-[165px] shrink-0 items-center justify-center rounded-xl bg-white px-3 py-1.5 shadow-sm border border-border/40 group-hover:scale-105 transition-transform">
+                          <img
+                            src={getAssetUrl(cap.logo || "/sap_s4hana-transparentbg.png")}
+                            alt={cap.title}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-auto max-w-full object-contain"
+                          />
                         </div>
                         <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-brand group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
                       </div>
+                      <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 group-hover:text-brand transition-colors">
+                        {cap.title}
+                      </h3>
                       <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm">
                         {cap.text}
                       </p>

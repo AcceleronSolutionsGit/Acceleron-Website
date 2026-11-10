@@ -1,8 +1,6 @@
-import { type ReactNode } from "react";
-import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Breadcrumbs, type BreadcrumbItem } from "./Breadcrumbs";
-import { Reveal, WaveDivider } from "./Animations";
+import { Reveal } from "./Animations";
 import { Link } from "@tanstack/react-router";
 
 import { getAssetUrl } from "../../lib/assets";
@@ -17,7 +15,6 @@ type PageHeroProps = {
   ctaHref?: string;
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
-  icon?: ReactNode;
   gradient?: string;
 };
 
@@ -31,12 +28,11 @@ export function PageHero({
   ctaHref = "/contact",
   secondaryCtaText,
   secondaryCtaHref,
-  icon,
   gradient = "from-[oklch(0.14_0.06_265)] to-[oklch(0.22_0.09_265)]",
 }: PageHeroProps) {
   return (
     <>
-      <section className="relative min-h-[58vh] flex items-end overflow-hidden bg-black mt-[68px] sm:mt-[76px]">
+      <section className="relative min-h-[58vh] flex items-end overflow-hidden bg-black mt-16 lg:mt-[72px]">
         {/* Full-Bleed Background Image */}
         {image && (
           <div className="absolute inset-0">
@@ -71,16 +67,6 @@ export function PageHero({
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 sm:px-3.5 sm:py-1 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-white/90 backdrop-blur-md mb-3 sm:mb-4 shadow-sm">
                   {badge}
                 </div>
-              )}
-              {icon && (
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.1, duration: 0.4 }}
-                  className="mb-4 sm:mb-6"
-                >
-                  {icon}
-                </motion.div>
               )}
               <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-4 sm:mb-6 leading-[1.1] break-words">
                 {title}

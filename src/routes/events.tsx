@@ -118,19 +118,6 @@ function EventsPage() {
         ctaHref="#upcoming"
         secondaryCtaText="Past Event Archive"
         secondaryCtaHref="#past-events"
-        icon={
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 shadow-xl">
-            <Calendar className="h-8 w-8 text-brand drop-shadow-lg" />
-            <div className="border-l border-white/30 pl-3">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-brand-red">
-                Acceleron Events
-              </div>
-              <div className="text-xs font-bold text-white tracking-wide">
-                Knowledge Sharing
-              </div>
-            </div>
-          </div>
-        }
       />
 
       {/* SECTION 1: UPCOMING EVENTS & WEBINARS */}

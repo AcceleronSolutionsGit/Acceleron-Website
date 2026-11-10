@@ -601,23 +601,10 @@ function ServicesHub() {
         ctaHref="#practices"
         secondaryCtaText="Consult Practice Leads"
         secondaryCtaHref="/contact"
-        icon={
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 shadow-xl">
-            <Briefcase className="h-8 w-8 text-brand drop-shadow-lg" />
-            <div className="border-l border-white/30 pl-3">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-brand-red">
-                Acceleron Practices
-              </div>
-              <div className="text-xs font-bold text-white tracking-wide">
-                4 Core Practices • 21 Capabilities
-              </div>
-            </div>
-          </div>
-        }
       />
 
       {/* QUICK JUMP / PRACTICE ANCHOR BAR */}
-      <div className="sticky top-14 sm:top-16 lg:top-20 z-30 border-y border-border/60 bg-background/95 backdrop-blur-md py-2.5 sm:py-3 shadow-sm">
+      <div className="sticky top-14 lg:top-16 z-30 border-y border-border/60 bg-background/95 backdrop-blur-md py-2.5 sm:py-3 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between gap-3 sm:gap-4 overflow-x-auto no-scrollbar scroll-smooth">
           <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground shrink-0 hidden md:block">
             Jump to Practice:

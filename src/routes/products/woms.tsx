@@ -132,15 +132,6 @@ function WOMSProductPage() {
         ctaHref="/contact"
         secondaryCtaText="Explore Functionalities"
         secondaryCtaHref="#functionalities"
-        icon={
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-900 border border-slate-700/60 p-2.5 shadow-glow">
-            <img
-              src={getAssetUrl("/woms.png")}
-              alt="WOMS"
-              className="h-10 w-10 object-contain"
-            />
-          </div>
-        }
       />
 
       {/* SECTION: OVERVIEW & OPERATIONAL FRAMEWORK */}

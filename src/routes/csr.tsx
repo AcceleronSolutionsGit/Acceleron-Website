@@ -117,19 +117,6 @@ function CsrPage() {
         ctaHref="#initiatives"
         secondaryCtaText="Blood Donation Drive"
         secondaryCtaHref="#blood-donation"
-        icon={
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 shadow-xl">
-            <Heart className="h-8 w-8 text-brand-red drop-shadow-lg fill-brand-red/30" />
-            <div className="border-l border-white/30 pl-3">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-brand-red">
-                Acceleron Cares
-              </div>
-              <div className="text-xs font-bold text-white tracking-wide">
-                Social Responsibility
-              </div>
-            </div>
-          </div>
-        }
       />
 
       {/* METRICS STRIP (4-Grid on Mobile & Desktop) */}

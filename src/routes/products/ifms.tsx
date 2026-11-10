@@ -133,15 +133,6 @@ function IFMSProductPage() {
         ctaHref="/contact"
         secondaryCtaText="Explore Capabilities"
         secondaryCtaHref="#capabilities"
-        icon={
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2.5 shadow-glow">
-            <img
-              src={getAssetUrl("/IFSM.png")}
-              alt="iFMS"
-              className="h-10 w-10 object-contain"
-            />
-          </div>
-        }
       />
 
       {/* SECTION: OVERVIEW & OPERATIONAL INTEGRATION */}

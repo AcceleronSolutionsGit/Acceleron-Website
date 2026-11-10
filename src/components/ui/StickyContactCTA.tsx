@@ -56,10 +56,10 @@ export function StickyContactCTA() {
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full pointer-events-none" />
 
             {/* Glowing online status beacon */}
-            <span className="relative flex h-2 w-2 shrink-0">
+            {/* <span className="relative flex h-2 w-2 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-80" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-            </span>
+            </span> */}
 
             {/* Circular frosted icon capsule */}
             <span className="grid h-6 w-6 sm:h-7 sm:w-7 place-items-center rounded-full bg-white/20 border border-white/30 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
