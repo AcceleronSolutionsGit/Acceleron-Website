@@ -64,19 +64,6 @@ function TeamPage() {
         ctaHref="#leadership"
         secondaryCtaText="Explore Careers"
         secondaryCtaHref="/careers"
-        icon={
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 shadow-xl">
-            <Users className="h-8 w-8 text-brand drop-shadow-lg" />
-            <div className="border-l border-white/30 pl-3">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-brand-red">
-                Acceleron Leadership
-              </div>
-              <div className="text-xs font-bold text-white tracking-wide">
-                Excellence in Action
-              </div>
-            </div>
-          </div>
-        }
       />
 
       {/* SECTION 2: DRIVING EXCELLENCE THROUGH EXPERIENCE */}

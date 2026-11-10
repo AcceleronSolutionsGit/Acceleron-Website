@@ -133,11 +133,6 @@ function AppraisalManagementProductPage() {
         ctaHref="/contact"
         secondaryCtaText="Explore Functionalities"
         secondaryCtaHref="#functionalities"
-        icon={
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2.5 shadow-glow">
-            <Target className="h-10 w-10 text-brand" />
-          </div>
-        }
       />
 
       {/* SECTION: OVERVIEW & DEVELOPMENT PLANNING */}

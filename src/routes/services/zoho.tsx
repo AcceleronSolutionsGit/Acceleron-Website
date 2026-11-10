@@ -271,23 +271,6 @@ function ZohoPage() {
         ctaHref="/contact#form"
         secondaryCtaText="Explore Application Ecosystem"
         secondaryCtaHref="#ecosystem"
-        icon={
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 shadow-xl">
-            <img
-              src={getAssetUrl("/ZOHO_logo_2023.svg_.png")}
-              alt="Zoho"
-              className="h-8 w-auto object-contain drop-shadow-lg"
-            />
-            <div className="border-l border-white/30 pl-3">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-amber-400">
-                Official Partner
-              </div>
-              <div className="text-xs font-bold text-white tracking-wide">
-                Zoho Advanced Partner
-              </div>
-            </div>
-          </div>
-        }
       />
 
       {/* SECTION 2: WHY ACCELERON FOR ZOHO */}

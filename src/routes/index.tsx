@@ -365,20 +365,20 @@ function AboutTeaser() {
 /* ═══════════════════ SERVICES ═══════════════════ */
 
 const SERVICES = [
-  { icon: Database, t: "SAP Modernization & Consulting", d: "S/4HANA, BTP, RISE — end-to-end cloud ERP transformation and legacy system modernization for agile enterprise management.", url: "/services/sap", img: "/SAP_Homepage.jpg" },
-  { icon: Blocks, t: "Zoho Suite Enterprise Automation", d: "Rapid business applications across finance, operations, and customer experience — deployed in weeks, not quarters.", url: "/services/zoho", img: "/ZOHO_LOGO.png" },
-  { icon: Server, t: "ManageEngine ITSM & Infrastructure", d: "ITIL-aligned service desk software, endpoint control, and 24/7 network observability for seamless IT operations.", url: "/services/manageengine", img: "/ManageEngine-logo.png" },
-  { icon: Layers, t: "Custom Software Engineering", d: "Scalable, enterprise-grade platforms built in React, Node, and Flutter with product-grade craftsmanship and cloud architecture.", url: "/services/it-custom-solutions/custom-software-application-development", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=600&auto=format&fit=crop" },
-  { icon: LineChart, t: "Analytics & Applied AI", d: "From operational executive dashboards to generative AI agents. Turn fragmented operational data into strategic direction.", url: "/services/it-custom-solutions/custom-ai-application-development", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=600&auto=format&fit=crop" },
-  { icon: Cpu, t: "IT & Cloud Infrastructure", d: "Resilient cloud, hybrid, and on-premises environments built on AWS, Azure, and Kubernetes — designed for 99.99% uptime.", url: "/services/it-custom-solutions/it-infrastructure-services", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=75&w=600&auto=format&fit=crop" },
-  { icon: ShieldCheck, t: "Cyber Security & OT Systems", d: "Zero-trust security architectures, SOC modernization, and automated compliance built for industrial OT and corporate networks.", url: "/services/it-custom-solutions/network-security-implementation", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=75&w=600&auto=format&fit=crop" },
+  { icon: Database, t: "SAP Modernization & Consulting", d: "S/4HANA, BTP, RISE — end-to-end cloud ERP transformation and legacy system modernization for agile enterprise management.", url: "/services/sap", img: "/services/sap-hub-cover.webp" },
+  { icon: Blocks, t: "Zoho Suite Enterprise Automation", d: "Rapid business applications across finance, operations, and customer experience — deployed in weeks, not quarters.", url: "/services/zoho", img: "/services/zoho-experts.webp" },
+  { icon: Server, t: "ManageEngine ITSM & Infrastructure", d: "ITIL-aligned service desk software, endpoint control, and 24/7 network observability for seamless IT operations.", url: "/services/manageengine", img: "/services/ManageEngine-Acceleron Solutions.png" },
+  { icon: Layers, t: "Custom Software Engineering", d: "Scalable, enterprise-grade platforms built in React, Node, and Flutter with product-grade craftsmanship and cloud architecture.", url: "/services/it-custom-solutions/custom-software-application-development", img: "/services/custom-software-development.webp" },
+  { icon: LineChart, t: "Analytics & Applied AI", d: "From operational executive dashboards to generative AI agents. Turn fragmented operational data into strategic direction.", url: "/services/it-custom-solutions/custom-ai-application-development", img: "/services/analytics-ai.webp" },
+  { icon: Cpu, t: "IT & Cloud Infrastructure", d: "Resilient cloud, hybrid, and on-premises environments built on AWS, Azure, and Kubernetes — designed for 99.99% uptime.", url: "/services/it-custom-solutions/it-infrastructure-services", img: "/services/it-n-cloud-infrastructure.webp" },
+  { icon: ShieldCheck, t: "Cyber Security & IOT Systems", d: "Zero-trust security architectures, SOC modernization, and automated compliance built for industrial OT and corporate networks.", url: "/services/it-custom-solutions/network-security-implementation", img: "/services/cybersecurity.webp" },
 ];
 
 function Services() {
   const [showAllServices, setShowAllServices] = useState(false);
 
   return (
-    <section id="services" className="relative overflow-hidden bg-background py-20 sm:py-28 md:py-32">
+    <section id="services" className="relative overflow-hidden bg-background py-8 sm:py-12 md:py-16">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgb(58_73_127/0.06),transparent_70%)]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         <Reveal>
@@ -402,7 +402,7 @@ function Services() {
             <div key={s.t} className={`${i === 0 ? "lg:col-span-2" : ""} ${i >= 3 && !showAllServices ? "hidden sm:block" : "block"}`}>
               <Reveal delay={i * 0.06} className="h-full">
                 <Link to={s.url as any} className="group relative overflow-hidden rounded-3xl h-[300px] sm:h-[380px] block cursor-pointer border border-transparent hover:border-white/10 transition-colors duration-500">
-                  {s.img.endsWith(".png") || s.img.includes("LOGO") ? (
+                  {s.img.toLowerCase().includes("logo") ? (
                     <div className="absolute inset-0 flex items-center justify-center p-8 z-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950">
                       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,29,72,0.15),transparent_70%)]" />
                       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(33,47,96,0.2),transparent_60%)]" />
@@ -673,7 +673,7 @@ const INDUSTRIES = [
     t: "Mining",
     desc: "Pit-to-port ERP systems, fleet telemetry, heavy asset predictive maintenance, and mine safety automation.",
     icon: Pickaxe,
-    img: "/Mining_Industry.jpeg",
+    img: "/core-industry/mining-industry.webp",
     href: "/industries/mining",
     badge: "2 Case Studies",
   },
@@ -681,7 +681,7 @@ const INDUSTRIES = [
     t: "Manufacturing",
     desc: "Smart factory automation, overall equipment effectiveness (OEE) tracking, shop-floor IoT, and discrete manufacturing ERP.",
     icon: Factory,
-    img: "/Distcrete_Manufacturing_Industry.jpg",
+    img: "/core-industry/manufacturing-industry.webp",
     href: "/industries/discrete-manufacturing",
     badge: "3 Case Studies",
   },
@@ -689,7 +689,7 @@ const INDUSTRIES = [
     t: "Capital Goods",
     desc: "Engineer-to-Order (ETO) project systems, field service management, workshop QMS, and heavy machinery warranty tracking.",
     icon: Boxes,
-    img: "/Capital_Good_Industry.jpg",
+    img: "/core-industry/capital-goods-industry.webp",
     href: "/industries/capital-goods",
     badge: "3 Case Studies",
   },
@@ -697,7 +697,7 @@ const INDUSTRIES = [
     t: "Transportation & Logistics",
     desc: "End-to-end supply chain visibility, fleet route optimization, tyre health monitoring, and automated warehouse management.",
     icon: Truck,
-    img: "/Transportation_Industry.jpg",
+    img: "/core-industry/transportation-logistics-industry.webp",
     href: "/industries/transportation-services-logistics",
     badge: "2 Case Studies",
   },
@@ -705,7 +705,7 @@ const INDUSTRIES = [
     t: "Healthcare",
     desc: "Precision technologies, material traceability, electronic batch records, and automated regulatory compliance.",
     icon: Activity,
-    img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=75&w=600&auto=format&fit=crop",
+    img: "/core-industry/healthcare-industry.webp",
     href: "/industries/healthcare",
     badge: "1 Case Study",
   },
@@ -713,7 +713,7 @@ const INDUSTRIES = [
     t: "Engineering & Construction",
     desc: "Large-scale project lifecycle management, contractor safety compliance, CWMS, and site workforce tracking.",
     icon: Building2,
-    img: "/Engineering_COnstruction_Industry.jpg",
+    img: "/core-industry/engineering-construction-industry.webp",
     href: "/industries/engineering-construction-operations",
     badge: "2 Case Studies",
   },
@@ -721,7 +721,7 @@ const INDUSTRIES = [
 
 function Industries() {
   return (
-    <section id="industries" className="relative overflow-hidden bg-muted py-20 sm:py-28 md:py-32 text-foreground">
+    <section id="industries" className="relative overflow-hidden bg-muted py-8 sm:py-12 md:py-16 text-foreground">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,rgb(58_73_127/0.06),transparent_70%)] pointer-events-none" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         <Reveal>
@@ -835,7 +835,7 @@ const CLIENTELE_ROW_2: ClienteleItem[] = [
 
 function OurSelectedClientele() {
   return (
-    <section id="clientele" className="relative overflow-hidden bg-background py-20 sm:py-28 border-b border-border/50">
+    <section id="clientele" className="relative overflow-hidden bg-background py-8 sm:py-12 border-b border-border/50">
       <div className="absolute inset-0 grid-lines opacity-[0.03]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-3/4 max-w-5xl rounded-full bg-brand-red/5 blur-[130px] pointer-events-none" />
 
@@ -922,7 +922,7 @@ function OurSelectedClientele() {
 
 function Contact() {
   return (
-    <section id="contact" className="section-dark relative overflow-hidden bg-muted py-20 sm:py-28 md:py-32">
+    <section id="contact" className="section-dark relative overflow-hidden bg-muted pt-14 sm:pt-16 md:pt-20 pb-20 sm:pb-28 md:pb-32">
       {/* Animated gradient mesh background */}
       <div className="absolute top-40 left-1/4 h-96 w-96 rounded-full bg-brand/10 blur-[140px] animate-float-slow" />
       <div className="absolute bottom-20 right-1/3 h-64 w-64 rounded-full bg-brand-red/8 blur-[120px] animate-float-med" />
@@ -1011,20 +1011,18 @@ function Home() {
         <Hero />
         <KeyMetricsBar />
         <AboutTeaser />
-        <WaveDivider from="dark" to="light" />
+        {/* <WaveDivider from="dark" to="light" /> */}
         <Services />
-        <WaveDivider from="light" to="dark" />
+        {/* <WaveDivider from="light" to="dark" /> */}
         <Industries />
         <OurSelectedClientele />
         <WhyChooseUs />
         <OurValuesSection />
-        <WaveDivider from="dark" to="light" />
+        {/* <WaveDivider from="dark" to="light" /> */}
         <CSRSection />
-        <WaveDivider from="light" to="dark" />
+        {/* <WaveDivider from="light" to="dark" /> */}
         <GlobalPresence />
-        <WaveDivider from="dark" to="light" />
         <InsightsSection />
-        <WaveDivider from="light" to="dark" />
         <Contact />
       </main>
     </div>

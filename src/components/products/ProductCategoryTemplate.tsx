@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Reveal, WaveDivider } from "../ui/Animations";
 import { PageHero } from "../ui/PageHero";
+import { ProductCardIcon } from "./ProductIcon";
 
 export interface CategorySubProduct {
   name: string;
@@ -23,6 +24,7 @@ export interface CategorySubProduct {
   desc: string;
   href: string;
   icon: any;
+  iconImage?: string;
   gradient: string;
   features?: string[];
 }
@@ -60,8 +62,6 @@ interface ProductCategoryTemplateProps {
 }
 
 export function ProductCategoryTemplate({ data }: ProductCategoryTemplateProps) {
-  const IconComp = data.icon;
-
   const OTHER_CATEGORIES = [
     {
       title: "Industrial Solutions",
@@ -105,11 +105,6 @@ export function ProductCategoryTemplate({ data }: ProductCategoryTemplateProps) 
         ctaHref="#sub-solutions"
         secondaryCtaText="Consult Practice Architects"
         secondaryCtaHref="/contact#form"
-        icon={
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow">
-            <IconComp className="h-8 w-8" />
-          </div>
-        }
       />
 
       {/* QUICK BREADCRUMB / HUB BAR */}
@@ -172,13 +167,15 @@ export function ProductCategoryTemplate({ data }: ProductCategoryTemplateProps) 
             <Reveal key={prod.name} delay={pIdx * 0.08} className="h-full">
               <div className="group rounded-3xl border border-border/70 bg-card p-7 sm:p-8 h-full shadow-card hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div
-                      className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${prod.gradient} text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform`}
-                    >
-                      <prod.icon className="h-6 w-6" />
-                    </div>
-                    <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground bg-muted/60 px-3 py-1 rounded-full border border-border/50">
+                  <div className="flex items-center justify-between gap-3 mb-5">
+                    <ProductCardIcon
+                      href={prod.href}
+                      name={prod.name}
+                      FallbackIcon={prod.icon}
+                      gradient={prod.gradient}
+                      iconImage={prod.iconImage}
+                    />
+                    <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground bg-muted/60 px-3 py-1 rounded-full border border-border/50 truncate">
                       {prod.badge}
                     </span>
                   </div>

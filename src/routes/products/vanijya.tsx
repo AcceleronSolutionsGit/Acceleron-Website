@@ -162,15 +162,6 @@ function VanijyaProductPage() {
         ctaHref="/contact"
         secondaryCtaText="Explore Capabilities"
         secondaryCtaHref="#commercial"
-        icon={
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2.5 shadow-glow">
-            <img
-              src={getAssetUrl("/vanijya.png")}
-              alt="Vanijya"
-              className="h-10 w-10 object-contain"
-            />
-          </div>
-        }
       />
 
       {/* SECTION: OVERVIEW & SYSTEM INTEGRATION */}

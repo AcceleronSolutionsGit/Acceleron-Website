@@ -132,11 +132,6 @@ function WorkforceManagementProductPage() {
         ctaHref="/contact"
         secondaryCtaText="Explore Capabilities"
         secondaryCtaHref="#capabilities"
-        icon={
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2.5 shadow-glow">
-            <Users className="h-10 w-10 text-brand" />
-          </div>
-        }
       />
 
       {/* SECTION: OVERVIEW & OPERATIONAL INTEGRATION */}

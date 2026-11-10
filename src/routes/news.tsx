@@ -178,19 +178,6 @@ function NewsPage() {
         ctaHref="#featured-news"
         secondaryCtaText="Media Contacts"
         secondaryCtaHref="#media-contact"
-        icon={
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 shadow-xl">
-            <Newspaper className="h-8 w-8 text-brand drop-shadow-lg" />
-            <div className="border-l border-white/30 pl-3">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-brand-red">
-                Acceleron Newsroom
-              </div>
-              <div className="text-xs font-bold text-white tracking-wide">
-                Press &amp; Media
-              </div>
-            </div>
-          </div>
-        }
       />
 
       {/* FEATURED NEWS SECTION */}

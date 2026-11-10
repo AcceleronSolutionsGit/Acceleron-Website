@@ -108,8 +108,6 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     overview: "Acceleron transitions industrial and commercial enterprises to SAP S/4HANA using domain-aware process design and proprietary migration accelerators. As your trusted SAP technology consultant, we bridge legacy operational realities with real-time financial visibility, intelligent procurement, and integrated supply chain management.",
     primaryCtaText: "Explore S/4HANA Roadmaps",
     primaryCtaHref: "/contact#form",
-    secondaryCtaText: "Download AccelSuite Framework",
-    secondaryCtaHref: "#consultation",
     featuresTitle: "Proprietary Delivery Accelerators: AccelSuite",
     features: [
       {
@@ -308,8 +306,6 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     overview: "Acceleron migrates enterprise-scale, multi-terabyte SAP environments from legacy on-premise datacenters to hyperscaler clouds (AWS, Azure, GCP). Our cloud architects enforce zero-trust security, build automated disaster recovery (DR) protocols, and optimize compute spend to deliver agility and enterprise security.",
     primaryCtaText: "Evaluate Cloud Infrastructure",
     primaryCtaHref: "/contact#form",
-    secondaryCtaText: "Download Cloud ROI Guide",
-    secondaryCtaHref: "#consultation",
     featuresTitle: "Why Acceleron for SAP Cloud Migration?",
     features: [
       {
@@ -562,8 +558,6 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     overview: "Acceleron's proprietary AuditComply solution automates Segregation of Duties (SoD) checking, IT General Controls (ITGC) monitoring, and Indian statutory compliance within SAP. Developed to eliminate manual audit friction, AuditComply gives CFOs, CISOs, and internal auditors continuous visibility into access conflicts, vendor 3-way matching, and statutory tax risks.",
     primaryCtaText: "Schedule an AuditComply Demo",
     primaryCtaHref: "/contact#form",
-    secondaryCtaText: "Download Product Brochure",
-    secondaryCtaHref: "#consultation",
     featuresTitle: "Core Capabilities of AuditComply",
     features: [
       {

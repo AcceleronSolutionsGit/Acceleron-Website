@@ -17,7 +17,6 @@ function ProductPage() {
         subtitle="Empower sales and field engineering teams with GPS-backed journey plans, automated check-ins, and live visit reports."
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: "PJP / IFSM" }]}
         image="/products/featured-applications/Intelligent Feild Service Management.png"
-        icon={<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-glow"><img src={getAssetUrl("/IFSM.png")} alt="PJP IFSM" loading="lazy" decoding="async" className="h-10 w-10 object-contain" /></div>}
       />
 
       {/* Problem & Solution */}

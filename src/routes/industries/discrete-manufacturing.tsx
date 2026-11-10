@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Factory } from "lucide-react";
 import { IndustryTemplate } from "../../components/ui/IndustryTemplate";
 import { INDUSTRIES_DATA } from "../../data/industriesData";
 
@@ -10,5 +9,5 @@ export const Route = createFileRoute("/industries/discrete-manufacturing")({
       { name: "description", content: "Smart factory digital transformations, SAP RISE, QMS, and shop floor IoT integrations for discrete manufacturers." },
     ],
   }),
-  component: () => <IndustryTemplate data={INDUSTRIES_DATA["discrete-manufacturing"]} icon={<Factory className="h-8 w-8" />} />,
+  component: () => <IndustryTemplate data={INDUSTRIES_DATA["discrete-manufacturing"]} />,
 });

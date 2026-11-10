@@ -33,6 +33,7 @@ import {
 } from "lucide-react";
 import { Reveal, WaveDivider } from "../../components/ui/Animations";
 import { PageHero } from "../../components/ui/PageHero";
+import { ProductCardIcon } from "../../components/products/ProductIcon";
 import {
   Accordion,
   AccordionContent,
@@ -66,6 +67,7 @@ export interface ProductItem {
   features: string[];
   href: string;
   icon: any;
+  iconImage?: string;
   gradient: string;
 }
 
@@ -512,23 +514,10 @@ function ProductsHub() {
         ctaHref="#directory"
         secondaryCtaText="Request Solution Demo"
         secondaryCtaHref="/contact"
-        icon={
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 shadow-xl">
-            <Boxes className="h-8 w-8 text-brand drop-shadow-lg" />
-            <div className="border-l border-white/30 pl-3">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-brand-red">
-                Acceleron Labs &amp; IP
-              </div>
-              <div className="text-xs font-bold text-white tracking-wide">
-                20 Enterprise Applications
-              </div>
-            </div>
-          </div>
-        }
       />
 
       {/* QUICK JUMP / CATEGORY ANCHOR BAR */}
-      <div className="sticky top-20 z-30 border-y border-border/60 bg-background/90 backdrop-blur-md py-3 shadow-sm">
+      <div className="sticky top-14 lg:top-16 z-30 border-y border-border/60 bg-background/90 backdrop-blur-md py-3 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
           <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground shrink-0 hidden md:block">
             Explore Landing Hubs:
@@ -752,13 +741,15 @@ function ProductsHub() {
               <Reveal key={prod.id} delay={pIdx * 0.08} className="h-full">
                 <div className="group rounded-3xl border border-border/70 bg-card p-7 sm:p-8 h-full shadow-card hover:shadow-elevated hover:border-brand/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between mb-5">
-                      <div
-                        className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${prod.gradient} text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform`}
-                      >
-                        <prod.icon className="h-6 w-6" />
-                      </div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground bg-muted/60 px-3 py-1 rounded-full border border-border/50">
+                    <div className="flex items-center justify-between gap-3 mb-5">
+                      <ProductCardIcon
+                        href={prod.href}
+                        name={prod.name}
+                        FallbackIcon={prod.icon}
+                        gradient={prod.gradient}
+                        iconImage={prod.iconImage}
+                      />
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground bg-muted/60 px-3 py-1 rounded-full border border-border/50 truncate">
                         {prod.badge}
                       </span>
                     </div>
