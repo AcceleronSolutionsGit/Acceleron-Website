@@ -27,6 +27,7 @@ import {
   Blocks,
   Calendar,
   Activity,
+  Server,
 } from "lucide-react";
 import { ThemeToggle } from "../ui/ThemeToggle";
 import { Link, useLocation } from "@tanstack/react-router";
@@ -104,11 +105,77 @@ export const INDUSTRIES_NAV: IndustryNavItem[] = [
   { name: "Engineering & Construction", desc: "EC&O controls, contractor CWMS", href: "/industries/engineering-construction-operations", icon: Building2, gradient: "from-slate-600 to-zinc-800" },
 ];
 
-const MEGA_SERVICES = [
-  { name: "SAP", categoryMap: ["SAP"], href: "/services/sap", icon: Blocks, desc: "S/4HANA, AMS & Migration" },
-  { name: "IT & Custom Solutions", categoryMap: ["IT & Custom Solutions"], href: "/services/it-custom-solutions", icon: Code2, desc: "Infrastructure, Security & AI" },
-  { name: "Zoho", categoryMap: ["Zoho"], href: "/services/zoho", icon: ZohoLogo, desc: "CRM, HRMS & Finance" },
-  { name: "ManageEngine", categoryMap: ["ManageEngine"], href: "/services/manageengine", icon: MonitorSmartphone, desc: "ITSM, MDM & Operations" },
+type MegaSubItem = {
+  title: string;
+  href: string;
+  slug?: string;
+};
+
+type MegaServiceItem = {
+  name: string;
+  categoryMap?: string[];
+  href: string;
+  icon: any;
+  desc: string;
+  subItems?: MegaSubItem[];
+};
+
+const MEGA_SERVICES: MegaServiceItem[] = [
+  {
+    name: "SAP",
+    categoryMap: ["SAP"],
+    href: "/services/sap",
+    icon: Blocks,
+    desc: "S/4HANA, AMS & Migration",
+  },
+  {
+    name: "Custom Software Development",
+    href: "/services/software-development",
+    icon: Code2,
+    desc: "AI & Full-Stack Applications",
+    subItems: [
+      {
+        title: "Custom AI Application Development",
+        href: "/services/it-custom-solutions/custom-ai-application-development",
+        slug: "custom-ai-application-development",
+      },
+      {
+        title: "Custom Software Application Development",
+        href: "/services/it-custom-solutions/custom-software-application-development",
+        slug: "custom-software-application-development",
+      },
+    ],
+  },
+  {
+    name: "Zoho",
+    categoryMap: ["Zoho"],
+    href: "/services/zoho",
+    icon: ZohoLogo,
+    desc: "CRM, HRMS & Finance",
+  },
+  {
+    name: "IT Infrastructure Services",
+    href: "/services/it-infrastructure",
+    icon: Server,
+    desc: "Networks, Audits & Operations",
+    subItems: [
+      {
+        title: "Network Security Implementation",
+        href: "/services/it-custom-solutions/network-security-implementation",
+        slug: "network-security-implementation",
+      },
+      {
+        title: "Enterprise IT & Security Audit & Vulnerability Assessment",
+        href: "/services/it-custom-solutions/security-audits",
+        slug: "security-audits",
+      },
+      {
+        title: "ManageEngine",
+        href: "/services/manageengine",
+        slug: "manageengine",
+      },
+    ],
+  },
 ];
 
 const WHO_WE_ARE = [
@@ -323,7 +390,7 @@ function Nav() {
                     aria-haspopup="true"
                     aria-expanded={activeDropdown === l.dropdown}
                     onClick={() =>
-                      setActiveDropdown(activeDropdown === l.dropdown ? null : l.dropdown)
+                      setActiveDropdown(activeDropdown === l.dropdown ? null : (l.dropdown ?? null))
                     }
                     className={navPillClass}
                   >
@@ -482,10 +549,19 @@ function Nav() {
                               const activeService = MEGA_SERVICES.find(
                                 (s) => s.name === hoveredItem,
                               );
-                              const subServices = activeService
+                              const subServices: MegaSubItem[] = activeService?.subItems
+                                ? activeService.subItems
+                                : activeService?.categoryMap
                                 ? SUB_SERVICES_DATA.filter((sub) =>
-                                  activeService.categoryMap.includes(sub.category),
-                                )
+                                    activeService.categoryMap!.includes(sub.category),
+                                  ).map((sub) => ({
+                                    title: sub.title,
+                                    href: getSubUrl(
+                                      activeService?.href || "",
+                                      sub.title,
+                                    ),
+                                    slug: sub.slug,
+                                  }))
                                 : [];
                               return (
                                 <>
@@ -506,14 +582,11 @@ function Nav() {
                                   </div>
                                   <div className="space-y-0.5">
                                     {subServices.map((sub) => {
-                                      const subUrl = getSubUrl(
-                                        activeService?.href || "",
-                                        sub.title,
-                                      );
+                                      const subUrl = sub.href;
                                       const isSubActive = location.pathname === subUrl;
                                       return (
                                         <Link
-                                          key={sub.slug}
+                                          key={sub.slug || sub.title}
                                           to={subUrl as any}
                                           onClick={() => setActiveDropdown(null)}
                                           className={`group flex items-center justify-between rounded-lg px-3 py-1.5 transition-colors ${isSubActive

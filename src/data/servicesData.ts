@@ -1137,24 +1137,48 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     title: "IT Infrastructure Services",
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
-    desc: "Robust, high-availability hybrid cloud and network management engineered for 99.99% uptime.",
-    overview: " Robust, high-availability hybrid cloud and network management engineered for 99.99% uptime We engineer resilient physical and cloud architectures that maximize business continuity, high-speed collaboration, and reliable day-to-day operations.",
+    desc: "Acceleron delivers secure, scalable IT infrastructure solutions, combining resilient networking, advanced cybersecurity, and proactive systems management to ensure operational continuity, high availability, and seamless digital growth.",
+    overview: "Acceleron delivers secure, scalable IT infrastructure solutions, combining resilient networking, advanced cybersecurity, and proactive systems management to ensure operational continuity, high availability, and seamless digital growth.",
     primaryCtaText: "Secure Your Infrastructure",
     primaryCtaHref: "#consultation",
     secondaryCtaText: "Schedule an IT Assessment",
     secondaryCtaHref: "/contact#form",
-    featuresTitle: "Service Scope & Capabilities",
+    featuresTitle: "Core Practice Pillars & Solutions",
     features: [
-      { title: "Cloud Infrastructure Management", desc: "Provisioning, hosting, and optimizing cloud workloads across AWS, Microsoft Azure, and GCP." },
-      { title: "Enterprise Email Management", desc: "Implementation, migration, and administration for Microsoft O365, Google Workspace, and open-source email systems like Zimbra." },
-      { title: "Network Setup & Monitoring", desc: "Architecting remote site networks, managed switches, enterprise routers, SD-WAN, and firewall policies." },
-      { title: "Infrastructure AMC & SLA Support", desc: "Round-the-clock proactive monitoring, hardware lifecycle management, and SLA-driven maintenance." }
+      {
+        title: "Network Security Implementation",
+        desc: "High-performance software-defined networking (SD-WAN), secure VPN tunnels, zero-trust architecture, and robust perimeter defense ensuring secure plant-to-office connectivity.",
+      },
+      {
+        title: "Enterprise IT Security Audits & Vulnerability Assessment",
+        desc: "Comprehensive security evaluations, vulnerability scans, penetration testing, and thorough IT system audits to identify posture gaps, mitigate cyber risks, and ensure regulatory compliance.",
+      },
+      {
+        title: "ManageEngine Solutions",
+        desc: "Advanced IT service management (ITSM), endpoint control, operations monitoring, and unified IT management powered by ManageEngine integration.",
+      },
+      {
+        title: "Infrastructure AMC & SLA Support",
+        desc: "Round-the-clock proactive monitoring, hardware lifecycle management, and SLA-driven maintenance.",
+      },
     ],
     benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Maximum Uptime & Reliability", metric: "99.99%", desc: "Round-the-clock proactive monitoring and SLA-driven maintenance minimize unexpected downtime." },
-      { title: "Scalable Cloud Operations", metric: "Multi-Cloud", desc: "Seamless provisioning and optimization across AWS, Microsoft Azure, and GCP allow your infrastructure to grow alongside business demand." },
-      { title: "Enhanced Collaboration", metric: "Secure", desc: "Robust enterprise email and network architectures secure communications and streamline remote site connectivity." }
+      {
+        title: "Maximized System Uptime",
+        metric: "99.99%",
+        desc: "Maximized system uptime and application availability across corporate and operational environments.",
+      },
+      {
+        title: "Strengthened Security Posture",
+        metric: "Zero-Trust",
+        desc: "Strengthened security posture protecting sensitive corporate data against sophisticated threats.",
+      },
+      {
+        title: "Streamlined IT Governance",
+        metric: "Optimized TCO",
+        desc: "Streamlined IT governance, automated monitoring, and optimized infrastructure total cost of ownership (TCO).",
+      },
     ],
     process: [
       { step: "01", title: "Infrastructure Assessment", desc: "Evaluate existing on-premise, cloud, and network topology for capacity and reliability." },
@@ -1170,24 +1194,48 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
     title: "Custom Software Application Development",
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
-    desc: "Tailor-made web, mobile, and cloud software built for unique enterprise workflows.",
-    overview: "Tailor-made software solutions designed to solve your unique business challenges. Our full-stack engineering practices build scalable, intuitive, and high-performance digital products engineered to match your operational reality.",
+    desc: "Custom, high-performance software, enterprise applications, and AI-driven solutions designed around unique business needs to streamline workflows and deliver measurable operational impact.",
+    overview: "Custom, high-performance software, enterprise applications, and AI-driven solutions designed around unique business needs to streamline workflows and deliver measurable operational impact.",
     primaryCtaText: "Build Your Custom Solution",
     primaryCtaHref: "#consultation",
     secondaryCtaText: "Discuss Your Custom AI Requirement",
     secondaryCtaHref: "/services/it-custom-solutions/custom-ai-application-development",
-    featuresTitle: "Service Scope & Capabilities",
+    featuresTitle: "Core Practice Pillars & Solutions",
     features: [
-      { title: "Full-Stack Web Development", desc: "High-performance web apps built with modern JavaScript frameworks (React, Angular, Node.js), Python, and Java." },
-      { title: "Enterprise Mobile Applications", desc: "Native iOS/Android and cross-platform mobile apps for field workforce enablement and customer engagement." },
-      { title: "Custom Software Engineering", desc: "End-to-end product development lifecycle—from MVP design to scalable multi-tenant SaaS deployment." },
-      { title: "Legacy Modernization", desc: "Refactoring legacy monolithic software into modular microservices architectures." }
+      {
+        title: "Custom AI Application Development",
+        desc: "Intelligent automation, machine learning models, natural language processing tools, and predictive analytics embedded directly into enterprise workflows to unlock operational efficiency and smarter decision-making.",
+      },
+      {
+        title: "Bespoke Enterprise Application Development",
+        desc: "Full-stack web and mobile applications engineered for high scalability, security, and seamless integration with legacy ERP systems.",
+      },
+      {
+        title: "Modernization & API Integration",
+        desc: "Transforming legacy software architectures into cloud-native microservices with secure, high-throughput API connections.",
+      },
+      {
+        title: "Legacy Modernization",
+        desc: "Refactoring legacy monolithic software into modular microservices architectures.",
+      },
     ],
     benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Tailored Business Alignment", metric: "100%", desc: "Custom-built web and mobile applications directly solve unique operational challenges rather than forcing rigid out-of-the-box workflows." },
-      { title: "Future-Proof Architecture", metric: "Agile", desc: "Modernization of legacy systems into modular microservices ensures long-term agility and easier feature deployment." },
-      { title: "Multi-Platform Engagement", metric: "Cross-Platform", desc: "High-performance native and cross-platform solutions empower field workforces and elevate customer experiences." }
+      {
+        title: "Precisely Aligned Software",
+        metric: "100% Tailored",
+        desc: "Precisely aligned software solutions matching exact operational workflows without unnecessary bloat.",
+      },
+      {
+        title: "Competitive Differentiation",
+        metric: "Proprietary AI",
+        desc: "Competitive differentiation through proprietary digital tools and embedded AI capabilities.",
+      },
+      {
+        title: "Scalable Architecture",
+        metric: "Cloud-Native",
+        desc: "Scalable architecture designed for long-term maintainability and future enterprise growth.",
+      },
     ],
     process: [
       { step: "01", title: "Discovery & Solution Blueprint", desc: "Map enterprise requirements, user journeys, data schemas, and integration touchpoints." },
@@ -1258,33 +1306,57 @@ export const SUB_SERVICES_DATA: SubServiceData[] = [
   },
   {
     slug: "security-audits",
-    title: "Enterprise IT Security Audit & Vulnerability Assessment",
+    title: "Enterprise IT Security Audit and Vulnerability Assessment",
     category: "IT & Custom Solutions",
     categorySlug: "it-custom-solutions",
-    desc: "Proactive VAPT and risk evaluations to fortify digital perimeters.",
-    overview: "Comprehensive vulnerability assessments and penetration testing to identify risks. Our certified cybersecurity specialists rigorously evaluate your networks, cloud estates, web applications, and source code to eliminate vulnerabilities before adversaries can exploit them.",
+    desc: "Our IT Security Audit and Vulnerability Assessment evaluates network architecture, endpoints, servers, and enterprise systems to identify vulnerabilities, security gaps, and compliance risks before they disrupt business operations.",
+    overview: "Our IT Security Audit and Vulnerability Assessment evaluates network architecture, endpoints, servers, and enterprise systems to identify vulnerabilities, security gaps, and compliance risks before they disrupt business operations.",
     primaryCtaText: "Request a Security Audit",
     primaryCtaHref: "#consultation",
     secondaryCtaText: "Speak with a Security Expert",
     secondaryCtaHref: "/contact#form",
-    featuresTitle: "Service Scope & Capabilities",
+    featuresTitle: "Core Capabilities & Assessment Modules",
     features: [
-      { title: "Vulnerability Assessment & Penetration Testing (VAPT)", desc: "Black-box, grey-box, and white-box penetration testing for web apps, mobile apps, and networks." },
-      { title: "ISO 27001 & Compliance Audits", desc: "Gap analysis, policy formulation, and certification readiness support for ISO 27001 and DPDP frameworks." },
-      { title: "Source Code Security Review", desc: "Static and dynamic application security testing (SAST/DAST) to detect vulnerability risks." },
-      { title: "Phishing Simulations & Training", desc: "Employee cyber awareness training programs and controlled phishing simulations." }
+      {
+        title: "Vulnerability Assessment & Penetration Testing (VAPT)",
+        desc: "Systematic scanning and ethical hacking simulations to identify network, application, and infrastructure weaknesses.",
+      },
+      {
+        title: "Enterprise IT System Audits",
+        desc: "In-depth reviews of IT general controls, operating procedures, access privileges, hardware/software inventory, and configuration baselines.",
+      },
+      {
+        title: "Compliance & Risk Mapping",
+        desc: "Evaluating adherence to industry standards, data protection laws, and internal corporate security policies.",
+      },
+      {
+        title: "Actionable Remediation Roadmaps",
+        desc: "Prioritized mitigation recommendations and technical guidance to patch vulnerabilities and harden enterprise defenses.",
+      },
     ],
     benefitsTitle: "Key Business Benefits",
     benefits: [
-      { title: "Proactive Risk Discovery", metric: "VAPT", desc: "Comprehensive vulnerability assessments and penetration testing (VAPT) uncover critical security gaps before malicious actors exploit them." },
-      { title: "Regulatory Compliance Readiness", metric: "ISO 27001", desc: "Structured gap analysis and policy formulation streamline certification paths for ISO 27001 and DPDP frameworks." },
-      { title: "Human Error Reduction", metric: "Human Shield", desc: "Controlled phishing simulations and employee awareness training transform your workforce into a reliable human firewall." }
+      {
+        title: "Proactive Flaw Discovery",
+        metric: "Proactive",
+        desc: "Proactive identification and mitigation of high-risk security flaws before exploitation.",
+      },
+      {
+        title: "Statutory Compliance",
+        metric: "100%",
+        desc: "Assured compliance with statutory security frameworks and data protection mandates.",
+      },
+      {
+        title: "Enhanced Stakeholder Trust",
+        metric: "Zero-Trust",
+        desc: "Enhanced stakeholder trust through demonstrable IT governance and rigorous security discipline.",
+      },
     ],
     process: [
       { step: "01", title: "Scoping & Threat Modeling", desc: "Define testing boundaries, regulatory frameworks (ISO/DPDP), and rules of engagement." },
-      { step: "02", title: "In-Depth VAPT & Source Code Testing", desc: "Execute automated vulnerability sweeps, manual penetration attempts, and static code scans." },
-      { step: "03", title: "Executive & Technical Risk Reporting", desc: "Deliver prioritized CVSS remediation scorecards, evidence logs, and executive risk summaries." },
-      { step: "04", title: "Remediation Verification & Re-Testing", desc: "Validate that all identified vulnerabilities have been securely patched and issue compliance certificates." }
+      { step: "02", title: "In-Depth VAPT & System Scan", desc: "Execute automated vulnerability sweeps, manual penetration attempts, and ITGC configuration audits." },
+      { step: "03", title: "Actionable Remediation Reporting", desc: "Deliver prioritized CVSS remediation scorecards, evidence logs, and executive risk summaries." },
+      { step: "04", title: "Remediation Verification & Hardening", desc: "Validate that all identified vulnerabilities have been securely patched and issue compliance certificates." }
     ],
     image: "/IT & Custom Solutions/IT & Custom Solutions - Acceleron Solutions.png",
     customLogo: "/Acceleron_Short_Logo.png"
@@ -1344,7 +1416,9 @@ export function getSubServiceBySlug(slug: string): SubServiceData | undefined {
   if (
     slug === "security-audit-vulnerability-assessment" ||
     slug === "security-audits-vulnerability-assessments" ||
-    slug === "security-audit"
+    slug === "security-audit" ||
+    slug === "enterprise-it-security-audit-vulnerability-assessment" ||
+    slug === "enterprise-it-and-security-audit-vulnerability-assessment"
   ) {
     const auditMatch = SUB_SERVICES_DATA.find((s) => s.slug === "security-audits");
     if (auditMatch) {
