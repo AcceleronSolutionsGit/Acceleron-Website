@@ -20,7 +20,6 @@ import {
 import { useState, useRef, useEffect } from "react";
 import { toast } from "sonner";
 import { Reveal, WaveDivider } from "../components/ui/Animations";
-import { PageHero } from "../components/ui/PageHero";
 import {
   Accordion,
   AccordionContent,
@@ -248,22 +247,10 @@ function ContactPage() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
-      {/* SECTION 1: HERO BANNER */}
-      <PageHero
-        title="Let’s Build the Next Chapter Together"
-        subtitle="Ready to modernize your operations, optimize your enterprise platforms, or build custom digital software? Connect directly with our solution architects and enterprise practice leads across Kolkata, Delhi NCR, and our global delivery network."
-        breadcrumbs={[{ label: "Contact" }]}
-        image="https://images.unsplash.com/photo-1497366216548-37526070297c?q=75&w=1200&auto=format&fit=crop"
-        ctaText="Send Us a Message"
-        ctaHref="#form"
-        secondaryCtaText="View Office Locations"
-        secondaryCtaHref="#locations"
-      />
-
-      {/* SECTION 2: INTERACTIVE ENTERPRISE INQUIRY FORM */}
+      {/* ENTERPRISE INQUIRY FORM */}
       <section
         id="form"
-        className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 py-14 sm:py-20 lg:py-24"
+        className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10 pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-20 lg:pb-24"
       >
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Main Inquiry Form */}
