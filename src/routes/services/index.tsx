@@ -65,6 +65,7 @@ export interface CapabilityCard {
   features: string[];
   href: string;
   icon: any;
+  iconImage?: string;
 }
 
 export interface PracticeSection {
@@ -92,7 +93,7 @@ const PRACTICES: PracticeSection[] = [
     hubUrl: "/service-category/sap",
     icon: Database,
     gradient: "from-blue-600 via-indigo-600 to-purple-600",
-    img: "/SAP_Homepage.jpg",
+    img: "/sap_s4hana-transparentbg.png",
     capabilities: [
       {
         title: "SAP AMS",
@@ -106,6 +107,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/service-category/sap/sap-ams",
         icon: Headphones,
+        iconImage: "/icons/sap/SAP_AMS__1_-removebg-preview.png",
       },
       {
         title: "SAP S/4HANA Implementation",
@@ -119,6 +121,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/service-category/sap/sap-s-4hana-implementation",
         icon: Database,
+        iconImage: "/icons/sap/SAP_S4HNA-removebg-preview.png",
       },
       {
         title: "SAP Integration",
@@ -132,6 +135,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/service-category/sap/sap-integration",
         icon: Zap,
+        iconImage: "/icons/sap/SAP_Integration_to_Cloud-removebg-preview.png",
       },
       {
         title: "RISE with S/4HANA Implementation",
@@ -145,6 +149,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/service-category/sap/rise-with-s-4hana-implementation",
         icon: Layers,
+        iconImage: "/icons/sap/RISE_with_SAP_s4_HANA-removebg-preview.png",
       },
       {
         title: "SAP Migration to Cloud",
@@ -158,6 +163,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/service-category/sap/sap-migration-to-cloud",
         icon: Server,
+        iconImage: "/icons/sap/SAP_Migration_to_Cloud-removebg-preview.png",
       },
       {
         title: "SAP Custom Development",
@@ -171,6 +177,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/service-category/sap/sap-custom-development",
         icon: Code2,
+        iconImage: "/icons/sap/SAP_Custom_Development-removebg-preview.png",
       },
     ],
   },
@@ -251,6 +258,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/services/zoho/zoho-crm",
         icon: Users,
+        iconImage: "/icons/zoho/Zoho_CRM_Icon_-_Acceleron_Solution-removebg-preview.png",
       },
       {
         title: "Zoho Books",
@@ -264,6 +272,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/services/zoho/zoho-books",
         icon: Award,
+        iconImage: "/icons/zoho/Zoho_Books_Icon_-_Acceleron_Solution-removebg-preview.png",
       },
       {
         title: "Zoho HRMS (People and Payroll)",
@@ -277,6 +286,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/services/zoho/zoho-hrms-people-and-payroll",
         icon: Briefcase,
+        iconImage: "/icons/zoho/Zoho_People_and_Payroll_-_Zoho_HRMS_-_Acceleron_Solutions-removebg-preview.png",
       },
       {
         title: "Zoho ERP",
@@ -290,6 +300,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/services/zoho/zoho-erp",
         icon: Layers,
+        iconImage: "/icons/zoho/Zoho_ERP_Icon_-_Acceleron_Solution-removebg-preview.png",
       },
       {
         title: "Zoho Mail",
@@ -303,6 +314,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/services/zoho/zoho-mail",
         icon: Mail,
+        iconImage: "/icons/zoho/Zoho_Mail_Icon_-_Acceleron_Solution-removebg-preview.png",
       },
     ],
   },
@@ -316,7 +328,7 @@ const PRACTICES: PracticeSection[] = [
     hubUrl: "/services/it-infrastructure",
     icon: Server,
     gradient: "from-slate-700 via-zinc-800 to-slate-900",
-    img: "/ManageEngine-logo.png",
+    img: "/ManageEngine/ManageEngine Logo.png",
     capabilities: [
       {
         title: "Network Security Implementation",
@@ -356,6 +368,7 @@ const PRACTICES: PracticeSection[] = [
         ],
         href: "/services/manageengine",
         icon: Headphones,
+        iconImage: "/ManageEngine/ManageEngine Logo.png",
       },
     ],
   },
@@ -451,13 +464,25 @@ function CapabilityCardItem({
   return (
     <div className="group rounded-2xl sm:rounded-3xl border border-border/70 bg-card p-5 sm:p-6 md:p-7 h-full shadow-card hover:shadow-elevated hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
       <div>
-        <div className="flex items-center justify-between mb-4 sm:mb-5">
-          <div
-            className={`h-11 w-11 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl bg-gradient-to-br ${practiceGradient} text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform`}
-          >
-            <cap.icon className="h-5 w-5 sm:h-6 sm:w-6" />
-          </div>
-          <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-muted-foreground bg-muted/60 px-2.5 sm:px-3 py-1 rounded-full border border-border/50">
+        <div className="flex items-center justify-between gap-3 mb-4 sm:mb-5">
+          {cap.iconImage ? (
+            <div className="h-12 w-auto max-w-[140px] sm:h-14 sm:max-w-[160px] rounded-xl sm:rounded-2xl bg-white border border-border/60 px-3 py-1.5 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform shrink-0">
+              <img
+                src={getAssetUrl(cap.iconImage)}
+                alt={cap.title}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-auto max-w-full object-contain"
+              />
+            </div>
+          ) : (
+            <div
+              className={`h-11 w-11 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl bg-gradient-to-br ${practiceGradient} text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform`}
+            >
+              <cap.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+            </div>
+          )}
+          <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-muted-foreground bg-muted/60 px-2.5 sm:px-3 py-1 rounded-full border border-border/50 shrink-0">
             {cap.badge}
           </span>
         </div>
@@ -565,7 +590,18 @@ function ServicesHub() {
                 href={`#${p.anchorId}`}
                 className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-border/80 bg-muted/40 hover:bg-brand-red/10 hover:border-brand-red/40 hover:text-brand-red px-3 sm:px-3.5 py-1.5 text-xs font-semibold text-foreground transition-all duration-200"
               >
-                <p.icon className="h-3.5 w-3.5 text-brand-red" />
+                {p.useZohoLogo ? (
+                  <ZohoLogo className="h-3.5 w-3.5" />
+                ) : p.img ? (
+                  <img
+                    src={getAssetUrl(p.img)}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-3.5 w-auto max-w-[20px] object-contain"
+                  />
+                ) : (
+                  <p.icon className="h-3.5 w-3.5 text-brand-red" />
+                )}
                 <span>{p.title}</span>
               </a>
             ))}
@@ -614,17 +650,10 @@ function ServicesHub() {
               <Reveal delay={idx * 0.08} className="h-full">
                 <div className="rounded-2xl sm:rounded-3xl border border-border/80 bg-card p-5 sm:p-6 h-full shadow-card hover:border-brand-red/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-brand-red/10 text-brand-red">
+                    <div className="mb-4">
+                      <span className="inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full bg-brand-red/10 text-brand-red">
                         {practice.capabilities.length} Capabilities
                       </span>
-                      <div className="h-9 w-9 rounded-xl bg-muted/60 flex items-center justify-center text-foreground">
-                        {practice.useZohoLogo ? (
-                          <ZohoLogo className="h-4 w-4" />
-                        ) : (
-                          <practice.icon className="h-4 w-4 text-brand-red" />
-                        )}
-                      </div>
                     </div>
 
                     <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1">{practice.title}</h3>
@@ -632,15 +661,26 @@ function ServicesHub() {
                       {practice.overview}
                     </p>
 
-                    <div className="space-y-1 pt-3 border-t border-border/60">
+                    <div className="space-y-1.5 pt-3 border-t border-border/60">
                       {practice.capabilities.map((c) => (
                         <Link
                           key={c.title}
                           to={c.href as any}
-                          className="group flex items-center justify-between rounded-lg px-2.5 py-1.5 sm:py-2 text-xs font-semibold text-foreground/85 hover:text-brand-red hover:bg-muted/40 transition-all"
+                          className="group flex items-center justify-between rounded-lg px-2.5 py-1.5 text-xs font-semibold text-foreground/85 hover:text-brand-red hover:bg-muted/40 transition-all"
                         >
                           <span className="flex items-center gap-2 truncate">
-                            <span className="h-1.5 w-1.5 rounded-full bg-brand-red/60 group-hover:bg-brand-red transition-colors shrink-0" />
+                            {c.iconImage ? (
+                              <span className="h-5 w-5 rounded bg-white border border-border/50 p-0.5 flex items-center justify-center shrink-0 shadow-2xs">
+                                <img
+                                  src={getAssetUrl(c.iconImage)}
+                                  alt=""
+                                  aria-hidden="true"
+                                  className="h-full w-full object-contain"
+                                />
+                              </span>
+                            ) : (
+                              <span className="h-1.5 w-1.5 rounded-full bg-brand-red/60 group-hover:bg-brand-red transition-colors shrink-0" />
+                            )}
                             <span className="truncate">{c.title}</span>
                           </span>
                           <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/60 group-hover:text-brand-red group-hover:translate-x-0.5 transition-all shrink-0" />
