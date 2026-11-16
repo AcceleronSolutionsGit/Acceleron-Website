@@ -50,7 +50,7 @@ export const Route = createFileRoute("/services/")({
       {
         name: "description",
         content:
-          "Comprehensive enterprise practices covering SAP transformation, custom IT solutions, Zoho suite implementations, and ManageEngine infrastructure management.",
+          "Comprehensive enterprise practices covering SAP transformation, custom software development, Zoho suite implementations, and IT infrastructure services.",
       },
     ],
   }),
@@ -175,93 +175,55 @@ const PRACTICES: PracticeSection[] = [
     ],
   },
   {
-    id: "it-custom-solutions",
-    anchorId: "it-custom-solutions",
-    title: "IT & Custom Solutions",
-    badge: "CUSTOM SOFTWARE, CLOUD & CYBERSECURITY",
+    id: "software-development",
+    anchorId: "software-development",
+    title: "Custom Software Development",
+    badge: "CUSTOM SOFTWARE, FULL-STACK & APPLIED AI",
     overview:
-      "Custom software, AI development, network security, and comprehensive IT infrastructure services.",
-    hubUrl: "/services/it-custom-solutions",
+      "Custom, high-performance software, enterprise applications, and AI-driven solutions designed around unique business needs to streamline workflows and deliver measurable operational impact.",
+    hubUrl: "/services/software-development",
     icon: Code2,
-    gradient: "from-emerald-600 via-teal-600 to-cyan-600",
+    gradient: "from-blue-600 via-indigo-600 to-cyan-600",
+    img: "/services/custom-software-development.webp",
     capabilities: [
       {
-        title: "IT Infrastructure Services",
-        subtitle: "Cloud, Networks & 24/7 SLA Management",
-        badge: "Infrastructure",
-        desc: " Robust, high-availability hybrid cloud and network management engineered for 99.99% uptime",
+        title: "Custom AI Application Development",
+        subtitle: "Autonomous Agents & Predictive Intelligence",
+        badge: "Applied AI",
+        desc: "Intelligent automation, machine learning models, natural language processing tools, and predictive analytics embedded directly into enterprise workflows to unlock operational efficiency and smarter decision-making.",
         features: [
-          "Cloud infrastructure management across AWS, Azure, and GCP",
-          "Enterprise email management (M365, Google Workspace, Zimbra)",
-          "Network setup, SD-WAN, managed switches & firewall policies",
+          "Intelligent automation & enterprise workflow copilots",
+          "Custom machine learning models & NLP pipelines",
+          "Predictive analytics embedded into business operations",
         ],
-        href: "/services/it-custom-solutions/it-infrastructure-services",
-        icon: Server,
+        href: "/services/it-custom-solutions/custom-ai-application-development",
+        icon: Sparkles,
       },
       {
         title: "Custom Software Application Development",
         subtitle: "Bespoke Web, Mobile & Microservices",
         badge: "Software Engineering",
-        desc: "Tailor-made software solutions designed to solve your unique business challenges.",
+        desc: "Full-stack web and mobile applications engineered for high scalability, security, and seamless integration with legacy ERP systems.",
         features: [
-          "Full-stack web apps (React, Angular, Node.js, Python, Java)",
-          "Enterprise mobile applications for field workforce enablement",
-          "Legacy software modernization into modular microservices",
+          "Full-stack web apps (React, Node.js, Python, Java)",
+          "Seamless integration with SAP, Zoho & legacy ERPs",
+          "Role-based access governance & field workforce enablement",
         ],
         href: "/services/it-custom-solutions/custom-software-application-development",
         icon: Code2,
       },
       {
-        title: "Custom AI Application Development",
-        subtitle: "Autonomous Agents & Predictive Intelligence",
-        badge: "Applied AI",
-        desc: "Intelligent AI-driven applications to automate processes and generate insights.",
+        title: "Modernization & API Integration",
+        subtitle: "Cloud-Native Microservices & APIs",
+        badge: "Microservices & APIs",
+        desc: "Transforming legacy software architectures into cloud-native microservices with secure, high-throughput API connections.",
         features: [
-          "Autonomous multi-agent AI swarms for complex decision execution",
-          "Predictive analytics engines for maintenance & demand forecasting",
-          "Intelligent document processing (IDP) for invoices & contracts",
+          "Monolithic legacy refactoring into modular microservices",
+          "High-throughput RESTful, GraphQL & event APIs",
+          "Zero-downtime cutover with automated testing",
         ],
-        href: "/services/it-custom-solutions/custom-ai-application-development",
+        href: "/contact#form",
         icon: Cpu,
-      },
-      {
-        title: "Network Security Implementation",
-        subtitle: "Zero-Trust & Next-Gen Perimeter Defense",
-        badge: "Zero-Trust Defense",
-        desc: "Robust cybersecurity architectures to protect your data and network perimeter.",
-        features: [
-          "Next-Generation Firewalls (Fortinet, Check Point, Sophos, Cisco)",
-          "Zero Trust Network Access (ZTNA) & Zscaler micro-segmentation",
-          "Endpoint Detection & Response (CrowdStrike, Sophos EDR/XDR)",
-        ],
-        href: "/services/it-custom-solutions/network-security-implementation",
-        icon: Lock,
-      },
-      {
-        title: "Security Audits",
-        subtitle: "VAPT & ISO 27001 Posture Review",
-        badge: "Vulnerability & VAPT",
-        desc: "Comprehensive vulnerability assessments and penetration testing to identify risks.",
-        features: [
-          "Black-box, grey-box, and white-box penetration testing (VAPT)",
-          "ISO 27001 & DPDP compliance readiness gap analysis",
-          "Source code security review (SAST/DAST) & phishing simulations",
-        ],
-        href: "/services/it-custom-solutions/security-audits",
-        icon: ShieldCheck,
-      },
-      {
-        title: "IT System Audits",
-        subtitle: "ITGC Governance, FinOps & BCP/DR Audits",
-        badge: "Compliance & Governance",
-        desc: "In-depth evaluations of your IT infrastructure for performance, efficiency, and alignment.",
-        features: [
-          "IT General Controls (ITGC) access, changes & audit trails",
-          "Cloud FinOps reviews eliminating idle compute to reduce spend",
-          "Disaster recovery (DR/BCP) simulation validating RTO/RPO targets",
-        ],
-        href: "/services/it-custom-solutions/it-system-audits",
-        icon: FileCheck2,
       },
     ],
   },
@@ -345,68 +307,55 @@ const PRACTICES: PracticeSection[] = [
     ],
   },
   {
-    id: "manageengine",
-    anchorId: "manageengine",
-    title: "ManageEngine Practice",
-    badge: "UNIFIED IT INFRASTRUCTURE & ENDPOINT GOVERNANCE",
+    id: "it-infrastructure",
+    anchorId: "it-infrastructure",
+    title: "IT Infrastructure Services",
+    badge: "HYBRID CLOUD, NETWORKING & ENTERPRISE SECURITY",
     overview:
-      "Comprehensive IT management software for all your business needs.",
-    hubUrl: "/services/manageengine",
+      "Acceleron delivers secure, scalable IT infrastructure solutions, combining resilient networking, advanced cybersecurity, and proactive systems management to ensure operational continuity, high availability, and seamless digital growth.",
+    hubUrl: "/services/it-infrastructure",
     icon: Server,
-    gradient: "from-slate-600 via-zinc-700 to-slate-800",
+    gradient: "from-slate-700 via-zinc-800 to-slate-900",
     img: "/ManageEngine-logo.png",
     capabilities: [
       {
-        title: "ManageEngine-ITSM",
-        subtitle: "ServiceDesk Plus Enterprise ITSM",
-        badge: "ITIL Service Desk",
-        desc: "ITIL-aligned service catalog, incident governance, problem resolution, change workflows, and CMDB asset relationship mapping.",
+        title: "Network Security Implementation",
+        subtitle: "Zero-Trust & Next-Gen Perimeter Defense",
+        badge: "Zero-Trust Defense",
+        desc: "High-performance software-defined networking (SD-WAN), secure VPN tunnels, zero-trust architecture, and robust perimeter defense ensuring secure plant-to-office connectivity.",
         features: [
-          "ITIL-aligned incident, problem, and change management workflows",
-          "Automated SLA escalation matrices and service request catalog",
-          "CMDB configuration tracking with asset lifecycle governance",
+          "Software-defined networking (SD-WAN) & hybrid cloud connectivity",
+          "Secure site-to-site & plant-to-office encrypted VPN tunnels",
+          "Zero-Trust Network Access (ZTNA) & Next-Gen firewalls",
         ],
-        href: "/services/manageengine/manageengine-itsm",
-        icon: Headphones,
-      },
-      {
-        title: "ManageEngine-Op Manager",
-        subtitle: "Network & Server Infrastructure Monitoring",
-        badge: "Network Telemetry",
-        desc: "Real-time network performance monitoring, switch/router tracking, server availability metrics, and proactive bandwidth analysis.",
-        features: [
-          "Live monitoring of routers, switches, firewalls, and virtual servers",
-          "Threshold-based multi-channel alerting (SMS, Email, Webhooks)",
-          "NetFlow bandwidth analysis and traffic bottleneck identification",
-        ],
-        href: "/services/manageengine/manageengine-op-manager",
-        icon: Activity,
-      },
-      {
-        title: "ManageEngine-Endpoint Control",
-        subtitle: "Endpoint Central Unified Management",
-        badge: "Endpoint Security",
-        desc: "Centralized patch management, automated software deployment, remote troubleshooting, and asset vulnerability remediation.",
-        features: [
-          "Automated OS and third-party software patch management",
-          "Standardized software package deployment across distributed fleets",
-          "Remote desktop control with integrated audit logging",
-        ],
-        href: "/services/manageengine/manageengine-endpoint-control",
+        href: "/services/it-custom-solutions/network-security-implementation",
         icon: ShieldCheck,
       },
       {
-        title: "ManageEngine-MDM Plus",
-        subtitle: "Mobile Device & Fleet Management",
-        badge: "Enterprise Mobility",
-        desc: "Enterprise mobility management for smartphones, tablets, and ruggedized devices, enforcing containerization and corporate security.",
+        title: "Enterprise IT & Security Audit & Vulnerability Assessment",
+        subtitle: "VAPT & IT System Posture Review",
+        badge: "VAPT & Governance",
+        desc: "Comprehensive security evaluations, vulnerability scans, penetration testing, and thorough IT system audits to identify posture gaps, mitigate cyber risks, and ensure regulatory compliance.",
         features: [
-          "Zero-touch enrollment for iOS, Android, macOS, and Windows",
-          "Corporate containerization ensuring personal/work data isolation",
-          "Single and multi-app kiosk mode for shop-floor field tablets",
+          "Vulnerability Assessment & Penetration Testing (VAPT)",
+          "Enterprise IT system audits & ITGC governance reviews",
+          "Compliance & statutory risk mapping (ISO 27001, DPDP)",
         ],
-        href: "/services/manageengine/manageengine-mdm-plus",
-        icon: Server,
+        href: "/services/it-custom-solutions/security-audits",
+        icon: Lock,
+      },
+      {
+        title: "ManageEngine",
+        subtitle: "Unified IT Operations & Endpoint Governance",
+        badge: "ITSM & Operations",
+        desc: "Advanced IT service management (ITSM), endpoint control, operations monitoring, and unified IT management powered by ManageEngine integration.",
+        features: [
+          "Endpoint Central & Mobile Device Management (MDM)",
+          "OpManager proactive network switch & server monitoring",
+          "ServiceDesk Plus ITIL-aligned service desk automation",
+        ],
+        href: "/services/manageengine",
+        icon: Headphones,
       },
     ],
   },
@@ -474,7 +423,7 @@ const LOCATIONS = [
 const FAQS = [
   {
     q: "How does Acceleron manage multi-practice enterprise engagements?",
-    a: "Acceleron delivers unified governance through a designated Client Partner and Solution Lead. Whether your engagement combines SAP core ERP with Zoho CRM, custom AI microservices, and ManageEngine infrastructure monitoring, all delivery streams adhere to standardized SLA frameworks, shared architectural blueprints, and unified project management.",
+    a: "Acceleron delivers unified governance through a designated Client Partner and Solution Lead. Whether your engagement combines SAP core ERP with Zoho CRM, custom software & AI development, or IT infrastructure services, all delivery streams adhere to standardized SLA frameworks, shared architectural blueprints, and unified project management.",
   },
   {
     q: "What SLA commitments are backed by Acceleron's Managed Services?",
@@ -594,9 +543,9 @@ function ServicesHub() {
       <PageHero
         badge="ENTERPRISE PRACTICES & CONSULTING"
         title="Our Enterprise Service Offerings"
-        subtitle="Comprehensive enterprise practices covering SAP transformation, custom IT solutions, Zoho suite implementations, and ManageEngine infrastructure management."
+        subtitle="Comprehensive enterprise practices covering SAP transformation, custom software development, Zoho suite implementations, and IT infrastructure services."
         breadcrumbs={[{ label: "Services" }]}
-        image="/capital_goods.jpg"
+        image="/Our_Enterprise_Service_Offerings-Acceleron_Solutions.png"
         ctaText="Explore Practice Offerings"
         ctaHref="#practices"
         secondaryCtaText="Consult Practice Leads"
@@ -653,7 +602,7 @@ function ServicesHub() {
               One Technology Partner. <span className="text-gradient">Every Layer of Your Stack.</span>
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
-              From enterprise SAP ERP consulting to custom AI development, modern Zoho deployment, and ManageEngine infrastructure monitoring, our practices provide integrated end-to-end execution.
+              From enterprise SAP ERP consulting to custom software development, modern Zoho deployment, and resilient IT infrastructure services, our practices provide integrated end-to-end execution.
             </p>
           </div>
         </Reveal>
