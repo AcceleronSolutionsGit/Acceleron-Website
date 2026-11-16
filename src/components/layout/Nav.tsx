@@ -124,7 +124,7 @@ const MEGA_SERVICES: MegaServiceItem[] = [
   {
     name: "SAP",
     categoryMap: ["SAP"],
-    href: "/services/sap",
+    href: "/service-category/sap",
     icon: Blocks,
     desc: "S/4HANA, AMS & Migration",
   },
