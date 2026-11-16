@@ -33,7 +33,7 @@ export function SubServicePageView({ data }: SubServicePageProps) {
         secondaryCtaHref={data.secondaryCtaHref}
         breadcrumbs={[
           { label: "Services", href: "/services" },
-          { label: data.category, href: `/services/${data.categorySlug}` },
+          { label: data.category, href: data.categorySlug === "sap" ? "/service-category/sap" : `/services/${data.categorySlug}` },
           { label: data.title }
         ]}
         image={data.image || "/SAP_Implementation_Banner.png"}

@@ -200,6 +200,7 @@ function isNavLinkActive(pathname: string, link: (typeof NAV_LINKS)[number]): bo
   if (link.dropdown === "what-we-do") {
     return (
       pathname.startsWith("/services") ||
+      pathname.startsWith("/service-category") ||
       pathname.startsWith("/products") ||
       pathname.startsWith("/industries")
     );
