@@ -73,7 +73,7 @@ import { Route as ServicesItCustomSolutionsRouteImport } from './routes/services
 import { Route as ServicesItInfrastructureRouteImport } from './routes/services/it-infrastructure'
 import { Route as ServicesManageEngineRouteImport } from './routes/services/manage-engine'
 import { Route as ServicesManageengineRouteImport } from './routes/services/manageengine'
-import { Route as ServicesSapRouteImport } from './routes/services/sap'
+import { Route as ServicesSapRouteImport } from './routes/service-category/sap'
 import { Route as ServicesSoftwareDevelopmentRouteImport } from './routes/services/software-development'
 import { Route as ServicesZohoRouteImport } from './routes/services/zoho'
 import { Route as ServicesCategoryServiceRouteImport } from './routes/services/$category.$service'
@@ -414,8 +414,8 @@ const ServicesManageengineRoute = ServicesManageengineRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesSapRoute = ServicesSapRouteImport.update({
-  id: '/services/sap',
-  path: '/services/sap',
+  id: '/service-category/sap',
+  path: '/service-category/sap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesSoftwareDevelopmentRoute =
@@ -501,7 +501,7 @@ export interface FileRoutesByFullPath {
   '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
   '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
-  '/services/sap': typeof ServicesSapRoute
+  '/service-category/sap': typeof ServicesSapRoute
   '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
   '/admin/': typeof AdminIndexRoute
@@ -571,7 +571,7 @@ export interface FileRoutesByTo {
   '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
   '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
-  '/services/sap': typeof ServicesSapRoute
+  '/service-category/sap': typeof ServicesSapRoute
   '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
   '/admin': typeof AdminIndexRoute
@@ -643,7 +643,7 @@ export interface FileRoutesById {
   '/services/it-infrastructure': typeof ServicesItInfrastructureRoute
   '/services/manage-engine': typeof ServicesManageEngineRoute
   '/services/manageengine': typeof ServicesManageengineRoute
-  '/services/sap': typeof ServicesSapRoute
+  '/service-category/sap': typeof ServicesSapRoute
   '/services/software-development': typeof ServicesSoftwareDevelopmentRoute
   '/services/zoho': typeof ServicesZohoRoute
   '/admin/': typeof AdminIndexRoute
@@ -716,7 +716,7 @@ export interface FileRouteTypes {
     | '/services/it-infrastructure'
     | '/services/manage-engine'
     | '/services/manageengine'
-    | '/services/sap'
+    | '/service-category/sap'
     | '/services/software-development'
     | '/services/zoho'
     | '/admin/'
@@ -786,7 +786,7 @@ export interface FileRouteTypes {
     | '/services/it-infrastructure'
     | '/services/manage-engine'
     | '/services/manageengine'
-    | '/services/sap'
+    | '/service-category/sap'
     | '/services/software-development'
     | '/services/zoho'
     | '/admin'
@@ -857,7 +857,7 @@ export interface FileRouteTypes {
     | '/services/it-infrastructure'
     | '/services/manage-engine'
     | '/services/manageengine'
-    | '/services/sap'
+    | '/service-category/sap'
     | '/services/software-development'
     | '/services/zoho'
     | '/admin/'
@@ -1384,10 +1384,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesManageengineRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/sap': {
-      id: '/services/sap'
-      path: '/services/sap'
-      fullPath: '/services/sap'
+    '/service-category/sap': {
+      id: '/service-category/sap'
+      path: '/service-category/sap'
+      fullPath: '/service-category/sap'
       preLoaderRoute: typeof ServicesSapRouteImport
       parentRoute: typeof rootRouteImport
     }

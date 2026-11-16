@@ -29,7 +29,7 @@ import { getAssetUrl } from "../../lib/assets";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-export const Route = createFileRoute("/services/sap")({
+export const Route = createFileRoute("/service-category/sap")({
   component: SAPPage,
 });
 
@@ -97,25 +97,25 @@ const SAP_CAPABILITIES = [
   {
     title: "SAP S/4HANA Implementation",
     text: "Greenfield, Bluefield, and Brownfield migrations to S/4HANA with minimal business disruption.",
-    href: "/services/sap/sap-s-4hana-implementation",
+    href: "/service-category/sap/sap-s-4hana-implementation",
     logo: "/icons/sap/SAP_S4HNA-removebg-preview.png",
   },
   {
     title: "SAP Application Management Services (AMS)",
     text: "Proactive 24/7 monitoring, incident management, ITSM ticketing, and continuous process optimization.",
-    href: "/services/sap/sap-ams",
+    href: "/service-category/sap/sap-ams",
     logo: "/icons/sap/SAP_AMS__1_-removebg-preview.png",
   },
   {
     title: "RISE with S/4HANA",
     text: "End-to-end business transformation as a service — infrastructure, platform, and enterprise applications.",
-    href: "/services/sap/rise-with-s-4hana-implementation",
+    href: "/service-category/sap/rise-with-s-4hana-implementation",
     logo: "/icons/sap/RISE_with_SAP_s4_HANA-removebg-preview.png",
   },
   {
     title: "SAP Cloud Integration (CPI & BTP)",
     text: "Seamless connectivity across SAP, non-SAP systems, IoT sensors, and dealer portals.",
-    href: "/services/sap/sap-integration",
+    href: "/service-category/sap/sap-integration",
     logo: "/icons/sap/SAP_Integration_to_Cloud-removebg-preview.png",
   },
   {
@@ -127,7 +127,7 @@ const SAP_CAPABILITIES = [
   {
     title: "AuditComply & SAP Governance",
     text: "Automated SAP ECC and S/4HANA compliance covering Segregation of Duties (SoD), ITGC controls, and audit trails.",
-    href: "/services/sap/audit-comply",
+    href: "/service-category/sap/audit-comply",
     logo: "/sap_s4hana-transparentbg.png",
   },
 ];

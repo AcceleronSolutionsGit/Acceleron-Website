@@ -89,7 +89,7 @@ const PRACTICES: PracticeSection[] = [
     badge: "ENTERPRISE ERP & S/4HANA TRANSFORMATION",
     overview:
       "End-to-end SAP consulting — from S/4HANA transformation and RISE with SAP to managed services and cloud migration.",
-    hubUrl: "/services/sap",
+    hubUrl: "/service-category/sap",
     icon: Database,
     gradient: "from-blue-600 via-indigo-600 to-purple-600",
     img: "/SAP_Homepage.jpg",
@@ -104,7 +104,7 @@ const PRACTICES: PracticeSection[] = [
           "Continuous Basis health monitoring & background job tuning",
           "Routine Support Package Stacks (SPS) & legal patch application",
         ],
-        href: "/services/sap/sap-ams",
+        href: "/service-category/sap/sap-ams",
         icon: Headphones,
       },
       {
@@ -117,7 +117,7 @@ const PRACTICES: PracticeSection[] = [
           "Automated custom code remediation (SPAU/SPDD adjustments)",
           "Accelerated cutover planning with zero operational disruption",
         ],
-        href: "/services/sap/sap-s-4hana-implementation",
+        href: "/service-category/sap/sap-s-4hana-implementation",
         icon: Database,
       },
       {
@@ -130,7 +130,7 @@ const PRACTICES: PracticeSection[] = [
           "Direct RFC, BAPI, and OData REST API connectors",
           "Encrypted payload transmission & tokenized OAuth governance",
         ],
-        href: "/services/sap/sap-integration",
+        href: "/service-category/sap/sap-integration",
         icon: Zap,
       },
       {
@@ -143,7 +143,7 @@ const PRACTICES: PracticeSection[] = [
           "Single-contract cloud infrastructure on AWS, Azure, or GCP",
           "Clean-core extensibility ensuring seamless future updates",
         ],
-        href: "/services/sap/rise-with-s-4hana-implementation",
+        href: "/service-category/sap/rise-with-s-4hana-implementation",
         icon: Layers,
       },
       {
@@ -156,7 +156,7 @@ const PRACTICES: PracticeSection[] = [
           "Right-sized hyperscaler sizing for compute, RAM, and HANA storage",
           "Automated multi-region disaster recovery (RPO < 15m, RTO < 2h)",
         ],
-        href: "/services/sap/sap-migration-to-cloud",
+        href: "/service-category/sap/sap-migration-to-cloud",
         icon: Server,
       },
       {
@@ -169,7 +169,7 @@ const PRACTICES: PracticeSection[] = [
           "Responsive SAP Fiori & UI5 mobile and web applications",
           "Custom SAC analytics dashboards and Core Data Services (CDS)",
         ],
-        href: "/services/sap/sap-custom-development",
+        href: "/service-category/sap/sap-custom-development",
         icon: Code2,
       },
     ],

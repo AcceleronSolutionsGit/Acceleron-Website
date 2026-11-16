@@ -43,7 +43,7 @@ const staticRoutes = [
   { path: '/industries/engineering-construction-operations', priority: '0.8', changefreq: 'monthly', lastmod: TODAY },
 
   // Service Hubs
-  { path: '/services/sap', priority: '0.85', changefreq: 'weekly', lastmod: TODAY },
+  { path: '/service-category/sap', priority: '0.85', changefreq: 'weekly', lastmod: TODAY },
   { path: '/services/zoho', priority: '0.85', changefreq: 'weekly', lastmod: TODAY },
   { path: '/services/manageengine', priority: '0.85', changefreq: 'weekly', lastmod: TODAY },
   { path: '/services/it-custom-solutions', priority: '0.85', changefreq: 'weekly', lastmod: TODAY }

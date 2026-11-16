@@ -365,7 +365,7 @@ function AboutTeaser() {
 /* ═══════════════════ SERVICES ═══════════════════ */
 
 const SERVICES = [
-  { icon: Database, t: "SAP Modernization & Consulting", d: "S/4HANA, BTP, RISE — end-to-end cloud ERP transformation and legacy system modernization for agile enterprise management.", url: "/services/sap", img: "/services/sap-hub-cover.webp" },
+  { icon: Database, t: "SAP Modernization & Consulting", d: "S/4HANA, BTP, RISE — end-to-end cloud ERP transformation and legacy system modernization for agile enterprise management.", url: "/service-category/sap", img: "/service-category/sap-hub-cover.webp" },
   { icon: Blocks, t: "Zoho Suite Enterprise Automation", d: "Rapid business applications across finance, operations, and customer experience — deployed in weeks, not quarters.", url: "/services/zoho", img: "/services/zoho-experts.webp" },
   { icon: Server, t: "ManageEngine ITSM & Infrastructure", d: "ITIL-aligned service desk software, endpoint control, and 24/7 network observability for seamless IT operations.", url: "/services/manageengine", img: "/services/ManageEngine-Acceleron Solutions.png" },
   { icon: Layers, t: "Custom Software Engineering", d: "Scalable, enterprise-grade platforms built in React, Node, and Flutter with product-grade craftsmanship and cloud architecture.", url: "/services/it-custom-solutions/custom-software-application-development", img: "/services/custom-software-development.webp" },
