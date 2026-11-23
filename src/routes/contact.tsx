@@ -41,16 +41,33 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-const COUNTRY_CODES = [
-  { code: "+91", country: "IN" },
-  { code: "+1", country: "US/CA" },
-  { code: "+44", country: "UK" },
-  { code: "+61", country: "AU" },
-  { code: "+65", country: "SG" },
-  { code: "+971", country: "UAE" },
-  { code: "+966", country: "KSA" },
-  { code: "+49", country: "DE" },
-  { code: "+33", country: "FR" },
+export interface CountryCodeConfig {
+  code: string;
+  country: string;
+  name: string;
+  maxDigits: number;
+  minDigits: number;
+  placeholder: string;
+}
+
+const COUNTRY_CODES: CountryCodeConfig[] = [
+  { code: "+91", country: "IN", name: "India", maxDigits: 10, minDigits: 10, placeholder: "98765 43210" },
+  { code: "+1", country: "US/CA", name: "United States / Canada", maxDigits: 10, minDigits: 10, placeholder: "555 123 4567" },
+  { code: "+44", country: "UK", name: "United Kingdom", maxDigits: 10, minDigits: 10, placeholder: "7123 456789" },
+  { code: "+61", country: "AU", name: "Australia", maxDigits: 9, minDigits: 9, placeholder: "412 345 678" },
+  { code: "+65", country: "SG", name: "Singapore", maxDigits: 8, minDigits: 8, placeholder: "8123 4567" },
+  { code: "+971", country: "UAE", name: "United Arab Emirates", maxDigits: 9, minDigits: 9, placeholder: "50 123 4567" },
+  { code: "+966", country: "KSA", name: "Saudi Arabia", maxDigits: 9, minDigits: 9, placeholder: "50 123 4567" },
+  { code: "+974", country: "QA", name: "Qatar", maxDigits: 8, minDigits: 8, placeholder: "5512 3456" },
+  { code: "+968", country: "OM", name: "Oman", maxDigits: 8, minDigits: 8, placeholder: "9123 4567" },
+  { code: "+965", country: "KW", name: "Kuwait", maxDigits: 8, minDigits: 8, placeholder: "9123 4567" },
+  { code: "+973", country: "BH", name: "Bahrain", maxDigits: 8, minDigits: 8, placeholder: "3912 3456" },
+  { code: "+49", country: "DE", name: "Germany", maxDigits: 11, minDigits: 10, placeholder: "151 23456789" },
+  { code: "+33", country: "FR", name: "France", maxDigits: 9, minDigits: 9, placeholder: "6 12 34 56 78" },
+  { code: "+81", country: "JP", name: "Japan", maxDigits: 10, minDigits: 10, placeholder: "90 1234 5678" },
+  { code: "+60", country: "MY", name: "Malaysia", maxDigits: 10, minDigits: 9, placeholder: "12 345 6789" },
+  { code: "+27", country: "ZA", name: "South Africa", maxDigits: 9, minDigits: 9, placeholder: "82 123 4567" },
+  { code: "+", country: "Other", name: "International / Other", maxDigits: 15, minDigits: 6, placeholder: "Enter phone number" },
 ];
 
 const INTEREST_AREAS = [
@@ -156,8 +173,97 @@ function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [selectedCountryCode, setSelectedCountryCode] = useState("+91");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [contactMethod, setContactMethod] = useState("Email");
   const formRef = useRef<HTMLFormElement>(null);
+
+  const currentCountry =
+    COUNTRY_CODES.find((c) => c.code === selectedCountryCode) || COUNTRY_CODES[0];
+
+  const handleCountryChange = (newCode: string) => {
+    setSelectedCountryCode(newCode);
+    const country = COUNTRY_CODES.find((c) => c.code === newCode) || COUNTRY_CODES[0];
+    if (phoneNumber.length > country.maxDigits) {
+      setPhoneNumber(phoneNumber.slice(0, country.maxDigits));
+    }
+    if (errors.phone) {
+      setErrors((prev) => {
+        const copy = { ...prev };
+        delete copy.phone;
+        return copy;
+      });
+    }
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Strictly accept only numbers (0-9)
+    const digitsOnly = e.target.value.replace(/\D/g, "");
+    const trimmed = digitsOnly.slice(0, currentCountry.maxDigits);
+    setPhoneNumber(trimmed);
+    if (errors.phone) {
+      setErrors((prev) => {
+        const copy = { ...prev };
+        delete copy.phone;
+        return copy;
+      });
+    }
+  };
+
+  const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Allow control and navigation keys
+    if (
+      [
+        "Backspace",
+        "Delete",
+        "Tab",
+        "Escape",
+        "Enter",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowUp",
+        "ArrowDown",
+        "Home",
+        "End",
+      ].includes(e.key)
+    ) {
+      return;
+    }
+    // Allow standard Ctrl/Cmd shortcuts
+    if ((e.ctrlKey || e.metaKey) && ["a", "c", "v", "x", "z"].includes(e.key.toLowerCase())) {
+      return;
+    }
+    // Block any non-digit character
+    if (!/^[0-9]$/.test(e.key)) {
+      e.preventDefault();
+      return;
+    }
+    // Block typing more than the country's maxDigits unless replacing a selection
+    const input = e.currentTarget;
+    const hasSelection = (input.selectionEnd ?? 0) - (input.selectionStart ?? 0) > 0;
+    if (!hasSelection && phoneNumber.length >= currentCountry.maxDigits) {
+      e.preventDefault();
+    }
+  };
+
+  const handlePhonePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const pasteData = e.clipboardData.getData("text") || "";
+    const digitsOnly = pasteData.replace(/\D/g, "");
+    const input = e.currentTarget;
+    const start = input.selectionStart ?? phoneNumber.length;
+    const end = input.selectionEnd ?? phoneNumber.length;
+    const before = phoneNumber.slice(0, start);
+    const after = phoneNumber.slice(end);
+    const combined = (before + digitsOnly + after).slice(0, currentCountry.maxDigits);
+    setPhoneNumber(combined);
+    if (errors.phone) {
+      setErrors((prev) => {
+        const copy = { ...prev };
+        delete copy.phone;
+        return copy;
+      });
+    }
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -195,9 +301,19 @@ function ContactPage() {
       newErrors.email = "Invalid email format";
     }
 
-    const phone = formData.get("Phone") as string;
-    if (!phone || !phone.trim()) {
+    const rawPhone = phoneNumber.trim();
+    if (!rawPhone) {
       newErrors.phone = "Phone / WhatsApp number is required";
+    } else if (!/^\d+$/.test(rawPhone)) {
+      newErrors.phone = "Phone number must contain only numbers";
+    } else if (rawPhone.length < currentCountry.minDigits) {
+      if (currentCountry.minDigits === currentCountry.maxDigits) {
+        newErrors.phone = `Phone number must be ${currentCountry.maxDigits} digits for ${currentCountry.name || currentCountry.country}`;
+      } else {
+        newErrors.phone = `Phone number must be between ${currentCountry.minDigits} and ${currentCountry.maxDigits} digits for ${currentCountry.name || currentCountry.country}`;
+      }
+    } else if (rawPhone.length > currentCountry.maxDigits) {
+      newErrors.phone = `Phone number cannot exceed ${currentCountry.maxDigits} digits for ${currentCountry.name || currentCountry.country}`;
     }
 
     const company = formData.get("Company") as string;
@@ -242,6 +358,8 @@ function ContactPage() {
       );
       setIsSubmitting(false);
       formRef.current?.reset();
+      setPhoneNumber("");
+      setSelectedCountryCode("+91");
     }
   };
 
@@ -358,28 +476,46 @@ function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-foreground/80 uppercase tracking-wider mb-2">
-                        Phone / WhatsApp Number <span className="text-brand-red">*</span>
-                      </label>
+                      <div className="flex items-center justify-between mb-2">
+                        <label className="block text-xs font-bold text-foreground/80 uppercase tracking-wider">
+                          Phone / WhatsApp Number <span className="text-brand-red">*</span>
+                        </label>
+                        <span className="text-[11px] font-semibold text-muted-foreground tabular-nums">
+                          {phoneNumber.length}/{currentCountry.maxDigits} digits
+                        </span>
+                      </div>
                       <div className="flex gap-2">
                         <select
                           value={selectedCountryCode}
-                          onChange={(e) => setSelectedCountryCode(e.target.value)}
-                          className="rounded-xl border border-border bg-background px-3 py-3.5 text-xs font-semibold text-foreground focus:outline-none focus:ring-2 focus:ring-brand/40"
+                          onChange={(e) => handleCountryChange(e.target.value)}
+                          className="rounded-xl border border-border bg-background px-3 py-3.5 text-xs font-semibold text-foreground focus:outline-none focus:ring-2 focus:ring-brand/40 shrink-0 cursor-pointer"
+                          aria-label="Country Calling Code"
                         >
                           {COUNTRY_CODES.map((c) => (
-                            <option key={c.code} value={c.code}>
+                            <option key={`${c.code}-${c.country}`} value={c.code}>
                               {c.code} ({c.country})
                             </option>
                           ))}
                         </select>
                         <input
                           type="tel"
-                          name="Phone"
-                          placeholder="98765 43210"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          value={phoneNumber}
+                          onChange={handlePhoneChange}
+                          onKeyDown={handlePhoneKeyDown}
+                          onPaste={handlePhonePaste}
+                          maxLength={currentCountry.maxDigits}
+                          placeholder={currentCountry.placeholder}
+                          autoComplete="tel-national"
                           className={`w-full rounded-xl border ${
                             errors.phone ? "border-brand-red focus:ring-brand-red" : "border-border"
                           } bg-background p-3.5 text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-brand/40`}
+                        />
+                        <input
+                          type="hidden"
+                          name="Phone"
+                          value={phoneNumber ? `${selectedCountryCode} ${phoneNumber}` : ""}
                         />
                       </div>
                       {errors.phone && (
