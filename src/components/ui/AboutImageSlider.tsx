@@ -12,6 +12,18 @@ export interface AboutSlideImage {
 
 export const ABOUT_SLIDER_IMAGES: AboutSlideImage[] = [
   {
+    src: "/aboutus/SAP ACE AWARDS 2026 THE GAME CHANGER Acceleron Solutions – Implementation Partner for the Winning Project.jpg",
+    alt: "SAP ACE AWARDS 2026 THE GAME CHANGER Acceleron Solutions",
+    title: "Implementation Partner for the Winning Project",
+    subtitle: "SAP ACE AWARDS 2026 THE GAME CHANGER Acceleron Solutions – Implementation Partner for the Winning Project",
+  },
+  {
+    src: "/aboutus/SAP EWM Project Go Live.jpg",
+    alt: "SAP EWM Project Go Live",
+    title: "SAP EWM Project Go Live",
+    subtitle: "SAP EWM Project Go Live.",
+  },
+  {
     src: "/aboutus/Excon Booth Inauguration - Sunil Kumar Chaturvedi.jpg",
     alt: "Excon Booth Inauguration - Sunil Kumar Chaturvedi",
     title: "Acceleron Inauguration & COE Launch",
