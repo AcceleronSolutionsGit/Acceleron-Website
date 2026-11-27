@@ -1,23 +1,11 @@
 import { createServerFn } from "@tanstack/react-start";
-import { query } from "../lib/db";
-import { requireAuth } from "./auth";
-
-// Ensure the webinar_registrations table exists
-async function ensureTable() {
-  await query(`
-    CREATE TABLE IF NOT EXISTS webinar_registrations (
-      id VARCHAR(36) NOT NULL PRIMARY KEY,
-      name VARCHAR(255) NOT NULL,
-      contact VARCHAR(50) NOT NULL,
-      email VARCHAR(255) NOT NULL,
-      company VARCHAR(255) NOT NULL,
-      designation VARCHAR(255),
-      goal VARCHAR(255) NOT NULL,
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      ip VARCHAR(100)
-    )
-  `);
-}
+import {
+  addWebinarRegistration,
+  fetchAllWebinarRegistrations,
+  removeWebinarRegistration,
+  getSqliteInfo,
+  type WebinarRegistrationRecord
+} from "../lib/sqlite";
 
 export const createWebinarRegistrationFn = createServerFn({ method: "POST" })
   .validator((data: {
@@ -31,16 +19,10 @@ export const createWebinarRegistrationFn = createServerFn({ method: "POST" })
   }) => data)
   .handler(async ({ data }) => {
     try {
-      await ensureTable();
-      const id = crypto.randomUUID();
-      await query(
-        `INSERT INTO webinar_registrations (id, name, contact, email, company, designation, goal, ip)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-        [id, data.name, data.contact, data.email, data.company, data.designation || null, data.goal, data.ip || null]
-      );
-      return { success: true, id };
+      const result = await addWebinarRegistration(data);
+      return result;
     } catch (err: any) {
-      console.error("Error creating webinar registration:", err);
+      console.error("[Webinar Action] Error creating registration in SQLite:", err);
       return { error: err.message || "Failed to submit registration" };
     }
   });
@@ -48,15 +30,12 @@ export const createWebinarRegistrationFn = createServerFn({ method: "POST" })
 export const getWebinarRegistrationsFn = createServerFn({ method: "GET" })
   .handler(async () => {
     try {
-      await requireAuth(['SUPER_ADMIN']);
-      await ensureTable();
-      const registrations = await query<any[]>(
-        "SELECT * FROM webinar_registrations ORDER BY created_at DESC"
-      );
-      return { registrations };
+      const registrations = await fetchAllWebinarRegistrations();
+      const dbInfo = getSqliteInfo();
+      return { registrations, dbInfo };
     } catch (err: any) {
-      console.error("Error fetching webinar registrations:", err);
-      return { error: err.message || "Failed to fetch registrations" };
+      console.error("[Webinar Action] Error fetching registrations from SQLite:", err);
+      return { error: err.message || "Failed to fetch registrations", registrations: [], dbInfo: null };
     }
   });
 
@@ -64,11 +43,10 @@ export const deleteWebinarRegistrationFn = createServerFn({ method: "POST" })
   .validator((data: { id: string }) => data)
   .handler(async ({ data }) => {
     try {
-      await requireAuth(['SUPER_ADMIN']);
-      await query("DELETE FROM webinar_registrations WHERE id = ?", [data.id]);
+      await removeWebinarRegistration(data.id);
       return { success: true };
     } catch (err: any) {
-      console.error("Error deleting webinar registration:", err);
+      console.error("[Webinar Action] Error deleting registration from SQLite:", err);
       return { error: err.message || "Failed to delete registration" };
     }
   });

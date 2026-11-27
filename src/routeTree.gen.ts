@@ -25,6 +25,7 @@ import { Route as NewsRouteImport } from './routes/news'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as PopupRouteImport } from './routes/popup'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as WebinarAdminRouteImport } from './routes/webinar-admin'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminContentRouteImport } from './routes/admin.content'
 import { Route as AdminCvSubmissionsRouteImport } from './routes/admin.cv-submissions'
@@ -162,6 +163,11 @@ const PopupRoute = PopupRouteImport.update({
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebinarAdminRoute = WebinarAdminRouteImport.update({
+  id: '/webinar-admin',
+  path: '/webinar-admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
@@ -490,6 +496,7 @@ export interface FileRoutesByFullPath {
   '/partners': typeof PartnersRoute
   '/popup': typeof PopupRoute
   '/team': typeof TeamRoute
+  '/webinar-admin': typeof WebinarAdminRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
   '/admin/jobs': typeof AdminJobsRoute
@@ -565,6 +572,7 @@ export interface FileRoutesByTo {
   '/partners': typeof PartnersRoute
   '/popup': typeof PopupRoute
   '/team': typeof TeamRoute
+  '/webinar-admin': typeof WebinarAdminRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
   '/admin/jobs': typeof AdminJobsRoute
@@ -642,6 +650,7 @@ export interface FileRoutesById {
   '/partners': typeof PartnersRoute
   '/popup': typeof PopupRoute
   '/team': typeof TeamRoute
+  '/webinar-admin': typeof WebinarAdminRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
   '/admin/jobs': typeof AdminJobsRoute
@@ -720,6 +729,7 @@ export interface FileRouteTypes {
     | '/partners'
     | '/popup'
     | '/team'
+    | '/webinar-admin'
     | '/admin/content'
     | '/admin/cv-submissions'
     | '/admin/jobs'
@@ -795,6 +805,7 @@ export interface FileRouteTypes {
     | '/partners'
     | '/popup'
     | '/team'
+    | '/webinar-admin'
     | '/admin/content'
     | '/admin/cv-submissions'
     | '/admin/jobs'
@@ -871,6 +882,7 @@ export interface FileRouteTypes {
     | '/partners'
     | '/popup'
     | '/team'
+    | '/webinar-admin'
     | '/admin/content'
     | '/admin/cv-submissions'
     | '/admin/jobs'
@@ -948,6 +960,7 @@ export interface RootRouteChildren {
   PartnersRoute: typeof PartnersRoute
   PopupRoute: typeof PopupRoute
   TeamRoute: typeof TeamRoute
+  WebinarAdminRoute: typeof WebinarAdminRoute
   BlogSlugRoute: typeof BlogSlugRoute
   IndustriesCapitalGoodsRoute: typeof IndustriesCapitalGoodsRoute
   IndustriesDiscreteManufacturingRoute: typeof IndustriesDiscreteManufacturingRoute
@@ -1113,6 +1126,13 @@ declare module '@tanstack/react-router' {
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/webinar-admin': {
+      id: '/webinar-admin'
+      path: '/webinar-admin'
+      fullPath: '/webinar-admin'
+      preLoaderRoute: typeof WebinarAdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/': {
@@ -1563,6 +1583,7 @@ const rootRouteChildren: RootRouteChildren = {
   PartnersRoute: PartnersRoute,
   PopupRoute: PopupRoute,
   TeamRoute: TeamRoute,
+  WebinarAdminRoute: WebinarAdminRoute,
   BlogSlugRoute: BlogSlugRoute,
   IndustriesCapitalGoodsRoute: IndustriesCapitalGoodsRoute,
   IndustriesDiscreteManufacturingRoute: IndustriesDiscreteManufacturingRoute,

@@ -110,11 +110,35 @@ function WebinarRegistrationPage() {
     }
     setSubmitting(true);
     try {
-      const result = await createWebinarRegistrationFn({ data: form });
-      if ('error' in result && result.error) {
-        toast.error(result.error);
-      } else {
+      let isSuccess = false;
+      try {
+        const result = await createWebinarRegistrationFn({ data: form });
+        if (result && !('error' in result) && result.success) {
+          isSuccess = true;
+        } else if ('error' in result && result.error) {
+          console.warn('TanStack serverFn error, trying fallback endpoint:', result.error);
+        }
+      } catch (fnErr) {
+        console.warn('TanStack serverFn exception, falling back to /api/webinar:', fnErr);
+      }
+
+      // Fallback to /api/webinar REST endpoint if createServerFn was unavailable
+      if (!isSuccess) {
+        const res = await fetch('/api/webinar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(form),
+        });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success) isSuccess = true;
+        }
+      }
+
+      if (isSuccess) {
         setSubmitted(true);
+      } else {
+        toast.error('Could not submit registration. Please try again.');
       }
     } catch {
       toast.error('Something went wrong. Please try again.');
