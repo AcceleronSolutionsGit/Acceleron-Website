@@ -36,14 +36,11 @@ export function WebinarAdminView() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedGoal, setSelectedGoal] = useState<string>('ALL');
 
-  // Check URL param or sessionStorage for unlock
+  // Check sessionStorage for unlock
   useEffect(() => {
     try {
-      const urlParams = new URLSearchParams(window.location.search);
-      const keyFromUrl = urlParams.get('key');
       const isStoredUnlocked = sessionStorage.getItem(PASSCODE_STORAGE_KEY) === 'true';
-
-      if (keyFromUrl === DEFAULT_PASSCODE || isStoredUnlocked) {
+      if (isStoredUnlocked) {
         setUnlocked(true);
       }
     } catch {
@@ -53,13 +50,13 @@ export function WebinarAdminView() {
 
   function handleUnlock(e?: React.FormEvent) {
     if (e) e.preventDefault();
-    if (passcodeInput.trim() === DEFAULT_PASSCODE || passcodeInput.trim().toLowerCase() === 'acceleron') {
+    if (passcodeInput.trim() === DEFAULT_PASSCODE) {
       setUnlocked(true);
       setPasscodeError('');
       sessionStorage.setItem(PASSCODE_STORAGE_KEY, 'true');
       toast.success('Admin unlocked successfully');
     } else {
-      setPasscodeError('Invalid passcode. Use the default passcode below.');
+      setPasscodeError('Invalid passcode. Please try again.');
     }
   }
 
@@ -260,20 +257,6 @@ export function WebinarAdminView() {
               Unlock Admin
             </Button>
           </form>
-
-          <div className="pt-4 border-t border-gray-100 text-xs text-gray-400 flex flex-col gap-2">
-            <span>Passcode: <code className="bg-gray-100 px-2 py-0.5 rounded font-mono text-gray-700">acceleron2026</code></span>
-            <button
-              onClick={() => {
-                setPasscodeInput(DEFAULT_PASSCODE);
-                setUnlocked(true);
-                sessionStorage.setItem(PASSCODE_STORAGE_KEY, 'true');
-              }}
-              className="text-brand-red hover:underline font-medium cursor-pointer"
-            >
-              Click here to Quick Unlock
-            </button>
-          </div>
         </div>
       </div>
     );
