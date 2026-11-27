@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet, Link, redirect, useRouter } from '@tanstack/react-router';
 import { getAdminSessionFn, logoutFn } from '../actions/auth';
-import { LayoutDashboard, Users, FileText, Briefcase, FileSignature, Settings, LogOut } from 'lucide-react';
+import { LayoutDashboard, Users, FileText, Briefcase, FileSignature, Settings, LogOut, Video } from 'lucide-react';
 
 export const Route = createFileRoute('/admin')({
   beforeLoad: async ({ location }) => {
@@ -50,6 +50,10 @@ function AdminLayout() {
               <Link to="/admin/leads" className="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 [&.active]:bg-blue-50 [&.active]:text-blue-700 dark:[&.active]:bg-blue-900/50 dark:[&.active]:text-blue-400">
                 <Users size={20} />
                 <span>Leads & Downloads</span>
+              </Link>
+              <Link to="/admin/webinar-registrations" className="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 [&.active]:bg-blue-50 [&.active]:text-blue-700 dark:[&.active]:bg-blue-900/50 dark:[&.active]:text-blue-400">
+                <Video size={20} />
+                <span>Webinar Registrations</span>
               </Link>
             </>
           )}

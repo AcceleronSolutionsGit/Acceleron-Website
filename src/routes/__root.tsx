@@ -163,6 +163,7 @@ import { Toaster } from "sonner";
 import { useLocation } from "@tanstack/react-router";
 import { ScrollToTop } from "../components/ui/ScrollToTop";
 import { StickyContactCTA } from "../components/ui/StickyContactCTA";
+import { WebinarPopup } from "../components/ui/WebinarPopup";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -179,6 +180,7 @@ function RootComponent() {
       {!isAuthOrAdmin && <Footer />}
       {!isAuthOrAdmin && <StickyContactCTA />}
       {!isAuthOrAdmin && <ScrollToTop />}
+      {!isAuthOrAdmin && <WebinarPopup />}
       <Toaster position="top-right" theme="system" />
     </QueryClientProvider>
   );

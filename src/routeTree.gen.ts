@@ -23,6 +23,7 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as PopupRouteImport } from './routes/popup'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminContentRouteImport } from './routes/admin.content'
@@ -30,6 +31,7 @@ import { Route as AdminCvSubmissionsRouteImport } from './routes/admin.cv-submis
 import { Route as AdminJobsRouteImport } from './routes/admin.jobs'
 import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
 import { Route as AdminManageContentRouteImport } from './routes/admin.manage-content'
+import { Route as AdminWebinarRegistrationsRouteImport } from './routes/admin.webinar-registrations'
 import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
 import { Route as IndustriesIndexRouteImport } from './routes/industries/index'
 import { Route as IndustriesCapitalGoodsRouteImport } from './routes/industries/capital-goods'
@@ -77,6 +79,7 @@ import { Route as ServicesManageengineRouteImport } from './routes/services/mana
 import { Route as ServicesSapRouteImport } from './routes/services/sap'
 import { Route as ServicesSoftwareDevelopmentRouteImport } from './routes/services/software-development'
 import { Route as ServicesZohoRouteImport } from './routes/services/zoho'
+import { Route as WebinarRegistrationIndexRouteImport } from './routes/webinar-registration/index'
 import { Route as ServiceCategoryCategoryServiceRouteImport } from './routes/service-category/$category.$service'
 import { Route as ServicesCategoryServiceRouteImport } from './routes/services/$category.$service'
 import { Route as ServicesDetailSlugRouteImport } from './routes/services/detail.$slug'
@@ -151,6 +154,11 @@ const PartnersRoute = PartnersRouteImport.update({
   path: '/partners',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PopupRoute = PopupRouteImport.update({
+  id: '/popup',
+  path: '/popup',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
@@ -186,6 +194,12 @@ const AdminManageContentRoute = AdminManageContentRouteImport.update({
   path: '/manage-content',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminWebinarRegistrationsRoute =
+  AdminWebinarRegistrationsRouteImport.update({
+    id: '/webinar-registrations',
+    path: '/webinar-registrations',
+    getParentRoute: () => AdminRoute,
+  } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog_/$slug',
   path: '/blog/$slug',
@@ -436,6 +450,12 @@ const ServicesZohoRoute = ServicesZohoRouteImport.update({
   path: '/services/zoho',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WebinarRegistrationIndexRoute =
+  WebinarRegistrationIndexRouteImport.update({
+    id: '/webinar-registration/',
+    path: '/webinar-registration/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ServiceCategoryCategoryServiceRoute =
   ServiceCategoryCategoryServiceRouteImport.update({
     id: '/service-category/$category/$service',
@@ -468,12 +488,14 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/news': typeof NewsRoute
   '/partners': typeof PartnersRoute
+  '/popup': typeof PopupRoute
   '/team': typeof TeamRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
   '/admin/jobs': typeof AdminJobsRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/manage-content': typeof AdminManageContentRoute
+  '/admin/webinar-registrations': typeof AdminWebinarRegistrationsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
@@ -522,6 +544,7 @@ export interface FileRoutesByFullPath {
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/webinar-registration/': typeof WebinarRegistrationIndexRoute
   '/service-category/$category/$service': typeof ServiceCategoryCategoryServiceRoute
   '/services/$category/$service': typeof ServicesCategoryServiceRoute
   '/services/detail/$slug': typeof ServicesDetailSlugRoute
@@ -540,12 +563,14 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/news': typeof NewsRoute
   '/partners': typeof PartnersRoute
+  '/popup': typeof PopupRoute
   '/team': typeof TeamRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
   '/admin/jobs': typeof AdminJobsRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/manage-content': typeof AdminManageContentRoute
+  '/admin/webinar-registrations': typeof AdminWebinarRegistrationsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
@@ -594,6 +619,7 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/webinar-registration': typeof WebinarRegistrationIndexRoute
   '/service-category/$category/$service': typeof ServiceCategoryCategoryServiceRoute
   '/services/$category/$service': typeof ServicesCategoryServiceRoute
   '/services/detail/$slug': typeof ServicesDetailSlugRoute
@@ -614,12 +640,14 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/news': typeof NewsRoute
   '/partners': typeof PartnersRoute
+  '/popup': typeof PopupRoute
   '/team': typeof TeamRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/cv-submissions': typeof AdminCvSubmissionsRoute
   '/admin/jobs': typeof AdminJobsRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/admin/manage-content': typeof AdminManageContentRoute
+  '/admin/webinar-registrations': typeof AdminWebinarRegistrationsRoute
   '/blog_/$slug': typeof BlogSlugRoute
   '/industries/capital-goods': typeof IndustriesCapitalGoodsRoute
   '/industries/discrete-manufacturing': typeof IndustriesDiscreteManufacturingRoute
@@ -668,6 +696,7 @@ export interface FileRoutesById {
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/webinar-registration/': typeof WebinarRegistrationIndexRoute
   '/service-category/$category/$service': typeof ServiceCategoryCategoryServiceRoute
   '/services/$category/$service': typeof ServicesCategoryServiceRoute
   '/services/detail/$slug': typeof ServicesDetailSlugRoute
@@ -689,12 +718,14 @@ export interface FileRouteTypes {
     | '/login'
     | '/news'
     | '/partners'
+    | '/popup'
     | '/team'
     | '/admin/content'
     | '/admin/cv-submissions'
     | '/admin/jobs'
     | '/admin/leads'
     | '/admin/manage-content'
+    | '/admin/webinar-registrations'
     | '/blog/$slug'
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
@@ -743,6 +774,7 @@ export interface FileRouteTypes {
     | '/industries/'
     | '/products/'
     | '/services/'
+    | '/webinar-registration/'
     | '/service-category/$category/$service'
     | '/services/$category/$service'
     | '/services/detail/$slug'
@@ -761,12 +793,14 @@ export interface FileRouteTypes {
     | '/login'
     | '/news'
     | '/partners'
+    | '/popup'
     | '/team'
     | '/admin/content'
     | '/admin/cv-submissions'
     | '/admin/jobs'
     | '/admin/leads'
     | '/admin/manage-content'
+    | '/admin/webinar-registrations'
     | '/blog/$slug'
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
@@ -815,6 +849,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/products'
     | '/services'
+    | '/webinar-registration'
     | '/service-category/$category/$service'
     | '/services/$category/$service'
     | '/services/detail/$slug'
@@ -834,12 +869,14 @@ export interface FileRouteTypes {
     | '/login'
     | '/news'
     | '/partners'
+    | '/popup'
     | '/team'
     | '/admin/content'
     | '/admin/cv-submissions'
     | '/admin/jobs'
     | '/admin/leads'
     | '/admin/manage-content'
+    | '/admin/webinar-registrations'
     | '/blog_/$slug'
     | '/industries/capital-goods'
     | '/industries/discrete-manufacturing'
@@ -888,6 +925,7 @@ export interface FileRouteTypes {
     | '/industries/'
     | '/products/'
     | '/services/'
+    | '/webinar-registration/'
     | '/service-category/$category/$service'
     | '/services/$category/$service'
     | '/services/detail/$slug'
@@ -908,6 +946,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   NewsRoute: typeof NewsRoute
   PartnersRoute: typeof PartnersRoute
+  PopupRoute: typeof PopupRoute
   TeamRoute: typeof TeamRoute
   BlogSlugRoute: typeof BlogSlugRoute
   IndustriesCapitalGoodsRoute: typeof IndustriesCapitalGoodsRoute
@@ -956,6 +995,7 @@ export interface RootRouteChildren {
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
+  WebinarRegistrationIndexRoute: typeof WebinarRegistrationIndexRoute
   ServiceCategoryCategoryServiceRoute: typeof ServiceCategoryCategoryServiceRoute
   ServicesCategoryServiceRoute: typeof ServicesCategoryServiceRoute
   ServicesDetailSlugRoute: typeof ServicesDetailSlugRoute
@@ -1061,6 +1101,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PartnersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/popup': {
+      id: '/popup'
+      path: '/popup'
+      fullPath: '/popup'
+      preLoaderRoute: typeof PopupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/team': {
       id: '/team'
       path: '/team'
@@ -1108,6 +1155,13 @@ declare module '@tanstack/react-router' {
       path: '/manage-content'
       fullPath: '/admin/manage-content'
       preLoaderRoute: typeof AdminManageContentRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/webinar-registrations': {
+      id: '/admin/webinar-registrations'
+      path: '/webinar-registrations'
+      fullPath: '/admin/webinar-registrations'
+      preLoaderRoute: typeof AdminWebinarRegistrationsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/blog_/$slug': {
@@ -1439,6 +1493,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesZohoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/webinar-registration/': {
+      id: '/webinar-registration/'
+      path: '/webinar-registration'
+      fullPath: '/webinar-registration/'
+      preLoaderRoute: typeof WebinarRegistrationIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/service-category/$category/$service': {
       id: '/service-category/$category/$service'
       path: '/service-category/$category/$service'
@@ -1469,6 +1530,7 @@ interface AdminRouteChildren {
   AdminJobsRoute: typeof AdminJobsRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
   AdminManageContentRoute: typeof AdminManageContentRoute
+  AdminWebinarRegistrationsRoute: typeof AdminWebinarRegistrationsRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
@@ -1478,6 +1540,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminJobsRoute: AdminJobsRoute,
   AdminLeadsRoute: AdminLeadsRoute,
   AdminManageContentRoute: AdminManageContentRoute,
+  AdminWebinarRegistrationsRoute: AdminWebinarRegistrationsRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
@@ -1498,6 +1561,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   NewsRoute: NewsRoute,
   PartnersRoute: PartnersRoute,
+  PopupRoute: PopupRoute,
   TeamRoute: TeamRoute,
   BlogSlugRoute: BlogSlugRoute,
   IndustriesCapitalGoodsRoute: IndustriesCapitalGoodsRoute,
@@ -1548,6 +1612,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesIndexRoute: IndustriesIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
+  WebinarRegistrationIndexRoute: WebinarRegistrationIndexRoute,
   ServiceCategoryCategoryServiceRoute: ServiceCategoryCategoryServiceRoute,
   ServicesCategoryServiceRoute: ServicesCategoryServiceRoute,
   ServicesDetailSlugRoute: ServicesDetailSlugRoute,
