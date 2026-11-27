@@ -4,7 +4,7 @@ import { WebinarAdminView } from '../components/WebinarAdminView';
 export const Route = createFileRoute('/webinar-admin')({
   head: () => ({
     meta: [
-      { title: 'Webinar Registrations Admin (SQLite) — Acceleron Solutions' },
+      { title: 'Webinar Registrations — Acceleron Solutions' },
       { name: 'robots', content: 'noindex, nofollow' },
     ],
   }),

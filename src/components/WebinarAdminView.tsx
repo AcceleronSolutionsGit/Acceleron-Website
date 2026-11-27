@@ -12,7 +12,6 @@ import {
   Video,
   Search,
   RefreshCw,
-  Database,
   Lock,
   Unlock,
   Users,
@@ -106,7 +105,7 @@ export function WebinarAdminView() {
       return await apiRes.json();
     },
     onSuccess: () => {
-      toast.success('Registration removed from SQLite');
+      toast.success('Registration deleted');
       queryClient.invalidateQueries({ queryKey: ['webinar-registrations-sqlite'] });
     },
     onError: () => {
@@ -115,7 +114,6 @@ export function WebinarAdminView() {
   });
 
   const registrations = data?.registrations || [];
-  const dbInfo = data?.dbInfo || { mode: 'SQLite (Vercel tmp / Local)' };
 
   // Filter registrations by search and goal
   const filteredRegistrations = registrations.filter((r: any) => {
@@ -232,7 +230,7 @@ export function WebinarAdminView() {
           <div>
             <h2 className="text-2xl font-bold text-gray-900">Webinar Admin Access</h2>
             <p className="text-sm text-gray-500 mt-1">
-              Temporary SQLite Admin & Excel Export for Zoho Ecosystem Webinar
+              Manage &amp; Export Zoho Ecosystem Webinar Registrations
             </p>
           </div>
 
@@ -300,12 +298,8 @@ export function WebinarAdminView() {
               <Video className="w-6 h-6" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight text-gray-900 flex items-center gap-2">
+              <h1 className="text-2xl font-bold tracking-tight text-gray-900">
                 Webinar Registrations
-                <span className="text-xs font-normal bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                  <Database className="w-3 h-3" />
-                  SQLite Active
-                </span>
               </h1>
               <p className="text-sm text-gray-500 mt-0.5">
                 One Connected Business: The Zoho Ecosystem Webinar — 10 December 2026
@@ -322,7 +316,7 @@ export function WebinarAdminView() {
             size="sm"
             disabled={isFetching}
             className="flex items-center gap-1.5"
-            title="Refresh from SQLite"
+            title="Refresh registrations"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isFetching ? 'animate-spin' : ''}`} />
             Refresh
@@ -373,7 +367,7 @@ export function WebinarAdminView() {
           </div>
           <div className="text-[11px] text-gray-400 mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3 h-3 text-emerald-500" />
-            Stored in SQLite
+            Confirmed attendees
           </div>
         </div>
 
@@ -468,7 +462,7 @@ export function WebinarAdminView() {
                 <TableRow>
                   <TableCell colSpan={6} className="text-center py-12 text-gray-500">
                     <RefreshCw className="w-6 h-6 animate-spin mx-auto text-brand-red mb-2" />
-                    Loading registrations from SQLite database...
+                    Loading registrations...
                   </TableCell>
                 </TableRow>
               ) : filteredRegistrations.length === 0 ? (
@@ -479,7 +473,7 @@ export function WebinarAdminView() {
                     <p className="text-xs text-gray-500 mt-1 max-w-sm mx-auto">
                       {searchQuery || selectedGoal !== 'ALL'
                         ? 'No records match your search criteria. Clear filters to see all.'
-                        : 'Submissions from the public registration form (/webinar-registration) will automatically appear here in SQLite.'}
+                        : 'Submissions from the registration form will automatically appear here.'}
                     </p>
                   </TableCell>
                 </TableRow>
@@ -545,7 +539,7 @@ export function WebinarAdminView() {
                           variant="ghost"
                           size="sm"
                           className="h-8 w-8 p-0 text-red-500 hover:text-red-700 hover:bg-red-50"
-                          title="Delete from SQLite"
+                          title="Delete registration"
                           disabled={deleteMutation.isPending}
                           onClick={() => handleDelete(reg.id, reg.name)}
                         >
@@ -560,11 +554,11 @@ export function WebinarAdminView() {
           </Table>
         </div>
 
-        {/* Footer with database & count summary */}
+        {/* Footer count summary */}
         <div className="px-6 py-3 bg-gray-50 border-t border-gray-200 text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-2">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-500" />
-            <span>Storage: <strong>SQLite</strong> ({dbInfo?.mode || 'Active'})</span>
+            <span>Live registrations</span>
           </div>
           <div>
             Showing <strong>{filteredRegistrations.length}</strong> of <strong>{registrations.length}</strong> total registrations
